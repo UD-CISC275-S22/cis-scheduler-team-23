@@ -12,7 +12,7 @@ function App(): JSX.Element {
                 automatically reload.
             </p>
             <p> Ocean Shen </p>
-            <p>Thomas Oves</p>
+            <p> Thomas Oves </p>
         </div>
     );
 }
