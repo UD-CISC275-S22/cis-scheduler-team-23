@@ -1,5 +1,5 @@
 import React from "react";
-import { Container, Col, Row, Button } from "react-bootstrap";
+import { Col } from "react-bootstrap";
 
 import "./App.css";
 import { DisplayCourses } from "./display_courses/DisplayCourses";
