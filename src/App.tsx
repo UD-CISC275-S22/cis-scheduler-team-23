@@ -1,5 +1,8 @@
 import React from "react";
+import { Container, Col, Row, Button } from "react-bootstrap";
+
 import "./App.css";
+import { DisplayCourses } from "./display_courses/DisplayCourses";
 
 function App(): JSX.Element {
     return (
@@ -13,6 +16,9 @@ function App(): JSX.Element {
             </p>
             <p> Ocean Shen </p>
             <p> Thomas Oves </p>
+            <Col>
+                <DisplayCourses></DisplayCourses>
+            </Col>
         </div>
     );
 }
