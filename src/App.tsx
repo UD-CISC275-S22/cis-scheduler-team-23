@@ -1,5 +1,8 @@
 import React from "react";
+import { Container, Col, Row, Button } from "react-bootstrap";
+
 import "./App.css";
+import { DisplayCourses } from "./display_courses/DisplayCourses";
 
 function App(): JSX.Element {
     return (
@@ -13,7 +16,13 @@ function App(): JSX.Element {
             </p>
             <p> Ocean Shen </p>
             <p> Thomas Oves </p>
+<<<<<<< HEAD
+            <Col>
+                <DisplayCourses></DisplayCourses>
+            </Col>
+=======
             <p> Matthew Holdorf </p>
+>>>>>>> ae50600f388c4bf7ef4eac0de3c6bca6ae9401db
         </div>
     );
 }
