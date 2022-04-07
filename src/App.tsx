@@ -16,9 +16,13 @@ function App(): JSX.Element {
             </p>
             <p> Ocean Shen </p>
             <p> Thomas Oves </p>
+<<<<<<< HEAD
             <Col>
                 <DisplayCourses></DisplayCourses>
             </Col>
+=======
+            <p> Matthew Holdorf </p>
+>>>>>>> ae50600f388c4bf7ef4eac0de3c6bca6ae9401db
         </div>
     );
 }
