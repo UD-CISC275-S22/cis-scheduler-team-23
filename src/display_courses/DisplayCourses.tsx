@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Col, Button } from "react-bootstrap";
+import { Button } from "react-bootstrap";
 
 export function DisplayCourses(): JSX.Element {
     const [visible, setVisible] = useState<boolean>(false);
