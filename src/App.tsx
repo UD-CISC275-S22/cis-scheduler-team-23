@@ -8,11 +8,15 @@ function App(): JSX.Element {
     return (
         <div className="App">
             <header className="App-header">
-                UD CISC275 with React Hooks and TypeScript
+                University of Delaware Computer Science Scheduler
             </header>
             <p>
-                Edit <code>src/App.tsx</code> and save. This page will
-                automatically reload.
+                Hello and welcome to our website to help Computer Science majors
+                at the University of Delaware make their schedules. This website
+                will allow you to put together your desired schedule for the
+                rest of your college career. Add the classes you wish to take to
+                their desired semester, add/remove semesters, and even edit the
+                class itself if necessary!
             </p>
             <p> Ocean Shen </p>
             <p> Thomas Oves </p>
