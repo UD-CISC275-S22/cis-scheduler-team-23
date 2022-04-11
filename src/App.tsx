@@ -2,7 +2,7 @@ import React from "react";
 import { Col } from "react-bootstrap";
 
 import "./App.css";
-import { DisplayCourses } from "./display_courses/DisplayCourses";
+import { DisplayCourses } from "./Components/courses/DisplayCourses";
 
 function App(): JSX.Element {
     return (
@@ -20,10 +20,10 @@ function App(): JSX.Element {
             </p>
             <p> Ocean Shen </p>
             <p> Thomas Oves </p>
+            <p> Matthew Holdorf </p>
             <Col>
                 <DisplayCourses></DisplayCourses>
             </Col>
-            <p> Matthew Holdorf </p>
         </div>
     );
 }
