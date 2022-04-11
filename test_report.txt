@@ -3,7 +3,7 @@
 > react-scripts test "--coverage"
 
 FAIL src/App.test.tsx
-  ✕ renders the course name somewhere (43 ms)
+  ✕ renders the course name somewhere (61 ms)
 
   ● renders the course name somewhere
 
@@ -29,21 +29,44 @@ FAIL src/App.test.tsx
           [36m<p>[39m
             [0m Thomas Oves [0m
           [36m</p>[39m
+          [36m<p>[39m
+            [0m Matthew Holdorf [0m
+          [36m</p>[39m
           [36m<div[39m
             [33mclass[39m=[32m"col"[39m
           [36m>[39m
             [36m<div>[39m
-              [36m<button[39m
-                [33mclass[39m=[32m"btn btn-primary"[39m
-                [33mtype[39m=[32m"button"[39m
-              [36m>[39m
-                [0m CISC 181 [0m
-              [36m</button>[39m
+              [36m<div>[39m
+                [36m<h3>[39m
+                  [0mEdit Course[0m
+                [36m</h3>[39m
+                [36m<div[39m
+                  [33mclass[39m=[32m"form-check form-switch"[39m
+                [36m>[39m
+                  [36m<input[39m
+                    [33mclass[39m=[32m"form-check-input"[39m
+                    [33mid[39m=[32m"is-edit-mode"[39m
+                    [33mtype[39m=[32m"checkbox"[39m
+                  [36m/>[39m
+                  [36m<label[39m
+                    [33mclass[39m=[32m"form-check-label"[39m
+                    [33mfor[39m=[32m"is-edit-mode"[39m
+                    [33mtitle[39m=[32m""[39m
+                  [36m>[39m
+                    [0mEditing?[0m
+                  [36m</label>[39m
+                [36m</div>[39m
+                [36m<button[39m
+                  [33mclass[39m=[32m"btn btn-primary"[39m
+                  [33mtype[39m=[32m"button"[39m
+                [36m>[39m
+                  [0m [0m
+                  [0mCISC 181[0m
+                  [0m [0m
+                [36m</button>[39m
+              [36m</div>[39m
             [36m</div>[39m
           [36m</div>[39m
-          [36m<p>[39m
-            [0m Matthew Holdorf [0m
-          [36m</p>[39m
         [36m</div>[39m
       [36m</div>[39m
     [36m</body>[39m
@@ -66,17 +89,17 @@ FAIL src/App.test.tsx
       at _run10000 (node_modules/@jest/core/build/cli/index.js:320:7)
       at runCLI (node_modules/@jest/core/build/cli/index.js:173:3)
 
----------------------|---------|----------|---------|---------|-------------------
-File                 | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
----------------------|---------|----------|---------|---------|-------------------
-All files            |      75 |       50 |   66.66 |      75 |                   
- src                 |     100 |      100 |     100 |     100 |                   
-  App.tsx            |     100 |      100 |     100 |     100 |                   
- src/display_courses |   66.66 |       50 |      50 |   66.66 |                   
-  DisplayCourses.tsx |   66.66 |       50 |      50 |   66.66 | 8                 
----------------------|---------|----------|---------|---------|-------------------
+------------------------|---------|----------|---------|---------|-------------------
+File                    | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
+------------------------|---------|----------|---------|---------|-------------------
+All files               |      60 |       50 |   33.33 |      60 |                   
+ src                    |     100 |      100 |     100 |     100 |                   
+  App.tsx               |     100 |      100 |     100 |     100 |                   
+ src/Components/courses |   55.55 |       50 |      20 |   55.55 |                   
+  DisplayCourses.tsx    |   55.55 |       50 |      20 |   55.55 | 17-26             
+------------------------|---------|----------|---------|---------|-------------------
 Test Suites: 1 failed, 1 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        1.699 s
+Time:        2.217 s
 Ran all test suites.
