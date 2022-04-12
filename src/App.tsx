@@ -8,7 +8,8 @@ function App(): JSX.Element {
     return (
         <div className="App">
             <header className="App-header">
-                University of Delaware Computer Science Scheduler
+                <p> University of Delaware Computer Science Scheduler </p>
+                <p> Matt Holdorf, Ocean Shen, Tommy Oves </p>
             </header>
             <p>
                 Hello and welcome to our website to help Computer Science majors
@@ -18,9 +19,6 @@ function App(): JSX.Element {
                 their desired semester, add/remove semesters, and even edit the
                 class itself if necessary!
             </p>
-            <p> Ocean Shen </p>
-            <p> Thomas Oves </p>
-            <p> Matthew Holdorf </p>
             <Col>
                 <DisplayCourses></DisplayCourses>
             </Col>
