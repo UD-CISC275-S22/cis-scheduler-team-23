@@ -3,7 +3,7 @@
 > react-scripts test "--coverage"
 
 FAIL src/App.test.tsx
-  ✕ renders the course name somewhere (61 ms)
+  ✕ renders the course name somewhere (57 ms)
 
   ● renders the course name somewhere
 
@@ -18,19 +18,15 @@ FAIL src/App.test.tsx
           [36m<header[39m
             [33mclass[39m=[32m"App-header"[39m
           [36m>[39m
-            [0mUniversity of Delaware Computer Science Scheduler[0m
+            [36m<p>[39m
+              [0m University of Delaware Computer Science Scheduler [0m
+            [36m</p>[39m
+            [36m<p>[39m
+              [0m Matt Holdorf, Ocean Shen, Tommy Oves [0m
+            [36m</p>[39m
           [36m</header>[39m
           [36m<p>[39m
             [0mHello and welcome to our website to help Computer Science majors at the University of Delaware make their schedules. This website will allow you to put together your desired schedule for the rest of your college career. Add the classes you wish to take to their desired semester, add/remove semesters, and even edit the class itself if necessary![0m
-          [36m</p>[39m
-          [36m<p>[39m
-            [0m Ocean Shen [0m
-          [36m</p>[39m
-          [36m<p>[39m
-            [0m Thomas Oves [0m
-          [36m</p>[39m
-          [36m<p>[39m
-            [0m Matthew Holdorf [0m
           [36m</p>[39m
           [36m<div[39m
             [33mclass[39m=[32m"col"[39m
@@ -101,5 +97,5 @@ All files               |      60 |       50 |   33.33 |      60 |
 Test Suites: 1 failed, 1 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        2.217 s
+Time:        2.001 s
 Ran all test suites.
