@@ -3,7 +3,7 @@
 > react-scripts test "--coverage"
 
 FAIL src/App.test.tsx
-  ✕ renders the course name somewhere (48 ms)
+  ✕ renders the course name somewhere (78 ms)
 
   ● renders the course name somewhere
 
@@ -33,9 +33,6 @@ FAIL src/App.test.tsx
           [36m>[39m
             [36m<div>[39m
               [36m<div>[39m
-                [36m<h3>[39m
-                  [0mEdit Course[0m
-                [36m</h3>[39m
                 [36m<div[39m
                   [33mclass[39m=[32m"form-check form-switch"[39m
                 [36m>[39m
@@ -49,7 +46,7 @@ FAIL src/App.test.tsx
                     [33mfor[39m=[32m"is-edit-mode"[39m
                     [33mtitle[39m=[32m""[39m
                   [36m>[39m
-                    [0mEditing?[0m
+                    [0mEdit Course[0m
                   [36m</label>[39m
                 [36m</div>[39m
                 [36m<button[39m
@@ -88,14 +85,14 @@ FAIL src/App.test.tsx
 ------------------------|---------|----------|---------|---------|-------------------
 File                    | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 ------------------------|---------|----------|---------|---------|-------------------
-All files               |      60 |       50 |   33.33 |      60 |                   
+All files               |   58.33 |    33.33 |   28.57 |   58.33 |                   
  src                    |     100 |      100 |     100 |     100 |                   
   App.tsx               |     100 |      100 |     100 |     100 |                   
- src/Components/courses |   55.55 |       50 |      20 |   55.55 |                   
-  DisplayCourses.tsx    |   55.55 |       50 |      20 |   55.55 | 17-26             
+ src/Components/courses |   54.54 |    33.33 |   16.66 |   54.54 |                   
+  DisplayCourses.tsx    |   54.54 |    33.33 |   16.66 |   54.54 | 21-30,73          
 ------------------------|---------|----------|---------|---------|-------------------
 Test Suites: 1 failed, 1 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        1.782 s
+Time:        2.779 s
 Ran all test suites.
