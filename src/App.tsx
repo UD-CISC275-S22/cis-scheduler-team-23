@@ -2,7 +2,7 @@ import React from "react";
 import { Col } from "react-bootstrap";
 
 import "./App.css";
-import { DisplayCourses } from "./Components/courses/DisplayCourses";
+import { DisplayCourses } from "./Components/DisplayCourses";
 
 function App(): JSX.Element {
     return (
