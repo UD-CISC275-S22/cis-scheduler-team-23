@@ -1,9 +1,6 @@
 import React, { useState } from "react";
 import { Button } from "react-bootstrap";
 import { Form } from "react-bootstrap";
-type ChangeEvent = React.ChangeEvent<
-    HTMLTextAreaElement | HTMLInputElement | HTMLSelectElement
->;
 
 export function DisplayCourses(): JSX.Element {
     const [courseName, setName] = useState<string>("CISC 181");
@@ -15,7 +12,6 @@ export function DisplayCourses(): JSX.Element {
     );
     const [visible, setVisible] = useState<boolean>(false);
     const [isEditing, setIsEditing] = useState<boolean>(false);
-    const [courseCredits, setCredits] = useState<number>(3);
 
     function updateName(event: React.ChangeEvent<HTMLInputElement>) {
         setName(event.target.value);
@@ -32,22 +28,16 @@ export function DisplayCourses(): JSX.Element {
     return (
         <div>
             <div>
+                <h3>Edit Course</h3>
                 <Form.Check
                     type="switch"
                     id="is-edit-mode"
-                    label="Edit Course"
+                    label="Editing?"
                     checked={isEditing}
                     onChange={updateEditing}
                 />
                 <Button onClick={flipVisibility}> {courseName} </Button>
-                {visible && (
-                    <div>
-                        <h5>Course Description:</h5>
-                        {courseDesc}
-                        <h5>Course Credits:</h5>
-                        {courseCredits}
-                    </div>
-                )}
+                {visible && <div>{courseDesc}</div>}
                 {isEditing && (
                     <div>
                         <Form.Group controlId="formCourseName">
@@ -62,18 +52,6 @@ export function DisplayCourses(): JSX.Element {
                             <Form.Control
                                 value={courseDesc}
                                 onChange={updateCourseDesc}
-                            />
-                        </Form.Group>
-                        <Form.Group controlId="formCourseCredits">
-                            <Form.Label>Course Credits:</Form.Label>
-                            <Form.Control
-                                value={courseCredits}
-                                type="number"
-                                onChange={(event: ChangeEvent) =>
-                                    setCredits(
-                                        parseInt(event.target.value) || 0
-                                    )
-                                }
                             />
                         </Form.Group>
                     </div>
