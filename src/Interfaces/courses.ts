@@ -1,4 +1,4 @@
-export interface Semester {
+export interface Course {
     ACCT: {
         "ACCT 166": {
             code: "ACCT 166";

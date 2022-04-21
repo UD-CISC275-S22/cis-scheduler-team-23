@@ -1,24 +1,23 @@
 import React, { useState } from "react";
 import { Button, Modal, Form, Col, Row } from "react-bootstrap";
-import { Semester } from "../Interfaces/courses";
+import { Semester } from "../Interfaces/semester";
 
-export function AddSemesterModal({
+export function AddSemester({
     show,
     handleClose,
     addSemester
 }: {
     show: boolean;
     handleClose: () => void;
-    addCOurse: (newSemester: Semester) => void;
+    addSemester: (newSemester: Semester) => void;
 }) {
-    const [id, setId] = useState<number>(3);
+    const [id, setId] = useState<string>("");
 
     function saveChanges() {
         addSemester({
             id: id,
             title: "",
-            description: "",
-            questions: []
+            description: ""
         });
         handleClose();
     }
@@ -26,26 +25,30 @@ export function AddSemesterModal({
     return (
         <Modal show={show} onHide={handleClose} animation={false}>
             <Modal.Header closeButton>
-                <Modal.Title>Add New Quiz</Modal.Title>
+                <Modal.Title> Add New Semester </Modal.Title>
             </Modal.Header>
             <Modal.Body>
-                <Form.Group controlId="formQuizID" as={Row}>
+                <Form.Group controlId="formSemesterId" as={Row}>
                     <Form.Label column sm={3}>
-                        Quiz ID:
+                        Semester:
                     </Form.Label>
                     <Col>
                         <Form.Control
                             value={id}
                             onChange={(
                                 event: React.ChangeEvent<HTMLInputElement>
-                            ) => setId(parseInt(event.target.value))}
+                            ) => setId(event.target.value)}
                         />
                     </Col>
                 </Form.Group>
             </Modal.Body>
             <Modal.Footer>
-                <Button onClick={handleClose}>Close</Button>
-                <Button onClick={saveChanges}>Save New Quiz</Button>
+                <Button variant="secondary" onClick={handleClose}>
+                    Close
+                </Button>
+                <Button variant="primary" onClick={saveChanges}>
+                    Save Changes
+                </Button>
             </Modal.Footer>
         </Modal>
     );

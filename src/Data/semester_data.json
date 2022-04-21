@@ -1,0 +1,13 @@
+[
+    {
+        "title": "Spring 2022",
+        "description": "Semester description",
+        "id": "s2022"
+    },
+
+    {
+        "title": "Fall 2022",
+        "description": "Semester description",
+        "id": "f2022"
+    }
+]
