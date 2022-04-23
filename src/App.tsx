@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Col, Button, Modal } from "react-bootstrap";
-
+import headerbackground from "./Pictures/headerbackground.jpeg";
 import "./App.css";
 
 // import { DisplayCourses } from "./Components/DisplayCourses";
@@ -48,12 +48,10 @@ function App(): JSX.Element {
 
     return (
         <div className="App">
-            <header className="App-header">
-                <p> University of Delaware Computer Science Scheduler </p>
-                <p> Matt Holdorf, Ocean Shen, Tommy Oves </p>
-            </header>
+            <img src={headerbackground} width="100%" height="230" />
             <div>
-                <Button color="black" onClick={handleOpen}>
+                <p></p>
+                <Button onClick={handleOpen}>
                     Click here for how to begin!
                 </Button>
                 <Modal show={open} onHide={handleClose}>
@@ -71,6 +69,7 @@ function App(): JSX.Element {
                     </Modal.Body>
                     <Modal.Footer></Modal.Footer>
                 </Modal>
+                <p></p>
             </div>
             <Col>
                 {/*
