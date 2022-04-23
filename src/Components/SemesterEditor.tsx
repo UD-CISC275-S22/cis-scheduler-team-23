@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Button, Container, Row, Col, Form } from "react-bootstrap";
-
+import "../App.css";
 import { Semester } from "../Interfaces/semester";
 
 export function SemesterEditor({
@@ -38,7 +38,7 @@ export function SemesterEditor({
                 <Col>
                     {/* Title */}
                     <Form.Group controlId="formSemesterTitle" as={Row}>
-                        <Form.Label column sm={2}>
+                        <Form.Label className="App-blacktext" column sm={2}>
                             Semester Title:
                         </Form.Label>
                         <Col>
@@ -54,7 +54,7 @@ export function SemesterEditor({
 
                     {/* Description */}
                     <Form.Group controlId="formSemesterDescription" as={Row}>
-                        <Form.Label column sm={2}>
+                        <Form.Label className="App-blacktext" column sm={2}>
                             Semester Description:
                         </Form.Label>
                         <Col>
@@ -69,7 +69,7 @@ export function SemesterEditor({
                         </Col>
                     </Form.Group>
 
-                    {/* Save/Cancel/Delete Buttons */}
+                    {/* Save/Delete Buttons */}
                     <Button
                         onClick={saveSemester}
                         variant="success"

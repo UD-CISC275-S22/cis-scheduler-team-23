@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { Button, Modal, Form, Col, Row } from "react-bootstrap";
 import { Semester } from "../Interfaces/semester";
+import "../App.css";
 
 export function AddSemester({
     show,
@@ -11,12 +12,13 @@ export function AddSemester({
     handleClose: () => void;
     addSemester: (newSemester: Semester) => void;
 }) {
+    const [title, setTitle] = useState<string>("");
     const [id, setId] = useState<string>("");
 
     function saveChanges() {
         addSemester({
             id: id,
-            title: "",
+            title: title,
             description: "",
             courseArray: []
         });
@@ -26,12 +28,28 @@ export function AddSemester({
     return (
         <Modal show={show} onHide={handleClose} animation={false}>
             <Modal.Header closeButton>
-                <Modal.Title> Add New Semester </Modal.Title>
+                <Modal.Title className="App-blacktext">
+                    {" "}
+                    Add New Semester{" "}
+                </Modal.Title>
             </Modal.Header>
             <Modal.Body>
+                <Form.Group controlId="formSemesterTitle" as={Row}>
+                    <Form.Label className="App-blacktext" column sm={3}>
+                        Semester Title:
+                    </Form.Label>
+                    <Col>
+                        <Form.Control
+                            value={title}
+                            onChange={(
+                                event: React.ChangeEvent<HTMLInputElement>
+                            ) => setTitle(event.target.value)}
+                        />
+                    </Col>
+                </Form.Group>
                 <Form.Group controlId="formSemesterId" as={Row}>
                     <Form.Label column sm={3}>
-                        Semester ID:
+                        Semester ID 22222:
                     </Form.Label>
                     <Col>
                         <Form.Control
