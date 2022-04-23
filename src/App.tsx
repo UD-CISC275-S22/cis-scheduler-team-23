@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Col, Button, Modal } from "react-bootstrap";
 
-
 import "./App.css";
 
 // import { DisplayCourses } from "./Components/DisplayCourses";
@@ -46,7 +45,7 @@ function App(): JSX.Element {
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
-  
+
     return (
         <div className="App">
             <header className="App-header">
