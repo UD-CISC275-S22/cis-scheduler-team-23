@@ -17,7 +17,8 @@ export function AddSemester({
         addSemester({
             id: id,
             title: "",
-            description: ""
+            description: "",
+            courseArray: []
         });
         handleClose();
     }
