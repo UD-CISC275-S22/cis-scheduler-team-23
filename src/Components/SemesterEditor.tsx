@@ -18,8 +18,8 @@ export function SemesterEditor({
     const [description, setDescription] = useState<string>(
         semester.description
     );
-    // const [addSem, setAddSem] = useState(false);
 
+    // const [addSem, setAddSem] = useState(false);
     // const handleCloseAddModal = () => setAddSem(false);
     // const handleShowAddModal = () => setAddSem(true);
 

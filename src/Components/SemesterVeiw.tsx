@@ -1,18 +1,19 @@
 import React, { useState } from "react";
 import { Container, Row, Col, Button } from "react-bootstrap";
 import { Semester } from "../Interfaces/semester";
+import { SemesterEditor } from "./SemesterEditor";
 
 export function SemesterView({
-    semester
-}: // editSemester,
-// deleteSemester
-{
+    semester,
+    editSemester,
+    deleteSemester
+}: {
     semester: Semester;
     editSemester: (id: string, newSemester: Semester) => void;
     deleteSemester: (id: string) => void;
 }): JSX.Element {
     const [visible, setVisible] = useState<boolean>(false);
-    // const [edit, setEdit] = useState<boolean>(false);
+    const [edit, setEdit] = useState<boolean>(false);
     // const [published, setPublished] = useState<boolean>(true);
 
     /*
@@ -24,13 +25,19 @@ export function SemesterView({
     function flipVisibility(): void {
         setVisible(!visible);
     }
-    /*
+
     function changeEditing() {
         setEdit(!edit);
     }
-    */
 
-    return (
+    return edit ? (
+        <SemesterEditor
+            changeEditing={changeEditing}
+            semester={semester}
+            editSemester={editSemester}
+            deleteSemester={deleteSemester}
+        ></SemesterEditor>
+    ) : (
         <Container>
             <Row>
                 <Col>
@@ -47,7 +54,7 @@ export function SemesterView({
             </Row>
             <Row>
                 <Button onClick={flipVisibility}> Show/Hide Semester </Button>
-                {/* <Button onClick={changeEditing}>Edit</Button> */}
+                <Button onClick={changeEditing}> Edit Semester Details </Button>
             </Row>
         </Container>
     );
