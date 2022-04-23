@@ -1,13 +1,52 @@
-import React from "react";
+import React, { useState } from "react";
 import { Col, Button, Modal } from "react-bootstrap";
 
+
 import "./App.css";
-import { DisplayCourses } from "./Components/DisplayCourses";
+
+// import { DisplayCourses } from "./Components/DisplayCourses";
+import { AddSemester } from "./Components/AddSemester";
+import { SemesterList } from "./Components/SemesterList";
+import semester from "./Data/semester_data.json";
+import { Semester } from "./Interfaces/semester";
+
+const SEMESTER = semester.map((semester: Semester) => ({
+    ...semester
+}));
 
 function App(): JSX.Element {
+    const [sem, setSem] = useState<Semester[]>(SEMESTER);
+    const [showAddModal, setShowAddModal] = useState(false);
+
+    function addSemester(newSem: Semester) {
+        const existing = sem.find(
+            (semester: Semester): boolean => semester.id === newSem.id
+        );
+        if (existing === undefined) {
+            setSem([...sem, newSem]);
+        }
+    }
+
+    function editSemester(id: string, newSem: Semester) {
+        setSem(
+            sem.map(
+                (semester: Semester): Semester =>
+                    semester.id === id ? newSem : semester
+            )
+        );
+    }
+
+    function deleteSemester(id: string) {
+        setSem(sem.filter((semester: Semester): boolean => semester.id !== id));
+    }
+
+    const handleCloseAddModal = () => setShowAddModal(false);
+    const handleShowAddModal = () => setShowAddModal(true);
+
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
+  
     return (
         <div className="App">
             <header className="App-header">
@@ -35,8 +74,32 @@ function App(): JSX.Element {
                 </Modal>
             </div>
             <Col>
+                {/*
                 <DisplayCourses></DisplayCourses>
+                */}
             </Col>
+
+            <SemesterList
+                semester={sem}
+                editSemester={editSemester}
+                deleteSemester={deleteSemester}
+            ></SemesterList>
+
+            {/* Add Semester Button */}
+            <Button
+                variant="success"
+                className="m-4"
+                onClick={handleShowAddModal}
+            >
+                Add New Semester
+            </Button>
+
+            {/* Add Semester */}
+            <AddSemester
+                show={showAddModal}
+                handleClose={handleCloseAddModal}
+                addSemester={addSemester}
+            ></AddSemester>
         </div>
     );
 }
