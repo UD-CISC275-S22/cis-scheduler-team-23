@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { Button } from "react-bootstrap";
 import { Form } from "react-bootstrap";
+import { Course } from "../Interfaces/courses";
+import cs_courses from "../Data/cs_course_data.json";
 
 export function DisplayCourses(): JSX.Element {
     const [courseName, setName] = useState<string>("CISC 181");
@@ -25,6 +27,12 @@ export function DisplayCourses(): JSX.Element {
     function flipVisibility(): void {
         setVisible(!visible);
     }
+
+    const QUIZZES = cs_courses.map(
+        (course): Course => ({
+            ...course
+        })
+    );
     return (
         <div>
             <div>
