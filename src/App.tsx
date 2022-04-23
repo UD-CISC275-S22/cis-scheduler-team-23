@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import { Col, Button } from "react-bootstrap";
 import "./App.css";
 
-import { DisplayCourses } from "./Components/DisplayCourses";
+// import { DisplayCourses } from "./Components/DisplayCourses";
 import { AddSemester } from "./Components/AddSemester";
+import { SemesterList } from "./Components/SemesterList";
 import semester from "./Data/semester_data.json";
 import { Semester } from "./Interfaces/semester";
 
@@ -24,6 +25,19 @@ function App(): JSX.Element {
         }
     }
 
+    function editSemester(id: string, newSem: Semester) {
+        setSem(
+            sem.map(
+                (semester: Semester): Semester =>
+                    semester.id === id ? newSem : semester
+            )
+        );
+    }
+
+    function deleteSemester(id: string) {
+        setSem(sem.filter((semester: Semester): boolean => semester.id !== id));
+    }
+
     const handleCloseAddModal = () => setShowAddModal(false);
     const handleShowAddModal = () => setShowAddModal(true);
 
@@ -33,19 +47,17 @@ function App(): JSX.Element {
                 <p> University of Delaware Computer Science Scheduler </p>
                 <p> Matt Holdorf, Ocean Shen, Tommy Oves </p>
             </header>
-            <p>
-                Hello and welcome to our website to help Computer Science majors
-                at the University of Delaware make their schedules. This website
-                will allow you to put together your desired schedule for the
-                rest of your college career. Add the classes you wish to take to
-                their desired semester, add/remove semesters, and even edit the
-                class itself if necessary!
-            </p>
             <Col>
                 {/*
                 <DisplayCourses></DisplayCourses>
                 */}
             </Col>
+
+            <SemesterList
+                semester={sem}
+                editSemester={editSemester}
+                deleteSemester={deleteSemester}
+            ></SemesterList>
 
             {/* Add Semester Button */}
             <Button
