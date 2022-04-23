@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { Button } from "react-bootstrap";
 import { Form } from "react-bootstrap";
+import { Course } from "../Interfaces/courses";
+import cs_courses_json from "../Data/cs_course_data.json";
 
 export function DisplayCourses(): JSX.Element {
     const [courseName, setName] = useState<string>("CISC 181");
@@ -25,6 +27,70 @@ export function DisplayCourses(): JSX.Element {
     function flipVisibility(): void {
         setVisible(!visible);
     }
+
+    /*
+    const CS_COURSES_LIST = (courses: {
+        value: {
+            code: string;
+            name: string;
+            descr: string;
+            credits: string;
+            preReq: string;
+            restrict: string;
+            breadth: string;
+            typ: string;
+        };
+    }): Course => {
+        return {
+            courseCode: courses.value.code,
+            courseName: courses.value.name,
+            courseDesc: courses.value.descr,
+            courseCredits: courses.value.credits,
+            coursePrereq: courses.value.preReq,
+            courseRestrict: courses.value.restrict,
+            courseBreadth: courses.value.breadth,
+            courseTyp: courses.value.typ
+        };
+    };
+*/
+    const COURSES = cs_courses_json.map(
+        (course): Course => ({
+            courseCode: course.code,
+            courseName: course.name,
+            courseDesc: course.descr,
+            courseCredits: course.credits,
+            coursePrereq: course.preReq,
+            courseRestrict: course.restrict,
+            courseBreadth: course.breadth,
+            courseTyp: course.typ
+        })
+    );
+    return (
+        <div>
+            <h3>Courses</h3>
+            {COURSES.map((c: Course) => (
+                <>
+                    <Button onClick={flipVisibility}> {c.courseName} </Button>
+                    <Form.Group controlId="formCourseName">
+                        <Form.Label>Course Name:</Form.Label>
+                        <Form.Control
+                            value={c.courseName}
+                            onChange={updateName}
+                        />
+                    </Form.Group>
+                    <Form.Group controlId="formCourseDescription">
+                        <Form.Label>Course Description:</Form.Label>
+                        <Form.Control
+                            value={c.courseDesc}
+                            onChange={updateCourseDesc}
+                        />
+                    </Form.Group>
+                </>
+            ))}
+        </div>
+    );
+}
+/*
     return (
         <div>
             <div>
@@ -59,4 +125,4 @@ export function DisplayCourses(): JSX.Element {
             </div>
         </div>
     );
-}
+*/
