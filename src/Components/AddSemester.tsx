@@ -31,7 +31,7 @@ export function AddSemester({
             <Modal.Body>
                 <Form.Group controlId="formSemesterId" as={Row}>
                     <Form.Label column sm={3}>
-                        Semester:
+                        Semester ID:
                     </Form.Label>
                     <Col>
                         <Form.Control

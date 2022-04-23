@@ -1,7 +1,7 @@
 import React from "react";
 import { Stack } from "react-bootstrap";
 import { Semester } from "../Interfaces/semester";
-import { SemesterView } from "./SemesterVeiw";
+import { SemesterView } from "./SemesterView";
 
 export function SemesterList({
     semester,
