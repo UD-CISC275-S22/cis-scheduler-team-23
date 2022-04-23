@@ -1,6 +1,8 @@
 import React, { useState } from "react";
 import { Container, Row, Col, Button } from "react-bootstrap";
+
 import { Semester } from "../Interfaces/semester";
+
 import { SemesterEditor } from "./SemesterEditor";
 
 export function SemesterView({
@@ -41,7 +43,7 @@ export function SemesterView({
         <Container>
             <Row>
                 <Col>
-                    <h3> {semester.id}</h3>
+                    <h3> Semester Title: {semester.title} </h3>
                 </Col>
             </Row>
             <Row>
@@ -50,11 +52,14 @@ export function SemesterView({
                 </Col>
             </Row>
             <Row>
-                <p> {semester.description} </p>
+                <p> Semester Description: {semester.description} </p>
             </Row>
             <Row>
                 <Button onClick={flipVisibility}> Show/Hide Semester </Button>
-                <Button onClick={changeEditing}> Edit Semester Details </Button>
+                <Button onClick={changeEditing} variant="danger">
+                    {" "}
+                    Edit Semester Details{" "}
+                </Button>
             </Row>
         </Container>
     );
