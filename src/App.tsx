@@ -6,12 +6,27 @@ import "./App.css";
 // import { DisplayCourses } from "./Components/DisplayCourses";
 import { AddSemester } from "./Components/AddSemester";
 import { SemesterList } from "./Components/SemesterList";
-import semester from "./Data/semester_data.json";
+import semester_json from "./Data/semester_data.json";
 import { Semester } from "./Interfaces/semester";
+import { Course } from "./Interfaces/courses";
 
-const SEMESTER = semester.map((semester: Semester) => ({
-    ...semester
-}));
+const SEMESTER = semester_json.map(
+    (semester): Semester => ({
+        ...semester,
+        courseArray: semester.courseArray.map(
+            (course): Course => ({
+                courseCode: course.code,
+                courseName: course.name,
+                courseDesc: course.descr,
+                courseCredits: course.credits,
+                coursePrereq: course.preReq,
+                courseRestrict: course.restrict,
+                courseBreadth: course.breadth,
+                courseTyp: course.typ
+            })
+        )
+    })
+);
 
 function App(): JSX.Element {
     const [sem, setSem] = useState<Semester[]>(SEMESTER);

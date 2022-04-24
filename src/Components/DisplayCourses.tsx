@@ -2,24 +2,28 @@ import React, { useState } from "react";
 import { Button } from "react-bootstrap";
 import { Form } from "react-bootstrap";
 import { Course } from "../Interfaces/courses";
-import cs_courses_json from "../Data/cs_course_data.json";
+//import cs_courses_json from "../Data/cs_course_data.json";
 
-export function DisplayCourses(): JSX.Element {
-    const [courseName, setName] = useState<string>("CISC 181");
+export function DisplayCourses({ course }: { course: Course }): JSX.Element {
+    //const [courseName, setName] = useState<string>("CISC 181");
+    /*
     const [courseDesc, setCourse] = useState<string>(
         "Principles of computer science illustrated and applied through " +
             "programming in an object oriented language. Programming projects illustrate " +
             "computational problems, styles and issues that arise in computer systems " +
             "development and in all application areas of computation."
     );
+    */
     const [visible, setVisible] = useState<boolean>(false);
     const [isEditing, setIsEditing] = useState<boolean>(false);
 
     function updateName(event: React.ChangeEvent<HTMLInputElement>) {
-        setName(event.target.value);
+        course.courseName = event.target.value;
+        //setName(event.target.value);
     }
     function updateCourseDesc(event: React.ChangeEvent<HTMLInputElement>) {
-        setCourse(event.target.value);
+        course.courseDesc = event.target.value;
+        //setCourse(event.target.value);
     }
     function updateEditing(event: React.ChangeEvent<HTMLInputElement>) {
         setIsEditing(event.target.checked);
@@ -53,6 +57,7 @@ export function DisplayCourses(): JSX.Element {
         };
     };
 */
+    /*
     const COURSES = cs_courses_json.map(
         (course): Course => ({
             courseCode: course.code,
@@ -65,8 +70,44 @@ export function DisplayCourses(): JSX.Element {
             courseTyp: course.typ
         })
     );
+    */
     return (
         <div>
+            <div>
+                <h3>Edit Course</h3>
+                <Form.Check
+                    type="switch"
+                    id="is-edit-mode"
+                    label="Editing?"
+                    checked={isEditing}
+                    onChange={updateEditing}
+                />
+                <Button onClick={flipVisibility}> {course.courseName} </Button>
+                {visible && <div>{course.courseDesc}</div>}
+                {isEditing && (
+                    <div>
+                        <Form.Group controlId="formCourseName">
+                            <Form.Label>Course Name:</Form.Label>
+                            <Form.Control
+                                value={course.courseName}
+                                onChange={updateName}
+                            />
+                        </Form.Group>
+                        <Form.Group controlId="formCourseDescription">
+                            <Form.Label>Course Description:</Form.Label>
+                            <Form.Control
+                                value={course.courseDesc}
+                                onChange={updateCourseDesc}
+                            />
+                        </Form.Group>
+                    </div>
+                )}
+            </div>
+        </div>
+    );
+}
+/*
+        div>
             <h3>Courses</h3>
             {COURSES.map((c: Course) => (
                 <>
@@ -88,8 +129,7 @@ export function DisplayCourses(): JSX.Element {
                 </>
             ))}
         </div>
-    );
-}
+*/
 /*
     return (
         <div>

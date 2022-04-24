@@ -1,7 +1,11 @@
 import React, { useState } from "react";
 import { Button, Modal, Form, Col, Row } from "react-bootstrap";
 import { Semester } from "../Interfaces/semester";
+<<<<<<< HEAD
+import { Course } from "../Interfaces/courses";
+=======
 import "../App.css";
+>>>>>>> main
 
 export function AddSemester({
     show,
@@ -20,7 +24,7 @@ export function AddSemester({
             id: id,
             title: title,
             description: "",
-            courseArray: []
+            courseArray: [] as Course[]
         });
         handleClose();
     }
