@@ -43,3 +43,8 @@
 .App-blacktext {
     color: black;
 }
+
+.App-helpbutton {
+    color: black;
+    background-color: white;
+}
