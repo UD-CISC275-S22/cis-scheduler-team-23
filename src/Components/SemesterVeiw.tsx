@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import { Container, Row, Col, Button } from "react-bootstrap";
-
+import { Course } from "../Interfaces/courses";
+import "../App.css";
 import { Semester } from "../Interfaces/semester";
+import { DisplayCourses } from "./DisplayCourses";
 
 import { SemesterEditor } from "./SemesterEditor";
 
@@ -43,16 +45,33 @@ export function SemesterView({
         <Container>
             <Row>
                 <Col>
-                    <h3> Semester Title: {semester.title} </h3>
+                    <h3 className="App-blacktext">
+                        {" "}
+                        Semester Title: {semester.title}{" "}
+                    </h3>
                 </Col>
             </Row>
             <Row>
                 <Col>
-                    <h6> Semester ID: {semester.id} </h6>
+                    <h6 className="App-blacktext">
+                        {" "}
+                        Semester ID: {semester.id}{" "}
+                    </h6>
                 </Col>
             </Row>
             <Row>
-                <p> Semester Description: {semester.description} </p>
+                <p className="App-blacktext">
+                    {" "}
+                    Semester Description: {semester.description}{" "}
+                </p>
+            </Row>
+            <Row>
+                <p className="App-blacktext">Courses:</p>
+                {semester.courseArray.map((c: Course) => (
+                    <Col key={c.courseCode} sm="4">
+                        <DisplayCourses course={c}></DisplayCourses>
+                    </Col>
+                ))}
             </Row>
             <Row>
                 <Button onClick={flipVisibility}> Show/Hide Semester </Button>
@@ -64,3 +83,8 @@ export function SemesterView({
         </Container>
     );
 }
+/*
+{semester.courseArray.map((c: Course) => (
+                    <DisplayCourses course={c}></DisplayCourses>
+                ))}
+*/
