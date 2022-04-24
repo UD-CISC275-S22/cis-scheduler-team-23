@@ -1,7 +1,7 @@
 .App {
     text-align: center;
     background-color: black;
-    color: white
+    color: white;
 }
 
 .App-logo {
@@ -38,4 +38,13 @@
     to {
         transform: rotate(360deg);
     }
+}
+
+.App-blacktext {
+    color: black;
+}
+
+.App-helpbutton {
+    color: black;
+    background-color: white;
 }

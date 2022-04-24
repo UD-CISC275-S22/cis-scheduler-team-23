@@ -1,6 +1,9 @@
 import React, { useState } from "react";
 import { Container, Row, Col, Button } from "react-bootstrap";
+<<<<<<< HEAD:src/Components/SemesterVeiw.tsx
 import { Course } from "../Interfaces/courses";
+=======
+>>>>>>> main:src/Components/SemesterView.tsx
 import "../App.css";
 import { Semester } from "../Interfaces/semester";
 import { DisplayCourses } from "./DisplayCourses";
@@ -64,6 +67,7 @@ export function SemesterView({
                     {" "}
                     Semester Description: {semester.description}{" "}
                 </p>
+<<<<<<< HEAD:src/Components/SemesterVeiw.tsx
             </Row>
             <Row>
                 <p className="App-blacktext">Courses:</p>
@@ -72,6 +76,8 @@ export function SemesterView({
                         <DisplayCourses course={c}></DisplayCourses>
                     </Col>
                 ))}
+=======
+>>>>>>> main:src/Components/SemesterView.tsx
             </Row>
             <Row>
                 <Button onClick={flipVisibility}> Show/Hide Semester </Button>

@@ -66,7 +66,7 @@ function App(): JSX.Element {
             <img src={headerbackground} width="100%" height="230" />
             <div>
                 <p></p>
-                <Button onClick={handleOpen}>
+                <Button className="App-helpbutton" onClick={handleOpen}>
                     Click here for how to begin!
                 </Button>
                 <Modal show={open} onHide={handleClose}>
