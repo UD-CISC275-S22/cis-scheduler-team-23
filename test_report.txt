@@ -3,7 +3,7 @@
 > react-scripts test "--coverage"
 
 FAIL src/App.test.tsx
-  ✕ renders the course name somewhere (52 ms)
+  ✕ renders the course name somewhere (109 ms)
 
   ● renders the course name somewhere
 
@@ -15,54 +15,367 @@ FAIL src/App.test.tsx
         [36m<div[39m
           [33mclass[39m=[32m"App"[39m
         [36m>[39m
-          [36m<header[39m
-            [33mclass[39m=[32m"App-header"[39m
-          [36m>[39m
-            [36m<p>[39m
-              [0m University of Delaware Computer Science Scheduler [0m
-            [36m</p>[39m
-            [36m<p>[39m
-              [0m Matt Holdorf, Ocean Shen, Tommy Oves [0m
-            [36m</p>[39m
-          [36m</header>[39m
-          [36m<p>[39m
-            [0mHello and welcome to our website to help Computer Science majors at the University of Delaware make their schedules. This website will allow you to put together your desired schedule for the rest of your college career. Add the classes you wish to take to their desired semester, add/remove semesters, and even edit the class itself if necessary![0m
-          [36m</p>[39m
+          [36m<img[39m
+            [33mheight[39m=[32m"230"[39m
+            [33msrc[39m=[32m"headerbackground.jpeg"[39m
+            [33mwidth[39m=[32m"100%"[39m
+          [36m/>[39m
+          [36m<div>[39m
+            [36m<p />[39m
+            [36m<button[39m
+              [33mclass[39m=[32m"App-helpbutton btn btn-primary"[39m
+              [33mtype[39m=[32m"button"[39m
+            [36m>[39m
+              [0mClick here for how to begin![0m
+            [36m</button>[39m
+            [36m<p />[39m
+          [36m</div>[39m
           [36m<div[39m
             [33mclass[39m=[32m"col"[39m
+          [36m/>[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"vstack gap-3"[39m
           [36m>[39m
-            [36m<div>[39m
-              [36m<div>[39m
-                [36m<h3>[39m
-                  [0mEdit Course[0m
-                [36m</h3>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"bg-light border m-2 p-2"[39m
+            [36m>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"container"[39m
+              [36m>[39m
                 [36m<div[39m
-                  [33mclass[39m=[32m"form-check form-switch"[39m
+                  [33mclass[39m=[32m"row"[39m
                 [36m>[39m
-                  [36m<input[39m
-                    [33mclass[39m=[32m"form-check-input"[39m
-                    [33mid[39m=[32m"is-edit-mode"[39m
-                    [33mtype[39m=[32m"checkbox"[39m
-                  [36m/>[39m
-                  [36m<label[39m
-                    [33mclass[39m=[32m"form-check-label"[39m
-                    [33mfor[39m=[32m"is-edit-mode"[39m
-                    [33mtitle[39m=[32m""[39m
+                  [36m<div[39m
+                    [33mclass[39m=[32m"col"[39m
                   [36m>[39m
-                    [0mEditing?[0m
-                  [36m</label>[39m
+                    [36m<h3[39m
+                      [33mclass[39m=[32m"App-blacktext"[39m
+                    [36m>[39m
+                      [0m [0m
+                      [0mSemester Title: [0m
+                      [0mSpring 2022[0m
+                      [0m [0m
+                    [36m</h3>[39m
+                  [36m</div>[39m
                 [36m</div>[39m
-                [36m<button[39m
-                  [33mclass[39m=[32m"btn btn-primary"[39m
-                  [33mtype[39m=[32m"button"[39m
+                [36m<div[39m
+                  [33mclass[39m=[32m"row"[39m
                 [36m>[39m
-                  [0m [0m
-                  [0mCISC 181[0m
-                  [0m [0m
-                [36m</button>[39m
+                  [36m<div[39m
+                    [33mclass[39m=[32m"col"[39m
+                  [36m>[39m
+                    [36m<h6[39m
+                      [33mclass[39m=[32m"App-blacktext"[39m
+                    [36m>[39m
+                      [0m [0m
+                      [0mSemester ID: [0m
+                      [0ms2022[0m
+                      [0m [0m
+                    [36m</h6>[39m
+                  [36m</div>[39m
+                [36m</div>[39m
+                [36m<div[39m
+                  [33mclass[39m=[32m"row"[39m
+                [36m>[39m
+                  [36m<p[39m
+                    [33mclass[39m=[32m"App-blacktext"[39m
+                  [36m>[39m
+                    [0m [0m
+                    [0mSemester Description: [0m
+                    [0mSemester description[0m
+                    [0m [0m
+                  [36m</p>[39m
+                [36m</div>[39m
+                [36m<div[39m
+                  [33mclass[39m=[32m"row"[39m
+                [36m>[39m
+                  [36m<p[39m
+                    [33mclass[39m=[32m"App-blacktext"[39m
+                  [36m>[39m
+                    [0mCourses:[0m
+                  [36m</p>[39m
+                  [36m<div[39m
+                    [33mclass[39m=[32m"col-sm-4"[39m
+                  [36m>[39m
+                    [36m<div>[39m
+                      [36m<div>[39m
+                        [36m<h3>[39m
+                          [0mEdit Course[0m
+                        [36m</h3>[39m
+                        [36m<div[39m
+                          [33mclass[39m=[32m"form-check form-switch"[39m
+                        [36m>[39m
+                          [36m<input[39m
+                            [33mclass[39m=[32m"form-check-input"[39m
+                            [33mid[39m=[32m"is-edit-mode"[39m
+                            [33mtype[39m=[32m"checkbox"[39m
+                          [36m/>[39m
+                          [36m<label[39m
+                            [33mclass[39m=[32m"form-check-label"[39m
+                            [33mfor[39m=[32m"is-edit-mode"[39m
+                            [33mtitle[39m=[32m""[39m
+                          [36m>[39m
+                            [0mEditing?[0m
+                          [36m</label>[39m
+                        [36m</div>[39m
+                        [36m<button[39m
+                          [33mclass[39m=[32m"btn btn-primary"[39m
+                          [33mtype[39m=[32m"button"[39m
+                        [36m>[39m
+                          [0m [0m
+                          [0mPrinciples of Computing[0m
+                          [0m [0m
+                        [36m</button>[39m
+                      [36m</div>[39m
+                    [36m</div>[39m
+                  [36m</div>[39m
+                  [36m<div[39m
+                    [33mclass[39m=[32m"col-sm-4"[39m
+                  [36m>[39m
+                    [36m<div>[39m
+                      [36m<div>[39m
+                        [36m<h3>[39m
+                          [0mEdit Course[0m
+                        [36m</h3>[39m
+                        [36m<div[39m
+                          [33mclass[39m=[32m"form-check form-switch"[39m
+                        [36m>[39m
+                          [36m<input[39m
+                            [33mclass[39m=[32m"form-check-input"[39m
+                            [33mid[39m=[32m"is-edit-mode"[39m
+                            [33mtype[39m=[32m"checkbox"[39m
+                          [36m/>[39m
+                          [36m<label[39m
+                            [33mclass[39m=[32m"form-check-label"[39m
+                            [33mfor[39m=[32m"is-edit-mode"[39m
+                            [33mtitle[39m=[32m""[39m
+                          [36m>[39m
+                            [0mEditing?[0m
+                          [36m</label>[39m
+                        [36m</div>[39m
+                        [36m<button[39m
+                          [33mclass[39m=[32m"btn btn-primary"[39m
+                          [33mtype[39m=[32m"button"[39m
+                        [36m>[39m
+                          [0m [0m
+                          [0mIntroduction to Computer Science with Web Applications[0m
+                          [0m [0m
+                        [36m</button>[39m
+                      [36m</div>[39m
+                    [36m</div>[39m
+                  [36m</div>[39m
+                  [36m<div[39m
+                    [33mclass[39m=[32m"col-sm-4"[39m
+                  [36m>[39m
+                    [36m<div>[39m
+                      [36m<div>[39m
+                        [36m<h3>[39m
+                          [0mEdit Course[0m
+                        [36m</h3>[39m
+                        [36m<div[39m
+                          [33mclass[39m=[32m"form-check form-switch"[39m
+                        [36m>[39m
+                          [36m<input[39m
+                            [33mclass[39m=[32m"form-check-input"[39m
+                            [33mid[39m=[32m"is-edit-mode"[39m
+                            [33mtype[39m=[32m"checkbox"[39m
+                          [36m/>[39m
+                          [36m<label[39m
+                            [33mclass[39m=[32m"form-check-label"[39m
+                            [33mfor[39m=[32m"is-edit-mode"[39m
+                            [33mtitle[39m=[32m""[39m
+                          [36m>[39m
+                            [0mEditing?[0m
+                          [36m</label>[39m
+                        [36m</div>[39m
+                        [36m<button[39m
+                          [33mclass[39m=[32m"btn btn-primary"[39m
+                          [33mtype[39m=[32m"button"[39m
+                        [36m>[39m
+                          [0m [0m
+                          [0mGeneral Computer Science for Engineers[0m
+                          [0m [0m
+                        [36m</button>[39m
+                      [36m</div>[39m
+                    [36m</div>[39m
+                  [36m</div>[39m
+                [36m</div>[39m
+                [36m<div[39m
+                  [33mclass[39m=[32m"row"[39m
+                [36m>[39m
+                  [36m<button[39m
+                    [33mclass[39m=[32m"btn btn-primary"[39m
+                    [33mtype[39m=[32m"button"[39m
+                  [36m>[39m
+                    [0m Show/Hide Semester [0m
+                  [36m</button>[39m
+                  [36m<button[39m
+                    [33mclass[39m=[32m"btn btn-danger"[39m
+                    [33mtype[39m=[32m"button"[39m
+                  [36m>[39m
+                    [0m [0m
+                    [0mEdit Semester Details[0m
+                    [0m [0m
+                  [36m</button>[39m
+                [36m</div>[39m
+              [36m</div>[39m
+            [36m</div>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"bg-light border m-2 p-2"[39m
+            [36m>[39m
+              [36m<div[39m
+                [33mclass[39m=[32m"container"[39m
+              [36m>[39m
+                [36m<div[39m
+                  [33mclass[39m=[32m"row"[39m
+                [36m>[39m
+                  [36m<div[39m
+                    [33mclass[39m=[32m"col"[39m
+                  [36m>[39m
+                    [36m<h3[39m
+                      [33mclass[39m=[32m"App-blacktext"[39m
+                    [36m>[39m
+                      [0m [0m
+                      [0mSemester Title: [0m
+                      [0mFall 2022[0m
+                      [0m [0m
+                    [36m</h3>[39m
+                  [36m</div>[39m
+                [36m</div>[39m
+                [36m<div[39m
+                  [33mclass[39m=[32m"row"[39m
+                [36m>[39m
+                  [36m<div[39m
+                    [33mclass[39m=[32m"col"[39m
+                  [36m>[39m
+                    [36m<h6[39m
+                      [33mclass[39m=[32m"App-blacktext"[39m
+                    [36m>[39m
+                      [0m [0m
+                      [0mSemester ID: [0m
+                      [0mf2022[0m
+                      [0m [0m
+                    [36m</h6>[39m
+                  [36m</div>[39m
+                [36m</div>[39m
+                [36m<div[39m
+                  [33mclass[39m=[32m"row"[39m
+                [36m>[39m
+                  [36m<p[39m
+                    [33mclass[39m=[32m"App-blacktext"[39m
+                  [36m>[39m
+                    [0m [0m
+                    [0mSemester Description: [0m
+                    [0mSemester description[0m
+                    [0m [0m
+                  [36m</p>[39m
+                [36m</div>[39m
+                [36m<div[39m
+                  [33mclass[39m=[32m"row"[39m
+                [36m>[39m
+                  [36m<p[39m
+                    [33mclass[39m=[32m"App-blacktext"[39m
+                  [36m>[39m
+                    [0mCourses:[0m
+                  [36m</p>[39m
+                  [36m<div[39m
+                    [33mclass[39m=[32m"col-sm-4"[39m
+                  [36m>[39m
+                    [36m<div>[39m
+                      [36m<div>[39m
+                        [36m<h3>[39m
+                          [0mEdit Course[0m
+                        [36m</h3>[39m
+                        [36m<div[39m
+                          [33mclass[39m=[32m"form-check form-switch"[39m
+                        [36m>[39m
+                          [36m<input[39m
+                            [33mclass[39m=[32m"form-check-input"[39m
+                            [33mid[39m=[32m"is-edit-mode"[39m
+                            [33mtype[39m=[32m"checkbox"[39m
+                          [36m/>[39m
+                          [36m<label[39m
+                            [33mclass[39m=[32m"form-check-label"[39m
+                            [33mfor[39m=[32m"is-edit-mode"[39m
+                            [33mtitle[39m=[32m""[39m
+                          [36m>[39m
+                            [0mEditing?[0m
+                          [36m</label>[39m
+                        [36m</div>[39m
+                        [36m<button[39m
+                          [33mclass[39m=[32m"btn btn-primary"[39m
+                          [33mtype[39m=[32m"button"[39m
+                        [36m>[39m
+                          [0m [0m
+                          [0mGeneral Computer Science for Engineers[0m
+                          [0m [0m
+                        [36m</button>[39m
+                      [36m</div>[39m
+                    [36m</div>[39m
+                  [36m</div>[39m
+                  [36m<div[39m
+                    [33mclass[39m=[32m"col-sm-4"[39m
+                  [36m>[39m
+                    [36m<div>[39m
+                      [36m<div>[39m
+                        [36m<h3>[39m
+                          [0mEdit Course[0m
+                        [36m</h3>[39m
+                        [36m<div[39m
+                          [33mclass[39m=[32m"form-check form-switch"[39m
+                        [36m>[39m
+                          [36m<input[39m
+                            [33mclass[39m=[32m"form-check-input"[39m
+                            [33mid[39m=[32m"is-edit-mode"[39m
+                            [33mtype[39m=[32m"checkbox"[39m
+                          [36m/>[39m
+                          [36m<label[39m
+                            [33mclass[39m=[32m"form-check-label"[39m
+                            [33mfor[39m=[32m"is-edit-mode"[39m
+                            [33mtitle[39m=[32m""[39m
+                          [36m>[39m
+                            [0mEditing?[0m
+                          [36m</label>[39m
+                        [36m</div>[39m
+                        [36m<button[39m
+                          [33mclass[39m=[32m"btn btn-primary"[39m
+                          [33mtype[39m=[32m"button"[39m
+                        [36m>[39m
+                          [0m [0m
+                          [0mIntroduction to Computer Science I[0m
+                          [0m [0m
+                        [36m</button>[39m
+                      [36m</div>[39m
+                    [36m</div>[39m
+                  [36m</div>[39m
+                [36m</div>[39m
+                [36m<div[39m
+                  [33mclass[39m=[32m"row"[39m
+                [36m>[39m
+                  [36m<button[39m
+                    [33mclass[39m=[32m"btn btn-primary"[39m
+                    [33mtype[39m=[32m"button"[39m
+                  [36m>[39m
+                    [0m Show/Hide Semester [0m
+                  [36m</button>[39m
+                  [36m<button[39m
+                    [33mclass[39m=[32m"btn btn-danger"[39m
+                    [33mtype[39m=[32m"button"[39m
+                  [36m>[39m
+                    [0m [0m
+                    [0mEdit Semester Details[0m
+                    [0m [0m
+                  [36m</button>[39m
+                [36m</div>[39m
               [36m</div>[39m
             [36m</div>[39m
           [36m</div>[39m
+          [36m<button[39m
+            [33mclass[39m=[32m"m-4 btn btn-success"[39m
+            [33mtype[39m=[32m"button"[39m
+          [36m>[39m
+            [0mAdd New Semester[0m
+          [36m</button>[39m
         [36m</div>[39m
       [36m</div>[39m
     [36m</body>[39m
@@ -88,16 +401,22 @@ FAIL src/App.test.tsx
 ---------------------|---------|----------|---------|---------|-------------------
 File                 | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 ---------------------|---------|----------|---------|---------|-------------------
-All files            |      60 |       50 |   33.33 |      60 |                   
- src                 |     100 |      100 |     100 |     100 |                   
-  App.tsx            |     100 |      100 |     100 |     100 |                   
- src/Components      |   55.55 |       50 |      20 |   55.55 |                   
-  DisplayCourses.tsx |   55.55 |       50 |      20 |   55.55 | 17-26             
+All files            |   38.98 |       25 |   24.32 |   42.59 |                   
+ src                 |   47.82 |        0 |   23.07 |   61.11 |                   
+  App.tsx            |   47.82 |        0 |   23.07 |   61.11 | 36-54             
+ src/Components      |   33.33 |     37.5 |      25 |   33.33 |                   
+  AddSemester.tsx    |   42.85 |      100 |      25 |   42.85 | 22-28,49-62       
+  DisplayCourses.tsx |   42.85 |       50 |      20 |   42.85 | 21-32             
+  SemesterEditor.tsx |       0 |      100 |       0 |       0 | 17-81             
+  SemesterList.tsx   |     100 |      100 |     100 |     100 |                   
+  SemesterVeiw.tsx   |       0 |        0 |       0 |       0 | 19-62             
+  SemesterView.tsx   |   66.66 |       50 |      50 |   66.66 | 32-36             
  src/Interfaces      |       0 |        0 |       0 |       0 |                   
   courses.ts         |       0 |        0 |       0 |       0 |                   
+  semester.ts        |       0 |        0 |       0 |       0 |                   
 ---------------------|---------|----------|---------|---------|-------------------
 Test Suites: 1 failed, 1 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        1.843 s
+Time:        2.905 s
 Ran all test suites.
