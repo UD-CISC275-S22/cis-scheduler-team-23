@@ -1,7 +1,7 @@
 .App {
     text-align: center;
     background-color: black;
-    color: white;
+    color: black;
 }
 
 .App-logo {
@@ -24,7 +24,7 @@
     align-items: center;
     justify-content: center;
     font-size: calc(10px + 2vmin);
-    color: white;
+    color: black;
 }
 
 .App-link {
@@ -42,9 +42,4 @@
 
 .App-blacktext {
     color: black;
-}
-
-.App-helpbutton {
-    color: black;
-    background-color: white;
 }

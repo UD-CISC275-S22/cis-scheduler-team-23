@@ -31,14 +31,11 @@ export function AddSemester({
     return (
         <Modal show={show} onHide={handleClose} animation={false}>
             <Modal.Header closeButton>
-                <Modal.Title className="App-blacktext">
-                    {" "}
-                    Add New Semester{" "}
-                </Modal.Title>
+                <Modal.Title> Add New Semester </Modal.Title>
             </Modal.Header>
             <Modal.Body>
                 <Form.Group controlId="formSemesterTitle" as={Row}>
-                    <Form.Label className="App-blacktext" column sm={3}>
+                    <Form.Label column sm={3}>
                         Semester Title:
                     </Form.Label>
                     <Col>
@@ -52,7 +49,7 @@ export function AddSemester({
                 </Form.Group>
                 <Form.Group controlId="formSemesterId" as={Row}>
                     <Form.Label column sm={3}>
-                        Semester ID 22222:
+                        Semester ID:
                     </Form.Label>
                     <Col>
                         <Form.Control

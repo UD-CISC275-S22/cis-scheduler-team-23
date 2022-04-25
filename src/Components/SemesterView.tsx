@@ -47,34 +47,26 @@ export function SemesterView({
         <Container>
             <Row>
                 <Col>
-                    <h3 className="App-blacktext">
-                        {" "}
-                        Semester Title: {semester.title}{" "}
-                    </h3>
+                    <h3> Semester Title: {semester.title} </h3>
                 </Col>
             </Row>
             <Row>
                 <Col>
-                    <h6 className="App-blacktext">
-                        {" "}
-                        Semester ID: {semester.id}{" "}
-                    </h6>
+                    <h6> Semester ID: {semester.id} </h6>
                 </Col>
             </Row>
             <Row>
-                <p className="App-blacktext">
-                    {" "}
-                    Semester Description: {semester.description}{" "}
-                </p>
+                <p> Semester Description: {semester.description} </p>
             </Row>
             <Row>
-                <p className="App-blacktext">Courses:</p>
+                <p>Courses:</p>
                 {semester.courseArray.map((c: Course) => (
                     <Col key={c.courseCode} sm="4">
                         <DisplayCourses course={c}></DisplayCourses>
                     </Col>
                 ))}
             </Row>
+            <p></p>
             <Row>
                 <Button onClick={flipVisibility}> Show/Hide Semester </Button>
                 <Button onClick={changeEditing} variant="danger">

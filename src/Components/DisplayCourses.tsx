@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Button } from "react-bootstrap";
 import { Form } from "react-bootstrap";
 import { Course } from "../Interfaces/courses";
+import "../App.css";
 //import cs_courses_json from "../Data/cs_course_data.json";
 
 export function DisplayCourses({ course }: { course: Course }): JSX.Element {
@@ -74,16 +75,19 @@ export function DisplayCourses({ course }: { course: Course }): JSX.Element {
     return (
         <div>
             <div>
-                <h3>Edit Course</h3>
-                <Form.Check
-                    type="switch"
-                    id="is-edit-mode"
-                    label="Editing?"
-                    checked={isEditing}
-                    onChange={updateEditing}
-                />
                 <Button onClick={flipVisibility}> {course.courseName} </Button>
-                {visible && <div>{course.courseDesc}</div>}
+                {visible && (
+                    <div>
+                        <Form.Check
+                            type="switch"
+                            id="is-edit-mode"
+                            label="Edit"
+                            checked={isEditing}
+                            onChange={updateEditing}
+                        />
+                        {course.courseDesc}
+                    </div>
+                )}
                 {isEditing && (
                     <div>
                         <Form.Group controlId="formCourseName">
@@ -106,30 +110,7 @@ export function DisplayCourses({ course }: { course: Course }): JSX.Element {
         </div>
     );
 }
-/*
-        div>
-            <h3>Courses</h3>
-            {COURSES.map((c: Course) => (
-                <>
-                    <Button onClick={flipVisibility}> {c.courseName} </Button>
-                    <Form.Group controlId="formCourseName">
-                        <Form.Label>Course Name:</Form.Label>
-                        <Form.Control
-                            value={c.courseName}
-                            onChange={updateName}
-                        />
-                    </Form.Group>
-                    <Form.Group controlId="formCourseDescription">
-                        <Form.Label>Course Description:</Form.Label>
-                        <Form.Control
-                            value={c.courseDesc}
-                            onChange={updateCourseDesc}
-                        />
-                    </Form.Group>
-                </>
-            ))}
-        </div>
-*/
+
 /*
     return (
         <div>
