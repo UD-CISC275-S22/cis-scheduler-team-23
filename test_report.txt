@@ -3,7 +3,7 @@
 > react-scripts test "--coverage"
 
 FAIL src/App.test.tsx
-  ✕ renders the course name somewhere (112 ms)
+  ✕ renders the course name somewhere (90 ms)
 
   ● renders the course name somewhere
 
@@ -23,7 +23,7 @@ FAIL src/App.test.tsx
           [36m<div>[39m
             [36m<p />[39m
             [36m<button[39m
-              [33mclass[39m=[32m"App-helpbutton btn btn-primary"[39m
+              [33mclass[39m=[32m"btn btn-light"[39m
               [33mtype[39m=[32m"button"[39m
             [36m>[39m
               [0mClick here for how to begin![0m
@@ -48,11 +48,8 @@ FAIL src/App.test.tsx
                   [36m<div[39m
                     [33mclass[39m=[32m"col"[39m
                   [36m>[39m
-                    [36m<h3[39m
-                      [33mclass[39m=[32m"App-blacktext"[39m
-                    [36m>[39m
-                      [0m [0m
-                      [0mSemester Title: [0m
+                    [36m<h3>[39m
+                      [0m Semester Title: [0m
                       [0mSpring 2022[0m
                       [0m [0m
                     [36m</h3>[39m
@@ -64,11 +61,8 @@ FAIL src/App.test.tsx
                   [36m<div[39m
                     [33mclass[39m=[32m"col"[39m
                   [36m>[39m
-                    [36m<h6[39m
-                      [33mclass[39m=[32m"App-blacktext"[39m
-                    [36m>[39m
-                      [0m [0m
-                      [0mSemester ID: [0m
+                    [36m<h6>[39m
+                      [0m Semester ID: [0m
                       [0ms2022[0m
                       [0m [0m
                     [36m</h6>[39m
@@ -77,11 +71,8 @@ FAIL src/App.test.tsx
                 [36m<div[39m
                   [33mclass[39m=[32m"row"[39m
                 [36m>[39m
-                  [36m<p[39m
-                    [33mclass[39m=[32m"App-blacktext"[39m
-                  [36m>[39m
-                    [0m [0m
-                    [0mSemester Description: [0m
+                  [36m<p>[39m
+                    [0m Semester Description: [0m
                     [0mSemester description[0m
                     [0m [0m
                   [36m</p>[39m
@@ -89,9 +80,7 @@ FAIL src/App.test.tsx
                 [36m<div[39m
                   [33mclass[39m=[32m"row"[39m
                 [36m>[39m
-                  [36m<p[39m
-                    [33mclass[39m=[32m"App-blacktext"[39m
-                  [36m>[39m
+                  [36m<p>[39m
                     [0mCourses:[0m
                   [36m</p>[39m
                   [36m<div[39m
@@ -99,25 +88,6 @@ FAIL src/App.test.tsx
                   [36m>[39m
                     [36m<div>[39m
                       [36m<div>[39m
-                        [36m<h3>[39m
-                          [0mEdit Course[0m
-                        [36m</h3>[39m
-                        [36m<div[39m
-                          [33mclass[39m=[32m"form-check form-switch"[39m
-                        [36m>[39m
-                          [36m<input[39m
-                            [33mclass[39m=[32m"form-check-input"[39m
-                            [33mid[39m=[32m"is-edit-mode"[39m
-                            [33mtype[39m=[32m"checkbox"[39m
-                          [36m/>[39m
-                          [36m<label[39m
-                            [33mclass[39m=[32m"form-check-label"[39m
-                            [33mfor[39m=[32m"is-edit-mode"[39m
-                            [33mtitle[39m=[32m""[39m
-                          [36m>[39m
-                            [0mEditing?[0m
-                          [36m</label>[39m
-                        [36m</div>[39m
                         [36m<button[39m
                           [33mclass[39m=[32m"btn btn-primary"[39m
                           [33mtype[39m=[32m"button"[39m
@@ -134,25 +104,6 @@ FAIL src/App.test.tsx
                   [36m>[39m
                     [36m<div>[39m
                       [36m<div>[39m
-                        [36m<h3>[39m
-                          [0mEdit Course[0m
-                        [36m</h3>[39m
-                        [36m<div[39m
-                          [33mclass[39m=[32m"form-check form-switch"[39m
-                        [36m>[39m
-                          [36m<input[39m
-                            [33mclass[39m=[32m"form-check-input"[39m
-                            [33mid[39m=[32m"is-edit-mode"[39m
-                            [33mtype[39m=[32m"checkbox"[39m
-                          [36m/>[39m
-                          [36m<label[39m
-                            [33mclass[39m=[32m"form-check-label"[39m
-                            [33mfor[39m=[32m"is-edit-mode"[39m
-                            [33mtitle[39m=[32m""[39m
-                          [36m>[39m
-                            [0mEditing?[0m
-                          [36m</label>[39m
-                        [36m</div>[39m
                         [36m<button[39m
                           [33mclass[39m=[32m"btn btn-primary"[39m
                           [33mtype[39m=[32m"button"[39m
@@ -169,25 +120,6 @@ FAIL src/App.test.tsx
                   [36m>[39m
                     [36m<div>[39m
                       [36m<div>[39m
-                        [36m<h3>[39m
-                          [0mEdit Course[0m
-                        [36m</h3>[39m
-                        [36m<div[39m
-                          [33mclass[39m=[32m"form-check form-switch"[39m
-                        [36m>[39m
-                          [36m<input[39m
-                            [33mclass[39m=[32m"form-check-input"[39m
-                            [33mid[39m=[32m"is-edit-mode"[39m
-                            [33mtype[39m=[32m"checkbox"[39m
-                          [36m/>[39m
-                          [36m<label[39m
-                            [33mclass[39m=[32m"form-check-label"[39m
-                            [33mfor[39m=[32m"is-edit-mode"[39m
-                            [33mtitle[39m=[32m""[39m
-                          [36m>[39m
-                            [0mEditing?[0m
-                          [36m</label>[39m
-                        [36m</div>[39m
                         [36m<button[39m
                           [33mclass[39m=[32m"btn btn-primary"[39m
                           [33mtype[39m=[32m"button"[39m
@@ -200,6 +132,7 @@ FAIL src/App.test.tsx
                     [36m</div>[39m
                   [36m</div>[39m
                 [36m</div>[39m
+                [36m<p />[39m
                 [36m<div[39m
                   [33mclass[39m=[32m"row"[39m
                 [36m>[39m
@@ -232,11 +165,8 @@ FAIL src/App.test.tsx
                   [36m<div[39m
                     [33mclass[39m=[32m"col"[39m
                   [36m>[39m
-                    [36m<h3[39m
-                      [33mclass[39m=[32m"App-blacktext"[39m
-                    [36m>[39m
-                      [0m [0m
-                      [0mSemester Title: [0m
+                    [36m<h3>[39m
+                      [0m Semester Title: [0m
                       [0mFall 2022[0m
                       [0m [0m
                     [36m</h3>[39m
@@ -248,11 +178,8 @@ FAIL src/App.test.tsx
                   [36m<div[39m
                     [33mclass[39m=[32m"col"[39m
                   [36m>[39m
-                    [36m<h6[39m
-                      [33mclass[39m=[32m"App-blacktext"[39m
-                    [36m>[39m
-                      [0m [0m
-                      [0mSemester ID: [0m
+                    [36m<h6>[39m
+                      [0m Semester ID: [0m
                       [0mf2022[0m
                       [0m [0m
                     [36m</h6>[39m
@@ -261,11 +188,8 @@ FAIL src/App.test.tsx
                 [36m<div[39m
                   [33mclass[39m=[32m"row"[39m
                 [36m>[39m
-                  [36m<p[39m
-                    [33mclass[39m=[32m"App-blacktext"[39m
-                  [36m>[39m
-                    [0m [0m
-                    [0mSemester Description: [0m
+                  [36m<p>[39m
+                    [0m Semester Description: [0m
                     [0mSemester description[0m
                     [0m [0m
                   [36m</p>[39m
@@ -273,9 +197,7 @@ FAIL src/App.test.tsx
                 [36m<div[39m
                   [33mclass[39m=[32m"row"[39m
                 [36m>[39m
-                  [36m<p[39m
-                    [33mclass[39m=[32m"App-blacktext"[39m
-                  [36m>[39m
+                  [36m<p>[39m
                     [0mCourses:[0m
                   [36m</p>[39m
                   [36m<div[39m
@@ -283,25 +205,6 @@ FAIL src/App.test.tsx
                   [36m>[39m
                     [36m<div>[39m
                       [36m<div>[39m
-                        [36m<h3>[39m
-                          [0mEdit Course[0m
-                        [36m</h3>[39m
-                        [36m<div[39m
-                          [33mclass[39m=[32m"form-check form-switch"[39m
-                        [36m>[39m
-                          [36m<input[39m
-                            [33mclass[39m=[32m"form-check-input"[39m
-                            [33mid[39m=[32m"is-edit-mode"[39m
-                            [33mtype[39m=[32m"checkbox"[39m
-                          [36m/>[39m
-                          [36m<label[39m
-                            [33mclass[39m=[32m"form-check-label"[39m
-                            [33mfor[39m=[32m"is-edit-mode"[39m
-                            [33mtitle[39m=[32m""[39m
-                          [36m>[39m
-                            [0mEditing?[0m
-                          [36m</label>[39m
-                        [36m</div>[39m
                         [36m<button[39m
                           [33mclass[39m=[32m"btn btn-primary"[39m
                           [33mtype[39m=[32m"button"[39m
@@ -318,25 +221,6 @@ FAIL src/App.test.tsx
                   [36m>[39m
                     [36m<div>[39m
                       [36m<div>[39m
-                        [36m<h3>[39m
-                          [0mEdit Course[0m
-                        [36m</h3>[39m
-                        [36m<div[39m
-                          [33mclass[39m=[32m"form-check form-switch"[39m
-                        [36m>[39m
-                          [36m<input[39m
-                            [33mclass[39m=[32m"form-check-input"[39m
-                            [33mid[39m=[32m"is-edit-mode"[39m
-                            [33mtype[39m=[32m"checkbox"[39m
-                          [36m/>[39m
-                          [36m<label[39m
-                            [33mclass[39m=[32m"form-check-label"[39m
-                            [33mfor[39m=[32m"is-edit-mode"[39m
-                            [33mtitle[39m=[32m""[39m
-                          [36m>[39m
-                            [0mEditing?[0m
-                          [36m</label>[39m
-                        [36m</div>[39m
                         [36m<button[39m
                           [33mclass[39m=[32m"btn btn-primary"[39m
                           [33mtype[39m=[32m"button"[39m
@@ -349,6 +233,7 @@ FAIL src/App.test.tsx
                     [36m</div>[39m
                   [36m</div>[39m
                 [36m</div>[39m
+                [36m<p />[39m
                 [36m<div[39m
                   [33mclass[39m=[32m"row"[39m
                 [36m>[39m
@@ -370,12 +255,14 @@ FAIL src/App.test.tsx
               [36m</div>[39m
             [36m</div>[39m
           [36m</div>[39m
+          [36m<p />[39m
           [36m<button[39m
-            [33mclass[39m=[32m"m-4 btn btn-success"[39m
+            [33mclass[39m=[32m"btn btn-light"[39m
             [33mtype[39m=[32m"button"[39m
           [36m>[39m
             [0mAdd New Semester[0m
           [36m</button>[39m
+          [36m<p />[39m
         [36m</div>[39m
       [36m</div>[39m
     [36m</body>[39m
@@ -405,8 +292,8 @@ All files            |   43.39 |       30 |   27.27 |   47.91 |
  src                 |   47.82 |        0 |   23.07 |   61.11 |                   
   App.tsx            |   47.82 |        0 |   23.07 |   61.11 | 36-54             
  src/Components      |      40 |       50 |      30 |      40 |                   
-  AddSemester.tsx    |   42.85 |      100 |      25 |   42.85 | 22-28,49-62       
-  DisplayCourses.tsx |   42.85 |       50 |      20 |   42.85 | 21-32             
+  AddSemester.tsx    |   42.85 |      100 |      25 |   42.85 | 22-28,46-59       
+  DisplayCourses.tsx |   42.85 |       50 |      20 |   42.85 | 22-33             
   SemesterEditor.tsx |       0 |      100 |       0 |       0 | 17-81             
   SemesterList.tsx   |     100 |      100 |     100 |     100 |                   
   SemesterView.tsx   |   66.66 |       50 |      50 |   66.66 | 32-36             
@@ -417,5 +304,5 @@ All files            |   43.39 |       30 |   27.27 |   47.91 |
 Test Suites: 1 failed, 1 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        2.478 s
+Time:        2.373 s
 Ran all test suites.
