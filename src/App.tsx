@@ -66,7 +66,7 @@ function App(): JSX.Element {
             <img src={headerbackground} width="100%" height="230" />
             <div>
                 <p></p>
-                <Button className="App-helpbutton" onClick={handleOpen}>
+                <Button variant="light" onClick={handleOpen}>
                     Click here for how to begin!
                 </Button>
                 <Modal show={open} onHide={handleClose}>
@@ -99,13 +99,11 @@ function App(): JSX.Element {
             ></SemesterList>
 
             {/* Add Semester Button */}
-            <Button
-                variant="success"
-                className="m-4"
-                onClick={handleShowAddModal}
-            >
+            <p></p>
+            <Button variant="light" onClick={handleShowAddModal}>
                 Add New Semester
             </Button>
+            <p></p>
 
             {/* Add Semester */}
             <AddSemester
