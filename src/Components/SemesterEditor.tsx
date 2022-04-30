@@ -19,10 +19,6 @@ export function SemesterEditor({
         semester.description
     );
 
-    // const [addSem, setAddSem] = useState(false);
-    // const handleCloseAddModal = () => setAddSem(false);
-    // const handleShowAddModal = () => setAddSem(true);
-
     function saveSemester() {
         editSemester(semester.id, {
             ...semester,

@@ -7,30 +7,37 @@ import "./App.css";
 import { AddSemester } from "./Components/AddSemester";
 import { SemesterList } from "./Components/SemesterList";
 import semester_json from "./Data/semester_data.json";
+import course_data_json from "./Data/course_data.json";
 import { Semester } from "./Interfaces/semester";
 import { Course } from "./Interfaces/courses";
 
+//type CourseRecord = Record<string, Record<string, Course>>;
+//const jsonObject = course_data_json as CourseRecord;
 const SEMESTER = semester_json.map(
     (semester): Semester => ({
         ...semester,
         courseArray: semester.courseArray.map(
             (course): Course => ({
-                courseCode: course.code,
-                courseName: course.name,
-                courseDesc: course.descr,
-                courseCredits: course.credits,
-                coursePrereq: course.preReq,
-                courseRestrict: course.restrict,
-                courseBreadth: course.breadth,
-                courseTyp: course.typ
+                code: course.code,
+                name: course.name,
+                descr: course.descr,
+                credits: course.credits,
+                preReq: course.preReq,
+                restrict: course.restrict,
+                breadth: course.breadth,
+                typ: course.typ
             })
         )
     })
 );
 
+type CourseRecord = Record<string, Record<string, Course>>;
+const ALLCOURSES: CourseRecord = course_data_json;
+
 function App(): JSX.Element {
     const [sem, setSem] = useState<Semester[]>(SEMESTER);
     const [showAddModal, setShowAddModal] = useState(false);
+    const [courses, setCourses] = useState<CourseRecord>(ALLCOURSES);
 
     function addSemester(newSem: Semester) {
         const existing = sem.find(
