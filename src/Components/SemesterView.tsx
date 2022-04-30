@@ -44,19 +44,29 @@ export function SemesterView({
         <Container>
             <Row>
                 <Col>
-                    <h3> Semester Title: {semester.title} </h3>
+                    <h3>
+                        <b> Semester Title: </b> {semester.title}
+                    </h3>
                 </Col>
             </Row>
             <Row>
                 <Col>
-                    <h6> Semester ID: {semester.id} </h6>
+                    <h6>
+                        <b> Semester ID: </b> {semester.id}
+                    </h6>
                 </Col>
             </Row>
             <Row>
-                <p> Semester Description: {semester.description} </p>
+                <p>
+                    <b> Semester Description: </b> {semester.description}
+                </p>
             </Row>
             <Row>
-                <p>Courses:</p>
+                <p>
+                    <u>
+                        <b>Courses</b>
+                    </u>
+                </p>
                 {semester.courseArray.map((c: Course) => (
                     <Col key={c.code} sm="4">
                         <DisplayCourses
