@@ -8,6 +8,7 @@ import { Semester } from "../Interfaces/semester";
 import { DisplayCourses } from "./DisplayCourses";
 
 import { SemesterEditor } from "./SemesterEditor";
+import { AddCourse } from "./AddCourse";
 
 export function SemesterView({
     semester,
@@ -20,13 +21,9 @@ export function SemesterView({
 }): JSX.Element {
     const [visible, setVisible] = useState<boolean>(false);
     const [edit, setEdit] = useState<boolean>(false);
-    // const [published, setPublished] = useState<boolean>(true);
-
-    /*
-    function flipShowUnPublished(): void {
-        setPublished(!published);
-    }
-    */
+    const [showAddModal, setShowAddModal] = useState(false);
+    const handleCloseAddModal = () => setShowAddModal(false);
+    const handleShowAddModal = () => setShowAddModal(true);
 
     function flipVisibility(): void {
         setVisible(!visible);
@@ -61,8 +58,11 @@ export function SemesterView({
             <Row>
                 <p>Courses:</p>
                 {semester.courseArray.map((c: Course) => (
-                    <Col key={c.courseCode} sm="4">
-                        <DisplayCourses course={c}></DisplayCourses>
+                    <Col key={c.code} sm="4">
+                        <DisplayCourses
+                            course={c}
+                            courseSemester={semester}
+                        ></DisplayCourses>
                     </Col>
                 ))}
             </Row>
@@ -73,12 +73,18 @@ export function SemesterView({
                     {" "}
                     Edit Semester Details{" "}
                 </Button>
+
+                <Button onClick={handleShowAddModal} variant="success">
+                    Add Course
+                </Button>
+                <p></p>
+
+                <AddCourse
+                    show={showAddModal}
+                    handleClose={handleCloseAddModal}
+                    currSemester={semester}
+                ></AddCourse>
             </Row>
         </Container>
     );
 }
-/*
-{semester.courseArray.map((c: Course) => (
-                    <DisplayCourses course={c}></DisplayCourses>
-                ))}
-*/
