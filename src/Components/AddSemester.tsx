@@ -1,10 +1,11 @@
 import React, { useState } from "react";
 import { Button, Modal, Form, Col, Row } from "react-bootstrap";
 import { Semester } from "../Interfaces/semester";
-
 import { Course } from "../Interfaces/courses";
 
-import "../App.css";
+type ChangeEvent = React.ChangeEvent<
+    HTMLTextAreaElement | HTMLInputElement | HTMLSelectElement
+>;
 
 export function AddSemester({
     show,
@@ -14,19 +15,26 @@ export function AddSemester({
     show: boolean;
     handleClose: () => void;
     addSemester: (newSemester: Semester) => void;
-}) {
-    const [title, setTitle] = useState<string>("");
-    const [id, setId] = useState<string>("");
+}): JSX.Element {
+    // const [title, setTitle] = useState<string>("");
+    // const [id, setId] = useState<string>("");
+    const seasonsList = ["Fall", "Spring", "Summer", "Winter"];
+    const [season, setSeason] = useState<string>(seasonsList[0]);
+    const [year, setYear] = useState<number>(2022);
 
     function saveChanges() {
         addSemester({
-            id: id,
-            title: title,
+            id: season[0].toLowerCase() + year,
+            title: season + " " + year,
             description: "",
             courseArray: [] as Course[]
         });
         handleClose();
     }
+
+    const changeSeason = (event: ChangeEvent) => {
+        setSeason(event.target.value);
+    };
 
     return (
         <Modal show={show} onHide={handleClose} animation={false}>
@@ -36,27 +44,38 @@ export function AddSemester({
             <Modal.Body>
                 <Form.Group controlId="formSemesterTitle" as={Row}>
                     <Form.Label column sm={3}>
-                        Semester Title:
+                        Semester Season:
                     </Form.Label>
+                    {/*
                     <Col>
                         <Form.Control
-                            value={title}
+                            value={season}
                             onChange={(
                                 event: React.ChangeEvent<HTMLInputElement>
-                            ) => setTitle(event.target.value)}
+                            ) => setSeason(event.target.value)}
                         />
+                            </Col> */}
+                    <Col>
+                        <Form.Select value={season} onChange={changeSeason}>
+                            {seasonsList.map((choice: string) => (
+                                <option key={choice} value={choice}>
+                                    {choice}
+                                </option>
+                            ))}
+                        </Form.Select>
                     </Col>
                 </Form.Group>
                 <Form.Group controlId="formSemesterId" as={Row}>
                     <Form.Label column sm={3}>
-                        Semester ID:
+                        Semester Year:
                     </Form.Label>
                     <Col>
                         <Form.Control
-                            value={id}
+                            type="number"
+                            value={year}
                             onChange={(
                                 event: React.ChangeEvent<HTMLInputElement>
-                            ) => setId(event.target.value)}
+                            ) => setYear(parseInt(event.target.value))}
                         />
                     </Col>
                 </Form.Group>
