@@ -72,7 +72,7 @@ export function AddPlan({
                             onChange={(
                                 event: React.ChangeEvent<HTMLInputElement>
                             ) => {
-                                setTitle(parseInt(event.target.value));
+                                setTitle(event.target.value);
                                 // setAlert("");
                             }}
                         />
