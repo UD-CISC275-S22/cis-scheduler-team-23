@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Col, Button, Modal } from "react-bootstrap";
+import { Button, Modal } from "react-bootstrap";
 import headerbackground from "./Pictures/headerbackground.jpeg";
 import "./App.css";
 
@@ -11,7 +11,7 @@ import { Course } from "./Interfaces/courses";
 // import { AddPlan } from "./Components/AddPlan";
 
 import semester_json from "./Data/semester_data.json";
-import course_data_json from "./Data/course_data.json";
+// import course_data_json from "./Data/course_data.json";
 
 //type CourseRecord = Record<string, Record<string, Course>>;
 //const jsonObject = course_data_json as CourseRecord;
@@ -33,13 +33,13 @@ const SEMESTER = semester_json.map(
     })
 );
 
-type CourseRecord = Record<string, Record<string, Course>>;
-const ALLCOURSES: CourseRecord = course_data_json;
+// type CourseRecord = Record<string, Record<string, Course>>;
+// const ALLCOURSES: CourseRecord = course_data_json;
 
 function App(): JSX.Element {
     const [sem, setSem] = useState<Semester[]>(SEMESTER);
     const [showAddModal, setShowAddModal] = useState(false);
-    const [courses, setCourses] = useState<CourseRecord>(ALLCOURSES);
+    // const [courses, setCourses] = useState<CourseRecord>(ALLCOURSES);
 
     function addSemester(newSem: Semester) {
         const existing = sem.find(
