@@ -6,10 +6,12 @@ import "./App.css";
 // import { DisplayCourses } from "./Components/DisplayCourses";
 import { AddSemester } from "./Components/AddSemester";
 import { SemesterList } from "./Components/SemesterList";
-import semester_json from "./Data/semester_data.json";
-import course_data_json from "./Data/course_data.json";
 import { Semester } from "./Interfaces/semester";
 import { Course } from "./Interfaces/courses";
+import { AddPlan } from "./Components/AddPlan";
+
+import semester_json from "./Data/semester_data.json";
+import course_data_json from "./Data/course_data.json";
 
 //type CourseRecord = Record<string, Record<string, Course>>;
 //const jsonObject = course_data_json as CourseRecord;
