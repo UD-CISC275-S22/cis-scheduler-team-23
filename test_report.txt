@@ -3,7 +3,7 @@
 > react-scripts test "--coverage"
 
 FAIL src/App.test.tsx
-  ✕ renders the course name somewhere (90 ms)
+  ✕ renders the course name somewhere (133 ms)
 
   ● renders the course name somewhere
 
@@ -31,9 +31,6 @@ FAIL src/App.test.tsx
             [36m<p />[39m
           [36m</div>[39m
           [36m<div[39m
-            [33mclass[39m=[32m"col"[39m
-          [36m/>[39m
-          [36m<div[39m
             [33mclass[39m=[32m"vstack gap-3"[39m
           [36m>[39m
             [36m<div[39m
@@ -49,9 +46,11 @@ FAIL src/App.test.tsx
                     [33mclass[39m=[32m"col"[39m
                   [36m>[39m
                     [36m<h3>[39m
-                      [0m Semester Title: [0m
-                      [0mSpring 2022[0m
+                      [36m<b>[39m
+                        [0m Semester Title: [0m
+                      [36m</b>[39m
                       [0m [0m
+                      [0mSpring 2022[0m
                     [36m</h3>[39m
                   [36m</div>[39m
                 [36m</div>[39m
@@ -62,9 +61,11 @@ FAIL src/App.test.tsx
                     [33mclass[39m=[32m"col"[39m
                   [36m>[39m
                     [36m<h6>[39m
-                      [0m Semester ID: [0m
-                      [0ms2022[0m
+                      [36m<b>[39m
+                        [0m Semester ID: [0m
+                      [36m</b>[39m
                       [0m [0m
+                      [0ms2022[0m
                     [36m</h6>[39m
                   [36m</div>[39m
                 [36m</div>[39m
@@ -72,16 +73,22 @@ FAIL src/App.test.tsx
                   [33mclass[39m=[32m"row"[39m
                 [36m>[39m
                   [36m<p>[39m
-                    [0m Semester Description: [0m
-                    [0mSemester description[0m
+                    [36m<b>[39m
+                      [0m Semester Description: [0m
+                    [36m</b>[39m
                     [0m [0m
+                    [0mSemester description[0m
                   [36m</p>[39m
                 [36m</div>[39m
                 [36m<div[39m
                   [33mclass[39m=[32m"row"[39m
                 [36m>[39m
                   [36m<p>[39m
-                    [0mCourses:[0m
+                    [36m<u>[39m
+                      [36m<b>[39m
+                        [0mCourses[0m
+                      [36m</b>[39m
+                    [36m</u>[39m
                   [36m</p>[39m
                   [36m<div[39m
                     [33mclass[39m=[32m"col-sm-4"[39m
@@ -150,6 +157,13 @@ FAIL src/App.test.tsx
                     [0mEdit Semester Details[0m
                     [0m [0m
                   [36m</button>[39m
+                  [36m<button[39m
+                    [33mclass[39m=[32m"btn btn-success"[39m
+                    [33mtype[39m=[32m"button"[39m
+                  [36m>[39m
+                    [0mAdd Course[0m
+                  [36m</button>[39m
+                  [36m<p />[39m
                 [36m</div>[39m
               [36m</div>[39m
             [36m</div>[39m
@@ -166,9 +180,11 @@ FAIL src/App.test.tsx
                     [33mclass[39m=[32m"col"[39m
                   [36m>[39m
                     [36m<h3>[39m
-                      [0m Semester Title: [0m
-                      [0mFall 2022[0m
+                      [36m<b>[39m
+                        [0m Semester Title: [0m
+                      [36m</b>[39m
                       [0m [0m
+                      [0mFall 2022[0m
                     [36m</h3>[39m
                   [36m</div>[39m
                 [36m</div>[39m
@@ -179,9 +195,11 @@ FAIL src/App.test.tsx
                     [33mclass[39m=[32m"col"[39m
                   [36m>[39m
                     [36m<h6>[39m
-                      [0m Semester ID: [0m
-                      [0mf2022[0m
+                      [36m<b>[39m
+                        [0m Semester ID: [0m
+                      [36m</b>[39m
                       [0m [0m
+                      [0mf2022[0m
                     [36m</h6>[39m
                   [36m</div>[39m
                 [36m</div>[39m
@@ -189,16 +207,22 @@ FAIL src/App.test.tsx
                   [33mclass[39m=[32m"row"[39m
                 [36m>[39m
                   [36m<p>[39m
-                    [0m Semester Description: [0m
-                    [0mSemester description[0m
+                    [36m<b>[39m
+                      [0m Semester Description: [0m
+                    [36m</b>[39m
                     [0m [0m
+                    [0mSemester description[0m
                   [36m</p>[39m
                 [36m</div>[39m
                 [36m<div[39m
                   [33mclass[39m=[32m"row"[39m
                 [36m>[39m
                   [36m<p>[39m
-                    [0mCourses:[0m
+                    [36m<u>[39m
+                      [36m<b>[39m
+                        [0mCourses[0m
+                      [36m</b>[39m
+                    [36m</u>[39m
                   [36m</p>[39m
                   [36m<div[39m
                     [33mclass[39m=[32m"col-sm-4"[39m
@@ -251,6 +275,13 @@ FAIL src/App.test.tsx
                     [0mEdit Semester Details[0m
                     [0m [0m
                   [36m</button>[39m
+                  [36m<button[39m
+                    [33mclass[39m=[32m"btn btn-success"[39m
+                    [33mtype[39m=[32m"button"[39m
+                  [36m>[39m
+                    [0mAdd Course[0m
+                  [36m</button>[39m
+                  [36m<p />[39m
                 [36m</div>[39m
               [36m</div>[39m
             [36m</div>[39m
@@ -288,21 +319,25 @@ FAIL src/App.test.tsx
 ---------------------|---------|----------|---------|---------|-------------------
 File                 | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 ---------------------|---------|----------|---------|---------|-------------------
-All files            |   43.39 |       30 |   27.27 |   47.91 |                   
+All files            |   34.61 |       25 |   21.81 |   37.89 |                   
  src                 |   47.82 |        0 |   23.07 |   61.11 |                   
-  App.tsx            |   47.82 |        0 |   23.07 |   61.11 | 36-54             
- src/Components      |      40 |       50 |      30 |      40 |                   
-  AddSemester.tsx    |   42.85 |      100 |      25 |   42.85 | 22-28,46-59       
-  DisplayCourses.tsx |   42.85 |       50 |      20 |   42.85 | 22-33             
-  SemesterEditor.tsx |       0 |      100 |       0 |       0 | 17-81             
+  App.tsx            |   47.82 |        0 |   23.07 |   61.11 | 45-63             
+ src/Components      |   30.86 |    31.25 |   21.42 |   32.46 |                   
+  AddCourse.tsx      |   33.33 |      100 |   33.33 |   33.33 | 24-28,46          
+  AddPlan.tsx        |       0 |        0 |       0 |       0 | 16-93             
+  AddSemester.tsx    |      60 |      100 |      40 |      60 | 26-32,36,78       
+  DeleteCourse.tsx   |       0 |        0 |       0 |       0 | 20-31             
+  DisplayCourses.tsx |   38.88 |       50 |   15.38 |   43.75 | 23-47             
+  SemesterEditor.tsx |       0 |      100 |       0 |       0 | 17-77             
   SemesterList.tsx   |     100 |      100 |     100 |     100 |                   
-  SemesterView.tsx   |   66.66 |       50 |      50 |   66.66 | 32-36             
+  SemesterView.tsx   |   63.63 |       50 |   33.33 |   77.77 | 29-33             
  src/Interfaces      |       0 |        0 |       0 |       0 |                   
   courses.ts         |       0 |        0 |       0 |       0 |                   
+  plans.ts           |       0 |        0 |       0 |       0 |                   
   semester.ts        |       0 |        0 |       0 |       0 |                   
 ---------------------|---------|----------|---------|---------|-------------------
 Test Suites: 1 failed, 1 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        2.373 s
+Time:        3.518 s
 Ran all test suites.
