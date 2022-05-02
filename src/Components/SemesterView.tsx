@@ -19,14 +19,18 @@ export function SemesterView({
     editSemester: (id: string, newSemester: Semester) => void;
     deleteSemester: (id: string) => void;
 }): JSX.Element {
-    const [visible, setVisible] = useState<boolean>(false);
+    // const [visible, setVisible] = useState<boolean>(false);
     const [edit, setEdit] = useState<boolean>(false);
     const [showAddModal, setShowAddModal] = useState(false);
     const handleCloseAddModal = () => setShowAddModal(false);
     const handleShowAddModal = () => setShowAddModal(true);
 
+    {
+        /*
     function flipVisibility(): void {
         setVisible(!visible);
+    }
+*/
     }
 
     function changeEditing() {
@@ -78,7 +82,7 @@ export function SemesterView({
             </Row>
             <p></p>
             <Row>
-                <Button onClick={flipVisibility}> Show/Hide Semester </Button>
+                {/* <Button onClick={flipVisibility}> Show/Hide Semester </Button> */}
                 <Button onClick={changeEditing} variant="danger">
                     {" "}
                     Edit Semester Details{" "}
