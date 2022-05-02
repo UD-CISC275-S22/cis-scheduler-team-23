@@ -23,12 +23,21 @@ export function AddSemester({
     const [year, setYear] = useState<number>(2022);
 
     function saveChanges() {
-        addSemester({
-            id: season[0].toLowerCase() + year,
-            title: season + " " + year,
-            description: "",
-            courseArray: [] as Course[]
-        });
+        if (season === "Summer") {
+            addSemester({
+                id: season.slice(0, 3).toLowerCase() + year,
+                title: season + " " + year,
+                description: "",
+                courseArray: [] as Course[]
+            });
+        } else {
+            addSemester({
+                id: season[0].toLowerCase() + year,
+                title: season + " " + year,
+                description: "",
+                courseArray: [] as Course[]
+            });
+        }
         handleClose();
     }
 
