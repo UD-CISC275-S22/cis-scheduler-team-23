@@ -17,14 +17,12 @@ export function DeleteCourse({
     currSemester: Semester;
 }) {
     function saveChanges() {
-        console.log(currSemester.courseArray);
         const courseIndex = currSemester.courseArray.findIndex(
             (c: Course): boolean => c.code === currCourse.code
         );
         if (courseIndex > -1) {
             currSemester.courseArray.splice(courseIndex, 1);
         }
-        console.log(currSemester.courseArray);
         handleClose();
     }
 
