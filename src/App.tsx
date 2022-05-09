@@ -3,18 +3,20 @@ import { Button, Modal } from "react-bootstrap";
 import headerbackground from "./Pictures/headerbackground.jpeg";
 import "./App.css";
 
-// import { DisplayCourses } from "./Components/DisplayCourses";
 import { AddSemester } from "./Components/AddSemester";
 import { SemesterList } from "./Components/SemesterList";
+// import { AddPlan } from "./Components/AddPlan";
+// import { DisplayCourses } from "./Components/DisplayCourses";
+
 import { Semester } from "./Interfaces/semester";
 import { Course } from "./Interfaces/courses";
-// import { AddPlan } from "./Components/AddPlan";
 
 import semester_json from "./Data/semester_data.json";
 // import course_data_json from "./Data/course_data.json";
 
 //type CourseRecord = Record<string, Record<string, Course>>;
 //const jsonObject = course_data_json as CourseRecord;
+
 const SEMESTER = semester_json.map(
     (semester): Semester => ({
         ...semester,
@@ -70,10 +72,6 @@ function App(): JSX.Element {
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
 
-    // const [addPlan, setAddPlan] = useState<boolean>(false);
-    // const handleCloseAddPlanModal = () => setAddPlan(false);
-    // const handleShowAddPlanModal = () => setAddPlan(true);
-
     return (
         <div className="App">
             <img src={headerbackground} width="100%" height="230" />
@@ -99,25 +97,6 @@ function App(): JSX.Element {
                 </Modal>
                 <p></p>
             </div>
-            {/*
-            <div style={{ textAlign: "center", margin: "auto" }}>
-                <Button
-                    variant="contained"
-                    color="success"
-                    className="m-4"
-                    onClick={handleShowAddPlanModal}
-                    style={{ width: "50%" }}
-                >
-                    Add Plan
-                </Button>
-                <AddPlan
-                    show={addPlan}
-                    handleClose={handleCloseAddPlanModal}
-                    // plans={plans}
-                    // setPlans={setPlans}
-                ></AddPlan>
-            </div>
-            */}
             <SemesterList
                 semester={sem}
                 editSemester={editSemester}
