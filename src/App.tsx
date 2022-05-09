@@ -8,9 +8,12 @@ import { AddSemester } from "./Components/AddSemester";
 import { SemesterList } from "./Components/SemesterList";
 import { Semester } from "./Interfaces/semester";
 import { Course } from "./Interfaces/courses";
+import { CoursePool } from "./Interfaces/coursepool";
+import course_data_json from "./Data/course_data.json";
 // import { AddPlan } from "./Components/AddPlan";
 
 import semester_json from "./Data/semester_data.json";
+import { DisplayCoursePool } from "./Components/DisplayCoursePool";
 // import course_data_json from "./Data/course_data.json";
 
 //type CourseRecord = Record<string, Record<string, Course>>;
@@ -66,6 +69,10 @@ function App(): JSX.Element {
     const handleCloseAddModal = () => setShowAddModal(false);
     const handleShowAddModal = () => setShowAddModal(true);
 
+    const [showPoolModal, setShowPoolModal] = useState(false);
+    const handleClosePoolModal = () => setShowPoolModal(false);
+    const handleShowPoolModal = () => setShowPoolModal(true);
+
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
@@ -73,6 +80,14 @@ function App(): JSX.Element {
     // const [addPlan, setAddPlan] = useState<boolean>(false);
     // const handleCloseAddPlanModal = () => setAddPlan(false);
     // const handleShowAddPlanModal = () => setAddPlan(true);
+
+    type CourseRecord = Record<string, Record<string, Course>>;
+    const ALLCOURSES: CourseRecord = course_data_json;
+    const pool: CoursePool = {
+        semesters: sem,
+        courses: ALLCOURSES
+    };
+    //const cs_courses = course_data_json["CISC"];
 
     return (
         <div className="App">
@@ -118,6 +133,17 @@ function App(): JSX.Element {
                 ></AddPlan>
             </div>
             */}
+            <Button variant="secondary" onClick={handleShowPoolModal}>
+                Display Course Pool
+            </Button>
+            <p></p>
+
+            {/* Add Semester */}
+            <DisplayCoursePool
+                show={showPoolModal}
+                handleClose={handleClosePoolModal}
+                coursepool={pool}
+            ></DisplayCoursePool>
             <SemesterList
                 semester={sem}
                 editSemester={editSemester}
