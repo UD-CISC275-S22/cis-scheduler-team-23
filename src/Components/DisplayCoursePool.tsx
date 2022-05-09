@@ -1,12 +1,7 @@
 import React, { useState } from "react";
-import { Button, Modal, Form, Col, Row } from "react-bootstrap";
-import { Semester } from "../Interfaces/semester";
+import { Modal, Form } from "react-bootstrap";
 import { Course } from "../Interfaces/courses";
 import { CoursePool } from "../Interfaces/coursepool";
-
-type ChangeEvent = React.ChangeEvent<
-    HTMLTextAreaElement | HTMLInputElement | HTMLSelectElement
->;
 
 export function DisplayCoursePool({
     show,
@@ -17,15 +12,12 @@ export function DisplayCoursePool({
     handleClose: () => void;
     coursepool: CoursePool;
 }): JSX.Element {
-    // const [title, setTitle] = useState<string>("");
-    // const [id, setId] = useState<string>("");
-
     const [course, setCourse] = useState(
         coursepool.courses["CISC"]["CISC 101"]
     );
-    const [courses, setCourses] = useState<
-        Record<string, Record<string, Course>>
-    >(coursepool.courses);
+    const [courses] = useState<Record<string, Record<string, Course>>>(
+        coursepool.courses
+    );
 
     function updateCourse(event: React.ChangeEvent<HTMLSelectElement>) {
         const courseInfo = event.target.value.split(" ", 1);
@@ -41,15 +33,12 @@ export function DisplayCoursePool({
                     <Form.Label>Choose a course</Form.Label>
                     <Form.Select value={course.code} onChange={updateCourse}>
                         {Object.entries(courses).map(
-                            ([coursegroup, group_record]: [
+                            ([, group_record]: [
                                 string,
                                 Record<string, Course>
                             ]) =>
                                 Object.entries(group_record).map(
-                                    ([coursename, course_value]: [
-                                        string,
-                                        Course
-                                    ]) => (
+                                    ([, course_value]: [string, Course]) => (
                                         <option
                                             key={course_value.code}
                                             value={course_value.code}
