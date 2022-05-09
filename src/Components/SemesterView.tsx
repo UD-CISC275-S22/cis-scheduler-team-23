@@ -9,6 +9,7 @@ import { DisplayCourses } from "./DisplayCourses";
 
 import { SemesterEditor } from "./SemesterEditor";
 import { AddCourse } from "./AddCourse";
+import { ClearSemester } from "./ClearSemester";
 
 export function SemesterView({
     semester,
@@ -24,6 +25,9 @@ export function SemesterView({
     const [showAddModal, setShowAddModal] = useState(false);
     const handleCloseAddModal = () => setShowAddModal(false);
     const handleShowAddModal = () => setShowAddModal(true);
+    const handleCloseClearModal = () => setShowClearModal(false);
+    const handleShowClearModal = () => setShowClearModal(true);
+    const [showClearModal, setShowClearModal] = useState(false);
 
     {
         /*
@@ -91,13 +95,22 @@ export function SemesterView({
                 <Button onClick={handleShowAddModal} variant="success">
                     Add Course
                 </Button>
-                <p></p>
 
                 <AddCourse
                     show={showAddModal}
                     handleClose={handleCloseAddModal}
                     currSemester={semester}
                 ></AddCourse>
+
+                <Button onClick={handleShowClearModal} variant="warning">
+                    Clear All Courses
+                </Button>
+
+                <ClearSemester
+                    show={showClearModal}
+                    handleClose={handleCloseClearModal}
+                    currSemester={semester}
+                ></ClearSemester>
             </Row>
         </Container>
     );
