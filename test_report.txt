@@ -3,7 +3,7 @@
 > react-scripts test "--coverage"
 
 FAIL src/App.test.tsx
-  ✕ renders the course name somewhere (132 ms)
+  ✕ renders the course name somewhere (194 ms)
 
   ● renders the course name somewhere
 
@@ -299,6 +299,12 @@ FAIL src/App.test.tsx
             [0mAdd New Semester[0m
           [36m</button>[39m
           [36m<p />[39m
+          [36m<button[39m
+            [33mclass[39m=[32m"btn btn-light"[39m
+            [33mtype[39m=[32m"button"[39m
+          [36m>[39m
+            [0mADD PLAN[0m
+          [36m</button>[39m
         [36m</div>[39m
       [36m</div>[39m
     [36m</body>[39m
@@ -324,9 +330,9 @@ FAIL src/App.test.tsx
 ------------------------|---------|----------|---------|---------|-------------------
 File                    | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 ------------------------|---------|----------|---------|---------|-------------------
-All files               |   39.07 |    27.27 |    25.8 |   42.75 |                   
- src                    |   53.33 |        0 |      20 |   69.56 |                   
-  App.tsx               |   53.33 |        0 |      20 |   69.56 | 52-70             
+All files               |   38.21 |    23.07 |      25 |   41.37 |                   
+ src                    |   47.22 |        0 |   17.64 |   56.66 |                   
+  App.tsx               |   47.22 |        0 |   17.64 |   56.66 | 54-63,76-98       
  src/Components         |   35.53 |    33.33 |   27.65 |   37.39 |                   
   AddCourse.tsx         |   33.33 |      100 |   33.33 |   33.33 | 24-28,46          
   AddSemester.tsx       |      50 |        0 |      40 |      50 | 26-41,45,87       
@@ -347,5 +353,5 @@ All files               |   39.07 |    27.27 |    25.8 |   42.75 |
 Test Suites: 1 failed, 1 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        2.712 s
+Time:        3.964 s
 Ran all test suites.
