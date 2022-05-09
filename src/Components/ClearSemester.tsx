@@ -5,24 +5,17 @@ import { Course } from "../Interfaces/courses";
 
 import "../App.css";
 
-export function DeleteCourse({
+export function ClearSemester({
     show,
     handleClose,
-    currCourse,
     currSemester
 }: {
     show: boolean;
     handleClose: () => void;
-    currCourse: Course;
     currSemester: Semester;
 }) {
     function saveChanges() {
-        const courseIndex = currSemester.courseArray.findIndex(
-            (c: Course): boolean => c.code === currCourse.code
-        );
-        if (courseIndex > -1) {
-            currSemester.courseArray.splice(courseIndex, 1);
-        }
+        currSemester.courseArray = [] as Course[];
         handleClose();
     }
 
@@ -31,7 +24,8 @@ export function DeleteCourse({
             <Modal.Header closeButton>
                 <Modal.Title>
                     {" "}
-                    Are you sure you want to delete this course?{" "}
+                    Are you sure you want to remove all courses from this
+                    semester?{" "}
                 </Modal.Title>
             </Modal.Header>
             <Modal.Footer>

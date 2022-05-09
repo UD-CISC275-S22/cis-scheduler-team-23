@@ -5,6 +5,7 @@ import { Course } from "../Interfaces/courses";
 import { Semester } from "../Interfaces/semester";
 import "../App.css";
 import { DeleteCourse } from "./DeleteCourse";
+import { DefaultCourse } from "./DefaultCourse";
 
 export function DisplayCourses({
     course,
@@ -26,7 +27,11 @@ export function DisplayCourses({
     const [showAddModal, setShowAddModal] = useState(false);
     const handleCloseAddModal = () => setShowAddModal(false);
     const handleShowAddModal = () => setShowAddModal(true);
-
+    if (course.default_code) {
+        course.default_code.push(course.code);
+    } else {
+        course.default_code = [course.code];
+    }
     function updateCode(event: React.ChangeEvent<HTMLInputElement>) {
         course.code = event.target.value;
         setCode(event.target.value);
@@ -59,12 +64,35 @@ export function DisplayCourses({
         course.typ = event.target.value;
         setTyp(event.target.value);
     }
-    function updateEditing(event: React.ChangeEvent<HTMLInputElement>) {
-        setIsEditing(event.target.checked);
+    function updateEditing() {
+        setIsEditing(!isEditing);
     }
     function flipVisibility(): void {
         setVisible(!visible);
+        setIsEditing(false);
     }
+    function restoreDefault(): void {
+        if (course.default_code) {
+            DefaultCourse(course, course.default_code);
+        }
+        setCode(course.code);
+        setName(course.name);
+        setDescr(course.descr);
+        setCredits(course.credits);
+        setPrereq(course.preReq);
+        setRestrict(course.restrict);
+        setBreadth(course.breadth);
+        setTyp(course.typ);
+    }
+    /*
+    <Form.Check
+                                type="switch"
+                                id="is-editing"
+                                label="Edit Course"
+                                checked={isEditing}
+                                onChange={updateEditing}
+                            />
+                            */
 
     return (
         <div>
@@ -75,20 +103,21 @@ export function DisplayCourses({
                     <Button onClick={flipVisibility}> {course.name} </Button>
                     {visible && (
                         <div>
-                            <Form.Check
-                                type="switch"
-                                id="is-edit-mode"
-                                label="Edit Course"
-                                checked={isEditing}
-                                onChange={updateEditing}
-                            />
+                            <p></p>
+                            <Button
+                                id="is-editing"
+                                onClick={updateEditing}
+                                variant="warning"
+                            >
+                                Edit Course
+                            </Button>
+                            <p></p>
                             <Button
                                 onClick={handleShowAddModal}
                                 variant="danger"
                             >
                                 Delete Course
                             </Button>
-                            <p></p>
 
                             <DeleteCourse
                                 show={showAddModal}
@@ -96,6 +125,11 @@ export function DisplayCourses({
                                 currCourse={course}
                                 currSemester={courseSemester}
                             ></DeleteCourse>
+                            <p></p>
+                            <Button onClick={restoreDefault} variant="info">
+                                Reset Course To Default
+                            </Button>
+                            <p></p>
                             {!isEditing && (
                                 <div>
                                     <div>Course Code: {course.code}</div>
