@@ -5,22 +5,15 @@ import "./App.css";
 
 import { AddSemester } from "./Components/AddSemester";
 import { SemesterList } from "./Components/SemesterList";
-// import { AddPlan } from "./Components/AddPlan";
-// import { DisplayCourses } from "./Components/DisplayCourses";
+import { DisplayCoursePool } from "./Components/DisplayCoursePool";
 
 import { Semester } from "./Interfaces/semester";
 import { Course } from "./Interfaces/courses";
-
+import { Plan } from "./Interfaces/plans";
 import { CoursePool } from "./Interfaces/coursepool";
+
 import course_data_json from "./Data/course_data.json";
-// import { AddPlan } from "./Components/AddPlan";
-
 import semester_json from "./Data/semester_data.json";
-import { DisplayCoursePool } from "./Components/DisplayCoursePool";
-// import course_data_json from "./Data/course_data.json";
-
-//type CourseRecord = Record<string, Record<string, Course>>;
-//const jsonObject = course_data_json as CourseRecord;
 
 const SEMESTER = semester_json.map(
     (semester): Semester => ({
@@ -44,30 +37,67 @@ const SEMESTER = semester_json.map(
 // const ALLCOURSES: CourseRecord = course_data_json;
 
 function App(): JSX.Element {
-    const [sem, setSem] = useState<Semester[]>(SEMESTER);
+    const [planArray, setPlanArray] = useState<Plan[]>([
+        {
+            title: "test plan",
+            id: 0,
+            semesters: SEMESTER
+        },
+        {
+            title: "test plan2",
+            id: 1,
+            semesters: [...SEMESTER]
+        }
+    ]);
+
+    function updatePlan() {
+        setPlanArray(
+            planArray.map(
+                (usedPlan: Plan): Plan =>
+                    plan.id === usedPlan.id ? plan : usedPlan
+            )
+        );
+        if (plan.id === 0) {
+            setPlan(planArray[1]);
+        } else {
+            setPlan(planArray[0]);
+        }
+    }
+    //const [semIndex, setSemIndex] = useState<number>(0);
+    const [plan, setPlan] = useState<Plan>({
+        title: "test plan",
+        id: 0,
+        semesters: SEMESTER
+    });
     const [showAddModal, setShowAddModal] = useState(false);
     // const [courses, setCourses] = useState<CourseRecord>(ALLCOURSES);
 
     function addSemester(newSem: Semester) {
-        const existing = sem.find(
+        const existing = plan.semesters.find(
             (semester: Semester): boolean => semester.id === newSem.id
         );
         if (existing === undefined) {
-            setSem([...sem, newSem]);
+            setPlan({ ...plan, semesters: [...plan.semesters, newSem] });
         }
     }
 
     function editSemester(id: string, newSem: Semester) {
-        setSem(
-            sem.map(
+        setPlan({
+            ...plan,
+            semesters: plan.semesters.map(
                 (semester: Semester): Semester =>
                     semester.id === id ? newSem : semester
             )
-        );
+        });
     }
 
     function deleteSemester(id: string) {
-        setSem(sem.filter((semester: Semester): boolean => semester.id !== id));
+        setPlan({
+            ...plan,
+            semesters: plan.semesters.filter(
+                (semester: Semester): boolean => semester.id !== id
+            )
+        });
     }
 
     const handleCloseAddModal = () => setShowAddModal(false);
@@ -88,7 +118,7 @@ function App(): JSX.Element {
     type CourseRecord = Record<string, Record<string, Course>>;
     const ALLCOURSES: CourseRecord = course_data_json;
     const pool: CoursePool = {
-        semesters: sem,
+        semesters: plan.semesters,
         courses: ALLCOURSES
     };
     //const cs_courses = course_data_json["CISC"];
@@ -118,26 +148,6 @@ function App(): JSX.Element {
                 </Modal>
                 <p></p>
             </div>
-
-            {/*
-            <div style={{ textAlign: "center", margin: "auto" }}>
-                <Button
-                    variant="contained"
-                    color="success"
-                    className="m-4"
-                    onClick={handleShowAddPlanModal}
-                    style={{ width: "50%" }}
-                >
-                    Add Plan
-                </Button>
-                <AddPlan
-                    show={addPlan}
-                    handleClose={handleCloseAddPlanModal}
-                    // plans={plans}
-                    // setPlans={setPlans}
-                ></AddPlan>
-            </div>
-            */}
             <Button variant="secondary" onClick={handleShowPoolModal}>
                 Display Course Pool
             </Button>
@@ -150,7 +160,7 @@ function App(): JSX.Element {
                 coursepool={pool}
             ></DisplayCoursePool>
             <SemesterList
-                semester={sem}
+                semester={plan.semesters}
                 editSemester={editSemester}
                 deleteSemester={deleteSemester}
             ></SemesterList>
@@ -168,6 +178,9 @@ function App(): JSX.Element {
                 handleClose={handleCloseAddModal}
                 addSemester={addSemester}
             ></AddSemester>
+            <Button variant="light" onClick={updatePlan}>
+                ADD PLAN
+            </Button>
         </div>
     );
 }
