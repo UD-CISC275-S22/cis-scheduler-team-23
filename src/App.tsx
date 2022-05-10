@@ -64,6 +64,7 @@ function App(): JSX.Element {
         }
     }
     //const [semIndex, setSemIndex] = useState<number>(0);
+    //May not be updating automatically.
     const [plan, setPlan] = useState<Plan>({
         title: "test plan",
         id: 0,
@@ -160,7 +161,7 @@ function App(): JSX.Element {
                 coursepool={pool}
             ></DisplayCoursePool>
             <SemesterList
-                semester={plan.semesters}
+                semesters={plan.semesters}
                 editSemester={editSemester}
                 deleteSemester={deleteSemester}
             ></SemesterList>

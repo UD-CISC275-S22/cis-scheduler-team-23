@@ -6,13 +6,17 @@ import { Semester } from "../Interfaces/semester";
 import "../App.css";
 import { DeleteCourse } from "./DeleteCourse";
 import { DefaultCourse } from "./DefaultCourse";
+import { ChangeSemester } from "./ChangeSemester";
+import { AddCourseHelp } from "./AddCourseHelp";
 
 export function DisplayCourses({
     course,
-    courseSemester
+    courseSemester,
+    semesters
 }: {
     course: Course;
     courseSemester: Semester;
+    semesters: Semester[];
 }): JSX.Element {
     const [code, setCode] = useState(course.code);
     const [name, setName] = useState(course.name);
@@ -22,11 +26,15 @@ export function DisplayCourses({
     const [restrict, setRestrict] = useState(course.restrict);
     const [breadth, setBreadth] = useState(course.breadth);
     const [typ, setTyp] = useState(course.typ);
+    const [currSemester, setSemester] = useState(courseSemester.title);
     const [visible, setVisible] = useState<boolean>(false);
     const [isEditing, setIsEditing] = useState<boolean>(false);
     const [showAddModal, setShowAddModal] = useState(false);
     const handleCloseAddModal = () => setShowAddModal(false);
     const handleShowAddModal = () => setShowAddModal(true);
+    const [showChangeModal, setShowChangeModal] = useState(false);
+    const handleCloseChangeModal = () => setShowChangeModal(false);
+    const handleShowChangeModal = () => setShowChangeModal(true);
     if (course.default_code) {
         course.default_code.push(course.code);
     } else {
@@ -64,6 +72,36 @@ export function DisplayCourses({
         course.typ = event.target.value;
         setTyp(event.target.value);
     }
+    function updateSemester(event: React.ChangeEvent<HTMLSelectElement>) {
+        setSemester(event.target.value);
+        console.log("Course Semester:" + courseSemester.title);
+        console.log("currSemester:" + currSemester);
+        if (currSemester != courseSemester.title) {
+            if (currSemester === "Course Pool") {
+                const courseIndex = courseSemester.courseArray.findIndex(
+                    (c: Course): boolean => c.code === course.code
+                );
+                if (courseIndex > -1) {
+                    courseSemester.courseArray.splice(courseIndex, 1);
+                }
+                setSemester("");
+            } else {
+                const courseIndex = courseSemester.courseArray.findIndex(
+                    (c: Course): boolean => c.code === course.code
+                );
+                if (courseIndex > -1) {
+                    courseSemester.courseArray.splice(courseIndex, 1);
+                }
+                const semesterIndex = semesters.findIndex(
+                    (s: Semester): boolean => s.title === currSemester
+                );
+                if (semesterIndex > -1) {
+                    AddCourseHelp(course, semesters[semesterIndex]);
+                    setSemester(semesters[semesterIndex].title);
+                }
+            }
+        }
+    }
     function updateEditing() {
         setIsEditing(!isEditing);
     }
@@ -84,16 +122,6 @@ export function DisplayCourses({
         setBreadth(course.breadth);
         setTyp(course.typ);
     }
-    /*
-    <Form.Check
-                                type="switch"
-                                id="is-editing"
-                                label="Edit Course"
-                                checked={isEditing}
-                                onChange={updateEditing}
-                            />
-                            */
-
     return (
         <div>
             {courseSemester.courseArray.findIndex(
@@ -103,6 +131,21 @@ export function DisplayCourses({
                     <Button onClick={flipVisibility}> {course.name} </Button>
                     {visible && (
                         <div>
+                            <p></p>
+                            <Button
+                                onClick={handleShowChangeModal}
+                                variant="secondary"
+                            >
+                                Change Semester
+                            </Button>
+
+                            <ChangeSemester
+                                show={showChangeModal}
+                                handleClose={handleCloseChangeModal}
+                                course={course}
+                                courseSemester={courseSemester}
+                                allSemesters={semesters}
+                            ></ChangeSemester>
                             <p></p>
                             <Button
                                 id="is-editing"
