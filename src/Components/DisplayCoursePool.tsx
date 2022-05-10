@@ -30,7 +30,9 @@ export function DisplayCoursePool({
             </Modal.Header>
             <Modal.Body>
                 <Form.Group controlId="choices">
-                    <Form.Label>Choose a course</Form.Label>
+                    <Form.Label>
+                        <b>Choose a course</b>
+                    </Form.Label>
                     <Form.Select value={course.code} onChange={updateCourse}>
                         {Object.entries(courses).map(
                             ([, group_record]: [
@@ -50,14 +52,30 @@ export function DisplayCoursePool({
                         )}
                     </Form.Select>
                     <div>
-                        <div>Course Code: {course.code}</div>
-                        <div>Course Name: {course.name}</div>
-                        <div>Description: {course.descr}</div>
-                        <div>Number of Credits: {course.credits}</div>
-                        <div>Pre-Requisites: {course.preReq}</div>
-                        <div>Restrictions: {course.restrict}</div>
-                        <div>Breadth Requirements: {course.breadth}</div>
-                        <div>Semesters offered: {course.typ}</div>
+                        <div>
+                            <b>Course Code:</b> {course.code}
+                        </div>
+                        <div>
+                            <b>Course Name:</b> {course.name}
+                        </div>
+                        <div>
+                            <b>Description:</b> {course.descr}
+                        </div>
+                        <div>
+                            <b>Number of Credits:</b> {course.credits}
+                        </div>
+                        <div>
+                            <b>Pre-Requisites:</b> {course.preReq}
+                        </div>
+                        <div>
+                            <b>Restrictions:</b> {course.restrict}
+                        </div>
+                        <div>
+                            <b>Breadth Requirements:</b> {course.breadth}
+                        </div>
+                        <div>
+                            <b>Semesters offered:</b> {course.typ}
+                        </div>
                     </div>
                 </Form.Group>
             </Modal.Body>

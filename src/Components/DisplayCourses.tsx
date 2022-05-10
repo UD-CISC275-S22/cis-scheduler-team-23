@@ -99,10 +99,10 @@ export function DisplayCourses({
             {courseSemester.courseArray.findIndex(
                 (c: Course): boolean => c.code === course.code
             ) != -1 && (
-                <div>
+                <div className="App-allignleft">
                     <Button onClick={flipVisibility}> {course.name} </Button>
                     {visible && (
-                        <div>
+                        <div className="App-allignleft">
                             <p></p>
                             <Button
                                 id="is-editing"
@@ -131,19 +131,33 @@ export function DisplayCourses({
                             </Button>
                             <p></p>
                             {!isEditing && (
-                                <div>
-                                    <div>Course Code: {course.code}</div>
-                                    <div>Course Name: {course.name}</div>
-                                    <div>Description: {course.descr}</div>
+                                <div className="App-allignleft">
                                     <div>
-                                        Number of Credits: {course.credits}
+                                        <b>Course Code:</b> {course.code}
                                     </div>
-                                    <div>Pre-Requisites: {course.preReq}</div>
-                                    <div>Restrictions: {course.restrict}</div>
                                     <div>
-                                        Breadth Requirements: {course.breadth}
+                                        <b>Course Name:</b> {course.name}
                                     </div>
-                                    <div>Semesters offered: {course.typ}</div>
+                                    <div>
+                                        <b>Description:</b> {course.descr}
+                                    </div>
+                                    <div>
+                                        <b>Number of Credits:</b>{" "}
+                                        {course.credits}
+                                    </div>
+                                    <div>
+                                        <b>Pre-Requisites:</b> {course.preReq}
+                                    </div>
+                                    <div>
+                                        <b>Restrictions:</b> {course.restrict}
+                                    </div>
+                                    <div>
+                                        <b>Breadth Requirements:</b>{" "}
+                                        {course.breadth}
+                                    </div>
+                                    <div>
+                                        <b>Semesters offered:</b> {course.typ}
+                                    </div>
                                 </div>
                             )}
                         </div>
