@@ -11,13 +11,15 @@ export function ChangeSemester({
     handleClose,
     course,
     courseSemester,
-    allSemesters
+    allSemesters,
+    setSemesters
 }: {
     show: boolean;
     handleClose: () => void;
     course: Course;
     courseSemester: Semester;
     allSemesters: Semester[];
+    setSemesters: (t: Semester[]) => void;
 }) {
     const [currSemester, setSemester] = useState(courseSemester.title);
     function updateSemester(event: React.ChangeEvent<HTMLSelectElement>) {
@@ -32,6 +34,7 @@ export function ChangeSemester({
                 if (courseIndex > -1) {
                     courseSemester.courseArray.splice(courseIndex, 1);
                 }
+                setSemesters(allSemesters);
                 setSemester("");
             } else {
                 const courseIndex = courseSemester.courseArray.findIndex(
@@ -46,6 +49,7 @@ export function ChangeSemester({
                 if (semesterIndex > -1) {
                     AddCourseHelp(course, allSemesters[semesterIndex]);
                     setSemester(allSemesters[semesterIndex].title);
+                    setSemesters(allSemesters);
                 }
             }
         }

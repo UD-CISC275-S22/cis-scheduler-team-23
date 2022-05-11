@@ -6,11 +6,13 @@ import { SemesterView } from "./SemesterView";
 export function SemesterList({
     semesters,
     editSemester,
-    deleteSemester
+    deleteSemester,
+    setSemesters
 }: {
     semesters: Semester[];
     editSemester: (id: string, newSemester: Semester) => void;
     deleteSemester: (id: string) => void;
+    setSemesters: (t: Semester[]) => void;
 }): JSX.Element {
     return (
         <Stack gap={3}>
@@ -21,6 +23,7 @@ export function SemesterList({
                         editSemester={editSemester}
                         deleteSemester={deleteSemester}
                         allsemesters={semesters}
+                        setSemesters={setSemesters}
                     ></SemesterView>
                 </div>
             ))}

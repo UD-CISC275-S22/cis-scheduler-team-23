@@ -63,7 +63,7 @@ function App(): JSX.Element {
             setPlan(planArray[0]);
         }
     }
-    //const [semIndex, setSemIndex] = useState<number>(0);
+    const [allsems, setSems] = useState<Semester[]>(SEMESTER);
     //May not be updating automatically.
     const [plan, setPlan] = useState<Plan>({
         title: "test plan",
@@ -161,9 +161,10 @@ function App(): JSX.Element {
                 coursepool={pool}
             ></DisplayCoursePool>
             <SemesterList
-                semesters={plan.semesters}
+                semesters={allsems}
                 editSemester={editSemester}
                 deleteSemester={deleteSemester}
+                setSemesters={setSems}
             ></SemesterList>
 
             {/* Add Semester Button */}

@@ -7,16 +7,17 @@ import "../App.css";
 import { DeleteCourse } from "./DeleteCourse";
 import { DefaultCourse } from "./DefaultCourse";
 import { ChangeSemester } from "./ChangeSemester";
-import { AddCourseHelp } from "./AddCourseHelp";
 
 export function DisplayCourses({
     course,
     courseSemester,
-    semesters
+    semesters,
+    setSems
 }: {
     course: Course;
     courseSemester: Semester;
     semesters: Semester[];
+    setSems: (t: Semester[]) => void;
 }): JSX.Element {
     const [code, setCode] = useState(course.code);
     const [name, setName] = useState(course.name);
@@ -26,9 +27,9 @@ export function DisplayCourses({
     const [restrict, setRestrict] = useState(course.restrict);
     const [breadth, setBreadth] = useState(course.breadth);
     const [typ, setTyp] = useState(course.typ);
-    const [currSemester, setSemester] = useState(courseSemester.title);
     const [visible, setVisible] = useState<boolean>(false);
     const [isEditing, setIsEditing] = useState<boolean>(false);
+    const [editButtonName, setEditButtonName] = useState<string>("Edit Course");
     const [showAddModal, setShowAddModal] = useState(false);
     const handleCloseAddModal = () => setShowAddModal(false);
     const handleShowAddModal = () => setShowAddModal(true);
@@ -72,38 +73,10 @@ export function DisplayCourses({
         course.typ = event.target.value;
         setTyp(event.target.value);
     }
-    function updateSemester(event: React.ChangeEvent<HTMLSelectElement>) {
-        setSemester(event.target.value);
-        console.log("Course Semester:" + courseSemester.title);
-        console.log("currSemester:" + currSemester);
-        if (currSemester != courseSemester.title) {
-            if (currSemester === "Course Pool") {
-                const courseIndex = courseSemester.courseArray.findIndex(
-                    (c: Course): boolean => c.code === course.code
-                );
-                if (courseIndex > -1) {
-                    courseSemester.courseArray.splice(courseIndex, 1);
-                }
-                setSemester("");
-            } else {
-                const courseIndex = courseSemester.courseArray.findIndex(
-                    (c: Course): boolean => c.code === course.code
-                );
-                if (courseIndex > -1) {
-                    courseSemester.courseArray.splice(courseIndex, 1);
-                }
-                const semesterIndex = semesters.findIndex(
-                    (s: Semester): boolean => s.title === currSemester
-                );
-                if (semesterIndex > -1) {
-                    AddCourseHelp(course, semesters[semesterIndex]);
-                    setSemester(semesters[semesterIndex].title);
-                }
-            }
-        }
-    }
     function updateEditing() {
         setIsEditing(!isEditing);
+        if (editButtonName === "Edit Course") setEditButtonName("Save Changes");
+        else setEditButtonName("Edit Course");
     }
     function flipVisibility(): void {
         setVisible(!visible);
@@ -145,6 +118,7 @@ export function DisplayCourses({
                                 course={course}
                                 courseSemester={courseSemester}
                                 allSemesters={semesters}
+                                setSemesters={setSems}
                             ></ChangeSemester>
                             <p></p>
                             <Button
@@ -152,7 +126,7 @@ export function DisplayCourses({
                                 onClick={updateEditing}
                                 variant="warning"
                             >
-                                Edit Course
+                                {editButtonName}
                             </Button>
                             <p></p>
                             <Button

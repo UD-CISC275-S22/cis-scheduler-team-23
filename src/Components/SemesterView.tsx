@@ -15,12 +15,14 @@ export function SemesterView({
     semester,
     editSemester,
     deleteSemester,
-    allsemesters
+    allsemesters,
+    setSemesters
 }: {
     semester: Semester;
     editSemester: (id: string, newSemester: Semester) => void;
     deleteSemester: (id: string) => void;
     allsemesters: Semester[];
+    setSemesters: (t: Semester[]) => void;
 }): JSX.Element {
     // const [visible, setVisible] = useState<boolean>(false);
     const [edit, setEdit] = useState<boolean>(false);
@@ -87,6 +89,7 @@ export function SemesterView({
                             course={c}
                             courseSemester={semester}
                             semesters={allsemesters}
+                            setSems={setSemesters}
                         ></DisplayCourses>
                     </Col>
                 ))}
