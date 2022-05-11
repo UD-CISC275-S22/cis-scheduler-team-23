@@ -14,11 +14,15 @@ import { ClearSemester } from "./ClearSemester";
 export function SemesterView({
     semester,
     editSemester,
-    deleteSemester
+    deleteSemester,
+    allsemesters,
+    setSemesters
 }: {
     semester: Semester;
     editSemester: (id: string, newSemester: Semester) => void;
     deleteSemester: (id: string) => void;
+    allsemesters: Semester[];
+    setSemesters: (t: Semester[]) => void;
 }): JSX.Element {
     // const [visible, setVisible] = useState<boolean>(false);
     const [edit, setEdit] = useState<boolean>(false);
@@ -40,7 +44,11 @@ export function SemesterView({
     function changeEditing() {
         setEdit(!edit);
     }
+    /*
+    allsemesters.map((sem: Semester) => (
 
+    ))
+    */
     return edit ? (
         <SemesterEditor
             changeEditing={changeEditing}
@@ -80,37 +88,38 @@ export function SemesterView({
                         <DisplayCourses
                             course={c}
                             courseSemester={semester}
+                            semesters={allsemesters}
+                            setSems={setSemesters}
                         ></DisplayCourses>
                     </Col>
                 ))}
             </Row>
             <p></p>
             <Row>
-                {/* <Button onClick={flipVisibility}> Show/Hide Semester </Button> */}
-                <Button onClick={changeEditing} variant="danger">
-                    {" "}
-                    Edit Semester Details{" "}
-                </Button>
+                <Col>
+                    <Button onClick={handleShowAddModal} variant="success">
+                        Add Course
+                    </Button>
 
-                <Button onClick={handleShowAddModal} variant="success">
-                    Add Course
-                </Button>
+                    <AddCourse
+                        show={showAddModal}
+                        handleClose={handleCloseAddModal}
+                        currSemester={semester}
+                    ></AddCourse>
+                    <Button onClick={handleShowClearModal} variant="warning">
+                        Clear All Courses
+                    </Button>
 
-                <AddCourse
-                    show={showAddModal}
-                    handleClose={handleCloseAddModal}
-                    currSemester={semester}
-                ></AddCourse>
-
-                <Button onClick={handleShowClearModal} variant="warning">
-                    Clear All Courses
-                </Button>
-
-                <ClearSemester
-                    show={showClearModal}
-                    handleClose={handleCloseClearModal}
-                    currSemester={semester}
-                ></ClearSemester>
+                    <ClearSemester
+                        show={showClearModal}
+                        handleClose={handleCloseClearModal}
+                        currSemester={semester}
+                    ></ClearSemester>
+                    <Button onClick={changeEditing} variant="danger">
+                        {" "}
+                        Edit Semester Details{" "}
+                    </Button>
+                </Col>
             </Row>
         </Container>
     );
