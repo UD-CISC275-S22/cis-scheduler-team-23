@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Button, Form, Modal } from "react-bootstrap";
 import { Semester } from "../Interfaces/semester";
 import { Course } from "../Interfaces/courses";
+import { Plan } from "../Interfaces/plans";
 
 import "../App.css";
 import { AddCourseHelp } from "./AddCourseHelp";
@@ -11,15 +12,15 @@ export function ChangeSemester({
     handleClose,
     course,
     courseSemester,
-    allSemesters,
+    activePlan,
     setSemesters
 }: {
     show: boolean;
     handleClose: () => void;
     course: Course;
     courseSemester: Semester;
-    allSemesters: Semester[];
-    setSemesters: (t: Semester[]) => void;
+    activePlan: Plan;
+    setSemesters: (t: Plan) => void;
 }) {
     const [currSemester, setSemester] = useState(courseSemester.title);
     function updateSemester(event: React.ChangeEvent<HTMLSelectElement>) {
@@ -34,7 +35,7 @@ export function ChangeSemester({
                 if (courseIndex > -1) {
                     courseSemester.courseArray.splice(courseIndex, 1);
                 }
-                setSemesters(allSemesters);
+                setSemesters(activePlan);
                 setSemester("");
             } else {
                 const courseIndex = courseSemester.courseArray.findIndex(
@@ -43,13 +44,13 @@ export function ChangeSemester({
                 if (courseIndex > -1) {
                     courseSemester.courseArray.splice(courseIndex, 1);
                 }
-                const semesterIndex = allSemesters.findIndex(
+                const semesterIndex = activePlan.semesters.findIndex(
                     (s: Semester): boolean => s.title === currSemester
                 );
                 if (semesterIndex > -1) {
-                    AddCourseHelp(course, allSemesters[semesterIndex]);
-                    setSemester(allSemesters[semesterIndex].title);
-                    setSemesters(allSemesters);
+                    AddCourseHelp(course, activePlan.semesters[semesterIndex]);
+                    setSemester(activePlan.semesters[semesterIndex].title);
+                    setSemesters(activePlan);
                 }
             }
         }
@@ -67,7 +68,7 @@ export function ChangeSemester({
             </Modal.Header>
             <Form.Group controlId="choices">
                 <Form.Select value={currSemester} onChange={updateSemester}>
-                    {allSemesters.map((sem: Semester) => (
+                    {activePlan.semesters.map((sem: Semester) => (
                         <option key={sem.title} value={sem.title}>
                             {sem.title}
                         </option>

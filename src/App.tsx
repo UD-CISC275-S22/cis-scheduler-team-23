@@ -55,39 +55,30 @@ function App(): JSX.Element {
         ]);
     }
 
-    /*
-    function returnFixedPlan(plan: Plan) {
-        const fixedPlan = {
-            // Unpack all existing fields so they stay the same
-            ...plan,
-            // This field has non-primitive data, but its array has
-            //   primitive data, so okay to shallow cop
-            semesters: plan.semesters.map(
-                (semester: Semester): Semester =>
-                    // But okay to shallow copy inside because, again, all primitive in there
-                    ({ ...semester })
-            )
-        };
-        return fixedPlan;
-    }
-    */
-
     function updatePlan() {
+        console.log("plan array before: ");
+        console.log(planArray);
         setPlanArray(
             planArray.map(
                 (usedPlan: Plan): Plan =>
                     plan.id === usedPlan.id ? plan : usedPlan
             )
         );
+        console.log("plan array after:");
+        console.log(planArray);
+        console.log("main plan before:");
+        console.log(plan);
         if (plan.id === 0) {
             setPlan(planArray[1]);
         } else {
             setPlan(planArray[0]);
         }
+        console.log("main plan after:");
+        console.log(plan);
     }
 
     // const [plan, setPlan] = useState<Plan>(planArray[0]);
-    const [allsems, setSems] = useState<Semester[]>(SEMESTER);
+    // const [allsems, setSems] = useState<Semester[]>(SEMESTER);
     //May not be updating automatically.
     const [plan, setPlan] = useState<Plan>({
         title: "test plan",
@@ -182,10 +173,10 @@ function App(): JSX.Element {
             ></DisplayCoursePool>
 
             <SemesterList
-                semesters={allsems}
+                activePlan={plan}
                 editSemester={editSemester}
                 deleteSemester={deleteSemester}
-                setSemesters={setSems}
+                setSemesters={setPlan} //Used to be setSems
             ></SemesterList>
 
             {/* Add Semester Button */}

@@ -4,6 +4,7 @@ import { Container, Row, Col, Button } from "react-bootstrap";
 import { Course } from "../Interfaces/courses";
 
 import "../App.css";
+import { Plan } from "../Interfaces/plans";
 import { Semester } from "../Interfaces/semester";
 import { DisplayCourses } from "./DisplayCourses";
 
@@ -15,14 +16,14 @@ export function SemesterView({
     semester,
     editSemester,
     deleteSemester,
-    allsemesters,
+    activePlan,
     setSemesters
 }: {
     semester: Semester;
     editSemester: (id: string, newSemester: Semester) => void;
     deleteSemester: (id: string) => void;
-    allsemesters: Semester[];
-    setSemesters: (t: Semester[]) => void;
+    activePlan: Plan;
+    setSemesters: (t: Plan) => void;
 }): JSX.Element {
     // const [visible, setVisible] = useState<boolean>(false);
     const [edit, setEdit] = useState<boolean>(false);
@@ -80,7 +81,7 @@ export function SemesterView({
                         <DisplayCourses
                             course={c}
                             courseSemester={semester}
-                            semesters={allsemesters}
+                            activePlan={activePlan}
                             setSems={setSemesters}
                         ></DisplayCourses>
                     </Col>
