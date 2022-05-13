@@ -88,7 +88,6 @@ export function SemesterView({
             </Row>
             <p></p>
             <Row>
-
                 <Col>
                     <Button onClick={handleShowAddModal} variant="success">
                         Add Course
