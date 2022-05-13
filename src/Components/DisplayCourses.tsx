@@ -13,12 +13,12 @@ export function DisplayCourses({
     course,
     courseSemester,
     activePlan,
-    setSems
+    setPlans
 }: {
     course: Course;
     courseSemester: Semester;
     activePlan: Plan;
-    setSems: (t: Plan) => void;
+    setPlans: (t: Plan) => void;
 }): JSX.Element {
     const [code, setCode] = useState(course.code);
     const [name, setName] = useState(course.name);
@@ -60,11 +60,11 @@ export function DisplayCourses({
             (c: Course): boolean => c.code === course.code
         );
         courseSemester.courseArray[courseIndex] = course;
-        const semesterIndex = semesters.findIndex(
+        const semesterIndex = activePlan.semesters.findIndex(
             (s: Semester): boolean => s.id === courseSemester.id
         );
-        semesters[semesterIndex] = courseSemester;
-        setSems(semesters);
+        activePlan.semesters[semesterIndex] = courseSemester;
+        setPlans(activePlan);
         setCredits(event.target.value);
     }
     function updateCoursePrereq(event: React.ChangeEvent<HTMLInputElement>) {
@@ -121,14 +121,13 @@ export function DisplayCourses({
                             >
                                 Change Semester
                             </Button>
-
                             <ChangeSemester
                                 show={showChangeModal}
                                 handleClose={handleCloseChangeModal}
                                 course={course}
                                 courseSemester={courseSemester}
                                 activePlan={activePlan}
-                                setSemesters={setSems}
+                                setSemesters={setPlans}
                             ></ChangeSemester>
                             <p></p>
                             <Button

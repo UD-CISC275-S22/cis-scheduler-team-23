@@ -8,12 +8,12 @@ export function SemesterList({
     activePlan,
     editSemester,
     deleteSemester,
-    setSemesters
+    setPlans
 }: {
     activePlan: Plan;
     editSemester: (id: string, newSemester: Semester) => void;
     deleteSemester: (id: string) => void;
-    setSemesters: (t: Plan) => void;
+    setPlans: (t: Plan) => void;
 }): JSX.Element {
     return (
         <Stack gap={3}>
@@ -24,7 +24,7 @@ export function SemesterList({
                         editSemester={editSemester}
                         deleteSemester={deleteSemester}
                         activePlan={activePlan}
-                        setSemesters={setSemesters}
+                        setPlans={setPlans}
                     ></SemesterView>
                 </div>
             ))}

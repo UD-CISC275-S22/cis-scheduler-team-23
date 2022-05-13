@@ -38,7 +38,7 @@ function App(): JSX.Element {
         {
             title: "test plan",
             id: 0,
-            semesters: []
+            semesters: SEMESTER
         },
         {
             title: "test plan2",
@@ -80,11 +80,7 @@ function App(): JSX.Element {
     // const [plan, setPlan] = useState<Plan>(planArray[0]);
     // const [allsems, setSems] = useState<Semester[]>(SEMESTER);
     //May not be updating automatically.
-    const [plan, setPlan] = useState<Plan>({
-        title: "test plan",
-        id: 0,
-        semesters: SEMESTER
-    });
+    const [plan, setPlan] = useState<Plan>(planArray[0]);
 
     const [showAddModal, setShowAddModal] = useState(false);
 
@@ -176,7 +172,7 @@ function App(): JSX.Element {
                 activePlan={plan}
                 editSemester={editSemester}
                 deleteSemester={deleteSemester}
-                setSemesters={setPlan} //Used to be setSems
+                setPlans={setPlan} //Used to be setSems
             ></SemesterList>
 
             {/* Add Semester Button */}
