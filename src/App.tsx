@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Button, Modal } from "react-bootstrap";
-import headerbackground from "./Pictures/headerbackground.jpeg";
+import headerbackground from "./Pictures/seal-background-5.jpeg";
 import "./App.css";
 
 import { AddSemester } from "./Components/AddSemester";
