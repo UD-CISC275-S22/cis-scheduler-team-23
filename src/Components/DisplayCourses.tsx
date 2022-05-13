@@ -3,6 +3,7 @@ import { Button } from "react-bootstrap";
 import { Form } from "react-bootstrap";
 import { Course } from "../Interfaces/courses";
 import { Semester } from "../Interfaces/semester";
+import { Plan } from "../Interfaces/plans";
 import "../App.css";
 import { DeleteCourse } from "./DeleteCourse";
 import { DefaultCourse } from "./DefaultCourse";
@@ -11,13 +12,13 @@ import { ChangeSemester } from "./ChangeSemester";
 export function DisplayCourses({
     course,
     courseSemester,
-    semesters,
+    activePlan,
     setSems
 }: {
     course: Course;
     courseSemester: Semester;
-    semesters: Semester[];
-    setSems: (t: Semester[]) => void;
+    activePlan: Plan;
+    setSems: (t: Plan) => void;
 }): JSX.Element {
     const [code, setCode] = useState(course.code);
     const [name, setName] = useState(course.name);
@@ -117,7 +118,7 @@ export function DisplayCourses({
                                 handleClose={handleCloseChangeModal}
                                 course={course}
                                 courseSemester={courseSemester}
-                                allSemesters={semesters}
+                                activePlan={activePlan}
                                 setSemesters={setSems}
                             ></ChangeSemester>
                             <p></p>
