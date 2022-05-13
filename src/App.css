@@ -1,6 +1,6 @@
 .App {
     text-align: center;
-    background-color: black;
+    background-color: rgb(109, 109, 109);
     color: black;
 }
 
@@ -17,8 +17,9 @@
 
 .App-header {
     width: 100%;
-    background-image: "./Pictures/seal-background-5.jpg";
     height: "230";
+    background-color: #ffffff;
+    min-height: 40vh;
     display: flex;
     flex-direction: column;
     align-items: center;

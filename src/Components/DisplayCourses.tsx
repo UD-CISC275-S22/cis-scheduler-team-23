@@ -6,13 +6,18 @@ import { Semester } from "../Interfaces/semester";
 import "../App.css";
 import { DeleteCourse } from "./DeleteCourse";
 import { DefaultCourse } from "./DefaultCourse";
+import { ChangeSemester } from "./ChangeSemester";
 
 export function DisplayCourses({
     course,
-    courseSemester
+    courseSemester,
+    semesters,
+    setSems
 }: {
     course: Course;
     courseSemester: Semester;
+    semesters: Semester[];
+    setSems: (t: Semester[]) => void;
 }): JSX.Element {
     const [code, setCode] = useState(course.code);
     const [name, setName] = useState(course.name);
@@ -24,9 +29,13 @@ export function DisplayCourses({
     const [typ, setTyp] = useState(course.typ);
     const [visible, setVisible] = useState<boolean>(false);
     const [isEditing, setIsEditing] = useState<boolean>(false);
+    const [editButtonName, setEditButtonName] = useState<string>("Edit Course");
     const [showAddModal, setShowAddModal] = useState(false);
     const handleCloseAddModal = () => setShowAddModal(false);
     const handleShowAddModal = () => setShowAddModal(true);
+    const [showChangeModal, setShowChangeModal] = useState(false);
+    const handleCloseChangeModal = () => setShowChangeModal(false);
+    const handleShowChangeModal = () => setShowChangeModal(true);
     if (course.default_code) {
         course.default_code.push(course.code);
     } else {
@@ -66,6 +75,8 @@ export function DisplayCourses({
     }
     function updateEditing() {
         setIsEditing(!isEditing);
+        if (editButtonName === "Edit Course") setEditButtonName("Save Changes");
+        else setEditButtonName("Edit Course");
     }
     function flipVisibility(): void {
         setVisible(!visible);
@@ -84,16 +95,6 @@ export function DisplayCourses({
         setBreadth(course.breadth);
         setTyp(course.typ);
     }
-    /*
-    <Form.Check
-                                type="switch"
-                                id="is-editing"
-                                label="Edit Course"
-                                checked={isEditing}
-                                onChange={updateEditing}
-                            />
-                            */
-
     return (
         <div>
             {courseSemester.courseArray.findIndex(
@@ -105,11 +106,27 @@ export function DisplayCourses({
                         <div className="App-allignleft">
                             <p></p>
                             <Button
+                                onClick={handleShowChangeModal}
+                                variant="secondary"
+                            >
+                                Change Semester
+                            </Button>
+
+                            <ChangeSemester
+                                show={showChangeModal}
+                                handleClose={handleCloseChangeModal}
+                                course={course}
+                                courseSemester={courseSemester}
+                                allSemesters={semesters}
+                                setSemesters={setSems}
+                            ></ChangeSemester>
+                            <p></p>
+                            <Button
                                 id="is-editing"
                                 onClick={updateEditing}
                                 variant="warning"
                             >
-                                Edit Course
+                                {editButtonName}
                             </Button>
                             <p></p>
                             <Button
