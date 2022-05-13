@@ -14,6 +14,7 @@ import { CoursePool } from "./Interfaces/coursepool";
 
 import course_data_json from "./Data/course_data.json";
 import semester_json from "./Data/semester_data.json";
+import { ChangePlan } from "./Components/ChangePlan";
 
 const SEMESTER = semester_json.map(
     (semester): Semester => ({
@@ -51,30 +52,12 @@ function App(): JSX.Element {
     function makeNewPlan() {
         setPlanArray([
             ...planArray,
-            { title: "new plan", id: 2, semesters: [] }
+            {
+                title: "new plan" + planArray.length.toString() + 1,
+                id: planArray.length + 1,
+                semesters: []
+            }
         ]);
-    }
-
-    function updatePlan() {
-        console.log("plan array before: ");
-        console.log(planArray);
-        setPlanArray(
-            planArray.map(
-                (usedPlan: Plan): Plan =>
-                    plan.id === usedPlan.id ? plan : usedPlan
-            )
-        );
-        console.log("plan array after:");
-        console.log(planArray);
-        console.log("main plan before:");
-        console.log(plan);
-        if (plan.id === 0) {
-            setPlan(planArray[1]);
-        } else {
-            setPlan(planArray[0]);
-        }
-        console.log("main plan after:");
-        console.log(plan);
     }
 
     // const [plan, setPlan] = useState<Plan>(planArray[0]);
@@ -118,6 +101,10 @@ function App(): JSX.Element {
     const [showPoolModal, setShowPoolModal] = useState(false);
     const handleClosePoolModal = () => setShowPoolModal(false);
     const handleShowPoolModal = () => setShowPoolModal(true);
+
+    const [showPlanModal, setShowPlanModal] = useState(false);
+    const handleClosePlanModal = () => setShowPlanModal(false);
+    const handleShowPlanModal = () => setShowPlanModal(true);
 
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true);
@@ -190,9 +177,17 @@ function App(): JSX.Element {
             ></AddSemester>
 
             {/* Add New Plan */}
-            <Button variant="light" onClick={updatePlan}>
-                SWAP PLAN
+            <Button variant="secondary" onClick={handleShowPlanModal}>
+                Change Plan
             </Button>
+            <p></p>
+            <ChangePlan
+                show={showPlanModal}
+                handleClose={handleClosePlanModal}
+                plan={plan}
+                plans={planArray}
+                setPlan={setPlan}
+            ></ChangePlan>
             {/*Replace with component */}
             <Button onClick={makeNewPlan}> ADD PLAN (click 1x) </Button>
         </div>
