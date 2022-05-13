@@ -3,7 +3,7 @@
 > react-scripts test "--coverage"
 
 FAIL src/App.test.tsx
-  ✕ renders the course name somewhere (204 ms)
+  ✕ renders the course name somewhere (219 ms)
 
   ● renders the course name somewhere
 
@@ -16,7 +16,7 @@ FAIL src/App.test.tsx
           [33mclass[39m=[32m"App"[39m
         [36m>[39m
           [36m<img[39m
-            [33mheight[39m=[32m"230"[39m
+            [33mheight[39m=[32m"100%"[39m
             [33msrc[39m=[32m"headerbackground.jpeg"[39m
             [33mwidth[39m=[32m"100%"[39m
           [36m/>[39m
@@ -37,6 +37,9 @@ FAIL src/App.test.tsx
             [0mDisplay Course Pool[0m
           [36m</button>[39m
           [36m<p />[39m
+          [36m<h3>[39m
+            [0mtest plan[0m
+          [36m</h3>[39m
           [36m<div[39m
             [33mclass[39m=[32m"vstack gap-3"[39m
           [36m>[39m
@@ -81,7 +84,7 @@ FAIL src/App.test.tsx
                 [36m>[39m
                   [36m<p>[39m
                     [36m<b>[39m
-                      [0m Semester Description: [0m
+                      [0m Semester Notes: [0m
                     [36m</b>[39m
                     [0m [0m
                     [0mSemester description[0m
@@ -224,7 +227,7 @@ FAIL src/App.test.tsx
                 [36m>[39m
                   [36m<p>[39m
                     [36m<b>[39m
-                      [0m Semester Description: [0m
+                      [0m Semester Notes: [0m
                     [36m</b>[39m
                     [0m [0m
                     [0mSemester description[0m
@@ -321,7 +324,13 @@ FAIL src/App.test.tsx
             [33mclass[39m=[32m"btn btn-light"[39m
             [33mtype[39m=[32m"button"[39m
           [36m>[39m
-            [0mADD PLAN[0m
+            [0mSWAP PLAN[0m
+          [36m</button>[39m
+          [36m<button[39m
+            [33mclass[39m=[32m"btn btn-primary"[39m
+            [33mtype[39m=[32m"button"[39m
+          [36m>[39m
+            [0m ADD PLAN (click 1x) [0m
           [36m</button>[39m
         [36m</div>[39m
       [36m</div>[39m
@@ -348,9 +357,9 @@ FAIL src/App.test.tsx
 ------------------------|---------|----------|---------|---------|-------------------
 File                    | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 ------------------------|---------|----------|---------|---------|-------------------
-All files               |   36.31 |       20 |   25.31 |   38.58 |                   
- src                    |   48.64 |        0 |   17.64 |   58.06 |                   
-  App.tsx               |   48.64 |        0 |   17.64 |   58.06 | 54-63,77-99       
+All files               |   36.13 |       20 |      25 |   38.37 |                   
+ src                    |   47.36 |        0 |   16.66 |   56.25 |                   
+  App.tsx               |   47.36 |        0 |   16.66 |   56.25 | 52-85,101-123     
  src/Components         |   33.53 |       25 |   27.41 |   34.64 |                   
   AddCourse.tsx         |   33.33 |      100 |   33.33 |   33.33 | 25-29,46          
   AddCourseHelp.tsx     |       0 |      100 |       0 |       0 | 7                 
@@ -363,7 +372,7 @@ All files               |   36.31 |       20 |   25.31 |   38.58 |
   DisplayCourses.tsx    |    36.2 |    35.71 |   11.76 |   39.62 | 40,45-96          
   SemesterEditor.tsx    |       0 |      100 |       0 |       0 | 17-77             
   SemesterList.tsx      |     100 |      100 |     100 |     100 |                   
-  SemesterView.tsx      |   64.28 |       50 |   28.57 |      90 | 45                
+  SemesterView.tsx      |   64.28 |       50 |   28.57 |      90 | 37                
  src/Interfaces         |       0 |        0 |       0 |       0 |                   
   coursepool.ts         |       0 |        0 |       0 |       0 |                   
   courses.ts            |       0 |        0 |       0 |       0 |                   
@@ -374,5 +383,5 @@ All files               |   36.31 |       20 |   25.31 |   38.58 |
 Test Suites: 1 failed, 1 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        2.976 s
+Time:        3.029 s
 Ran all test suites.
