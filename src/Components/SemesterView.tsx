@@ -71,6 +71,16 @@ export function SemesterView({
             </Row>
             <Row>
                 <p>
+                    <b> Credits: </b>{" "}
+                    {semester.courseArray.reduce(
+                        (currentTotal: number, c: Course) =>
+                            currentTotal + Number(c.credits),
+                        0
+                    )}
+                </p>
+            </Row>
+            <Row>
+                <p>
                     <u>
                         <b>Courses</b>
                     </u>

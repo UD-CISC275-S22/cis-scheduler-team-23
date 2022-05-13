@@ -55,6 +55,15 @@ export function DisplayCourses({
     }
     function updateCourseCredits(event: React.ChangeEvent<HTMLInputElement>) {
         course.credits = event.target.value;
+        const courseIndex = courseSemester.courseArray.findIndex(
+            (c: Course): boolean => c.code === course.code
+        );
+        courseSemester.courseArray[courseIndex] = course;
+        const semesterIndex = semesters.findIndex(
+            (s: Semester): boolean => s.id === courseSemester.id
+        );
+        semesters[semesterIndex] = courseSemester;
+        setSems(semesters);
         setCredits(event.target.value);
     }
     function updateCoursePrereq(event: React.ChangeEvent<HTMLInputElement>) {
