@@ -13,10 +13,8 @@ import { Plan } from "./Interfaces/plans";
 import { CoursePool } from "./Interfaces/coursepool";
 
 import course_data_json from "./Data/course_data.json";
+import semester_json from "./Data/semester_data.json";
 
-// import semester_json from "./Data/semester_data.json";
-
-/*
 const SEMESTER = semester_json.map(
     (semester): Semester => ({
         ...semester,
@@ -34,7 +32,6 @@ const SEMESTER = semester_json.map(
         )
     })
 );
-*/
 
 function App(): JSX.Element {
     const [planArray, setPlanArray] = useState<Plan[]>([
@@ -89,7 +86,7 @@ function App(): JSX.Element {
         }
     }
 
-    const [plan, setPlan] = useState<Plan>(planArray[0]);
+    // const [plan, setPlan] = useState<Plan>(planArray[0]);
     const [allsems, setSems] = useState<Semester[]>(SEMESTER);
     //May not be updating automatically.
     const [plan, setPlan] = useState<Plan>({
@@ -97,7 +94,7 @@ function App(): JSX.Element {
         id: 0,
         semesters: SEMESTER
     });
-  
+
     const [showAddModal, setShowAddModal] = useState(false);
 
     function addSemester(newSem: Semester) {
