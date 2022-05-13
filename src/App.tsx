@@ -90,6 +90,14 @@ function App(): JSX.Element {
     }
 
     const [plan, setPlan] = useState<Plan>(planArray[0]);
+    const [allsems, setSems] = useState<Semester[]>(SEMESTER);
+    //May not be updating automatically.
+    const [plan, setPlan] = useState<Plan>({
+        title: "test plan",
+        id: 0,
+        semesters: SEMESTER
+    });
+  
     const [showAddModal, setShowAddModal] = useState(false);
 
     function addSemester(newSem: Semester) {
@@ -177,9 +185,10 @@ function App(): JSX.Element {
             ></DisplayCoursePool>
 
             <SemesterList
-                semester={plan.semesters}
+                semesters={allsems}
                 editSemester={editSemester}
                 deleteSemester={deleteSemester}
+                setSemesters={setSems}
             ></SemesterList>
 
             {/* Add Semester Button */}

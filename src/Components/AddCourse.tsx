@@ -5,6 +5,7 @@ import course_data_json from "../Data/course_data.json";
 import { Course } from "../Interfaces/courses";
 
 import "../App.css";
+import { AddCourseHelp } from "./AddCourseHelp";
 
 export function AddCourse({
     show,
@@ -23,11 +24,10 @@ export function AddCourse({
     function saveChanges() {
         const courseInfo = courseCode.split(" ", 1);
         const addedCourse = ALLCOURSES[courseInfo[0]][courseCode];
-        currSemester.courseArray.push(addedCourse);
+        AddCourseHelp(addedCourse, currSemester);
         setCourseCode("");
         handleClose();
     }
-
     return (
         <Modal show={show} onHide={handleClose} animation={false}>
             <Modal.Header closeButton>
