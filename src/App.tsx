@@ -13,8 +13,10 @@ import { Plan } from "./Interfaces/plans";
 import { CoursePool } from "./Interfaces/coursepool";
 
 import course_data_json from "./Data/course_data.json";
-import semester_json from "./Data/semester_data.json";
 
+// import semester_json from "./Data/semester_data.json";
+
+/*
 const SEMESTER = semester_json.map(
     (semester): Semester => ({
         ...semester,
@@ -32,23 +34,46 @@ const SEMESTER = semester_json.map(
         )
     })
 );
-
-// type CourseRecord = Record<string, Record<string, Course>>;
-// const ALLCOURSES: CourseRecord = course_data_json;
+*/
 
 function App(): JSX.Element {
     const [planArray, setPlanArray] = useState<Plan[]>([
         {
             title: "test plan",
             id: 0,
-            semesters: SEMESTER
+            semesters: []
         },
         {
             title: "test plan2",
             id: 1,
-            semesters: [...SEMESTER]
+            semesters: []
         }
     ]);
+
+    // propogate plans with user input
+    function makeNewPlan() {
+        setPlanArray([
+            ...planArray,
+            { title: "new plan", id: 2, semesters: [] }
+        ]);
+    }
+
+    /*
+    function returnFixedPlan(plan: Plan) {
+        const fixedPlan = {
+            // Unpack all existing fields so they stay the same
+            ...plan,
+            // This field has non-primitive data, but its array has
+            //   primitive data, so okay to shallow cop
+            semesters: plan.semesters.map(
+                (semester: Semester): Semester =>
+                    // But okay to shallow copy inside because, again, all primitive in there
+                    ({ ...semester })
+            )
+        };
+        return fixedPlan;
+    }
+    */
 
     function updatePlan() {
         setPlanArray(
@@ -63,14 +88,9 @@ function App(): JSX.Element {
             setPlan(planArray[0]);
         }
     }
-    //const [semIndex, setSemIndex] = useState<number>(0);
-    const [plan, setPlan] = useState<Plan>({
-        title: "test plan",
-        id: 0,
-        semesters: SEMESTER
-    });
+
+    const [plan, setPlan] = useState<Plan>(planArray[0]);
     const [showAddModal, setShowAddModal] = useState(false);
-    // const [courses, setCourses] = useState<CourseRecord>(ALLCOURSES);
 
     function addSemester(newSem: Semester) {
         const existing = plan.semesters.find(
@@ -111,21 +131,16 @@ function App(): JSX.Element {
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
 
-    // const [addPlan, setAddPlan] = useState<boolean>(false);
-    // const handleCloseAddPlanModal = () => setAddPlan(false);
-    // const handleShowAddPlanModal = () => setAddPlan(true);
-
     type CourseRecord = Record<string, Record<string, Course>>;
     const ALLCOURSES: CourseRecord = course_data_json;
     const pool: CoursePool = {
         semesters: plan.semesters,
         courses: ALLCOURSES
     };
-    //const cs_courses = course_data_json["CISC"];
 
     return (
         <div className="App">
-            <img src={headerbackground} width="100%" height="230" />
+            <img src={headerbackground} width="100%" height="100%" />
             <div>
                 <p></p>
                 <Button variant="light" onClick={handleOpen}>
@@ -148,17 +163,19 @@ function App(): JSX.Element {
                 </Modal>
                 <p></p>
             </div>
+
             <Button variant="secondary" onClick={handleShowPoolModal}>
                 Display Course Pool
             </Button>
-            <p></p>
 
-            {/* Add Semester */}
+            <p></p>
+            <h3>{plan.title}</h3>
             <DisplayCoursePool
                 show={showPoolModal}
                 handleClose={handleClosePoolModal}
                 coursepool={pool}
             ></DisplayCoursePool>
+
             <SemesterList
                 semester={plan.semesters}
                 editSemester={editSemester}
@@ -178,9 +195,13 @@ function App(): JSX.Element {
                 handleClose={handleCloseAddModal}
                 addSemester={addSemester}
             ></AddSemester>
+
+            {/* Add New Plan */}
             <Button variant="light" onClick={updatePlan}>
-                ADD PLAN
+                SWAP PLAN
             </Button>
+            {/*Replace with component */}
+            <Button onClick={makeNewPlan}> ADD PLAN (click 1x) </Button>
         </div>
     );
 }
