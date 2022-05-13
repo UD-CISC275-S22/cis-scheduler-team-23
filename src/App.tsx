@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Button, Modal } from "react-bootstrap";
-import headerbackground from "./Pictures/headerbackground.jpeg";
+import headerbackground from "./Pictures/seal-background-5.jpeg";
 import "./App.css";
 
 import { AddSemester } from "./Components/AddSemester";
@@ -125,7 +125,7 @@ function App(): JSX.Element {
 
     return (
         <div className="App">
-            <img src={headerbackground} width="100%" height="230" />
+            <img src={headerbackground} width="100%" height="100%" />
             <div>
                 <p></p>
                 <Button variant="light" onClick={handleOpen}>

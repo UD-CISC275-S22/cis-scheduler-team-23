@@ -17,14 +17,14 @@
 
 .App-header {
     width: 100%;
-    background-color: #df14b3;
-    min-height: 40vh;
+    background-image: "./Pictures/seal-background-5.jpg";
+    height: "230";
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
     font-size: calc(10px + 2vmin);
-    color: black;
+    color: white;
 }
 
 .App-link {
