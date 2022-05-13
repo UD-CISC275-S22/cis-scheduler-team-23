@@ -3,7 +3,7 @@
 > react-scripts test "--coverage"
 
 FAIL src/App.test.tsx
-  ✕ renders the course name somewhere (209 ms)
+  ✕ renders the course name somewhere (253 ms)
 
   ● renders the course name somewhere
 
@@ -357,22 +357,22 @@ FAIL src/App.test.tsx
 ------------------------|---------|----------|---------|---------|-------------------
 File                    | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 ------------------------|---------|----------|---------|---------|-------------------
-All files               |   36.13 |       20 |      25 |   38.37 |                   
- src                    |   47.36 |        0 |   16.66 |   56.25 |                   
-  App.tsx               |   47.36 |        0 |   16.66 |   56.25 | 52-85,101-123     
+All files               |   34.44 |       20 |      25 |   36.45 |                   
+ src                    |   37.77 |        0 |   16.66 |   43.58 |                   
+  App.tsx               |   37.77 |        0 |   16.66 |   43.58 | 52-77,92-114      
  src/Components         |   33.53 |       25 |   27.41 |   34.64 |                   
   AddCourse.tsx         |   33.33 |      100 |   33.33 |   33.33 | 25-29,46          
   AddCourseHelp.tsx     |       0 |      100 |       0 |       0 | 7                 
   AddSemester.tsx       |      50 |        0 |      40 |      50 | 26-41,45,87       
-  ChangeSemester.tsx    |       0 |        0 |       0 |       0 | 24-71             
+  ChangeSemester.tsx    |       0 |        0 |       0 |       0 | 25-72             
   ClearSemester.tsx     |   33.33 |      100 |      50 |   33.33 | 18-19             
   DefaultCourse.tsx     |       0 |      100 |       0 |       0 | 7-18              
   DeleteCourse.tsx      |       0 |        0 |       0 |       0 | 20-29             
   DisplayCoursePool.tsx |   86.66 |      100 |    87.5 |   84.61 | 23-24             
-  DisplayCourses.tsx    |    36.2 |    35.71 |   11.76 |   39.62 | 40,45-96          
+  DisplayCourses.tsx    |    36.2 |    35.71 |   11.76 |   39.62 | 41,46-97          
   SemesterEditor.tsx    |       0 |      100 |       0 |       0 | 17-77             
   SemesterList.tsx      |     100 |      100 |     100 |     100 |                   
-  SemesterView.tsx      |   64.28 |       50 |   28.57 |      90 | 37                
+  SemesterView.tsx      |   64.28 |       50 |   28.57 |      90 | 38                
  src/Interfaces         |       0 |        0 |       0 |       0 |                   
   coursepool.ts         |       0 |        0 |       0 |       0 |                   
   courses.ts            |       0 |        0 |       0 |       0 |                   
@@ -383,5 +383,5 @@ All files               |   36.13 |       20 |      25 |   38.37 |
 Test Suites: 1 failed, 1 total
 Tests:       1 failed, 1 total
 Snapshots:   0 total
-Time:        3.015 s
+Time:        3.786 s
 Ran all test suites.
