@@ -33,14 +33,6 @@ export function SemesterView({
     const handleShowClearModal = () => setShowClearModal(true);
     const [showClearModal, setShowClearModal] = useState(false);
 
-    {
-        /*
-    function flipVisibility(): void {
-        setVisible(!visible);
-    }
-*/
-    }
-
     function changeEditing() {
         setEdit(!edit);
     }
@@ -74,7 +66,7 @@ export function SemesterView({
             </Row>
             <Row>
                 <p>
-                    <b> Semester Description: </b> {semester.description}
+                    <b> Semester Notes: </b> {semester.description}
                 </p>
             </Row>
             <Row>
@@ -96,6 +88,7 @@ export function SemesterView({
             </Row>
             <p></p>
             <Row>
+
                 <Col>
                     <Button onClick={handleShowAddModal} variant="success">
                         Add Course
