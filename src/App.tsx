@@ -3,6 +3,7 @@ import { Button, Col, Modal, Row } from "react-bootstrap";
 import headerbackground from "./Pictures/seal-background-5.jpeg";
 import "./App.css";
 
+import { WelcomeModal } from "./Components/WelcomeModal";
 import { AddSemester } from "./Components/AddSemester";
 import { SemesterList } from "./Components/SemesterList";
 import { DisplayCoursePool } from "./Components/DisplayCoursePool";
@@ -19,6 +20,7 @@ import { AddPlan } from "./Components/AddPlan";
 import { ClearPlan } from "./Components/ClearPlan";
 import { DeletePlan } from "./Components/DeletePlan";
 import { EditPlan } from "./Components/EditPlan";
+import { ExportCSV } from "./Components/ExportCSV";
 
 const SEMESTER = semester_json.map(
     (semester): Semester => ({
@@ -124,6 +126,9 @@ function App(): JSX.Element {
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
+    const [showCSVModal, setShowCSVModal] = useState(false);
+    const handleShowCSVModal = () => setShowCSVModal(true);
+    const handleCloseCSVModal = () => setShowCSVModal(false);
 
     type CourseRecord = Record<string, Record<string, Course>>;
     const ALLCOURSES: CourseRecord = course_data_json;
@@ -137,24 +142,7 @@ function App(): JSX.Element {
             <img src={headerbackground} width="100%" height="100%" />
             <div>
                 <p></p>
-                <Button variant="light" onClick={handleOpen}>
-                    Click here for how to begin!
-                </Button>
-                <Modal show={open} onHide={handleClose}>
-                    <Modal.Header closeButton>
-                        <Modal.Title>Welcome to our Website!</Modal.Title>
-                    </Modal.Header>
-                    <Modal.Body>
-                        Hello and welcome to our website to help Computer
-                        Science majors at the University of Delaware make
-                        schedules. This website will allow you to put together
-                        your desired schedule for the rest of your career. Add
-                        the classes you wish to take to their their semester,
-                        add/remove semesters, add one or more plans, and even
-                        edit the class itself if necessary!
-                    </Modal.Body>
-                    <Modal.Footer></Modal.Footer>
-                </Modal>
+                <WelcomeModal></WelcomeModal>
                 <p></p>
             </div>
 
@@ -169,6 +157,33 @@ function App(): JSX.Element {
             ></DisplayCoursePool>
             <p></p>
             <Button variant="dark" onClick={handleShowPlanModal}>
+            <Button variant="light" onClick={handleShowAddModal}>
+                Add New Semester
+            </Button>
+            <p></p>
+
+            {/* Add Semester */}
+            <AddSemester
+                show={showAddModal}
+                handleClose={handleCloseAddModal}
+                addSemester={addSemester}
+            ></AddSemester>
+
+            <Button variant="info" onClick={handleShowCSVModal}>
+                Export CSV
+            </Button>
+            <Modal show={showCSVModal} onHide={handleCloseCSVModal}>
+                <Modal.Header closeButton>
+                    Click the button below to export your plan as a CSV file!
+                </Modal.Header>
+                <Modal.Body>
+                    <ExportCSV semesters={plan.semesters}></ExportCSV>
+                </Modal.Body>
+            </Modal>
+            <p></p>
+
+            {/* Add New Plan */}
+            <Button variant="secondary" onClick={handleShowPlanModal}>
                 Change Plan
             </Button>
             <ChangePlan
