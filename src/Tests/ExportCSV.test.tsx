@@ -4,11 +4,11 @@ import { ExportCSV } from "../Components/ExportCSV";
 import { Plan } from "../Interfaces/plans";
 import { Semester } from "../Interfaces/semester";
 
-const blankPlan: Plan = { title: "", id: 0, semesters: [] as Semester[] };
+const testPlan: Plan = { title: "", id: 0, semesters: [] as Semester[] };
 
 describe("ImportCsv Test", () => {
     beforeEach(() => {
-        render(<ExportCSV semesters={blankPlan.semesters} plan={blankPlan} />);
+        render(<ExportCSV semesters={testPlan.semesters} plan={testPlan} />);
     });
 
     test("There is an export button", () => {
