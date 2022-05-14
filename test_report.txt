@@ -30,18 +30,21 @@ FAIL src/App.test.tsx
               [36m</button>[39m
             [36m</div>[39m
           [36m</div>[39m
+          [36m<p />[39m
           [36m<button[39m
             [33mclass[39m=[32m"btn btn-secondary"[39m
             [33mtype[39m=[32m"button"[39m
           [36m>[39m
             [0mDisplay Course Pool[0m
           [36m</button>[39m
+          [36m<p />[39m
           [36m<button[39m
             [33mclass[39m=[32m"btn btn-secondary"[39m
             [33mtype[39m=[32m"button"[39m
           [36m>[39m
             [0mChange Plan[0m
           [36m</button>[39m
+          [36m<p />[39m
           [36m<div>[39m
             [36m<button[39m
               [33mclass[39m=[32m"btn btn-info"[39m
@@ -361,6 +364,7 @@ FAIL src/App.test.tsx
               [36m>[39m
                 [0mAdd New Semester[0m
               [36m</button>[39m
+              [36m<p />[39m
               [36m<button[39m
                 [33mclass[39m=[32m"btn btn-primary"[39m
                 [33mtype[39m=[32m"button"[39m
@@ -446,5 +450,5 @@ All files               |   32.41 |       20 |    24.8 |      34 |
 Test Suites: 1 failed, 2 passed, 3 total
 Tests:       1 failed, 4 passed, 5 total
 Snapshots:   0 total
-Time:        5.897 s
+Time:        5.833 s
 Ran all test suites.
