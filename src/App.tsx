@@ -15,7 +15,7 @@ import { CoursePool } from "./Interfaces/coursepool";
 import course_data_json from "./Data/course_data.json";
 import semester_json from "./Data/semester_data.json";
 import { ChangePlan } from "./Components/ChangePlan";
-import { ExportCsv } from "./Components/ExportCSV";
+import { ExportCSV } from "./Components/ExportCSV";
 
 const SEMESTER = semester_json.map(
     (semester): Semester => ({
@@ -189,7 +189,7 @@ function App(): JSX.Element {
                     Click the button below to export your plan as a CSV file!
                 </Modal.Header>
                 <Modal.Body>
-                    <ExportCsv semesters={plan.semesters}></ExportCsv>
+                    <ExportCSV semesters={plan.semesters}></ExportCSV>
                 </Modal.Body>
                 <Modal.Footer>
                     <Button variant="danger" onClick={handleCloseCSVModal}>
