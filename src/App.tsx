@@ -15,6 +15,7 @@ import { CoursePool } from "./Interfaces/coursepool";
 import course_data_json from "./Data/course_data.json";
 import semester_json from "./Data/semester_data.json";
 import { ChangePlan } from "./Components/ChangePlan";
+import { ExportCsv } from "./Components/ExportCSV";
 
 const SEMESTER = semester_json.map(
     (semester): Semester => ({
@@ -106,9 +107,13 @@ function App(): JSX.Element {
     const handleClosePlanModal = () => setShowPlanModal(false);
     const handleShowPlanModal = () => setShowPlanModal(true);
 
-    const [open, setOpen] = React.useState(false);
+    const [open, setOpen] = useState(false);
     const handleOpen = () => setOpen(true);
     const handleClose = () => setOpen(false);
+
+    const [showCSVModal, setShowCSVModal] = useState(false);
+    const handleShowCSVModal = () => setShowCSVModal(true);
+    const handleCloseCSVModal = () => setShowCSVModal(false);
 
     type CourseRecord = Record<string, Record<string, Course>>;
     const ALLCOURSES: CourseRecord = course_data_json;
@@ -175,6 +180,24 @@ function App(): JSX.Element {
                 handleClose={handleCloseAddModal}
                 addSemester={addSemester}
             ></AddSemester>
+
+            <Button variant="info" onClick={handleShowCSVModal}>
+                Export CSV
+            </Button>
+            <Modal show={showCSVModal} onHide={handleCloseCSVModal}>
+                <Modal.Header closeButton>
+                    Click the button below to export your plan as a CSV file!
+                </Modal.Header>
+                <Modal.Body>
+                    <ExportCsv semesters={plan.semesters}></ExportCsv>
+                </Modal.Body>
+                <Modal.Footer>
+                    <Button variant="danger" onClick={handleCloseCSVModal}>
+                        Close
+                    </Button>
+                </Modal.Footer>
+            </Modal>
+            <p></p>
 
             {/* Add New Plan */}
             <Button variant="secondary" onClick={handleShowPlanModal}>

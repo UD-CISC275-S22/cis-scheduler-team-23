@@ -55,15 +55,6 @@ export function AddSemester({
                     <Form.Label column sm={3}>
                         Semester Season:
                     </Form.Label>
-                    {/*
-                    <Col>
-                        <Form.Control
-                            value={season}
-                            onChange={(
-                                event: React.ChangeEvent<HTMLInputElement>
-                            ) => setSeason(event.target.value)}
-                        />
-                            </Col> */}
                     <Col>
                         <Form.Select value={season} onChange={changeSeason}>
                             {seasonsList.map((choice: string) => (
