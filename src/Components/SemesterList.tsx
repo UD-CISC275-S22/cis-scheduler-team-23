@@ -24,7 +24,7 @@ export function SemesterList({
                         editSemester={editSemester}
                         deleteSemester={deleteSemester}
                         activePlan={activePlan}
-                        setPlans={setPlans}
+                        setPlan={setPlans}
                     ></SemesterView>
                 </div>
             ))}

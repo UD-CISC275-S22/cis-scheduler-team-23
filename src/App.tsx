@@ -15,6 +15,7 @@ import { CoursePool } from "./Interfaces/coursepool";
 import course_data_json from "./Data/course_data.json";
 import semester_json from "./Data/semester_data.json";
 import { ChangePlan } from "./Components/ChangePlan";
+import { AddPlan } from "./Components/AddPlan";
 
 const SEMESTER = semester_json.map(
     (semester): Semester => ({
@@ -48,18 +49,6 @@ function App(): JSX.Element {
         }
     ]);
 
-    // propogate plans with user input
-    function makeNewPlan() {
-        setPlanArray([
-            ...planArray,
-            {
-                title: "new plan" + planArray.length.toString() + 1,
-                id: planArray.length + 1,
-                semesters: []
-            }
-        ]);
-    }
-
     // const [plan, setPlan] = useState<Plan>(planArray[0]);
     // const [allsems, setSems] = useState<Semester[]>(SEMESTER);
     //May not be updating automatically.
@@ -72,7 +61,8 @@ function App(): JSX.Element {
             (semester: Semester): boolean => semester.id === newSem.id
         );
         if (existing === undefined) {
-            setPlan({ ...plan, semesters: [...plan.semesters, newSem] });
+            plan.semesters.push(newSem);
+            setPlan(plan);
         }
     }
 
@@ -105,6 +95,10 @@ function App(): JSX.Element {
     const [showPlanModal, setShowPlanModal] = useState(false);
     const handleClosePlanModal = () => setShowPlanModal(false);
     const handleShowPlanModal = () => setShowPlanModal(true);
+
+    const [showAddPlanModal, setShowAddPlanModal] = useState(false);
+    const handleCloseAddPlanModal = () => setShowAddPlanModal(false);
+    const handleShowAddPlanModal = () => setShowAddPlanModal(true);
 
     const [open, setOpen] = React.useState(false);
     const handleOpen = () => setOpen(true);
@@ -189,7 +183,17 @@ function App(): JSX.Element {
                 setPlan={setPlan}
             ></ChangePlan>
             {/*Replace with component */}
-            <Button onClick={makeNewPlan}> ADD PLAN (click 1x) </Button>
+            <Button variant="primary" onClick={handleShowAddPlanModal}>
+                {" "}
+                Add Plan{" "}
+            </Button>
+            <p></p>
+            <AddPlan
+                show={showAddPlanModal}
+                handleClose={handleCloseAddPlanModal}
+                plans={planArray}
+                setPlans={setPlanArray}
+            ></AddPlan>
         </div>
     );
 }

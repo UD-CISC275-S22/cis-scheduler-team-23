@@ -16,8 +16,6 @@ export function AddSemester({
     handleClose: () => void;
     addSemester: (newSemester: Semester) => void;
 }): JSX.Element {
-    // const [title, setTitle] = useState<string>("");
-    // const [id, setId] = useState<string>("");
     const seasonsList = ["Fall", "Spring", "Summer", "Winter"];
     const [season, setSeason] = useState<string>(seasonsList[0]);
     const [year, setYear] = useState<number>(2022);
@@ -55,15 +53,6 @@ export function AddSemester({
                     <Form.Label column sm={3}>
                         Semester Season:
                     </Form.Label>
-                    {/*
-                    <Col>
-                        <Form.Control
-                            value={season}
-                            onChange={(
-                                event: React.ChangeEvent<HTMLInputElement>
-                            ) => setSeason(event.target.value)}
-                        />
-                            </Col> */}
                     <Col>
                         <Form.Select value={season} onChange={changeSeason}>
                             {seasonsList.map((choice: string) => (

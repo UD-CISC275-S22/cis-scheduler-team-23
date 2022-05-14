@@ -17,13 +17,13 @@ export function SemesterView({
     editSemester,
     deleteSemester,
     activePlan,
-    setPlans
+    setPlan
 }: {
     semester: Semester;
     editSemester: (id: string, newSemester: Semester) => void;
     deleteSemester: (id: string) => void;
     activePlan: Plan;
-    setPlans: (t: Plan) => void;
+    setPlan: (t: Plan) => void;
 }): JSX.Element {
     // const [visible, setVisible] = useState<boolean>(false);
     const [edit, setEdit] = useState<boolean>(false);
@@ -92,7 +92,7 @@ export function SemesterView({
                             course={c}
                             courseSemester={semester}
                             activePlan={activePlan}
-                            setPlans={setPlans}
+                            setPlans={setPlan}
                         ></DisplayCourses>
                     </Col>
                 ))}
@@ -108,6 +108,8 @@ export function SemesterView({
                         show={showAddModal}
                         handleClose={handleCloseAddModal}
                         currSemester={semester}
+                        plan={activePlan}
+                        setPlan={setPlan}
                     ></AddCourse>
                     <Button onClick={handleShowClearModal} variant="warning">
                         Clear All Courses
