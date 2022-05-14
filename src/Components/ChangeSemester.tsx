@@ -13,18 +13,18 @@ export function ChangeSemester({
     course,
     courseSemester,
     activePlan,
-    setSemesters
+    setPlan
 }: {
     show: boolean;
     handleClose: () => void;
     course: Course;
     courseSemester: Semester;
     activePlan: Plan;
-    setSemesters: (t: Plan) => void;
+    setPlan: (t: Plan) => void;
 }) {
-    const [currSemester, setSemester] = useState(courseSemester.title);
+    const [currSemester, setCurrSemester] = useState(courseSemester.title);
     function updateSemester(event: React.ChangeEvent<HTMLSelectElement>) {
-        setSemester(event.target.value);
+        setCurrSemester(event.target.value);
     }
     function saveChanges() {
         if (currSemester != courseSemester.title) {
@@ -35,8 +35,12 @@ export function ChangeSemester({
                 if (courseIndex > -1) {
                     courseSemester.courseArray.splice(courseIndex, 1);
                 }
-                setSemesters(activePlan);
-                setSemester("");
+                const semIndex = activePlan.semesters.findIndex(
+                    (s: Semester): boolean => courseSemester.id === s.id
+                );
+                activePlan.semesters[semIndex] = courseSemester;
+                setPlan(activePlan);
+                setCurrSemester("");
             } else {
                 const courseIndex = courseSemester.courseArray.findIndex(
                     (c: Course): boolean => c.code === course.code
@@ -48,16 +52,25 @@ export function ChangeSemester({
                     (s: Semester): boolean => s.title === currSemester
                 );
                 if (semesterIndex > -1) {
-                    AddCourseHelp(course, activePlan.semesters[semesterIndex]);
-                    setSemester(activePlan.semesters[semesterIndex].title);
-                    setSemesters(activePlan);
+                    AddCourseHelp(
+                        course,
+                        activePlan.semesters[semesterIndex],
+                        activePlan,
+                        setPlan
+                    );
+                    setCurrSemester(activePlan.semesters[semesterIndex].title);
+                    const semIndex = activePlan.semesters.findIndex(
+                        (s: Semester): boolean => courseSemester.id === s.id
+                    );
+                    activePlan.semesters[semIndex] = courseSemester;
+                    setPlan(activePlan);
                 }
             }
         }
         handleClose();
     }
     function cancelChanges() {
-        setSemester(courseSemester.title);
+        setCurrSemester(courseSemester.title);
         handleClose();
     }
 

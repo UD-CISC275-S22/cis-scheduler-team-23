@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button } from "react-bootstrap";
+import { Button, Col, Modal, Row } from "react-bootstrap";
 import headerbackground from "./Pictures/seal-background-5.jpeg";
 import "./App.css";
 
@@ -17,6 +17,12 @@ import { CoursePool } from "./Interfaces/coursepool";
 
 import course_data_json from "./Data/course_data.json";
 import semester_json from "./Data/semester_data.json";
+import { ChangePlan } from "./Components/ChangePlan";
+import { AddPlan } from "./Components/AddPlan";
+import { ClearPlan } from "./Components/ClearPlan";
+import { DeletePlan } from "./Components/DeletePlan";
+import { EditPlan } from "./Components/EditPlan";
+import { ExportCSV } from "./Components/ExportCSV";
 
 const SEMESTER = semester_json.map(
     (semester): Semester => ({
@@ -71,7 +77,8 @@ function App(): JSX.Element {
             (semester: Semester): boolean => semester.id === newSem.id
         );
         if (existing === undefined) {
-            setPlan({ ...plan, semesters: [...plan.semesters, newSem] });
+            plan.semesters.push(newSem);
+            setPlan(plan);
         }
     }
 
@@ -83,6 +90,12 @@ function App(): JSX.Element {
                     semester.id === id ? newSem : semester
             )
         });
+        const planIndex = planArray.findIndex(
+            (p: Plan): boolean => p.id === plan.id
+        );
+        planArray[planIndex] = plan;
+        setPlan(plan);
+        setPlanArray(planArray);
     }
 
     function deleteSemester(id: string) {
@@ -105,6 +118,26 @@ function App(): JSX.Element {
     const handleClosePlanModal = () => setShowPlanModal(false);
     const handleShowPlanModal = () => setShowPlanModal(true);
 
+    const [showAddPlanModal, setShowAddPlanModal] = useState(false);
+    const handleCloseAddPlanModal = () => setShowAddPlanModal(false);
+    const handleShowAddPlanModal = () => setShowAddPlanModal(true);
+
+    const [showClearPlanModal, setShowClearPlanModal] = useState(false);
+    const handleCloseClearPlanModal = () => setShowClearPlanModal(false);
+    const handleShowClearPlanModal = () => setShowClearPlanModal(true);
+
+    const [showDeletePlanModal, setShowDeletePlanModal] = useState(false);
+    const handleCloseDeletePlanModal = () => setShowDeletePlanModal(false);
+    const handleShowDeletePlanModal = () => setShowDeletePlanModal(true);
+
+    const [showEditPlanModal, setShowEditPlanModal] = useState(false);
+    const handleCloseEditPlanModal = () => setShowEditPlanModal(false);
+    const handleShowEditPlanModal = () => setShowEditPlanModal(true);
+
+    const [showCSVModal, setShowCSVModal] = useState(false);
+    const handleShowCSVModal = () => setShowCSVModal(true);
+    const handleCloseCSVModal = () => setShowCSVModal(false);
+
     type CourseRecord = Record<string, Record<string, Course>>;
     const ALLCOURSES: CourseRecord = course_data_json;
     const pool: CoursePool = {
@@ -126,26 +159,24 @@ function App(): JSX.Element {
                 Display Course Pool
             </Button>
 
-            <p></p>
-            <h3>{plan.title}</h3>
             <DisplayCoursePool
                 show={showPoolModal}
                 handleClose={handleClosePoolModal}
                 coursepool={pool}
             ></DisplayCoursePool>
-
-            <SemesterList
-                activePlan={plan}
-                editSemester={editSemester}
-                deleteSemester={deleteSemester}
-                setPlans={setPlan} //Used to be setSems
-            ></SemesterList>
-
-            {/* Add Semester Button */}
             <p></p>
-            <Button variant="light" onClick={handleShowAddModal}>
-                Add New Semester
+
+            {/* Add New Plan */}
+            <Button variant="secondary" onClick={handleShowPlanModal}>
+                Change Plan
             </Button>
+            <ChangePlan
+                show={showPlanModal}
+                handleClose={handleClosePlanModal}
+                plan={plan}
+                plans={planArray}
+                setPlan={setPlan}
+            ></ChangePlan>
             <p></p>
 
             {/* Add Semester */}
@@ -160,19 +191,90 @@ function App(): JSX.Element {
             <ExportCSV semesters={plan.semesters} plan={plan}></ExportCSV>
             <p></p>
 
-            {/* Add New Plan */}
-            <Button variant="secondary" onClick={handleShowPlanModal}>
-                Change Plan
-            </Button>
             <p></p>
-            <ChangePlan
-                show={showPlanModal}
-                handleClose={handleClosePlanModal}
-                plan={plan}
+            <h3>{plan.title}</h3>
+
+            <SemesterList
+                activePlan={plan}
+                editSemester={editSemester}
+                deleteSemester={deleteSemester}
+                setPlan={setPlan} //Used to be setSems
                 plans={planArray}
                 setPlan={setPlan}
             ></ChangePlan>
             <Button onClick={makeNewPlan}> ADD PLAN (click 1x) </Button>
+                setPlans={setPlanArray}
+            ></SemesterList>
+            <Row>
+                <Col>
+                    {/* Add Semester Button */}
+                    <Button variant="light" onClick={handleShowAddModal}>
+                        Add New Semester
+                    </Button>
+
+                    {/* Add Semester */}
+                    <AddSemester
+                        show={showAddModal}
+                        handleClose={handleCloseAddModal}
+                        addSemester={addSemester}
+                    ></AddSemester>
+                    <p></p>
+                    {/*Replace with component */}
+                    <Button variant="primary" onClick={handleShowAddPlanModal}>
+                        {" "}
+                        Add Plan{" "}
+                    </Button>
+                    <AddPlan
+                        show={showAddPlanModal}
+                        handleClose={handleCloseAddPlanModal}
+                        plans={planArray}
+                        setPlans={setPlanArray}
+                    ></AddPlan>
+                    <Button
+                        variant="secondary"
+                        onClick={handleShowEditPlanModal}
+                    >
+                        Edit Plan
+                    </Button>
+                    <EditPlan
+                        show={showEditPlanModal}
+                        handleClose={handleCloseEditPlanModal}
+                        plan={plan}
+                        plans={planArray}
+                        setPlan={setPlan}
+                        setPlans={setPlanArray}
+                    ></EditPlan>
+                    <Button
+                        variant="warning"
+                        onClick={handleShowClearPlanModal}
+                    >
+                        Clear Plan
+                    </Button>
+                    <ClearPlan
+                        show={showClearPlanModal}
+                        handleClose={handleCloseClearPlanModal}
+                        plan={plan}
+                        plans={planArray}
+                        setPlan={setPlan}
+                        setPlans={setPlanArray}
+                    ></ClearPlan>
+                    <Button
+                        variant="danger"
+                        onClick={handleShowDeletePlanModal}
+                    >
+                        Delete Plan
+                    </Button>
+                    <DeletePlan
+                        show={showDeletePlanModal}
+                        handleClose={handleCloseDeletePlanModal}
+                        plan={plan}
+                        plans={planArray}
+                        setPlan={setPlan}
+                        setPlans={setPlanArray}
+                    ></DeletePlan>
+                    {/* Add New Plan */}
+                </Col>
+            </Row>
         </div>
     );
 }
