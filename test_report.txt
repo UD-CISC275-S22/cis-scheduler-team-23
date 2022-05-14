@@ -273,6 +273,21 @@ FAIL src/App.test.tsx
             [0mDisplay Course Pool[0m
           [36m</button>[39m
           [36m<p />[39m
+          [36m<button[39m
+            [33mclass[39m=[32m"btn btn-secondary"[39m
+            [33mtype[39m=[32m"button"[39m
+          [36m>[39m
+            [0mChange Plan[0m
+          [36m</button>[39m
+          [36m<p />[39m
+          [36m<button[39m
+            [33mclass[39m=[32m"btn btn-info"[39m
+            [33mtype[39m=[32m"button"[39m
+          [36m>[39m
+            [0mExport CSV[0m
+          [36m</button>[39m
+          [36m<p />[39m
+          [36m<p />[39m
           [36m<h3>[39m
             [0mtest plan[0m
           [36m</h3>[39m
@@ -570,34 +585,47 @@ FAIL src/App.test.tsx
               [36m</div>[39m
             [36m</div>[39m
           [36m</div>[39m
-          [36m<p />[39m
-          [36m<button[39m
-            [33mclass[39m=[32m"btn btn-light"[39m
-            [33mtype[39m=[32m"button"[39m
+          [36m<div[39m
+            [33mclass[39m=[32m"row"[39m
           [36m>[39m
-            [0mAdd New Semester[0m
-          [36m</button>[39m
-          [36m<p />[39m
-          [36m<button[39m
-            [33mclass[39m=[32m"btn btn-info"[39m
-            [33mtype[39m=[32m"button"[39m
-          [36m>[39m
-            [0mExport CSV[0m
-          [36m</button>[39m
-          [36m<p />[39m
-          [36m<button[39m
-            [33mclass[39m=[32m"btn btn-secondary"[39m
-            [33mtype[39m=[32m"button"[39m
-          [36m>[39m
-            [0mChange Plan[0m
-          [36m</button>[39m
-          [36m<p />[39m
-          [36m<button[39m
-            [33mclass[39m=[32m"btn btn-primary"[39m
-            [33mtype[39m=[32m"button"[39m
-          [36m>[39m
-            [0m ADD PLAN (click 1x) [0m
-          [36m</button>[39m
+            [36m<div[39m
+              [33mclass[39m=[32m"col"[39m
+            [36m>[39m
+              [36m<button[39m
+                [33mclass[39m=[32m"btn btn-light"[39m
+                [33mtype[39m=[32m"button"[39m
+              [36m>[39m
+                [0mAdd New Semester[0m
+              [36m</button>[39m
+              [36m<p />[39m
+              [36m<button[39m
+                [33mclass[39m=[32m"btn btn-primary"[39m
+                [33mtype[39m=[32m"button"[39m
+              [36m>[39m
+                [0m [0m
+                [0mAdd Plan[0m
+                [0m [0m
+              [36m</button>[39m
+              [36m<button[39m
+                [33mclass[39m=[32m"btn btn-secondary"[39m
+                [33mtype[39m=[32m"button"[39m
+              [36m>[39m
+                [0mEdit Plan[0m
+              [36m</button>[39m
+              [36m<button[39m
+                [33mclass[39m=[32m"btn btn-warning"[39m
+                [33mtype[39m=[32m"button"[39m
+              [36m>[39m
+                [0mClear Plan[0m
+              [36m</button>[39m
+              [36m<button[39m
+                [33mclass[39m=[32m"btn btn-danger"[39m
+                [33mtype[39m=[32m"button"[39m
+              [36m>[39m
+                [0mDelete Plan[0m
+              [36m</button>[39m
+            [36m</div>[39m
+          [36m</div>[39m
         [36m</div>[39m
       [36m</div>[39m
     [36m</body>[39m
@@ -623,25 +651,29 @@ FAIL src/App.test.tsx
 ------------------------|---------|----------|---------|---------|-------------------
 File                    | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 ------------------------|---------|----------|---------|---------|-------------------
-All files               |    37.6 |    22.22 |      28 |   40.45 |                   
- src                    |   54.05 |        0 |   16.66 |   68.96 |                   
-  App.tsx               |   54.05 |        0 |   16.66 |   68.96 | 55,73-95          
- src/Components         |   34.63 |       25 |   30.48 |   36.12 |                   
-  AddCourse.tsx         |   33.33 |      100 |   33.33 |   33.33 | 25-29,46          
-  AddCourseHelp.tsx     |       0 |      100 |       0 |       0 | 7                 
-  AddSemester.tsx       |      50 |        0 |      40 |      50 | 26-41,45,78       
+All files               |   33.33 |       20 |    24.8 |   36.02 |                   
+ src                    |   51.61 |        0 |   11.53 |   69.56 |                   
+  App.tsx               |   51.61 |        0 |   11.53 |   69.56 | 65-94             
+ src/Components         |   29.05 |    22.22 |   28.15 |   29.88 |                   
+  AddCourse.tsx         |   33.33 |      100 |   33.33 |   33.33 | 30-34,51          
+  AddCourseHelp.tsx     |       0 |      100 |       0 |       0 | 13-18             
+  AddPlan.tsx           |      25 |      100 |   33.33 |      25 | 21-29,46          
+  AddSemester.tsx       |      50 |        0 |      40 |      50 | 24-39,43,76       
   ChangePlan.tsx        |      30 |      100 |   33.33 |      30 | 20-31             
-  ChangeSemester.tsx    |       0 |        0 |       0 |       0 | 25-72             
+  ChangeSemester.tsx    |       0 |        0 |       0 |       0 | 25-85             
+  ClearPlan.tsx         |   11.11 |      100 |      25 |   11.11 | 22-32             
   ClearSemester.tsx     |   33.33 |      100 |      50 |   33.33 | 18-19             
   DefaultCourse.tsx     |       0 |      100 |       0 |       0 | 7-18              
   DeleteCourse.tsx      |       0 |        0 |       0 |       0 | 20-29             
+  DeletePlan.tsx        |    7.69 |        0 |      25 |    7.69 | 22-42             
   DisplayCoursePool.tsx |   86.66 |      100 |    87.5 |   84.61 | 23-24             
   DisplayCourses.tsx    |    32.3 |    35.71 |   10.52 |      35 | 41,46-106         
+  EditPlan.tsx          |   16.66 |      100 |      20 |   16.66 | 22-33,50          
   ExportCSV.tsx         |      50 |      100 |   57.14 |   53.33 | 15,19,26-30       
   RequirementView.tsx   |       0 |      100 |       0 |       0 | 8                 
-  SemesterEditor.tsx    |       0 |      100 |       0 |       0 | 17-77             
+  SemesterEditor.tsx    |       0 |      100 |       0 |       0 | 26-96             
   SemesterList.tsx      |     100 |      100 |     100 |     100 |                   
-  SemesterView.tsx      |   66.66 |       50 |    37.5 |    90.9 | 38                
+  SemesterView.tsx      |   66.66 |       50 |    37.5 |    90.9 | 42                
   WelcomeModal.tsx      |   66.66 |      100 |   33.33 |     100 |                   
  src/Interfaces         |       0 |        0 |       0 |       0 |                   
   coursepool.ts         |       0 |        0 |       0 |       0 |                   
@@ -653,5 +685,5 @@ All files               |    37.6 |    22.22 |      28 |   40.45 |
 Test Suites: 2 failed, 2 total
 Tests:       3 failed, 3 total
 Snapshots:   0 total
-Time:        3.553 s
+Time:        5.197 s
 Ran all test suites.
