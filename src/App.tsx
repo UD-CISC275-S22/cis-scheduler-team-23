@@ -123,9 +123,6 @@ function App(): JSX.Element {
     const handleCloseEditPlanModal = () => setShowEditPlanModal(false);
     const handleShowEditPlanModal = () => setShowEditPlanModal(true);
 
-    const [open, setOpen] = React.useState(false);
-    const handleOpen = () => setOpen(true);
-    const handleClose = () => setOpen(false);
     const [showCSVModal, setShowCSVModal] = useState(false);
     const handleShowCSVModal = () => setShowCSVModal(true);
     const handleCloseCSVModal = () => setShowCSVModal(false);
@@ -156,18 +153,19 @@ function App(): JSX.Element {
                 coursepool={pool}
             ></DisplayCoursePool>
             <p></p>
-            <Button variant="dark" onClick={handleShowPlanModal}>
-            <Button variant="light" onClick={handleShowAddModal}>
-                Add New Semester
-            </Button>
-            <p></p>
 
-            {/* Add Semester */}
-            <AddSemester
-                show={showAddModal}
-                handleClose={handleCloseAddModal}
-                addSemester={addSemester}
-            ></AddSemester>
+            {/* Add New Plan */}
+            <Button variant="secondary" onClick={handleShowPlanModal}>
+                Change Plan
+            </Button>
+            <ChangePlan
+                show={showPlanModal}
+                handleClose={handleClosePlanModal}
+                plan={plan}
+                plans={planArray}
+                setPlan={setPlan}
+            ></ChangePlan>
+            <p></p>
 
             <Button variant="info" onClick={handleShowCSVModal}>
                 Export CSV
@@ -181,18 +179,6 @@ function App(): JSX.Element {
                 </Modal.Body>
             </Modal>
             <p></p>
-
-            {/* Add New Plan */}
-            <Button variant="secondary" onClick={handleShowPlanModal}>
-                Change Plan
-            </Button>
-            <ChangePlan
-                show={showPlanModal}
-                handleClose={handleClosePlanModal}
-                plan={plan}
-                plans={planArray}
-                setPlan={setPlan}
-            ></ChangePlan>
 
             <p></p>
             <h3>{plan.title}</h3>
