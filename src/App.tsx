@@ -155,6 +155,7 @@ function App(): JSX.Element {
                 <WelcomeModal></WelcomeModal>
             </div>
 
+            <p></p>
             <Button variant="secondary" onClick={handleShowPoolModal}>
                 Display Course Pool
             </Button>
@@ -164,7 +165,7 @@ function App(): JSX.Element {
                 handleClose={handleClosePoolModal}
                 coursepool={pool}
             ></DisplayCoursePool>
-
+            <p></p>
             {/* Add New Plan */}
             <Button variant="secondary" onClick={handleShowPlanModal}>
                 Change Plan
@@ -184,7 +185,7 @@ function App(): JSX.Element {
                 handleClose={handleCloseAddModal}
                 addSemester={addSemester}
             ></AddSemester>
-
+            <p></p>
             {/* Export CSV Files */}
             <ExportCSV semesters={plan.semesters} plan={plan}></ExportCSV>
 
@@ -204,6 +205,7 @@ function App(): JSX.Element {
                     <Button variant="light" onClick={handleShowAddModal}>
                         Add New Semester
                     </Button>
+                    <p></p>
 
                     {/* Add Semester */}
                     <AddSemester
