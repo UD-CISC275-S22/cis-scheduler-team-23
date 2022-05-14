@@ -127,7 +127,7 @@ export function DisplayCourses({
                                 course={course}
                                 courseSemester={courseSemester}
                                 activePlan={activePlan}
-                                setSemesters={setPlans}
+                                setPlan={setPlans}
                             ></ChangeSemester>
                             <p></p>
                             <Button

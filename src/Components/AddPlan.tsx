@@ -1,54 +1,49 @@
 import React, { useState } from "react";
 import { Button, Modal, Form, Col, Row } from "react-bootstrap";
 import { Semester } from "../Interfaces/semester";
-import course_data_json from "../Data/course_data.json";
-import { Course } from "../Interfaces/courses";
-
 import "../App.css";
-import { AddCourseHelp } from "./AddCourseHelp";
 import { Plan } from "../Interfaces/plans";
 
-export function AddCourse({
+export function AddPlan({
     show,
     handleClose,
-    currSemester,
-    plan,
-    setPlan
+    plans,
+    setPlans
 }: {
     show: boolean;
     handleClose: () => void;
-    currSemester: Semester;
-    plan: Plan;
-    setPlan: (t: Plan) => void;
+    plans: Plan[];
+    setPlans: (t: Plan[]) => void;
 }) {
-    const [courseCode, setCourseCode] = useState<string>("");
-
-    type CourseRecord = Record<string, Record<string, Course>>;
-    const ALLCOURSES: CourseRecord = course_data_json;
+    const [planTitle, setPlanTitle] = useState<string>("");
 
     function saveChanges() {
-        const courseInfo = courseCode.split(" ", 1);
-        const addedCourse = ALLCOURSES[courseInfo[0]][courseCode];
-        AddCourseHelp(addedCourse, currSemester, plan, setPlan);
-        setCourseCode("");
+        const newPlan: Plan = {
+            title: planTitle,
+            id: plans.length + 1,
+            semesters: [] as Semester[]
+        };
+        plans.push(newPlan);
+        setPlans(plans);
+        setPlanTitle("");
         handleClose();
     }
     return (
         <Modal show={show} onHide={handleClose} animation={false}>
             <Modal.Header closeButton>
-                <Modal.Title> Add New Course </Modal.Title>
+                <Modal.Title> Add New Plan </Modal.Title>
             </Modal.Header>
             <Modal.Body>
                 <Form.Group controlId="formCourseCode" as={Row}>
                     <Form.Label column sm={3}>
-                        Course Code: (Ex: CISC 108)
+                        Plan Title:
                     </Form.Label>
                     <Col>
                         <Form.Control
-                            value={courseCode}
+                            value={planTitle}
                             onChange={(
                                 event: React.ChangeEvent<HTMLInputElement>
-                            ) => setCourseCode(event.target.value)}
+                            ) => setPlanTitle(event.target.value)}
                         />
                     </Col>
                 </Form.Group>
