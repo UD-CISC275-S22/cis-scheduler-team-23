@@ -7,6 +7,8 @@ import { WelcomeModal } from "./Components/WelcomeModal";
 import { AddSemester } from "./Components/AddSemester";
 import { SemesterList } from "./Components/SemesterList";
 import { DisplayCoursePool } from "./Components/DisplayCoursePool";
+import { ChangePlan } from "./Components/ChangePlan";
+import { ExportCSV } from "./Components/ExportCSV";
 
 import { Semester } from "./Interfaces/semester";
 import { Course } from "./Interfaces/courses";
@@ -54,9 +56,18 @@ function App(): JSX.Element {
         }
     ]);
 
-    // const [plan, setPlan] = useState<Plan>(planArray[0]);
-    // const [allsems, setSems] = useState<Semester[]>(SEMESTER);
-    //May not be updating automatically.
+    // propogate plans with user input
+    function makeNewPlan() {
+        setPlanArray([
+            ...planArray,
+            {
+                title: "new plan" + planArray.length.toString() + 1,
+                id: planArray.length + 1,
+                semesters: []
+            }
+        ]);
+    }
+
     const [plan, setPlan] = useState<Plan>(planArray[0]);
 
     const [showAddModal, setShowAddModal] = useState(false);
@@ -137,6 +148,7 @@ function App(): JSX.Element {
     return (
         <div className="App">
             <img src={headerbackground} width="100%" height="100%" />
+
             <div>
                 <p></p>
                 <WelcomeModal></WelcomeModal>
@@ -167,17 +179,16 @@ function App(): JSX.Element {
             ></ChangePlan>
             <p></p>
 
-            <Button variant="info" onClick={handleShowCSVModal}>
-                Export CSV
-            </Button>
-            <Modal show={showCSVModal} onHide={handleCloseCSVModal}>
-                <Modal.Header closeButton>
-                    Click the button below to export your plan as a CSV file!
-                </Modal.Header>
-                <Modal.Body>
-                    <ExportCSV semesters={plan.semesters}></ExportCSV>
-                </Modal.Body>
-            </Modal>
+            {/* Add Semester */}
+            <AddSemester
+                show={showAddModal}
+                handleClose={handleCloseAddModal}
+                addSemester={addSemester}
+            ></AddSemester>
+
+            {/* Export CSV Files */}
+            <p></p>
+            <ExportCSV semesters={plan.semesters} plan={plan}></ExportCSV>
             <p></p>
 
             <p></p>
@@ -189,6 +200,9 @@ function App(): JSX.Element {
                 deleteSemester={deleteSemester}
                 setPlan={setPlan} //Used to be setSems
                 plans={planArray}
+                setPlan={setPlan}
+            ></ChangePlan>
+            <Button onClick={makeNewPlan}> ADD PLAN (click 1x) </Button>
                 setPlans={setPlanArray}
             ></SemesterList>
             <Row>

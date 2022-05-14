@@ -1,27 +1,31 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
 import { ExportCSV } from "../Components/ExportCSV";
-// import userEvent from "@testing-library/user-event";
+import { Plan } from "../Interfaces/plans";
+import { Semester } from "../Interfaces/semester";
 
-describe("Export CSV Test", () => {
+const blankPlan: Plan = { title: "", id: 0, semesters: [] as Semester[] };
+
+describe("ImportCsv Test", () => {
     beforeEach(() => {
-        render(<ExportCSV semesters={[]} />);
+        render(<ExportCSV semesters={blankPlan.semesters} plan={blankPlan} />);
     });
 
-    test("There is an Export Button", () => {
+    test("There is an export button", () => {
         expect(
             screen.getByRole("button", {
                 name: /Export CSV/i
             })
         ).toBeInTheDocument();
     });
-    test("Clicking the button shows exporting plan button", () => {
+    test("Clicking the button shows where you can upload file.", () => {
         const changeTypeButton = screen.getByRole("button", {
-            name: /Export Your Plan/i
+            name: /Export CSV/i
         });
         changeTypeButton.click();
-        // Should be Multiple Choice
-        const typeTextMC = screen.getByText(/Export Your Plan/i);
+        const typeTextMC = screen.getByText(
+            /Click the button below to export your plan as a CSV file!/i
+        );
         expect(typeTextMC).toBeInTheDocument();
     });
 });
