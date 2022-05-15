@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button, Col, Row } from "react-bootstrap";
+import { Button, Col } from "react-bootstrap";
 import headerbackground from "./Pictures/seal-background-5.jpeg";
 import "./App.css";
 
