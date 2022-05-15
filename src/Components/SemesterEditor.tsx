@@ -4,6 +4,10 @@ import "../App.css";
 import { Plan } from "../Interfaces/plans";
 import { Semester } from "../Interfaces/semester";
 
+type ChangeEvent = React.ChangeEvent<
+    HTMLTextAreaElement | HTMLInputElement | HTMLSelectElement
+>;
+
 export function SemesterEditor({
     semester,
     changeEditing,
@@ -23,24 +27,46 @@ export function SemesterEditor({
     setPlan: (t: Plan) => void;
     setPlans: (t: Plan[]) => void;
 }): JSX.Element {
-    const [title, setTitle] = useState<string>(semester.title);
+    const seasonsList = ["Fall", "Spring", "Summer", "Winter"];
+    const [season, setSeason] = useState<string>(seasonsList[0]);
+    const [year, setYear] = useState<number>(2022);
+    function changeSeason(event: ChangeEvent) {
+        setSeason(event.target.value);
+    }
     const [description, setDescription] = useState<string>(
         semester.description
     );
 
     function saveSemester() {
-        editSemester(semester.id, {
-            ...semester,
-            title: title,
-            description: description
-        });
+        if (season === "Summer") {
+            const newID = season.slice(0, 3).toLowerCase() + year;
+            const sameID = plan.semesters.findIndex(
+                (s: Semester): boolean => newID === s.id
+            );
+            if (sameID === -1) {
+                semester.title = season + " " + year;
+                semester.id = season.slice(0, 3).toLowerCase() + year;
+                semester.description = description;
+            }
+        } else {
+            const newID = season[0].toLowerCase() + year;
+            const sameID = plan.semesters.findIndex(
+                (s: Semester): boolean => newID === s.id
+            );
+            if (sameID === -1) {
+                semester.title = season + " " + year;
+                semester.id = season[0].toLowerCase() + year;
+                semester.description = description;
+            }
+        }
+        editSemester(semester.id, semester);
         const semIndex = plan.semesters.findIndex(
             (s: Semester): boolean => semester.id === s.id
         );
-        plan.semesters[semIndex].title = title;
         const planIndex = plans.findIndex(
             (p: Plan): boolean => p.id === plan.id
         );
+        plans[planIndex].semesters[semIndex] = semester;
         plans[planIndex] = plan;
         setPlan(plan);
         setPlans(plans);
@@ -53,16 +79,30 @@ export function SemesterEditor({
                 <Col>
                     {/* Title */}
                     <Form.Group controlId="formSemesterTitle" as={Row}>
-                        <Form.Label className="App-blacktext" column sm={2}>
-                            Semester Title:
+                        <Form.Label column sm={3}>
+                            Semester Season:
                         </Form.Label>
                         <Col>
-                            {" "}
+                            <Form.Select value={season} onChange={changeSeason}>
+                                {seasonsList.map((choice: string) => (
+                                    <option key={choice} value={choice}>
+                                        {choice}
+                                    </option>
+                                ))}
+                            </Form.Select>
+                        </Col>
+                    </Form.Group>
+                    <Form.Group controlId="formSemesterId" as={Row}>
+                        <Form.Label column sm={3}>
+                            Semester Year:
+                        </Form.Label>
+                        <Col>
                             <Form.Control
-                                value={title}
+                                type="number"
+                                value={year}
                                 onChange={(
                                     event: React.ChangeEvent<HTMLInputElement>
-                                ) => setTitle(event.target.value)}
+                                ) => setYear(parseInt(event.target.value))}
                             />
                         </Col>
                     </Form.Group>
@@ -70,7 +110,7 @@ export function SemesterEditor({
                     {/* Description */}
                     <Form.Group controlId="formSemesterDescription" as={Row}>
                         <Form.Label className="App-blacktext" column sm={2}>
-                            Semester Description:
+                            Semester Notes:
                         </Form.Label>
                         <Col>
                             <Form.Control

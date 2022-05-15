@@ -30,7 +30,6 @@ export function AddCourse({
         if (courseCode.search(" ") === -1) {
             const regex = /\d+/g;
             const matches = courseCode.match(regex);
-            console.log(courseCode);
             if (matches) {
                 const firstNum = matches[0].charAt(0);
                 const firstNumIndex = courseCode.indexOf(firstNum);
@@ -38,26 +37,43 @@ export function AddCourse({
                     .substring(0, 0 + firstNumIndex)
                     .toUpperCase();
                 const numText = courseCode.substring(firstNumIndex);
-                if (ALLCOURSES[codeText][codeText + " " + numText]) {
-                    const addedCourse =
-                        ALLCOURSES[codeText][codeText + " " + numText];
-                    AddCourseHelp(addedCourse, currSemester, plan, setPlan);
+                if (ALLCOURSES[codeText]) {
+                    if (ALLCOURSES[codeText][codeText + " " + numText]) {
+                        const addedCourse =
+                            ALLCOURSES[codeText][codeText + " " + numText];
+                        const cIndex = currSemester.courseArray.findIndex(
+                            (c: Course): boolean => c.code === addedCourse.code
+                        );
+                        if (cIndex)
+                            AddCourseHelp(
+                                addedCourse,
+                                currSemester,
+                                plan,
+                                setPlan
+                            );
+                    }
                 }
                 setCourseCode("");
                 handleClose();
             }
         } else {
             const courseInfo = courseCode.split(" ", 1);
-            if (
-                ALLCOURSES[courseInfo[0].toUpperCase()][
-                    courseCode.toUpperCase()
-                ]
-            ) {
-                const addedCourse =
+            if (ALLCOURSES[courseInfo[0]]) {
+                if (
                     ALLCOURSES[courseInfo[0].toUpperCase()][
                         courseCode.toUpperCase()
-                    ];
-                AddCourseHelp(addedCourse, currSemester, plan, setPlan);
+                    ]
+                ) {
+                    const addedCourse =
+                        ALLCOURSES[courseInfo[0].toUpperCase()][
+                            courseCode.toUpperCase()
+                        ];
+                    const cIndex = currSemester.courseArray.findIndex(
+                        (c: Course): boolean => c.code === addedCourse.code
+                    );
+                    if (cIndex)
+                        AddCourseHelp(addedCourse, currSemester, plan, setPlan);
+                }
             }
             setCourseCode("");
             handleClose();
