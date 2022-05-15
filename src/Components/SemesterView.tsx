@@ -62,20 +62,13 @@ export function SemesterView({
             <Row>
                 <Col>
                     <h3>
-                        <b> Semester Title: </b> {semester.title}
+                        <b>{semester.title}</b>
                     </h3>
                 </Col>
             </Row>
             <Row>
-                <Col>
-                    <h6>
-                        <b> Semester ID: </b> {semester.id}
-                    </h6>
-                </Col>
-            </Row>
-            <Row>
                 <p>
-                    <b> Semester Notes: </b> {semester.description}
+                    <b> Notes: </b> {semester.description}
                 </p>
             </Row>
             <Row>
