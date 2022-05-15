@@ -4,421 +4,35 @@
 
 PASS src/Tests/ExportCSV.test.tsx
 PASS src/Tests/WelcomeModal.test.tsx
-FAIL src/App.test.tsx
-  ● renders the course name somewhere
+FAIL src/Tests/SemesterEditor.test.tsx
+  ● Delete Semester button works
 
-    TestingLibraryElementError: Unable to find an element with the text: /CISC275/i. This could be because the text is broken up by multiple elements. In this case, you can provide a function for your text matcher to make your matcher more flexible.
+    TestingLibraryElementError: Unable to find an element by: [data-testid="deleteSemesterButton"]
 
     Ignored nodes: comments, <script />, <style />
-    [36m<body>[39m
-      [36m<div>[39m
-        [36m<div[39m
-          [33mclass[39m=[32m"App"[39m
-        [36m>[39m
-          [36m<img[39m
-            [33mheight[39m=[32m"100%"[39m
-            [33msrc[39m=[32m"seal-background-5.jpeg"[39m
-            [33mwidth[39m=[32m"100%"[39m
-          [36m/>[39m
-          [36m<div>[39m
-            [36m<div>[39m
-              [36m<button[39m
-                [33mclass[39m=[32m"btn btn-light"[39m
-                [33mtype[39m=[32m"button"[39m
-              [36m>[39m
-                [0mClick here for how to begin![0m
-              [36m</button>[39m
-            [36m</div>[39m
-          [36m</div>[39m
-          [36m<p />[39m
-          [36m<button[39m
-            [33mclass[39m=[32m"btn btn-secondary"[39m
-            [33mtype[39m=[32m"button"[39m
-          [36m>[39m
-            [0mDisplay Course Pool[0m
-          [36m</button>[39m
-          [36m<p />[39m
-          [36m<button[39m
-            [33mclass[39m=[32m"btn btn-secondary"[39m
-            [33mtype[39m=[32m"button"[39m
-          [36m>[39m
-            [0mChange Plan[0m
-          [36m</button>[39m
-          [36m<p />[39m
-          [36m<div>[39m
-            [36m<button[39m
-              [33mclass[39m=[32m"btn btn-info"[39m
-              [33mtype[39m=[32m"button"[39m
-            [36m>[39m
-              [0mExport CSV[0m
-            [36m</button>[39m
-          [36m</div>[39m
-          [36m<h3>[39m
-            [0m [0m
-            [0mtest plan[0m
-            [0m [0m
-          [36m</h3>[39m
-          [36m<div[39m
-            [33mclass[39m=[32m"vstack gap-3"[39m
-          [36m>[39m
-            [36m<div[39m
-              [33mclass[39m=[32m"bg-light border m-2 p-2"[39m
-            [36m>[39m
-              [36m<div[39m
-                [33mclass[39m=[32m"container"[39m
-              [36m>[39m
-                [36m<div[39m
-                  [33mclass[39m=[32m"row"[39m
-                [36m>[39m
-                  [36m<div[39m
-                    [33mclass[39m=[32m"col"[39m
-                  [36m>[39m
-                    [36m<h3>[39m
-                      [36m<b>[39m
-                        [0m Semester Title: [0m
-                      [36m</b>[39m
-                      [0m [0m
-                      [0mSpring 2022[0m
-                    [36m</h3>[39m
-                  [36m</div>[39m
-                [36m</div>[39m
-                [36m<div[39m
-                  [33mclass[39m=[32m"row"[39m
-                [36m>[39m
-                  [36m<div[39m
-                    [33mclass[39m=[32m"col"[39m
-                  [36m>[39m
-                    [36m<h6>[39m
-                      [36m<b>[39m
-                        [0m Semester ID: [0m
-                      [36m</b>[39m
-                      [0m [0m
-                      [0ms2022[0m
-                    [36m</h6>[39m
-                  [36m</div>[39m
-                [36m</div>[39m
-                [36m<div[39m
-                  [33mclass[39m=[32m"row"[39m
-                [36m>[39m
-                  [36m<p>[39m
-                    [36m<b>[39m
-                      [0m Semester Notes: [0m
-                    [36m</b>[39m
-                    [0m [0m
-                    [0mSemester description[0m
-                  [36m</p>[39m
-                [36m</div>[39m
-                [36m<div[39m
-                  [33mclass[39m=[32m"row"[39m
-                [36m>[39m
-                  [36m<p>[39m
-                    [36m<b>[39m
-                      [0m Credits: [0m
-                    [36m</b>[39m
-                    [0m [0m
-                    [0m9[0m
-                  [36m</p>[39m
-                [36m</div>[39m
-                [36m<div[39m
-                  [33mclass[39m=[32m"row"[39m
-                [36m>[39m
-                  [36m<p>[39m
-                    [36m<u>[39m
-                      [36m<b>[39m
-                        [0mCourses[0m
-                      [36m</b>[39m
-                    [36m</u>[39m
-                  [36m</p>[39m
-                  [36m<div[39m
-                    [33mclass[39m=[32m"col-sm-4"[39m
-                  [36m>[39m
-                    [36m<div>[39m
-                      [36m<div[39m
-                        [33mclass[39m=[32m"App-allignleft"[39m
-                      [36m>[39m
-                        [36m<button[39m
-                          [33mclass[39m=[32m"btn btn-primary"[39m
-                          [33mtype[39m=[32m"button"[39m
-                        [36m>[39m
-                          [0m [0m
-                          [0mPrinciples of Computing[0m
-                          [0m [0m
-                        [36m</button>[39m
-                      [36m</div>[39m
-                    [36m</div>[39m
-                  [36m</div>[39m
-                  [36m<div[39m
-                    [33mclass[39m=[32m"col-sm-4"[39m
-                  [36m>[39m
-                    [36m<div>[39m
-                      [36m<div[39m
-                        [33mclass[39m=[32m"App-allignleft"[39m
-                      [36m>[39m
-                        [36m<button[39m
-                          [33mclass[39m=[32m"btn btn-primary"[39m
-                          [33mtype[39m=[32m"button"[39m
-                        [36m>[39m
-                          [0m [0m
-                          [0mIntroduction to Computer Science with Web Applications[0m
-                          [0m [0m
-                        [36m</button>[39m
-                      [36m</div>[39m
-                    [36m</div>[39m
-                  [36m</div>[39m
-                  [36m<div[39m
-                    [33mclass[39m=[32m"col-sm-4"[39m
-                  [36m>[39m
-                    [36m<div>[39m
-                      [36m<div[39m
-                        [33mclass[39m=[32m"App-allignleft"[39m
-                      [36m>[39m
-                        [36m<button[39m
-                          [33mclass[39m=[32m"btn btn-primary"[39m
-                          [33mtype[39m=[32m"button"[39m
-                        [36m>[39m
-                          [0m [0m
-                          [0mGeneral Computer Science for Engineers[0m
-                          [0m [0m
-                        [36m</button>[39m
-                      [36m</div>[39m
-                    [36m</div>[39m
-                  [36m</div>[39m
-                [36m</div>[39m
-                [36m<p />[39m
-                [36m<div[39m
-                  [33mclass[39m=[32m"row"[39m
-                [36m>[39m
-                  [36m<div[39m
-                    [33mclass[39m=[32m"col"[39m
-                  [36m>[39m
-                    [36m<button[39m
-                      [33mclass[39m=[32m"btn btn-success"[39m
-                      [33mtype[39m=[32m"button"[39m
-                    [36m>[39m
-                      [0mAdd Course[0m
-                    [36m</button>[39m
-                    [36m<button[39m
-                      [33mclass[39m=[32m"btn btn-warning"[39m
-                      [33mtype[39m=[32m"button"[39m
-                    [36m>[39m
-                      [0mClear All Courses[0m
-                    [36m</button>[39m
-                    [36m<button[39m
-                      [33mclass[39m=[32m"btn btn-danger"[39m
-                      [33mtype[39m=[32m"button"[39m
-                    [36m>[39m
-                      [0m [0m
-                      [0mEdit Semester Details[0m
-                      [0m [0m
-                    [36m</button>[39m
-                  [36m</div>[39m
-                [36m</div>[39m
-              [36m</div>[39m
-            [36m</div>[39m
-            [36m<div[39m
-              [33mclass[39m=[32m"bg-light border m-2 p-2"[39m
-            [36m>[39m
-              [36m<div[39m
-                [33mclass[39m=[32m"container"[39m
-              [36m>[39m
-                [36m<div[39m
-                  [33mclass[39m=[32m"row"[39m
-                [36m>[39m
-                  [36m<div[39m
-                    [33mclass[39m=[32m"col"[39m
-                  [36m>[39m
-                    [36m<h3>[39m
-                      [36m<b>[39m
-                        [0m Semester Title: [0m
-                      [36m</b>[39m
-                      [0m [0m
-                      [0mFall 2022[0m
-                    [36m</h3>[39m
-                  [36m</div>[39m
-                [36m</div>[39m
-                [36m<div[39m
-                  [33mclass[39m=[32m"row"[39m
-                [36m>[39m
-                  [36m<div[39m
-                    [33mclass[39m=[32m"col"[39m
-                  [36m>[39m
-                    [36m<h6>[39m
-                      [36m<b>[39m
-                        [0m Semester ID: [0m
-                      [36m</b>[39m
-                      [0m [0m
-                      [0mf2022[0m
-                    [36m</h6>[39m
-                  [36m</div>[39m
-                [36m</div>[39m
-                [36m<div[39m
-                  [33mclass[39m=[32m"row"[39m
-                [36m>[39m
-                  [36m<p>[39m
-                    [36m<b>[39m
-                      [0m Semester Notes: [0m
-                    [36m</b>[39m
-                    [0m [0m
-                    [0mSemester description[0m
-                  [36m</p>[39m
-                [36m</div>[39m
-                [36m<div[39m
-                  [33mclass[39m=[32m"row"[39m
-                [36m>[39m
-                  [36m<p>[39m
-                    [36m<b>[39m
-                      [0m Credits: [0m
-                    [36m</b>[39m
-                    [0m [0m
-                    [0m6[0m
-                  [36m</p>[39m
-                [36m</div>[39m
-                [36m<div[39m
-                  [33mclass[39m=[32m"row"[39m
-                [36m>[39m
-                  [36m<p>[39m
-                    [36m<u>[39m
-                      [36m<b>[39m
-                        [0mCourses[0m
-                      [36m</b>[39m
-                    [36m</u>[39m
-                  [36m</p>[39m
-                  [36m<div[39m
-                    [33mclass[39m=[32m"col-sm-4"[39m
-                  [36m>[39m
-                    [36m<div>[39m
-                      [36m<div[39m
-                        [33mclass[39m=[32m"App-allignleft"[39m
-                      [36m>[39m
-                        [36m<button[39m
-                          [33mclass[39m=[32m"btn btn-primary"[39m
-                          [33mtype[39m=[32m"button"[39m
-                        [36m>[39m
-                          [0m [0m
-                          [0mGeneral Computer Science for Engineers[0m
-                          [0m [0m
-                        [36m</button>[39m
-                      [36m</div>[39m
-                    [36m</div>[39m
-                  [36m</div>[39m
-                  [36m<div[39m
-                    [33mclass[39m=[32m"col-sm-4"[39m
-                  [36m>[39m
-                    [36m<div>[39m
-                      [36m<div[39m
-                        [33mclass[39m=[32m"App-allignleft"[39m
-                      [36m>[39m
-                        [36m<button[39m
-                          [33mclass[39m=[32m"btn btn-primary"[39m
-                          [33mtype[39m=[32m"button"[39m
-                        [36m>[39m
-                          [0m [0m
-                          [0mIntroduction to Computer Science I[0m
-                          [0m [0m
-                        [36m</button>[39m
-                      [36m</div>[39m
-                    [36m</div>[39m
-                  [36m</div>[39m
-                [36m</div>[39m
-                [36m<p />[39m
-                [36m<div[39m
-                  [33mclass[39m=[32m"row"[39m
-                [36m>[39m
-                  [36m<div[39m
-                    [33mclass[39m=[32m"col"[39m
-                  [36m>[39m
-                    [36m<button[39m
-                      [33mclass[39m=[32m"btn btn-success"[39m
-                      [33mtype[39m=[32m"button"[39m
-                    [36m>[39m
-                      [0mAdd Course[0m
-                    [36m</button>[39m
-                    [36m<button[39m
-                      [33mclass[39m=[32m"btn btn-warning"[39m
-                      [33mtype[39m=[32m"button"[39m
-                    [36m>[39m
-                      [0mClear All Courses[0m
-                    [36m</button>[39m
-                    [36m<button[39m
-                      [33mclass[39m=[32m"btn btn-danger"[39m
-                      [33mtype[39m=[32m"button"[39m
-                    [36m>[39m
-                      [0m [0m
-                      [0mEdit Semester Details[0m
-                      [0m [0m
-                    [36m</button>[39m
-                  [36m</div>[39m
-                [36m</div>[39m
-              [36m</div>[39m
-            [36m</div>[39m
-          [36m</div>[39m
-          [36m<div[39m
-            [33mclass[39m=[32m"row"[39m
-          [36m>[39m
-            [36m<div[39m
-              [33mclass[39m=[32m"col"[39m
-            [36m>[39m
-              [36m<button[39m
-                [33mclass[39m=[32m"btn btn-light"[39m
-                [33mtype[39m=[32m"button"[39m
-              [36m>[39m
-                [0mAdd New Semester[0m
-              [36m</button>[39m
-              [36m<p />[39m
-              [36m<button[39m
-                [33mclass[39m=[32m"btn btn-primary"[39m
-                [33mtype[39m=[32m"button"[39m
-              [36m>[39m
-                [0mAdd Plan[0m
-              [36m</button>[39m
-              [36m<button[39m
-                [33mclass[39m=[32m"btn btn-secondary"[39m
-                [33mtype[39m=[32m"button"[39m
-              [36m>[39m
-                [0mEdit Plan[0m
-              [36m</button>[39m
-              [36m<button[39m
-                [33mclass[39m=[32m"btn btn-warning"[39m
-                [33mtype[39m=[32m"button"[39m
-              [36m>[39m
-                [0mClear Plan[0m
-              [36m</button>[39m
-              [36m<button[39m
-                [33mclass[39m=[32m"btn btn-danger"[39m
-                [33mtype[39m=[32m"button"[39m
-              [36m>[39m
-                [0mDelete Plan[0m
-              [36m</button>[39m
-            [36m</div>[39m
-          [36m</div>[39m
-        [36m</div>[39m
-      [36m</div>[39m
-    [36m</body>[39m
+    [36m<body />[39m
 
-       5 | test("renders the course name somewhere", () => {
-       6 |     render(<App />);
-    >  7 |     const linkElement = screen.getByText(/CISC275/i);
-         |                                ^
-       8 |     expect(linkElement).toBeInTheDocument();
-       9 | });
-      10 |
+       5 |
+       6 | test("Delete Semester button works", () => {
+    >  7 |     const deleteSemesterButton = screen.getByTestId("deleteSemesterButton");
+         |                                         ^
+       8 |     deleteSemesterButton.click();
+       9 |     /*
+      10 |     const semester1View = screen.queryByTestId("semesterView");
 
       at Object.getElementError (node_modules/@testing-library/dom/dist/config.js:38:19)
       at node_modules/@testing-library/dom/dist/query-helpers.js:90:38
       at node_modules/@testing-library/dom/dist/query-helpers.js:62:17
-      at getByText (node_modules/@testing-library/dom/dist/query-helpers.js:111:19)
-      at Object.<anonymous> (src/App.test.tsx:7:32)
-      at TestScheduler.scheduleTests (node_modules/@jest/core/build/TestScheduler.js:333:13)
-      at runJest (node_modules/@jest/core/build/runJest.js:404:19)
-      at _run10000 (node_modules/@jest/core/build/cli/index.js:320:7)
-      at runCLI (node_modules/@jest/core/build/cli/index.js:173:3)
+      at getByTestId (node_modules/@testing-library/dom/dist/query-helpers.js:111:19)
+      at Object.<anonymous> (src/Tests/SemesterEditor.test.tsx:7:41)
 
+PASS src/Tests/App.test.tsx
 ------------------------|---------|----------|---------|---------|-------------------
 File                    | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 ------------------------|---------|----------|---------|---------|-------------------
 All files               |   32.41 |       20 |    24.8 |      34 |                   
  src                    |   50.87 |        0 |    12.5 |   67.44 |                   
-  App.tsx               |   50.87 |        0 |    12.5 |   67.44 | 76-105            
+  App.tsx               |   50.87 |        0 |    12.5 |   67.44 | 62-91             
  src/Components         |   28.51 |    22.22 |   27.61 |   28.34 |                   
   AddCourse.tsx         |   33.33 |      100 |   33.33 |   33.33 | 30-34,51          
   AddCourseHelp.tsx     |       0 |      100 |       0 |       0 | 13-18             
@@ -436,7 +50,7 @@ All files               |   32.41 |       20 |    24.8 |      34 |
   EditPlan.tsx          |   16.66 |      100 |      20 |   16.66 | 22-33,50          
   ExportCSV.tsx         |   33.33 |      100 |   33.33 |   27.77 | 19-35,52          
   RequirementView.tsx   |       0 |      100 |       0 |       0 | 8                 
-  SemesterEditor.tsx    |       0 |      100 |       0 |       0 | 26-96             
+  SemesterEditor.tsx    |       0 |      100 |       0 |       0 | 26-98             
   SemesterList.tsx      |     100 |      100 |     100 |     100 |                   
   SemesterView.tsx      |   66.66 |       50 |    37.5 |    90.9 | 42                
   WelcomeModal.tsx      |   83.33 |      100 |   66.66 |     100 |                   
@@ -447,8 +61,9 @@ All files               |   32.41 |       20 |    24.8 |      34 |
   requirements.ts       |       0 |        0 |       0 |       0 |                   
   semester.ts           |       0 |        0 |       0 |       0 |                   
 ------------------------|---------|----------|---------|---------|-------------------
-Test Suites: 1 failed, 2 passed, 3 total
-Tests:       1 failed, 4 passed, 5 total
+
+Test Suites: 1 failed, 3 passed, 4 total
+Tests:       1 failed, 5 passed, 6 total
 Snapshots:   0 total
-Time:        5.833 s
+Time:        4.489 s
 Ran all test suites.
