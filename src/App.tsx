@@ -21,6 +21,7 @@ import { CoursePool } from "./Interfaces/coursepool";
 
 import course_data_json from "./Data/course_data.json";
 import semester_json from "./Data/semester_data.json";
+import { RequirementView } from "./Components/RequirementView";
 
 const SEMESTER = semester_json.map(
     (semester): Semester => ({
@@ -193,6 +194,8 @@ function App(): JSX.Element {
                         handleClose={handleCloseAddModal}
                         addSemester={addSemester}
                     ></AddSemester>
+
+                    <RequirementView></RequirementView>
 
                     {/*Replace with component */}
                     <Button variant="primary" onClick={handleShowAddPlanModal}>
