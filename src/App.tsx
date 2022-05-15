@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Button, Col } from "react-bootstrap";
-import headerbackground from "./Pictures/seal-background-5.jpeg";
+import Team23Banner from "./Pictures/Team23Banner.jpg";
 import "./App.css";
 
 import { WelcomeModal } from "./Components/WelcomeModal";
@@ -130,7 +130,7 @@ function App(): JSX.Element {
 
     return (
         <div className="App">
-            <img src={headerbackground} width="100%" height="100%" />
+            <img src={Team23Banner} width="100%" height="100%" />
 
             <div>
                 <WelcomeModal></WelcomeModal>
