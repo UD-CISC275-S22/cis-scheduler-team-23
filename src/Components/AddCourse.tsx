@@ -27,11 +27,41 @@ export function AddCourse({
     const ALLCOURSES: CourseRecord = course_data_json;
 
     function saveChanges() {
-        const courseInfo = courseCode.split(" ", 1);
-        const addedCourse = ALLCOURSES[courseInfo[0]][courseCode];
-        AddCourseHelp(addedCourse, currSemester, plan, setPlan);
-        setCourseCode("");
-        handleClose();
+        if (courseCode.search(" ") === -1) {
+            const regex = /\d+/g;
+            const matches = courseCode.match(regex);
+            console.log(courseCode);
+            if (matches) {
+                const firstNum = matches[0].charAt(0);
+                const firstNumIndex = courseCode.indexOf(firstNum);
+                const codeText = courseCode
+                    .substring(0, 0 + firstNumIndex)
+                    .toUpperCase();
+                const numText = courseCode.substring(firstNumIndex);
+                if (ALLCOURSES[codeText][codeText + " " + numText]) {
+                    const addedCourse =
+                        ALLCOURSES[codeText][codeText + " " + numText];
+                    AddCourseHelp(addedCourse, currSemester, plan, setPlan);
+                }
+                setCourseCode("");
+                handleClose();
+            }
+        } else {
+            const courseInfo = courseCode.split(" ", 1);
+            if (
+                ALLCOURSES[courseInfo[0].toUpperCase()][
+                    courseCode.toUpperCase()
+                ]
+            ) {
+                const addedCourse =
+                    ALLCOURSES[courseInfo[0].toUpperCase()][
+                        courseCode.toUpperCase()
+                    ];
+                AddCourseHelp(addedCourse, currSemester, plan, setPlan);
+            }
+            setCourseCode("");
+            handleClose();
+        }
     }
     return (
         <Modal show={show} onHide={handleClose} animation={false}>
