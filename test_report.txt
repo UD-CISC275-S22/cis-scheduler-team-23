@@ -30,10 +30,10 @@ PASS src/Tests/App.test.tsx
 ------------------------|---------|----------|---------|---------|-------------------
 File                    | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 ------------------------|---------|----------|---------|---------|-------------------
-All files               |   32.41 |       20 |    24.8 |      34 |                   
+All files               |   33.43 |       20 |   25.95 |   35.09 |                   
  src                    |   50.87 |        0 |    12.5 |   67.44 |                   
-  App.tsx               |   50.87 |        0 |    12.5 |   67.44 | 62-91             
- src/Components         |   28.51 |    22.22 |   27.61 |   28.34 |                   
+  App.tsx               |   50.87 |        0 |    12.5 |   67.44 | 63-92             
+ src/Components         |   29.81 |    22.22 |   28.97 |   29.72 |                   
   AddCourse.tsx         |   33.33 |      100 |   33.33 |   33.33 | 30-34,51          
   AddCourseHelp.tsx     |       0 |      100 |       0 |       0 | 13-18             
   AddPlan.tsx           |      25 |      100 |   33.33 |      25 | 21-29,46          
@@ -49,7 +49,7 @@ All files               |   32.41 |       20 |    24.8 |      34 |
   DisplayCourses.tsx    |    32.3 |    35.71 |   10.52 |      35 | 41,46-106         
   EditPlan.tsx          |   16.66 |      100 |      20 |   16.66 | 22-33,50          
   ExportCSV.tsx         |   33.33 |      100 |   33.33 |   27.77 | 19-35,52          
-  RequirementView.tsx   |       0 |      100 |       0 |       0 | 8                 
+  RequirementView.tsx   |   83.33 |      100 |   66.66 |   83.33 | 22                
   SemesterEditor.tsx    |       0 |      100 |       0 |       0 | 26-98             
   SemesterList.tsx      |     100 |      100 |     100 |     100 |                   
   SemesterView.tsx      |   66.66 |       50 |    37.5 |    90.9 | 42                
@@ -65,5 +65,5 @@ All files               |   32.41 |       20 |    24.8 |      34 |
 Test Suites: 1 failed, 3 passed, 4 total
 Tests:       1 failed, 5 passed, 6 total
 Snapshots:   0 total
-Time:        4.489 s
+Time:        5.657 s
 Ran all test suites.
