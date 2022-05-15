@@ -45,6 +45,6 @@
     text-align: left;
 }
 
-.App-allignmiddle {
-    text-align: middle;
+.App-smallfont {
+    font-size: "8";
 }

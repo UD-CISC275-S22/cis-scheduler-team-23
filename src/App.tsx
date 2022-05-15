@@ -298,6 +298,7 @@ function App(): JSX.Element {
 
                 {/* Degree Requirements */}
                 <Col>
+                <Col xs={4}>
                     <RequirementView></RequirementView>
                 </Col>
             </Row>
