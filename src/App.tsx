@@ -268,7 +268,7 @@ function App(): JSX.Element {
                     </Row>
                 </Col>
 
-                <Col>
+                <Col xs={4}>
                     <RequirementView></RequirementView>
                 </Col>
             </Row>

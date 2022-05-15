@@ -1,5 +1,6 @@
 import React, { useState } from "react";
-import { Col, Container, Form, Row } from "react-bootstrap";
+import { Col, Container, Form } from "react-bootstrap";
+//import { Table } from "react-bootstrap";
 // import { Concentration } from "../Interfaces/requirements";
 
 type ChangeEvent = React.ChangeEvent<
@@ -30,11 +31,9 @@ export function RequirementView() {
                         <u>Degree Requirements</u>
                     </b>
                 </h4>
-                <p></p>
-                <Form.Group controlId="formSemesterTitle" as={Row}>
-                    <Form.Label column sm={3}>
-                        Choose your concentration:
-                    </Form.Label>
+                <div className="App-allignleft">
+                    <p></p>
+                    <p>Choose your concentration:</p>
                     <Col>
                         <Form.Select
                             value={concentration}
@@ -47,8 +46,18 @@ export function RequirementView() {
                             ))}
                         </Form.Select>
                     </Col>
-                </Form.Group>
-                <p></p>
+                    <p></p>
+
+                    <p>Total Credits: 0 / 124</p>
+                    <p></p>
+                    <b>
+                        <u>Core Requirements:</u>
+                    </b>
+                    <p></p>
+                    <b>
+                        <u>Concentration Requirements:</u>
+                    </b>
+                </div>
             </Container>
         </div>
     );
