@@ -131,18 +131,19 @@ function App(): JSX.Element {
     return (
         <div className="App">
             <img src={Team23Banner} width="100%" height="100%" />
+
+            <div>
+                <p></p>
+                <WelcomeModal></WelcomeModal>
+                <p></p>
+            </div>
+
             <Row>
                 <Col>
-                    <div>
-                        <WelcomeModal></WelcomeModal>
-                    </div>
-
-                    <p></p>
-                    <h3>
+                    <h2>
                         <b> {plan.title} </b>
-                    </h3>
+                    </h2>
 
-                    <p></p>
                     {/* Add New Plan */}
                     <Button variant="primary" onClick={handleShowAddPlanModal}>
                         Add Plan
@@ -216,8 +217,6 @@ function App(): JSX.Element {
                                 addSemester={addSemester}
                             ></AddSemester>
 
-                            {/*Replace with component */}
-
                             <Button
                                 variant="secondary"
                                 onClick={handleShowEditPlanModal}
@@ -268,6 +267,7 @@ function App(): JSX.Element {
                         </Col>
                     </Row>
                 </Col>
+
                 <Col>
                     <RequirementView></RequirementView>
                 </Col>
