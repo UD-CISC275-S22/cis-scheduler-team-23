@@ -130,124 +130,148 @@ function App(): JSX.Element {
 
     return (
         <div className="App">
-            <img src={Team23Banner} width="100%" height="100%" />
+            <img src={headerbackground} width="100%" height="100%" />
+            <Row>
+                <Col>
+                    <div>
+                        <WelcomeModal></WelcomeModal>
+                    </div>
 
-            <div>
-                <WelcomeModal></WelcomeModal>
-            </div>
-            <Col>
-                <p></p>
-                <Button variant="secondary" onClick={handleShowPoolModal}>
-                    Display Course Pool
-                </Button>
+                    <p></p>
+                    <h3>
+                        <b> {plan.title} </b>
+                    </h3>
 
-                <DisplayCoursePool
-                    show={showPoolModal}
-                    handleClose={handleClosePoolModal}
-                    coursepool={pool}
-                ></DisplayCoursePool>
-                <p></p>
-                {/* Add New Plan */}
-                <Button variant="secondary" onClick={handleShowPlanModal}>
-                    Change Plan
-                </Button>
+                    <p></p>
+                    {/* Add New Plan */}
+                    <Button variant="primary" onClick={handleShowAddPlanModal}>
+                        Add Plan
+                    </Button>
 
-                <ChangePlan
-                    show={showPlanModal}
-                    handleClose={handleClosePlanModal}
-                    plan={plan}
-                    plans={planArray}
-                    setPlan={setPlan}
-                ></ChangePlan>
+                    <AddPlan
+                        show={showAddPlanModal}
+                        handleClose={handleCloseAddPlanModal}
+                        plans={planArray}
+                        setPlans={setPlanArray}
+                    ></AddPlan>
 
-                {/* Add Semester */}
-                <AddSemester
-                    show={showAddModal}
-                    handleClose={handleCloseAddModal}
-                    addSemester={addSemester}
-                ></AddSemester>
-                <p></p>
-                {/* Export CSV Files */}
-                <ExportCSV semesters={plan.semesters} plan={plan}></ExportCSV>
+                    <Button variant="secondary" onClick={handleShowPlanModal}>
+                        Change Plan
+                    </Button>
 
-                <h3> {plan.title} </h3>
+                    <ChangePlan
+                        show={showPlanModal}
+                        handleClose={handleClosePlanModal}
+                        plan={plan}
+                        plans={planArray}
+                        setPlan={setPlan}
+                    ></ChangePlan>
 
-                <SemesterList
-                    activePlan={plan}
-                    editSemester={editSemester}
-                    deleteSemester={deleteSemester}
-                    setPlan={setPlan} //Used to be setSems
-                    plans={planArray}
-                    setPlans={setPlanArray}
-                ></SemesterList>
+                    {/* Add Semester */}
+                    <AddSemester
+                        show={showAddModal}
+                        handleClose={handleCloseAddModal}
+                        addSemester={addSemester}
+                    ></AddSemester>
+                    <p></p>
+                    {/* Export CSV Files */}
+                    <ExportCSV
+                        semesters={plan.semesters}
+                        plan={plan}
+                    ></ExportCSV>
+                    <p></p>
+                    <Button variant="secondary" onClick={handleShowPoolModal}>
+                        Display Course Pool
+                    </Button>
 
-                {/* Add Semester Button */}
-                <Button variant="light" onClick={handleShowAddModal}>
-                    Add New Semester
-                </Button>
-                <p></p>
+                    <DisplayCoursePool
+                        show={showPoolModal}
+                        handleClose={handleClosePoolModal}
+                        coursepool={pool}
+                    ></DisplayCoursePool>
+                    <p></p>
+                    <SemesterList
+                        activePlan={plan}
+                        editSemester={editSemester}
+                        deleteSemester={deleteSemester}
+                        setPlan={setPlan} //Used to be setSems
+                        plans={planArray}
+                        setPlans={setPlanArray}
+                    ></SemesterList>
+                    <Row>
+                        <Col>
+                            {/* Add Semester Button */}
+                            <Button
+                                variant="light"
+                                onClick={handleShowAddModal}
+                            >
+                                Add New Semester
+                            </Button>
+                            <p></p>
 
-                {/* Add Semester */}
-                <AddSemester
-                    show={showAddModal}
-                    handleClose={handleCloseAddModal}
-                    addSemester={addSemester}
-                ></AddSemester>
+                            {/* Add Semester */}
+                            <AddSemester
+                                show={showAddModal}
+                                handleClose={handleCloseAddModal}
+                                addSemester={addSemester}
+                            ></AddSemester>
 
-                {/*Replace with component */}
-                <Button variant="primary" onClick={handleShowAddPlanModal}>
-                    Add Plan
-                </Button>
+                            {/*Replace with component */}
 
-                <AddPlan
-                    show={showAddPlanModal}
-                    handleClose={handleCloseAddPlanModal}
-                    plans={planArray}
-                    setPlans={setPlanArray}
-                ></AddPlan>
+                            <Button
+                                variant="secondary"
+                                onClick={handleShowEditPlanModal}
+                            >
+                                Edit Plan
+                            </Button>
 
-                <Button variant="secondary" onClick={handleShowEditPlanModal}>
-                    Edit Plan
-                </Button>
+                            <EditPlan
+                                show={showEditPlanModal}
+                                handleClose={handleCloseEditPlanModal}
+                                plan={plan}
+                                plans={planArray}
+                                setPlan={setPlan}
+                                setPlans={setPlanArray}
+                            ></EditPlan>
 
-                <EditPlan
-                    show={showEditPlanModal}
-                    handleClose={handleCloseEditPlanModal}
-                    plan={plan}
-                    plans={planArray}
-                    setPlan={setPlan}
-                    setPlans={setPlanArray}
-                ></EditPlan>
+                            <Button
+                                variant="warning"
+                                onClick={handleShowClearPlanModal}
+                            >
+                                Clear Plan
+                            </Button>
 
-                <Button variant="warning" onClick={handleShowClearPlanModal}>
-                    Clear Plan
-                </Button>
+                            <ClearPlan
+                                show={showClearPlanModal}
+                                handleClose={handleCloseClearPlanModal}
+                                plan={plan}
+                                plans={planArray}
+                                setPlan={setPlan}
+                                setPlans={setPlanArray}
+                            ></ClearPlan>
 
-                <ClearPlan
-                    show={showClearPlanModal}
-                    handleClose={handleCloseClearPlanModal}
-                    plan={plan}
-                    plans={planArray}
-                    setPlan={setPlan}
-                    setPlans={setPlanArray}
-                ></ClearPlan>
+                            <Button
+                                variant="danger"
+                                onClick={handleShowDeletePlanModal}
+                            >
+                                Delete Plan
+                            </Button>
 
-                <Button variant="danger" onClick={handleShowDeletePlanModal}>
-                    Delete Plan
-                </Button>
-
-                <DeletePlan
-                    show={showDeletePlanModal}
-                    handleClose={handleCloseDeletePlanModal}
-                    plan={plan}
-                    plans={planArray}
-                    setPlan={setPlan}
-                    setPlans={setPlanArray}
-                ></DeletePlan>
-            </Col>
-            <Col>
-                <RequirementView></RequirementView>
-            </Col>
+                            <DeletePlan
+                                show={showDeletePlanModal}
+                                handleClose={handleCloseDeletePlanModal}
+                                plan={plan}
+                                plans={planArray}
+                                setPlan={setPlan}
+                                setPlans={setPlanArray}
+                            ></DeletePlan>
+                        </Col>
+                    </Row>
+                </Col>
+                <Col>
+                    <RequirementView></RequirementView>
+                </Col>
+            </Row>
         </div>
     );
 }
