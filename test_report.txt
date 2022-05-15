@@ -30,11 +30,11 @@ PASS src/Tests/App.test.tsx
 ------------------------|---------|----------|---------|---------|-------------------
 File                    | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 ------------------------|---------|----------|---------|---------|-------------------
-All files               |   33.43 |       20 |   25.95 |   35.09 |                   
+All files               |   31.98 |    16.66 |   25.95 |   33.43 |                   
  src                    |   50.87 |        0 |    12.5 |   67.44 |                   
   App.tsx               |   50.87 |        0 |    12.5 |   67.44 | 63-92             
- src/Components         |   29.81 |    22.22 |   28.97 |   29.72 |                   
-  AddCourse.tsx         |   33.33 |      100 |   33.33 |   33.33 | 30-34,51          
+ src/Components         |   28.27 |    18.18 |   28.97 |    28.1 |                   
+  AddCourse.tsx         |    12.5 |        0 |   33.33 |    12.5 | 30-63,81          
   AddCourseHelp.tsx     |       0 |      100 |       0 |       0 | 13-18             
   AddPlan.tsx           |      25 |      100 |   33.33 |      25 | 21-29,46          
   AddSemester.tsx       |      50 |        0 |      40 |      50 | 24-39,43,76       
@@ -65,5 +65,5 @@ All files               |   33.43 |       20 |   25.95 |   35.09 |
 Test Suites: 1 failed, 3 passed, 4 total
 Tests:       1 failed, 5 passed, 6 total
 Snapshots:   0 total
-Time:        5.657 s
+Time:        6.533 s
 Ran all test suites.
