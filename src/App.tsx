@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { Button, Col, Row } from "react-bootstrap";
-import headerbackground from "./Pictures/seal-background-5.jpeg";
+import { Button, Col } from "react-bootstrap";
+import Team23Banner from "./Pictures/Team23Banner.jpg";
 import "./App.css";
 
 import { WelcomeModal } from "./Components/WelcomeModal";
