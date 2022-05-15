@@ -43,30 +43,16 @@ const SEMESTER = semester_json.map(
 function App(): JSX.Element {
     const [planArray, setPlanArray] = useState<Plan[]>([
         {
-            title: "test plan",
+            title: "Team 23 Auto Generated Plan",
             id: 0,
             semesters: SEMESTER
         },
         {
-            title: "test plan2",
+            title: "Team 23 Auto Generated Plan Version 2",
             id: 1,
             semesters: []
         }
     ]);
-
-    /*
-    // propogate plans with user input
-    function makeNewPlan() {
-        setPlanArray([
-            ...planArray,
-            {
-                title: "new plan" + planArray.length.toString() + 1,
-                id: planArray.length + 1,
-                semesters: []
-            }
-        ]);
-    }
-    */
 
     const [plan, setPlan] = useState<Plan>(planArray[0]);
 
@@ -133,12 +119,6 @@ function App(): JSX.Element {
     const [showEditPlanModal, setShowEditPlanModal] = useState(false);
     const handleCloseEditPlanModal = () => setShowEditPlanModal(false);
     const handleShowEditPlanModal = () => setShowEditPlanModal(true);
-
-    /*
-    const [showCSVModal, setShowCSVModal] = useState(false);
-    const handleShowCSVModal = () => setShowCSVModal(true);
-    const handleCloseCSVModal = () => setShowCSVModal(false);
-    */
 
     type CourseRecord = Record<string, Record<string, Course>>;
     const ALLCOURSES: CourseRecord = course_data_json;
