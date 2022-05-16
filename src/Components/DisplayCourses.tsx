@@ -13,12 +13,12 @@ export function DisplayCourses({
     course,
     courseSemester,
     activePlan,
-    setPlans
+    setPlan
 }: {
     course: Course;
     courseSemester: Semester;
     activePlan: Plan;
-    setPlans: (t: Plan) => void;
+    setPlan: (t: Plan) => void;
 }): JSX.Element {
     const [code, setCode] = useState(course.code);
     const [name, setName] = useState(course.name);
@@ -55,7 +55,8 @@ export function DisplayCourses({
         setDescr(event.target.value);
     }
     function updateCourseCredits(event: React.ChangeEvent<HTMLInputElement>) {
-        course.credits = event.target.value;
+        setCredits(event.target.value);
+        course.credits = credits;
         const courseIndex = courseSemester.courseArray.findIndex(
             (c: Course): boolean => c.code === course.code
         );
@@ -64,8 +65,7 @@ export function DisplayCourses({
             (s: Semester): boolean => s.id === courseSemester.id
         );
         activePlan.semesters[semesterIndex] = courseSemester;
-        setPlans(activePlan);
-        setCredits(event.target.value);
+        setPlan(activePlan);
     }
     function updateCoursePrereq(event: React.ChangeEvent<HTMLInputElement>) {
         course.preReq = event.target.value;
@@ -127,7 +127,7 @@ export function DisplayCourses({
                                 course={course}
                                 courseSemester={courseSemester}
                                 activePlan={activePlan}
-                                setPlan={setPlans}
+                                setPlan={setPlan}
                             ></ChangeSemester>
                             <p></p>
                             <Button
@@ -150,6 +150,8 @@ export function DisplayCourses({
                                 handleClose={handleCloseAddModal}
                                 currCourse={course}
                                 currSemester={courseSemester}
+                                plan={activePlan}
+                                setPlan={setPlan}
                             ></DeleteCourse>
                             <p></p>
                             <Button onClick={restoreDefault} variant="info">

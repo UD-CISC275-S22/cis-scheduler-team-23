@@ -168,12 +168,6 @@ function App(): JSX.Element {
                         setPlan={setPlan}
                     ></ChangePlan>
 
-                    {/* Add Semester */}
-                    <AddSemester
-                        show={showAddModal}
-                        handleClose={handleCloseAddModal}
-                        addSemester={addSemester}
-                    ></AddSemester>
                     <p></p>
                     {/* Export CSV Files */}
                     <ExportCSV
@@ -182,13 +176,15 @@ function App(): JSX.Element {
                     ></ExportCSV>
                     <p></p>
                     <Button variant="secondary" onClick={handleShowPoolModal}>
-                        Display Course Pool
+                        Course Pool
                     </Button>
 
                     <DisplayCoursePool
                         show={showPoolModal}
                         handleClose={handleClosePoolModal}
                         coursepool={pool}
+                        plan={plan}
+                        setPlan={setPlan}
                     ></DisplayCoursePool>
                     <p></p>
                     <SemesterList
