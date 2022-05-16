@@ -1,5 +1,5 @@
 /** Core Requirements */
-export type CoreReqs = [
+export const CoreReqs = [
     "CISC 108",
     "CISC 181",
     "CISC 210",
@@ -12,15 +12,9 @@ export type CoreReqs = [
     "MATH 241"
 ];
 
-export type AIReqs = [
-    "CISC 304",
-    "CISC 442",
-    "CISC 481",
-    "CISC 483",
-    "CISC 484"
-];
+export const AI = ["CISC 304", "CISC 442", "CISC 481", "CISC 483", "CISC 484"];
 
-export type BioinformaticsReqs = [
+export const BioinformaticsReqs = [
     "BISC 207",
     "BISC 208",
     "BISC 401",
@@ -34,7 +28,7 @@ export type BioinformaticsReqs = [
     "MATH 349"
 ];
 
-export type CybersecurityReqs = [
+export const CybersecurityReqs = [
     "CISC 361",
     "CISC 372",
     "CISC 450",
@@ -43,7 +37,7 @@ export type CybersecurityReqs = [
     "CPEG 494"
 ];
 
-export type DataScienceReqs = [
+export const DataScienceReqs = [
     "CISC 304",
     "CISC 372",
     "CISC 437",
@@ -54,7 +48,7 @@ export type DataScienceReqs = [
     "MATH 349"
 ];
 
-export type HighPerformanceComputingReqs = [
+export const HighPerformanceComputingReqs = [
     "CISC 360",
     "CISC 361",
     "CISC 372",
@@ -64,7 +58,7 @@ export type HighPerformanceComputingReqs = [
     "MATH 243"
 ];
 
-export type SystemsandNetworksReqs = [
+export const SystemsandNetworksReqs = [
     "CISC 360",
     "CISC 361",
     "CISC 372",
@@ -72,20 +66,19 @@ export type SystemsandNetworksReqs = [
     "CISC 471"
 ];
 
-export type TheoryandComputationReqs = [
+export const TheoryandComputationReqs = [
     "CISC 304",
     "CISC 401",
     "MATH 242",
     "MATH 349"
 ];
 
-export interface Concentration {
-    Core: CoreReqs;
-    AI: AIReqs;
-    Bioinformatics: BioinformaticsReqs;
-    Cybersecurity: CybersecurityReqs;
-    DataScience: DataScienceReqs;
-    HighPerformanceComputing: HighPerformanceComputingReqs;
-    SystemsandNetworks: SystemsandNetworksReqs;
-    TheoryandComputation: TheoryandComputationReqs;
-}
+export const Concentration = [
+    AI,
+    BioinformaticsReqs,
+    CybersecurityReqs,
+    DataScienceReqs,
+    HighPerformanceComputingReqs,
+    SystemsandNetworksReqs,
+    TheoryandComputationReqs
+];
