@@ -41,10 +41,18 @@ export function ClearPlan({
                     <b> Are you sure you want to clear {plan.title}? </b>
                 </Form.Label>
                 <Modal.Footer>
-                    <Button variant="secondary" onClick={cancelChanges}>
+                    <Button
+                        variant="secondary"
+                        onClick={cancelChanges}
+                        data-testid="clearPlanCancelButton"
+                    >
                         Cancel
                     </Button>
-                    <Button variant="success" onClick={saveChanges}>
+                    <Button
+                        variant="success"
+                        onClick={saveChanges}
+                        data-testid="clearPlanConfirmButton"
+                    >
                         Confirm
                     </Button>
                 </Modal.Footer>

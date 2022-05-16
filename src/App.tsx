@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Button, Col, Row } from "react-bootstrap";
-import Team23Banner from "./Pictures/headerbackground.jpeg";
+import NonBlurryBannerMaybe from "./Pictures/NonBlurryBannerMaybe.png";
 import "./App.css";
 
 import { WelcomeModal } from "./Components/WelcomeModal";
@@ -132,7 +132,7 @@ function App(): JSX.Element {
         <div className="App">
             {/* Website Banner */}
             <img
-                src={Team23Banner}
+                src={NonBlurryBannerMaybe}
                 width="100%"
                 height="100%"
                 data-testid="header-image"
