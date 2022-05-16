@@ -49,10 +49,18 @@ export function ChangePlan({
                     </Form.Select>
                 </Form.Group>
                 <Modal.Footer>
-                    <Button variant="secondary" onClick={cancelChanges}>
+                    <Button
+                        variant="secondary"
+                        onClick={cancelChanges}
+                        data-testid="changePlanCancelButton"
+                    >
                         Cancel
                     </Button>
-                    <Button variant="success" onClick={saveChanges}>
+                    <Button
+                        variant="success"
+                        onClick={saveChanges}
+                        data-testid="changePlanConfirmButton"
+                    >
                         Confirm
                     </Button>
                 </Modal.Footer>

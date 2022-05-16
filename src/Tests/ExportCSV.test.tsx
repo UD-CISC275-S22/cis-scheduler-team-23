@@ -6,7 +6,7 @@ import { Semester } from "../Interfaces/semester";
 
 const testPlan: Plan = { title: "", id: 0, semesters: [] as Semester[] };
 
-describe("ImportCsv Test", () => {
+describe("Export CSV Component Tests", () => {
     beforeEach(() => {
         render(<ExportCSV semesters={testPlan.semesters} plan={testPlan} />);
     });
