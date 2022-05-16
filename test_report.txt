@@ -2,7 +2,7 @@
 > react-typescript-starter@0.1.0 test
 > react-scripts test "--coverage"
 
-PASS src/Tests/App.test.tsx (9.288 s)
+PASS src/Tests/App.test.tsx (9.623 s)
   ● Console
 
     console.error
@@ -10958,41 +10958,7 @@ PASS src/Tests/AddPlan.test.tsx
           at table
           at /home/runner/work/cis-scheduler-team-23/cis-scheduler-team-23/node_modules/react-bootstrap/cjs/Table.js:21:3
           at div
-          at /home/runner/work/cis-scheduler-team-23/cis-scheduler-team-23/node_modu------------------------|---------|----------|---------|---------|------------------------
-File                    | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s      
-------------------------|---------|----------|---------|---------|------------------------
-All files               |   44.33 |    23.07 |   46.93 |   43.14 |                        
- src                    |   82.45 |       50 |   70.83 |   88.37 |                        
-  App.tsx               |   82.45 |       50 |   70.83 |   88.37 | 63-68                  
- src/Components         |   36.87 |    21.62 |   42.27 |   35.96 |                        
-  AddCourse.tsx         |   22.58 |     12.5 |      40 |   22.58 | 33-78,96               
-  AddCourseHelp.tsx     |       0 |      100 |       0 |       0 | 13-21                  
-  AddPlan.tsx           |    87.5 |      100 |   66.66 |    87.5 | 46                     
-  AddSemester.tsx       |      50 |        0 |      40 |      50 | 24-39,43,76            
-  ChangePlan.tsx        |      70 |      100 |   66.66 |      70 | 20-23                  
-  ChangeSemester.tsx    |       0 |        0 |       0 |       0 | 25-85                  
-  ClearPlan.tsx         |   11.11 |      100 |      25 |   11.11 | 22-32                  
-  ClearSemester.tsx     |     100 |      100 |     100 |     100 |                        
-  DefaultCourse.tsx     |       0 |      100 |       0 |       0 | 7-18                   
-  DeleteCourse.tsx      |       0 |        0 |       0 |       0 | 25-39                  
-  DeletePlan.tsx        |    7.69 |        0 |      25 |    7.69 | 22-42                  
-  DisplayCoursePool.tsx |   48.38 |    66.66 |   61.53 |   44.82 | 30-34,48-65            
-  DisplayCourses.tsx    |   33.84 |    42.85 |   10.52 |   36.66 | 46-106                 
-  EditPlan.tsx          |   16.66 |      100 |      20 |   16.66 | 22-33,50               
-  ExportCSV.tsx         |   33.33 |      100 |   33.33 |   27.77 | 19-35,52               
-  RequirementView.tsx   |   34.78 |        0 |   66.66 |   34.78 | 26-39,44-45            
-  SemesterEditor.tsx    |   62.85 |    33.33 |   63.63 |   62.85 | 34,42-49,57-59,105-122 
-  SemesterList.tsx      |     100 |      100 |     100 |     100 |                        
-  SemesterView.tsx      |     100 |      100 |     100 |     100 |                        
-  WelcomeModal.tsx      |   83.33 |      100 |   66.66 |     100 |                        
- src/Interfaces         |     100 |      100 |     100 |     100 |                        
-  coursepool.ts         |       0 |        0 |       0 |       0 |                        
-  courses.ts            |       0 |        0 |       0 |       0 |                        
-  plans.ts              |       0 |        0 |       0 |       0 |                        
-  requirements.ts       |     100 |      100 |     100 |     100 |                        
-  semester.ts           |       0 |        0 |       0 |       0 |                        
-------------------------|---------|----------|---------|---------|------------------------
-les/react-bootstrap/cjs/Container.js:24:3
+          at /home/runner/work/cis-scheduler-team-23/cis-scheduler-team-23/node_modules/react-bootstrap/cjs/Container.js:24:3
           at div
           at RequirementView (/home/runner/work/cis-scheduler-team-23/cis-scheduler-team-23/src/Components/RequirementView.tsx:22:47)
           at div
@@ -11788,9 +11754,43 @@ les/react-bootstrap/cjs/Container.js:24:3
       at beginWork (node_modules/react-dom/cjs/react-dom.development.js:19080:14)
 
 PASS src/Tests/WelcomeModal.test.tsx
+------------------------|---------|----------|---------|---------|------------------------
+File                    | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s      
+------------------------|---------|----------|---------|---------|------------------------
+All files               |   44.65 |    24.39 |   47.65 |    43.5 |                        
+ src                    |   82.45 |       50 |   70.83 |   88.37 |                        
+  App.tsx               |   82.45 |       50 |   70.83 |   88.37 | 63-68                  
+ src/Components         |   37.36 |    23.07 |    43.2 |   36.49 |                        
+  AddCourse.tsx         |   22.58 |     12.5 |      40 |   22.58 | 33-78,96               
+  AddCourseHelp.tsx     |       0 |      100 |       0 |       0 | 13-18                  
+  AddPlan.tsx           |    87.5 |      100 |   66.66 |    87.5 | 46                     
+  AddSemester.tsx       |      50 |        0 |      40 |      50 | 24-39,43,76            
+  ChangePlan.tsx        |      70 |      100 |   66.66 |      70 | 20-23                  
+  ChangeSemester.tsx    |       0 |        0 |       0 |       0 | 25-85                  
+  ClearPlan.tsx         |   11.11 |      100 |      25 |   11.11 | 22-32                  
+  ClearSemester.tsx     |     100 |      100 |     100 |     100 |                        
+  DefaultCourse.tsx     |       0 |      100 |       0 |       0 | 7-18                   
+  DeleteCourse.tsx      |       0 |        0 |       0 |       0 | 25-39                  
+  DeletePlan.tsx        |    7.69 |        0 |      25 |    7.69 | 22-42                  
+  DisplayCoursePool.tsx |    47.5 |       60 |   66.66 |   44.73 | 50-81                  
+  DisplayCourses.tsx    |   33.84 |    42.85 |   10.52 |   36.66 | 46-106                 
+  EditPlan.tsx          |   16.66 |      100 |      20 |   16.66 | 22-33,50               
+  ExportCSV.tsx         |   33.33 |      100 |   33.33 |   27.77 | 19-35,52               
+  RequirementView.tsx   |   34.78 |        0 |   66.66 |   34.78 | 26-39,44-45            
+  SemesterEditor.tsx    |   62.85 |    33.33 |   63.63 |   62.85 | 34,42-49,57-59,105-122 
+  SemesterList.tsx      |     100 |      100 |     100 |     100 |                        
+  SemesterView.tsx      |     100 |      100 |     100 |     100 |                        
+  WelcomeModal.tsx      |   83.33 |      100 |   66.66 |     100 |                        
+ src/Interfaces         |     100 |      100 |     100 |     100 |                        
+  coursepool.ts         |       0 |        0 |       0 |       0 |                        
+  courses.ts            |       0 |        0 |       0 |       0 |                        
+  plans.ts              |       0 |        0 |       0 |       0 |                        
+  requirements.ts       |     100 |      100 |     100 |     100 |                        
+  semester.ts           |       0 |        0 |       0 |       0 |                        
+------------------------|---------|----------|---------|---------|------------------------
 
 Test Suites: 9 passed, 9 total
 Tests:       25 passed, 25 total
 Snapshots:   0 total
-Time:        16.941 s
+Time:        19.237 s
 Ran all test suites.
