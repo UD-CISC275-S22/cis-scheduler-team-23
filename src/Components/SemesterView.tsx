@@ -41,11 +41,7 @@ export function SemesterView({
     function changeEditing() {
         setEdit(!edit);
     }
-    /*
-    allsemesters.map((sem: Semester) => (
 
-    ))
-    */
     return edit ? (
         <SemesterEditor
             changeEditing={changeEditing}
@@ -101,10 +97,14 @@ export function SemesterView({
             <p></p>
             <Row>
                 <Col>
-                    <Button onClick={handleShowAddModal} variant="success">
+                    {/* Add Course Button */}
+                    <Button
+                        onClick={handleShowAddModal}
+                        variant="success"
+                        data-testid="addCourseButton"
+                    >
                         Add Course
                     </Button>
-
                     <AddCourse
                         show={showAddModal}
                         handleClose={handleCloseAddModal}
@@ -112,18 +112,32 @@ export function SemesterView({
                         plan={activePlan}
                         setPlan={setPlan}
                     ></AddCourse>
-                    <Button onClick={handleShowClearModal} variant="warning">
+
+                    {"  "}
+
+                    {/* Clear All Courses Button */}
+                    <Button
+                        onClick={handleShowClearModal}
+                        variant="warning"
+                        data-testid="clearAllCoursesButton"
+                    >
                         Clear All Courses
                     </Button>
-
                     <ClearSemester
                         show={showClearModal}
                         handleClose={handleCloseClearModal}
                         currSemester={semester}
                     ></ClearSemester>
-                    <Button onClick={changeEditing} variant="danger">
-                        {" "}
-                        Edit Semester Details{" "}
+
+                    {"  "}
+
+                    {/* Edit Semester Details Button */}
+                    <Button
+                        onClick={changeEditing}
+                        variant="danger"
+                        data-testid="editSemesterDetailsButton"
+                    >
+                        Edit Semester Details
                     </Button>
                 </Col>
             </Row>

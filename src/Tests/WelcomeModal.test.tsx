@@ -2,12 +2,12 @@ import React from "react";
 import { render, screen } from "@testing-library/react";
 import { WelcomeModal } from "../Components/WelcomeModal";
 
-describe("WelcomeModal Test", () => {
+describe("Welcome Modal Tests", () => {
     beforeEach(() => {
         render(<WelcomeModal />);
     });
 
-    test("There is a click help button", () => {
+    test("Click for how to begin button works", () => {
         expect(
             screen.getByRole("button", {
                 name: /Click here for how to begin!/i
@@ -15,12 +15,12 @@ describe("WelcomeModal Test", () => {
         ).toBeInTheDocument();
     });
 
-    test("Clicking the button shows welcome message.", () => {
+    test("Clicking the 'click here to begin button' shows a welcome message", () => {
         const changeTypeButton = screen.getByRole("button", {
             name: /Click here for how to begin!/i
         });
         changeTypeButton.click();
-        const typeTextMC = screen.getByText(/Welcome to our Website!/i);
-        expect(typeTextMC).toBeInTheDocument();
+        const beginHereText = screen.getByText(/Welcome to our Website!/i);
+        expect(beginHereText).toBeInTheDocument();
     });
 });
