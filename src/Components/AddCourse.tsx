@@ -43,7 +43,7 @@ export function AddCourse({
                         const cIndex = currSemester.courseArray.findIndex(
                             (c: Course): boolean => c.code === addedCourse.code
                         );
-                        if (cIndex)
+                        if (cIndex === -1)
                             AddCourseHelp(
                                 addedCourse,
                                 currSemester,
@@ -70,7 +70,7 @@ export function AddCourse({
                     const cIndex = currSemester.courseArray.findIndex(
                         (c: Course): boolean => c.code === addedCourse.code
                     );
-                    if (cIndex)
+                    if (cIndex === -1)
                         AddCourseHelp(addedCourse, currSemester, plan, setPlan);
                 }
             }

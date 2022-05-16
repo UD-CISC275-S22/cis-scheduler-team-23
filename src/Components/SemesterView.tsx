@@ -42,6 +42,10 @@ export function SemesterView({
         setEdit(!edit);
     }
 
+    const validCreditCourses = semester.courseArray.filter(
+        (c: Course): boolean => !isNaN(Number(c.credits))
+    );
+
     return edit ? (
         <SemesterEditor
             changeEditing={changeEditing}
@@ -70,7 +74,7 @@ export function SemesterView({
             <Row>
                 <p>
                     <b> Credits: </b>{" "}
-                    {semester.courseArray.reduce(
+                    {validCreditCourses.reduce(
                         (currentTotal: number, c: Course) =>
                             currentTotal + Number(c.credits),
                         0
@@ -89,7 +93,7 @@ export function SemesterView({
                             course={c}
                             courseSemester={semester}
                             activePlan={activePlan}
-                            setPlans={setPlan}
+                            setPlan={setPlan}
                         ></DisplayCourses>
                     </Col>
                 ))}

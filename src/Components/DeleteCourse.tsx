@@ -4,17 +4,22 @@ import { Semester } from "../Interfaces/semester";
 import { Course } from "../Interfaces/courses";
 
 import "../App.css";
+import { Plan } from "../Interfaces/plans";
 
 export function DeleteCourse({
     show,
     handleClose,
     currCourse,
-    currSemester
+    currSemester,
+    plan,
+    setPlan
 }: {
     show: boolean;
     handleClose: () => void;
     currCourse: Course;
     currSemester: Semester;
+    plan: Plan;
+    setPlan: (t: Plan) => void;
 }) {
     function saveChanges() {
         const courseIndex = currSemester.courseArray.findIndex(
@@ -23,6 +28,11 @@ export function DeleteCourse({
         if (courseIndex > -1) {
             currSemester.courseArray.splice(courseIndex, 1);
         }
+        const semIndex = plan.semesters.findIndex(
+            (s: Semester): boolean => s.id === currSemester.id
+        );
+        plan.semesters[semIndex] = currSemester;
+        setPlan(plan);
         handleClose();
     }
 
