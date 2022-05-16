@@ -2,7 +2,7 @@
 > react-typescript-starter@0.1.0 test
 > react-scripts test "--coverage"
 
-PASS src/Tests/App.test.tsx (9.882 s)
+PASS src/Tests/App.test.tsx (11.91 s)
 PASS src/Tests/ExportCSV.test.tsx
 PASS src/Tests/WelcomeModal.test.tsx
 ------------------------|---------|----------|---------|---------|-------------------
@@ -43,5 +43,5 @@ All files               |    31.9 |    14.51 |   29.92 |   31.19 |
 Test Suites: 3 passed, 3 total
 Tests:       12 passed, 12 total
 Snapshots:   0 total
-Time:        11.995 s
+Time:        14.165 s
 Ran all test suites.
