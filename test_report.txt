@@ -2,38 +2,16 @@
 > react-typescript-starter@0.1.0 test
 > react-scripts test "--coverage"
 
+PASS src/Tests/App.test.tsx (9.882 s)
 PASS src/Tests/ExportCSV.test.tsx
 PASS src/Tests/WelcomeModal.test.tsx
-FAIL src/Tests/SemesterEditor.test.tsx
-  ● Delete Semester button works
-
-    TestingLibraryElementError: Unable to find an element by: [data-testid="deleteSemesterButton"]
-
-    Ignored nodes: comments, <script />, <style />
-    [36m<body />[39m
-
-       5 |
-       6 | test("Delete Semester button works", () => {
-    >  7 |     const deleteSemesterButton = screen.getByTestId("deleteSemesterButton");
-         |                                         ^
-       8 |     deleteSemesterButton.click();
-       9 |     /*
-      10 |     const semester1View = screen.queryByTestId("semesterView");
-
-      at Object.getElementError (node_modules/@testing-library/dom/dist/config.js:38:19)
-      at node_modules/@testing-library/dom/dist/query-helpers.js:90:38
-      at node_modules/@testing-library/dom/dist/query-helpers.js:62:17
-      at getByTestId (node_modules/@testing-library/dom/dist/query-helpers.js:111:19)
-      at Object.<anonymous> (src/Tests/SemesterEditor.test.tsx:7:41)
-
-PASS src/Tests/App.test.tsx
 ------------------------|---------|----------|---------|---------|-------------------
 File                    | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s 
 ------------------------|---------|----------|---------|---------|-------------------
-All files               |   29.75 |     12.9 |   24.81 |    30.9 |                   
- src                    |   50.87 |        0 |    12.5 |   67.44 |                   
-  App.tsx               |   50.87 |        0 |    12.5 |   67.44 | 63-92             
- src/Components         |   25.94 |    13.79 |   27.43 |   25.66 |                   
+All files               |    31.9 |    14.51 |   29.92 |   31.19 |                   
+ src                    |   63.15 |        0 |   41.66 |   67.44 |                   
+  App.tsx               |   63.15 |        0 |   41.66 |   67.44 | 63-92             
+ src/Components         |   26.26 |    15.51 |   27.43 |      26 |                   
   AddCourse.tsx         |    9.67 |        0 |      20 |    9.67 | 30-79,97          
   AddCourseHelp.tsx     |       0 |      100 |       0 |       0 | 13-18             
   AddPlan.tsx           |      25 |      100 |   33.33 |      25 | 21-29,46          
@@ -46,7 +24,7 @@ All files               |   29.75 |     12.9 |   24.81 |    30.9 |
   DeleteCourse.tsx      |       0 |        0 |       0 |       0 | 20-29             
   DeletePlan.tsx        |    7.69 |        0 |      25 |    7.69 | 22-42             
   DisplayCoursePool.tsx |   86.66 |      100 |    87.5 |   84.61 | 23-24             
-  DisplayCourses.tsx    |    32.3 |    35.71 |   10.52 |      35 | 41,46-106         
+  DisplayCourses.tsx    |   33.84 |    42.85 |   10.52 |   36.66 | 46-106            
   EditPlan.tsx          |   16.66 |      100 |      20 |   16.66 | 22-33,50          
   ExportCSV.tsx         |   33.33 |      100 |   33.33 |   27.77 | 19-35,52          
   RequirementView.tsx   |   83.33 |      100 |   66.66 |   83.33 | 23                
@@ -62,8 +40,8 @@ All files               |   29.75 |     12.9 |   24.81 |    30.9 |
   semester.ts           |       0 |        0 |       0 |       0 |                   
 ------------------------|---------|----------|---------|---------|-------------------
 
-Test Suites: 1 failed, 3 passed, 4 total
-Tests:       1 failed, 5 passed, 6 total
+Test Suites: 3 passed, 3 total
+Tests:       12 passed, 12 total
 Snapshots:   0 total
-Time:        4.507 s
+Time:        11.995 s
 Ran all test suites.
