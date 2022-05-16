@@ -111,7 +111,7 @@ export function DisplayCourses({
                 (c: Course): boolean => c.code === course.code
             ) != -1 && (
                 <div className="App-allignleft">
-                    <Button onClick={flipVisibility}> {course.name} </Button>
+                    <Button onClick={flipVisibility}> {course.code} </Button>
                     {visible && (
                         <div className="App-allignleft">
                             <p></p>
