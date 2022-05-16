@@ -93,6 +93,7 @@ export function SemesterView({
                             activePlan={activePlan}
                             setPlan={setPlan}
                         ></DisplayCourses>
+                        <p></p>
                     </Col>
                 ))}
             </Row>
