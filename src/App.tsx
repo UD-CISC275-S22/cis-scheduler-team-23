@@ -196,18 +196,20 @@ function App(): JSX.Element {
 
                     <p></p>
 
-                    {/* Display Course Pool */}
+                    {/* Course Pool */}
                     <Button
                         variant="secondary"
                         onClick={handleShowPoolModal}
                         data-testid="displayCoursePoolButton"
                     >
-                        Display Course Pool
+                        Course Pool
                     </Button>
                     <DisplayCoursePool
                         show={showPoolModal}
                         handleClose={handleClosePoolModal}
                         coursepool={pool}
+                        plan={plan}
+                        setPlan={setPlan}
                     ></DisplayCoursePool>
 
                     <p></p>
