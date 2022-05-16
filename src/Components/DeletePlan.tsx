@@ -51,10 +51,18 @@ export function DeletePlan({
                     <b> Are you sure you want to delete {plan.title}? </b>
                 </Form.Label>
                 <Modal.Footer>
-                    <Button variant="secondary" onClick={cancelChanges}>
+                    <Button
+                        variant="secondary"
+                        onClick={cancelChanges}
+                        data-testid="deletePlanCancelButton"
+                    >
                         Cancel
                     </Button>
-                    <Button variant="success" onClick={saveChanges}>
+                    <Button
+                        variant="success"
+                        onClick={saveChanges}
+                        data-testid="deletePlanConfirmButton"
+                    >
                         Confirm
                     </Button>
                 </Modal.Footer>
