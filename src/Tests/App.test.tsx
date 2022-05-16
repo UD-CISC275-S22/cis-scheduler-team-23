@@ -45,7 +45,7 @@ describe("Plan view tests", () => {
         addPlanButton.click();
     });
 
-    test("Change Plan button works", () => {
+    test("Delete Plan button works", () => {
         const addPlanButton = screen.getByTestId("deletePlanButton");
         addPlanButton.click();
     });
