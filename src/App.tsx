@@ -168,6 +168,8 @@ function App(): JSX.Element {
                         setPlans={setPlanArray}
                     ></AddPlan>
 
+                    {"  "}
+
                     {/* Change Plan */}
                     <Button
                         variant="secondary"
@@ -183,13 +185,6 @@ function App(): JSX.Element {
                         plans={planArray}
                         setPlan={setPlan}
                     ></ChangePlan>
-
-                    {/* Add Semester??? */}
-                    <AddSemester
-                        show={showAddModal}
-                        handleClose={handleCloseAddModal}
-                        addSemester={addSemester}
-                    ></AddSemester>
 
                     <p></p>
 
@@ -242,6 +237,8 @@ function App(): JSX.Element {
                                 addSemester={addSemester}
                             ></AddSemester>
 
+                            <p></p>
+
                             {/* Edit Plan */}
                             <Button
                                 variant="secondary"
@@ -258,6 +255,8 @@ function App(): JSX.Element {
                                 setPlan={setPlan}
                                 setPlans={setPlanArray}
                             ></EditPlan>
+
+                            {"  "}
 
                             {/* Clear Plan */}
                             <Button
@@ -276,6 +275,8 @@ function App(): JSX.Element {
                                 setPlans={setPlanArray}
                             ></ClearPlan>
 
+                            {"  "}
+
                             {/* Delete Plan */}
                             <Button
                                 variant="danger"
@@ -292,12 +293,13 @@ function App(): JSX.Element {
                                 setPlan={setPlan}
                                 setPlans={setPlanArray}
                             ></DeletePlan>
+
+                            <p></p>
                         </Col>
                     </Row>
                 </Col>
 
                 {/* Degree Requirements */}
-                <Col>
                 <Col xs={4}>
                     <RequirementView></RequirementView>
                 </Col>
