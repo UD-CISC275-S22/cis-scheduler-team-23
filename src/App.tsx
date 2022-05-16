@@ -130,8 +130,15 @@ function App(): JSX.Element {
 
     return (
         <div className="App">
-            <img src={Team23Banner} width="100%" height="100%" />
+            {/* Website Banner */}
+            <img
+                src={Team23Banner}
+                width="100%"
+                height="100%"
+                data-testid="header-image"
+            />
 
+            {/* Welcome Modal and Message */}
             <div>
                 <p></p>
                 <WelcomeModal></WelcomeModal>
@@ -140,15 +147,20 @@ function App(): JSX.Element {
 
             <Row>
                 <Col>
+                    {/* Current Plan Title */}
                     <h2>
                         <b> {plan.title} </b>
+                        <p></p>
                     </h2>
 
                     {/* Add New Plan */}
-                    <Button variant="primary" onClick={handleShowAddPlanModal}>
+                    <Button
+                        variant="primary"
+                        onClick={handleShowAddPlanModal}
+                        data-testid="addNewPlanButton"
+                    >
                         Add Plan
                     </Button>
-
                     <AddPlan
                         show={showAddPlanModal}
                         handleClose={handleCloseAddPlanModal}
@@ -156,10 +168,16 @@ function App(): JSX.Element {
                         setPlans={setPlanArray}
                     ></AddPlan>
 
-                    <Button variant="secondary" onClick={handleShowPlanModal}>
+                    {"  "}
+
+                    {/* Change Plan */}
+                    <Button
+                        variant="secondary"
+                        onClick={handleShowPlanModal}
+                        data-testid="changePlanButton"
+                    >
                         Change Plan
                     </Button>
-
                     <ChangePlan
                         show={showPlanModal}
                         handleClose={handleClosePlanModal}
@@ -169,16 +187,23 @@ function App(): JSX.Element {
                     ></ChangePlan>
 
                     <p></p>
+
                     {/* Export CSV Files */}
                     <ExportCSV
                         semesters={plan.semesters}
                         plan={plan}
                     ></ExportCSV>
+
                     <p></p>
-                    <Button variant="secondary" onClick={handleShowPoolModal}>
+
+                    {/* Course Pool */}
+                    <Button
+                        variant="secondary"
+                        onClick={handleShowPoolModal}
+                        data-testid="displayCoursePoolButton"
+                    >
                         Course Pool
                     </Button>
-
                     <DisplayCoursePool
                         show={showPoolModal}
                         handleClose={handleClosePoolModal}
@@ -186,40 +211,44 @@ function App(): JSX.Element {
                         plan={plan}
                         setPlan={setPlan}
                     ></DisplayCoursePool>
+
                     <p></p>
+
                     <SemesterList
                         activePlan={plan}
                         editSemester={editSemester}
                         deleteSemester={deleteSemester}
-                        setPlan={setPlan} //Used to be setSems
+                        setPlan={setPlan}
                         plans={planArray}
                         setPlans={setPlanArray}
                     ></SemesterList>
+
                     <Row>
                         <Col>
                             {/* Add Semester Button */}
                             <Button
                                 variant="light"
                                 onClick={handleShowAddModal}
+                                data-testid="addSemesterButton"
                             >
                                 Add New Semester
                             </Button>
-                            <p></p>
-
-                            {/* Add Semester */}
                             <AddSemester
                                 show={showAddModal}
                                 handleClose={handleCloseAddModal}
                                 addSemester={addSemester}
                             ></AddSemester>
 
+                            <p></p>
+
+                            {/* Edit Plan */}
                             <Button
                                 variant="secondary"
                                 onClick={handleShowEditPlanModal}
+                                data-testid="editPlanButton"
                             >
                                 Edit Plan
                             </Button>
-
                             <EditPlan
                                 show={showEditPlanModal}
                                 handleClose={handleCloseEditPlanModal}
@@ -229,13 +258,16 @@ function App(): JSX.Element {
                                 setPlans={setPlanArray}
                             ></EditPlan>
 
+                            {"  "}
+
+                            {/* Clear Plan */}
                             <Button
                                 variant="warning"
                                 onClick={handleShowClearPlanModal}
+                                data-testid="clearPlanButton"
                             >
                                 Clear Plan
                             </Button>
-
                             <ClearPlan
                                 show={showClearPlanModal}
                                 handleClose={handleCloseClearPlanModal}
@@ -245,13 +277,16 @@ function App(): JSX.Element {
                                 setPlans={setPlanArray}
                             ></ClearPlan>
 
+                            {"  "}
+
+                            {/* Delete Plan */}
                             <Button
                                 variant="danger"
                                 onClick={handleShowDeletePlanModal}
+                                data-testid="deletePlanButton"
                             >
                                 Delete Plan
                             </Button>
-
                             <DeletePlan
                                 show={showDeletePlanModal}
                                 handleClose={handleCloseDeletePlanModal}
@@ -260,10 +295,13 @@ function App(): JSX.Element {
                                 setPlan={setPlan}
                                 setPlans={setPlanArray}
                             ></DeletePlan>
+
+                            <p></p>
                         </Col>
                     </Row>
                 </Col>
 
+                {/* Degree Requirements */}
                 <Col xs={4}>
                     <RequirementView></RequirementView>
                 </Col>
