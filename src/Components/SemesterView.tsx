@@ -120,12 +120,22 @@ export function SemesterView({
 
                     {"  "}
 
+                    {/* Edit Semester Details Button */}
+                    <Button
+                        onClick={changeEditing}
+                        variant="warning"
+                        data-testid="editSemesterDetailsButton"
+                        className="me-2"
+                    >
+                        Edit Semester Details
+                    </Button>
+                    {"  "}
+
                     {/* Clear All Courses Button */}
                     <Button
                         onClick={handleShowClearModal}
-                        variant="warning"
+                        variant="danger"
                         data-testid="clearAllCoursesButton"
-                        className="me-2"
                     >
                         Clear All Courses
                     </Button>
@@ -134,17 +144,6 @@ export function SemesterView({
                         handleClose={handleCloseClearModal}
                         currSemester={semester}
                     ></ClearSemester>
-
-                    {"  "}
-
-                    {/* Edit Semester Details Button */}
-                    <Button
-                        onClick={changeEditing}
-                        variant="danger"
-                        data-testid="editSemesterDetailsButton"
-                    >
-                        Edit Semester Details
-                    </Button>
                 </Col>
             </Row>
         </Container>
