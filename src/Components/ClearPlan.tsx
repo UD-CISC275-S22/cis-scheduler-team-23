@@ -34,7 +34,9 @@ export function ClearPlan({
     return (
         <Modal show={show} onHide={handleClose} animation={false}>
             <Modal.Header closeButton>
-                <Modal.Title>Clear Plan</Modal.Title>
+                <Modal.Title>
+                    Warning! You are about to clear this plan!
+                </Modal.Title>
             </Modal.Header>
             <Modal.Body>
                 <Form.Label>

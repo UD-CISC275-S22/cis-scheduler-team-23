@@ -13,7 +13,7 @@ describe("Delete Plan Component Tests", () => {
         deletePlanButton.click();
 
         const deletePlanModal = screen.getByText(
-            "Are you sure you want to delete"
+            "Warning! You are about to delete this plan!"
         );
         expect(deletePlanModal).toBeInTheDocument();
 
@@ -25,7 +25,9 @@ describe("Delete Plan Component Tests", () => {
         const deletePlanButton = screen.getByTestId("deletePlanButton");
         deletePlanButton.click();
 
-        const deletePlanModal = screen.getByText("Delete Plan");
+        const deletePlanModal = screen.getByText(
+            "Warning! You are about to delete this plan!"
+        );
         expect(deletePlanModal).toBeInTheDocument();
 
         const confirmButton = screen.getByTestId("deletePlanConfirmButton");

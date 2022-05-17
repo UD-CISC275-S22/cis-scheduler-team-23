@@ -45,7 +45,9 @@ export function DeletePlan({
     return (
         <Modal show={show} onHide={handleClose} animation={false}>
             <Modal.Header closeButton>
-                <Modal.Title>Delete Plan</Modal.Title>
+                <Modal.Title>
+                    Warning! You are about to delete this plan!
+                </Modal.Title>
             </Modal.Header>
             <Modal.Body>
                 <Form.Label>
