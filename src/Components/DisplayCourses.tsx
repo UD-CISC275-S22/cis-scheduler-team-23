@@ -110,7 +110,7 @@ export function DisplayCourses({
             {courseSemester.courseArray.findIndex(
                 (c: Course): boolean => c.code === course.code
             ) != -1 && (
-                <div className="App-allignleft">
+                <div>
                     <Button onClick={flipVisibility}> {course.code} </Button>
                     {visible && (
                         <div className="App-allignleft">

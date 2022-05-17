@@ -52,7 +52,7 @@ function App(): JSX.Element {
             title: "Team 23 Auto Generated Plan Version 2",
             id: 1,
             semesters: [],
-            totalCreds: 5
+            totalCreds: 0
         }
     ]);
 

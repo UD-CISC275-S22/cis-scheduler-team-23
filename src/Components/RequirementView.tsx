@@ -52,6 +52,16 @@ export function RequirementView({
     const testArr = [] as string[];
     const userCodes1d = testArr.concat(...userCodes2d);
 
+    const userCreds2d: string[][] = userCourses.map((cArray: Course[]) =>
+        cArray.map((userC: Course) => userC.credits)
+    );
+    const testArr2 = [] as string[];
+    const userCreds1d = testArr2.concat(...userCreds2d);
+    const credits = userCreds1d.reduce(
+        (currentTotal: number, c: string) => currentTotal + Number(c),
+        0
+    );
+
     function changeConcReqs() {
         if (concentration === "AI") {
             setConcReqs(Concentration[0]);
@@ -75,25 +85,6 @@ export function RequirementView({
         setConcentration(event.target.value);
     };
 
-    /** const userCourses: Course[][] = plan.semesters.map(
-        (userSemesters: Semester) =>
-            userSemesters.courseArray.map((userCourse: Course) => ({
-                ...userCourse
-            }))
-    );
-    const userCreds2d: string[][] = userCourses.map((cArray: Course[]) =>
-        cArray.map((userC: Course) => userC.credits)
-    );
-    const testArr = [] as string[];
-    const userCodes1d = testArr.concat(...userCreds2d);
-    function updateCreds(credList: string[], plan: Plan) {
-        const credits = credList.reduce(
-            (currentTotal: number, c: string) => currentTotal + Number(c),
-            0
-        );
-        plan.totalCreds += credits;
-    }
-    updateCreds(userCodes1d, plan); **/
     return (
         <div className="bg-white border m-2 p-2">
             <Container>
@@ -154,7 +145,7 @@ export function RequirementView({
                     <p>Concentration: {concentration}</p>
                     <p></p>
 
-                    <p>Total Credits: {plan.totalCreds} / 124</p>
+                    <p>Total Credits: {credits} / 124</p>
                     <p></p>
                     <b>
                         <u>Core Requirements:</u>
