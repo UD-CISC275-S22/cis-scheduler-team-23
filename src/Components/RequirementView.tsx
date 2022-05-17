@@ -329,7 +329,7 @@ export function RequirementView({
                     )
                 }
             >
-                Comprehensive Course Catalog
+                Computer Science Catalog
             </Button>
 
             <p></p>

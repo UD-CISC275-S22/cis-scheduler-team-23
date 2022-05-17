@@ -119,6 +119,7 @@ export function DisplayCourses({
                             <Button
                                 onClick={handleShowChangeModal}
                                 variant="secondary"
+                                data-testid="changeSemesterButton"
                             >
                                 Change Semester
                             </Button>
@@ -130,22 +131,27 @@ export function DisplayCourses({
                                 activePlan={activePlan}
                                 setPlan={setPlan}
                             ></ChangeSemester>
+
                             <p></p>
+
                             <Button
                                 id="is-editing"
                                 onClick={updateEditing}
                                 variant="warning"
+                                data-testid="editCourseButton"
                             >
                                 {editButtonName}
                             </Button>
+
                             <p></p>
+
                             <Button
                                 onClick={handleShowAddModal}
                                 variant="danger"
+                                data-testid="deleteCourseButton"
                             >
                                 Delete Course
                             </Button>
-
                             <DeleteCourse
                                 show={showAddModal}
                                 handleClose={handleCloseAddModal}
@@ -154,11 +160,19 @@ export function DisplayCourses({
                                 plan={activePlan}
                                 setPlan={setPlan}
                             ></DeleteCourse>
+
                             <p></p>
-                            <Button onClick={restoreDefault} variant="info">
+
+                            <Button
+                                onClick={restoreDefault}
+                                variant="info"
+                                data-testid="resetCourseToDefaultButton"
+                            >
                                 Reset Course To Default
                             </Button>
+
                             <p></p>
+
                             {!isEditing && (
                                 <div className="App-allignleft">
                                     <div>
@@ -171,7 +185,7 @@ export function DisplayCourses({
                                         <b>Description:</b> {course.descr}
                                     </div>
                                     <div>
-                                        <b>Number of Credits:</b>{" "}
+                                        <b>Number of Credits:</b>
                                         {course.credits}
                                     </div>
                                     <div>
@@ -181,7 +195,7 @@ export function DisplayCourses({
                                         <b>Restrictions:</b> {course.restrict}
                                     </div>
                                     <div>
-                                        <b>Breadth Requirements:</b>{" "}
+                                        <b>Breadth Requirements:</b>
                                         {course.breadth}
                                     </div>
                                     <div>
