@@ -8,12 +8,14 @@ export function AddPlan({
     show,
     handleClose,
     plans,
-    setPlans
+    setPlans,
+    setPlan
 }: {
     show: boolean;
     handleClose: () => void;
     plans: Plan[];
     setPlans: (t: Plan[]) => void;
+    setPlan: (t: Plan) => void;
 }) {
     const [planTitle, setPlanTitle] = useState<string>("");
 
@@ -28,6 +30,7 @@ export function AddPlan({
         setPlans(plans);
         setPlanTitle("");
         handleClose();
+        setPlan(newPlan);
     }
     return (
         <Modal show={show} onHide={handleClose} animation={false}>

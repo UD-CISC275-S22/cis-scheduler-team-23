@@ -164,6 +164,7 @@ function App(): JSX.Element {
                         handleClose={handleCloseAddPlanModal}
                         plans={planArray}
                         setPlans={setPlanArray}
+                        setPlan={setPlan}
                     ></AddPlan>
 
                     {"  "}
