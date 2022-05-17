@@ -1,9 +1,11 @@
 import React, { useState } from "react";
 import { Button, Col, Container, Form, Modal } from "react-bootstrap";
-// import { CoursePool } from "../Interfaces/coursepool";
 import { Table } from "react-bootstrap";
 import { Concentration } from "../Interfaces/requirements";
 import { CoreReqs } from "../Interfaces/requirements";
+import { statReqs } from "../Interfaces/requirements";
+import { writingReqs } from "../Interfaces/requirements";
+import { capstoneReqs } from "../Interfaces/requirements";
 import { Plan } from "../Interfaces/plans";
 import { Course } from "../Interfaces/courses";
 import { Semester } from "../Interfaces/semester";
@@ -88,6 +90,39 @@ export function RequirementView({
     const changeConcentration = (event: ChangeEvent) => {
         setConcentration(event.target.value);
     };
+
+    const statReqsComb: [string] = [statReqs[0] + " or " + statReqs[1]];
+    const writingReqsComb: [string] = [
+        writingReqs[0] + " or " + writingReqs[1]
+    ];
+    const dle = ["DLE Requirement"];
+    const capstone = ["Capstone Requirement"];
+
+    function ReqsFunction(courses: string[]) {
+        const takenCourses = courses.filter((course: string): boolean =>
+            userCodes1d.includes(course)
+        );
+        if (takenCourses.length > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    function capstoneReqsFunction(courses: string[]) {
+        if (
+            userCodes1d.includes(courses[0]) &&
+            userCodes1d.includes(courses[1])
+        ) {
+            return true;
+        } else if (
+            userCodes1d.includes(courses[2]) &&
+            userCodes1d.includes(courses[3])
+        ) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
     return (
         <div className="bg-white border m-2 p-2">
@@ -176,6 +211,58 @@ export function RequirementView({
                     <tbody>
                         {CoreReqs.map((s) =>
                             userCodes1d.includes(s) ? (
+                                <tr key={s}>
+                                    <td>{s}</td>
+                                    <td>✔️</td>
+                                </tr>
+                            ) : (
+                                <tr key={s}>
+                                    <td>{s}</td>
+                                    <td>❌</td>
+                                </tr>
+                            )
+                        )}
+                        {statReqsComb.map((s) =>
+                            ReqsFunction(statReqs) ? (
+                                <tr key={s}>
+                                    <td>{s}</td>
+                                    <td>✔️</td>
+                                </tr>
+                            ) : (
+                                <tr key={s}>
+                                    <td>{s}</td>
+                                    <td>❌</td>
+                                </tr>
+                            )
+                        )}
+                        {writingReqsComb.map((s) =>
+                            ReqsFunction(writingReqs) ? (
+                                <tr key={s}>
+                                    <td>{s}</td>
+                                    <td>✔️</td>
+                                </tr>
+                            ) : (
+                                <tr key={s}>
+                                    <td>{s}</td>
+                                    <td>❌</td>
+                                </tr>
+                            )
+                        )}
+                        {dle.map((s) =>
+                            capstoneReqsFunction(capstoneReqs) ? (
+                                <tr key={s}>
+                                    <td>{s}</td>
+                                    <td>✔️</td>
+                                </tr>
+                            ) : (
+                                <tr key={s}>
+                                    <td>{s}</td>
+                                    <td>❌</td>
+                                </tr>
+                            )
+                        )}
+                        {capstone.map((s) =>
+                            capstoneReqsFunction(capstoneReqs) ? (
                                 <tr key={s}>
                                     <td>{s}</td>
                                     <td>✔️</td>

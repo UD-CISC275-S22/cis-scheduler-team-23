@@ -1,5 +1,7 @@
 /** Core Requirements */
 export const CoreReqs = [
+    "ENGL 110",
+    "EGGG 101",
     "CISC 108",
     "CISC 181",
     "CISC 210",
@@ -8,10 +10,16 @@ export const CoreReqs = [
     "CISC 275",
     "CISC 303",
     "CISC 320",
+    "CISC 355",
     "MATH 210",
     "MATH 241"
 ];
 
+export const statReqs = ["MATH 205", "MATH 350"];
+export const writingReqs = ["ENGL 312", "ENGL 410"];
+export const capstoneReqs = ["CISC 498", "CISC 499", "UNIV 401", "UNIV 402"];
+
+/** Concentration Requirements */
 export const AI = ["CISC 304", "CISC 442", "CISC 481", "CISC 483", "CISC 484"];
 
 export const BioinformaticsReqs = [
