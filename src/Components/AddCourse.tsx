@@ -36,20 +36,31 @@ export function AddCourse({
                     .substring(0, 0 + firstNumIndex)
                     .toUpperCase();
                 const numText = courseCode.substring(firstNumIndex);
-                if (ALLCOURSES[codeText]) {
-                    if (ALLCOURSES[codeText][codeText + " " + numText]) {
+                if (ALLCOURSES[codeText.toUpperCase()]) {
+                    if (
+                        ALLCOURSES[codeText.toUpperCase()][
+                            (codeText + " " + numText).toUpperCase()
+                        ]
+                    ) {
                         const addedCourse =
                             ALLCOURSES[codeText][codeText + " " + numText];
-                        const cIndex = currSemester.courseArray.findIndex(
+                        const courseIndex = currSemester.courseArray.findIndex(
                             (c: Course): boolean => c.code === addedCourse.code
                         );
-                        if (cIndex === -1)
-                            AddCourseHelp(
-                                addedCourse,
-                                currSemester,
-                                plan,
-                                setPlan
-                            );
+                        const newSemester = { ...currSemester };
+                        if (courseIndex > -1) {
+                            newSemester.courseArray.splice(courseIndex, 1);
+                        }
+                        AddCourseHelp(addedCourse, currSemester, plan, setPlan);
+                        setPlan({
+                            ...plan,
+                            semesters: plan.semesters.map(
+                                (semester: Semester): Semester =>
+                                    semester.id === newSemester.id
+                                        ? newSemester
+                                        : semester
+                            )
+                        });
                         plan.totalCreds += parseInt(addedCourse.credits);
                     }
                 }
@@ -58,7 +69,7 @@ export function AddCourse({
             }
         } else {
             const courseInfo = courseCode.split(" ", 1);
-            if (ALLCOURSES[courseInfo[0]]) {
+            if (ALLCOURSES[courseInfo[0].toUpperCase()]) {
                 if (
                     ALLCOURSES[courseInfo[0].toUpperCase()][
                         courseCode.toUpperCase()
@@ -68,11 +79,23 @@ export function AddCourse({
                         ALLCOURSES[courseInfo[0].toUpperCase()][
                             courseCode.toUpperCase()
                         ];
-                    const cIndex = currSemester.courseArray.findIndex(
+                    const courseIndex = currSemester.courseArray.findIndex(
                         (c: Course): boolean => c.code === addedCourse.code
                     );
-                    if (cIndex === -1)
-                        AddCourseHelp(addedCourse, currSemester, plan, setPlan);
+                    const newSemester = { ...currSemester };
+                    if (courseIndex > -1) {
+                        newSemester.courseArray.splice(courseIndex, 1);
+                    }
+                    AddCourseHelp(addedCourse, currSemester, plan, setPlan);
+                    setPlan({
+                        ...plan,
+                        semesters: plan.semesters.map(
+                            (semester: Semester): Semester =>
+                                semester.id === newSemester.id
+                                    ? newSemester
+                                    : semester
+                        )
+                    });
                     plan.totalCreds += parseInt(addedCourse.credits);
                 }
             }

@@ -5,14 +5,23 @@ import { Table } from "react-bootstrap";
 import { Concentration } from "../Interfaces/requirements";
 import { CoreReqs } from "../Interfaces/requirements";
 import { Plan } from "../Interfaces/plans";
-// import { Course } from "../Interfaces/courses";
-// import { Semester } from "../Interfaces/semester";
+import { Course } from "../Interfaces/courses";
+import { Semester } from "../Interfaces/semester";
+import { DisplayCoursePool } from "./DisplayCoursePool";
+import { CoursePool } from "../Interfaces/coursepool";
 
 type ChangeEvent = React.ChangeEvent<
     HTMLTextAreaElement | HTMLInputElement | HTMLSelectElement
 >;
-
-export function RequirementView({ plan }: { plan: Plan }) {
+export function RequirementView({
+    plan,
+    setPlan,
+    pool
+}: {
+    plan: Plan;
+    setPlan: (t: Plan) => void;
+    pool: CoursePool;
+}) {
     const concentrationsList = [
         "AI",
         "Bioinformatics",
@@ -28,6 +37,20 @@ export function RequirementView({ plan }: { plan: Plan }) {
     const [showModal, setShowModal] = useState(false);
     const handleCloseModal = () => setShowModal(false);
     const handleShowModal = () => setShowModal(true);
+    const [showPoolModal, setShowPoolModal] = useState(false);
+    const handleClosePoolModal = () => setShowPoolModal(false);
+    const handleShowPoolModal = () => setShowPoolModal(true);
+    const userCourses: Course[][] = plan.semesters.map(
+        (userSemesters: Semester) =>
+            userSemesters.courseArray.map((userCourse: Course) => ({
+                ...userCourse
+            }))
+    );
+    const userCodes2d: string[][] = userCourses.map((cArray: Course[]) =>
+        cArray.map((userC: Course) => userC.code)
+    );
+    const testArr = [] as string[];
+    const userCodes1d = testArr.concat(...userCodes2d);
 
     function changeConcReqs() {
         if (concentration === "AI") {
@@ -81,9 +104,26 @@ export function RequirementView({ plan }: { plan: Plan }) {
                 </h4>
                 {/** Dropdown for choosing concentration */}
                 <div>
+                    {/* Course Pool */}
+                    <Button
+                        variant="secondary"
+                        onClick={handleShowPoolModal}
+                        data-testid="displayCoursePoolButton"
+                    >
+                        Course Pool
+                    </Button>
+                    <DisplayCoursePool
+                        show={showPoolModal}
+                        handleClose={handleClosePoolModal}
+                        coursepool={pool}
+                        plan={plan}
+                        setPlan={setPlan}
+                    ></DisplayCoursePool>
+                    <p></p>
                     <Button variant="outline-success" onClick={handleShowModal}>
                         Choose your Concentration
                     </Button>
+                    <p></p>
                     <Modal show={showModal} onHide={handleCloseModal}>
                         <Modal.Header closeButton>
                             <Modal.Title> Choose Concentration </Modal.Title>
@@ -134,12 +174,19 @@ export function RequirementView({ plan }: { plan: Plan }) {
                         </tr>
                     </thead>
                     <tbody>
-                        {CoreReqs.map((s) => (
-                            <tr key={s}>
-                                <td>{s}</td>
-                                <td>❌</td>
-                            </tr>
-                        ))}
+                        {CoreReqs.map((s) =>
+                            userCodes1d.includes(s) ? (
+                                <tr key={s}>
+                                    <td>{s}</td>
+                                    <td>✔️</td>
+                                </tr>
+                            ) : (
+                                <tr key={s}>
+                                    <td>{s}</td>
+                                    <td>❌</td>
+                                </tr>
+                            )
+                        )}
                     </tbody>
                 </Table>
                 <p></p>
@@ -163,12 +210,19 @@ export function RequirementView({ plan }: { plan: Plan }) {
                     </tr>
                 </thead>
                 <tbody>
-                    {concReqs.map((s) => (
-                        <tr key={s}>
-                            <td>{s}</td>
-                            <td>❌</td>
-                        </tr>
-                    ))}
+                    {concReqs.map((s) =>
+                        userCodes1d.includes(s) ? (
+                            <tr key={s}>
+                                <td>{s}</td>
+                                <td>✔️</td>
+                            </tr>
+                        ) : (
+                            <tr key={s}>
+                                <td>{s}</td>
+                                <td>❌</td>
+                            </tr>
+                        )
+                    )}
                 </tbody>
             </Table>
         </div>

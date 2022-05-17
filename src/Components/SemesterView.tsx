@@ -29,7 +29,6 @@ export function SemesterView({
     plans: Plan[];
     setPlans: (t: Plan[]) => void;
 }): JSX.Element {
-    // const [visible, setVisible] = useState<boolean>(false);
     const [edit, setEdit] = useState<boolean>(false);
     const [showAddModal, setShowAddModal] = useState(false);
     const handleCloseAddModal = () => setShowAddModal(false);
@@ -45,6 +44,7 @@ export function SemesterView({
     const validCreditCourses = semester.courseArray.filter(
         (c: Course): boolean => !isNaN(Number(c.credits))
     );
+
     return edit ? (
         <SemesterEditor
             changeEditing={changeEditing}

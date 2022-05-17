@@ -25,14 +25,17 @@ export function DeleteCourse({
         const courseIndex = currSemester.courseArray.findIndex(
             (c: Course): boolean => c.code === currCourse.code
         );
+        const newSemester = { ...currSemester };
         if (courseIndex > -1) {
-            currSemester.courseArray.splice(courseIndex, 1);
+            newSemester.courseArray.splice(courseIndex, 1);
         }
-        const semIndex = plan.semesters.findIndex(
-            (s: Semester): boolean => s.id === currSemester.id
-        );
-        plan.semesters[semIndex] = currSemester;
-        setPlan(plan);
+        setPlan({
+            ...plan,
+            semesters: plan.semesters.map(
+                (semester: Semester): Semester =>
+                    semester.id === newSemester.id ? newSemester : semester
+            )
+        });
         handleClose();
     }
 

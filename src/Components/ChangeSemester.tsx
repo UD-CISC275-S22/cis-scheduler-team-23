@@ -32,21 +32,27 @@ export function ChangeSemester({
                 const courseIndex = courseSemester.courseArray.findIndex(
                     (c: Course): boolean => c.code === course.code
                 );
+                const newSemester = { ...courseSemester };
                 if (courseIndex > -1) {
-                    courseSemester.courseArray.splice(courseIndex, 1);
+                    newSemester.courseArray.splice(courseIndex, 1);
                 }
-                const semIndex = activePlan.semesters.findIndex(
-                    (s: Semester): boolean => courseSemester.id === s.id
-                );
-                activePlan.semesters[semIndex] = courseSemester;
-                setPlan(activePlan);
+                setPlan({
+                    ...activePlan,
+                    semesters: activePlan.semesters.map(
+                        (semester: Semester): Semester =>
+                            semester.id === newSemester.id
+                                ? newSemester
+                                : semester
+                    )
+                });
                 setCurrSemester("");
             } else {
                 const courseIndex = courseSemester.courseArray.findIndex(
                     (c: Course): boolean => c.code === course.code
                 );
+                const newSemester = { ...courseSemester };
                 if (courseIndex > -1) {
-                    courseSemester.courseArray.splice(courseIndex, 1);
+                    newSemester.courseArray.splice(courseIndex, 1);
                 }
                 const semesterIndex = activePlan.semesters.findIndex(
                     (s: Semester): boolean => s.title === currSemester
@@ -59,11 +65,15 @@ export function ChangeSemester({
                         setPlan
                     );
                     setCurrSemester(activePlan.semesters[semesterIndex].title);
-                    const semIndex = activePlan.semesters.findIndex(
-                        (s: Semester): boolean => courseSemester.id === s.id
-                    );
-                    activePlan.semesters[semIndex] = courseSemester;
-                    setPlan(activePlan);
+                    setPlan({
+                        ...activePlan,
+                        semesters: activePlan.semesters.map(
+                            (semester: Semester): Semester =>
+                                semester.id === newSemester.id
+                                    ? newSemester
+                                    : semester
+                        )
+                    });
                 }
             }
         }

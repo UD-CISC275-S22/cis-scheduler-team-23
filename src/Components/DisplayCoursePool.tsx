@@ -60,7 +60,6 @@ export function DisplayCoursePool({
             const newCourse: Course =
                 coursepool.courses[courseInfo[0]][course.code];
             AddCourseHelp(newCourse, plan.semesters[0], plan, setPlan);
-            setPlan(plan);
         } else {
             const semIndex = plan.semesters.findIndex(
                 (s: Semester): boolean => s.title === sem
@@ -70,10 +69,10 @@ export function DisplayCoursePool({
             const newCourse: Course =
                 coursepool.courses[courseInfo[0]][course.code];
             AddCourseHelp(newCourse, chosenSem, plan, setPlan);
-            setPlan(plan);
         }
         if (course.code === updatedCourses[0].code)
             setCourse(updatedCourses[1]);
+        else setCourse(updatedCourses[0]);
         handleClose();
     }
     function cancelChanges() {
