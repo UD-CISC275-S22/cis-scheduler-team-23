@@ -189,33 +189,35 @@ export function RequirementView({
                 <p></p>
                 {/** Table for Concentration Requirements */}
             </Container>
-            <Table striped bordered hover>
-                <thead>
-                    <tr>
-                        <th>
-                            <b>Class</b>
-                        </th>
-                        <th>
-                            <b>Taken</b>
-                        </th>
-                    </tr>
-                </thead>
-                <tbody>
-                    {concReqs.map((s) =>
-                        userCodes1d.includes(s) ? (
-                            <tr key={s}>
-                                <td>{s}</td>
-                                <td>✔️</td>
-                            </tr>
-                        ) : (
-                            <tr key={s}>
-                                <td>{s}</td>
-                                <td>❌</td>
-                            </tr>
-                        )
-                    )}
-                </tbody>
-            </Table>
+            <Container>
+                <Table striped bordered hover>
+                    <thead>
+                        <tr>
+                            <th>
+                                <b>Class</b>
+                            </th>
+                            <th>
+                                <b>Taken</b>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {concReqs.map((s) =>
+                            userCodes1d.includes(s) ? (
+                                <tr key={s}>
+                                    <td>{s}</td>
+                                    <td>✔️</td>
+                                </tr>
+                            ) : (
+                                <tr key={s}>
+                                    <td>{s}</td>
+                                    <td>❌</td>
+                                </tr>
+                            )
+                        )}
+                    </tbody>
+                </Table>
+            </Container>
         </div>
     );
 }
