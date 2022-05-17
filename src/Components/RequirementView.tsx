@@ -20,7 +20,8 @@ export function RequirementView({ plan }: { plan: Plan }) {
         "DataScience",
         "HighPerformanceComputing",
         "SystemsandNetworks",
-        "TheoryandComputation"
+        "TheoryandComputationContinous",
+        "TheoryandComputationDiscreet"
     ];
     const [concentration, setConcentration] = useState(concentrationsList[0]);
     const [concReqs, setConcReqs] = useState(Concentration[0]);
