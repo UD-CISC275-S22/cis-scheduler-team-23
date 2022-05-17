@@ -36,7 +36,7 @@ All files               |    53.7 |    30.61 |    57.3 |    52.8 |
   DisplayCourses.tsx    |   33.33 |    42.85 |   10.52 |   36.06 | 46-107                                           
   EditPlan.tsx          |   91.66 |      100 |      80 |   91.66 | 50                                               
   ExportCSV.tsx         |   33.33 |      100 |   33.33 |   27.77 | 19-35,56                                         
-  RequirementView.tsx   |   61.17 |    35.38 |   71.42 |   62.82 | 70-95,99,115,125,130,142,149,154,160,165,401-414 
+  RequirementView.tsx   |   61.17 |    35.38 |   71.42 |   62.82 | 70-95,99,115,125,130,142,149,154,160,165,400-413 
   SemesterEditor.tsx    |   62.85 |    33.33 |   63.63 |   62.85 | 34,42-49,57-59,105-122                           
   SemesterList.tsx      |     100 |      100 |     100 |     100 |                                                  
   SemesterView.tsx      |     100 |      100 |     100 |     100 |                                                  
@@ -52,5 +52,5 @@ All files               |    53.7 |    30.61 |    57.3 |    52.8 |
 Test Suites: 12 passed, 12 total
 Tests:       30 passed, 30 total
 Snapshots:   0 total
-Time:        13.22 s
+Time:        13.965 s
 Ran all test suites.
