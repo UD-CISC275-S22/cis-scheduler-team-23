@@ -13,7 +13,7 @@ export function SemesterList({
     setPlan
 }: {
     activePlan: Plan;
-    editSemester: (id: string, newSemester: Semester) => void;
+    editSemester: (plan: Plan) => void;
     deleteSemester: (id: string) => void;
     setPlan: (t: Plan) => void;
     plans: Plan[];

@@ -59,16 +59,18 @@ export function DisplayCourses({
         if (credInput === "" || credInput === undefined) {
             credInput = "0";
         }
+        console.log(credits);
         setCredits(credInput);
+        console.log(credits);
         const courseIndex = courseSemester.courseArray.findIndex(
             (c: Course): boolean => c.code === course.code
         );
         const newSemester = { ...courseSemester };
         if (courseIndex > -1) {
             newSemester.courseArray[courseIndex].credits = credInput;
+            console.log(credits);
             setCredits(Number(credInput).toString());
-            //newSemester.courseArray[courseIndex].credits = credits;
-            //setCredits(credInput);
+            console.log(credits);
         }
         setPlan({
             ...activePlan,

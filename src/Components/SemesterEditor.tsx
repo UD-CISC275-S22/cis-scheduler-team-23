@@ -14,13 +14,11 @@ export function SemesterEditor({
     editSemester,
     deleteSemester,
     plan,
-    plans,
-    setPlan,
-    setPlans
+    setPlan
 }: {
     semester: Semester;
     changeEditing: () => void;
-    editSemester: (id: string, newSemester: Semester) => void;
+    editSemester: (plan: Plan) => void;
     deleteSemester: (id: string) => void;
     plan: Plan;
     plans: Plan[];
@@ -31,47 +29,68 @@ export function SemesterEditor({
     const semInfo = semester.title.split(" ", 2);
     const semSeason = semInfo[0];
     const [season, setSeason] = useState<string>(semSeason);
-    const [year, setYear] = useState<number>(Number(semInfo[1]));
+    const [year, setYear] = useState<string>(semInfo[1]);
     function changeSeason(event: ChangeEvent) {
         setSeason(event.target.value);
+    }
+    function changeYear(event: ChangeEvent) {
+        setYear(event.target.value);
     }
     const [description, setDescription] = useState<string>(
         semester.description
     );
+    function changeDescription(event: ChangeEvent) {
+        setDescription(event.target.value);
+    }
 
     function saveSemester() {
+        let newPlan: Plan;
         if (season === "Summer") {
             const newID = season.slice(0, 3).toLowerCase() + year;
             const sameID = plan.semesters.findIndex(
                 (s: Semester): boolean => newID === s.id
             );
-            if (sameID === -1) {
-                semester.title = season + " " + year;
-                semester.id = season.slice(0, 3).toLowerCase() + year;
-                semester.description = description;
+            if (sameID === -1 || plan.semesters[sameID].id === semester.id) {
+                console.log(description);
+                const newSemester: Semester = {
+                    title: season + " " + year,
+                    description: description,
+                    id: newID,
+                    courseArray: semester.courseArray
+                };
+                newPlan = {
+                    ...plan,
+                    semesters: plan.semesters.map(
+                        (s: Semester): Semester =>
+                            s.id === semester.id ? newSemester : s
+                    )
+                };
+                setPlan(newPlan);
+                editSemester(newPlan);
             }
         } else {
             const newID = season[0].toLowerCase() + year;
             const sameID = plan.semesters.findIndex(
                 (s: Semester): boolean => newID === s.id
             );
-            if (sameID === -1) {
-                semester.title = season + " " + year;
-                semester.id = season[0].toLowerCase() + year;
-                semester.description = description;
+            if (sameID === -1 || plan.semesters[sameID].id === semester.id) {
+                const newSemester: Semester = {
+                    description: description,
+                    id: newID,
+                    title: season + " " + year,
+                    courseArray: semester.courseArray
+                };
+                newPlan = {
+                    ...plan,
+                    semesters: plan.semesters.map(
+                        (s: Semester): Semester =>
+                            s.id === semester.id ? newSemester : s
+                    )
+                };
+                setPlan(newPlan);
+                editSemester(newPlan);
             }
         }
-        editSemester(semester.id, semester);
-        const semIndex = plan.semesters.findIndex(
-            (s: Semester): boolean => semester.id === s.id
-        );
-        const planIndex = plans.findIndex(
-            (p: Plan): boolean => p.id === plan.id
-        );
-        plans[planIndex].semesters[semIndex] = semester;
-        plans[planIndex] = plan;
-        setPlan(plan);
-        setPlans(plans);
         changeEditing();
     }
 
@@ -102,9 +121,7 @@ export function SemesterEditor({
                             <Form.Control
                                 type="number"
                                 value={year}
-                                onChange={(
-                                    event: React.ChangeEvent<HTMLInputElement>
-                                ) => setYear(parseInt(event.target.value))}
+                                onChange={changeYear}
                             />
                         </Col>
                     </Form.Group>
@@ -119,9 +136,7 @@ export function SemesterEditor({
                                 as="textarea"
                                 rows={3}
                                 value={description}
-                                onChange={(
-                                    event: React.ChangeEvent<HTMLTextAreaElement>
-                                ) => setDescription(event.target.value)}
+                                onChange={changeDescription}
                             />
                         </Col>
                     </Form.Group>

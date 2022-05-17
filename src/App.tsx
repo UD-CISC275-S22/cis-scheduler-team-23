@@ -70,20 +70,10 @@ function App(): JSX.Element {
         }
     }
 
-    function editSemester(id: string, newSem: Semester) {
-        setPlan({
-            ...plan,
-            semesters: plan.semesters.map(
-                (semester: Semester): Semester =>
-                    semester.id === id ? newSem : semester
-            )
-        });
-        const planIndex = planArray.findIndex(
-            (p: Plan): boolean => p.id === plan.id
+    function editSemester(plan: Plan) {
+        setPlanArray(
+            planArray.map((p: Plan): Plan => (p.id === plan.id ? plan : p))
         );
-        planArray[planIndex] = plan;
-        setPlan(plan);
-        setPlanArray(planArray);
     }
 
     function deleteSemester(id: string) {
