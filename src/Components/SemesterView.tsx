@@ -51,7 +51,8 @@ export function SemesterView({
                 currentTotal + Number(c.credits),
             0
         );
-        activePlan.totalCreds += credits / 2;
+        //activePlan.totalCreds = credits;
+        //setPlan(activePlan);
     }
     updateCreds(validCreditCourses);
 

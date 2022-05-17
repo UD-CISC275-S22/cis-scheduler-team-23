@@ -305,7 +305,11 @@ function App(): JSX.Element {
 
                 {/* Degree Requirements */}
                 <Col xs={4}>
-                    <RequirementView plan={plan}></RequirementView>
+                    <RequirementView
+                        plan={plan}
+                        setPlan={setPlan}
+                        pool={pool}
+                    ></RequirementView>
                 </Col>
             </Row>
         </div>
