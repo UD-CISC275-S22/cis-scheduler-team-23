@@ -113,7 +113,7 @@ export function DisplayCourses({
                 <div>
                     <Button onClick={flipVisibility}> {course.code} </Button>
                     {visible && (
-                        <div className="App-allignleft">
+                        <div>
                             <p></p>
                             <Button
                                 onClick={handleShowChangeModal}
