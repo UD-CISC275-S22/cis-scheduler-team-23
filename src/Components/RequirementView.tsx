@@ -295,6 +295,41 @@ export function RequirementView({
                     </tbody>
                 </Table>
                 <p></p>
+                <div>
+                    <b>
+                        <u>Concentration Requirement:</u>
+                    </b>
+                </div>
+                <p></p>
+                {/** Table for Concentration Requirements */}
+                <Table striped bordered hover>
+                    <thead>
+                        <tr>
+                            <th>
+                                <b>Class</b>
+                            </th>
+                            <th>
+                                <b>Taken</b>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {concReqs.map((s) =>
+                            userCodes1d.includes(s) ? (
+                                <tr key={s}>
+                                    <td>{s}</td>
+                                    <td>✔️</td>
+                                </tr>
+                            ) : (
+                                <tr key={s}>
+                                    <td>{s}</td>
+                                    <td>❌</td>
+                                </tr>
+                            )
+                        )}
+                    </tbody>
+                </Table>
+                <p></p>
                 <b>
                     <u>University Requirements:</u>
                 </b>
@@ -339,42 +374,6 @@ export function RequirementView({
                         )}
                         {capstone.map((s) =>
                             capstoneReqsFunction(capstoneReqs) ? (
-                                <tr key={s}>
-                                    <td>{s}</td>
-                                    <td>✔️</td>
-                                </tr>
-                            ) : (
-                                <tr key={s}>
-                                    <td>{s}</td>
-                                    <td>❌</td>
-                                </tr>
-                            )
-                        )}
-                    </tbody>
-                </Table>
-                <div>
-                    <b>
-                        <u>Concentration Requirement:</u>
-                    </b>
-                </div>
-                <p></p>
-                {/** Table for Concentration Requirements */}
-            </Container>
-            <Container>
-                <Table striped bordered hover>
-                    <thead>
-                        <tr>
-                            <th>
-                                <b>Class</b>
-                            </th>
-                            <th>
-                                <b>Taken</b>
-                            </th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {concReqs.map((s) =>
-                            userCodes1d.includes(s) ? (
                                 <tr key={s}>
                                     <td>{s}</td>
                                     <td>✔️</td>
