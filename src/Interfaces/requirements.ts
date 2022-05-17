@@ -66,11 +66,26 @@ export const SystemsandNetworksReqs = [
     "CISC 471"
 ];
 
-export const TheoryandComputationReqs = [
+export const TheoryandComputationReqsContinous = [
     "CISC 304",
     "CISC 401",
     "MATH 242",
-    "MATH 349"
+    "MATH 349",
+    "MATH 243",
+    "MATH 302",
+    "MATH 535",
+    "MATH 426"
+];
+
+export const TheoryandComputationReqsDiscreet = [
+    "CISC 304",
+    "CISC 401",
+    "MATH 242",
+    "MATH 349",
+    "CISC 404",
+    "MATH 245",
+    "MATH 315",
+    "MATH 451"
 ];
 
 export const Concentration = [
@@ -80,5 +95,6 @@ export const Concentration = [
     DataScienceReqs,
     HighPerformanceComputingReqs,
     SystemsandNetworksReqs,
-    TheoryandComputationReqs
+    TheoryandComputationReqsContinous,
+    TheoryandComputationReqsDiscreet
 ];

@@ -7,13 +7,12 @@ describe("Delete Plan Component Tests", () => {
         render(<App />);
     });
 
-    // TESTS CANNOT COMPILE YET DUE TO ERROR IN REQUIREMENTVIEW.TSX
     test("Tests for the cancel button within the delete plan modal", () => {
-        const deletePlanButton = screen.getByTestId("deletePlanButton");
-        deletePlanButton.click();
+        const deleteThisPlanButton = screen.getByTestId("deleteThisPlanButton");
+        deleteThisPlanButton.click();
 
         const deletePlanModal = screen.getByText(
-            "Are you sure you want to delete"
+            "Warning! You are about to delete this plan!"
         );
         expect(deletePlanModal).toBeInTheDocument();
 
@@ -22,10 +21,12 @@ describe("Delete Plan Component Tests", () => {
     });
 
     test("Tests for the confirm button within the delete plan modal", () => {
-        const deletePlanButton = screen.getByTestId("deletePlanButton");
-        deletePlanButton.click();
+        const deleteThisPlanButton = screen.getByTestId("deleteThisPlanButton");
+        deleteThisPlanButton.click();
 
-        const deletePlanModal = screen.getByText("Delete Plan");
+        const deletePlanModal = screen.getByText(
+            "Warning! You are about to delete this plan!"
+        );
         expect(deletePlanModal).toBeInTheDocument();
 
         const confirmButton = screen.getByTestId("deletePlanConfirmButton");

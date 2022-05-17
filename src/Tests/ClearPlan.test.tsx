@@ -7,12 +7,13 @@ describe("Clear Plan Component Tests", () => {
         render(<App />);
     });
 
-    // TESTS CANNOT COMPILE YET DUE TO ERROR IN REQUIREMENTVIEW.TSX
     test("Test for the cancel button within the clear plan modal", () => {
-        const clearPlanButton = screen.getByTestId("clearPlanButton");
-        clearPlanButton.click();
+        const clearThisPlanButton = screen.getByTestId("clearThisPlanButton");
+        clearThisPlanButton.click();
 
-        const clearPlanModal = screen.getByText("Clear Plan");
+        const clearPlanModal = screen.getByText(
+            "Warning! You are about to clear this plan!"
+        );
         expect(clearPlanModal).toBeInTheDocument();
 
         const cancelButton = screen.getByTestId("clearPlanCancelButton");
@@ -20,10 +21,12 @@ describe("Clear Plan Component Tests", () => {
     });
 
     test("Test for the confirm button within the clear plan modal", () => {
-        const clearPlanButton = screen.getByTestId("clearPlanButton");
-        clearPlanButton.click();
+        const clearThisPlanButton = screen.getByTestId("clearThisPlanButton");
+        clearThisPlanButton.click();
 
-        const clearPlanModal = screen.getByText("Clear Plan");
+        const clearPlanModal = screen.getByText(
+            "Warning! You are about to clear this plan!"
+        );
         expect(clearPlanModal).toBeInTheDocument();
 
         const confirmButton = screen.getByTestId("clearPlanConfirmButton");

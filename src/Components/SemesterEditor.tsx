@@ -107,7 +107,7 @@ export function SemesterEditor({
                         </Col>
                     </Form.Group>
 
-                    {/* Description */}
+                    {/* Semester notes */}
                     <Form.Group controlId="formSemesterDescription" as={Row}>
                         <Form.Label className="App-blacktext" column sm={2}>
                             Semester Notes:

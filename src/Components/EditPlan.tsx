@@ -35,7 +35,7 @@ export function EditPlan({
     return (
         <Modal show={show} onHide={handleClose} animation={false}>
             <Modal.Header closeButton>
-                <Modal.Title> Edit Plan </Modal.Title>
+                <Modal.Title> Enter a new plan name: </Modal.Title>
             </Modal.Header>
             <Modal.Body>
                 <Form.Group controlId="formPlanTitle" as={Row}>
@@ -53,10 +53,18 @@ export function EditPlan({
                 </Form.Group>
             </Modal.Body>
             <Modal.Footer>
-                <Button variant="secondary" onClick={cancelChanges}>
-                    Close
+                <Button
+                    variant="secondary"
+                    onClick={cancelChanges}
+                    data-testid="editPlanCancelButton"
+                >
+                    Cancel
                 </Button>
-                <Button variant="primary" onClick={saveChanges}>
+                <Button
+                    variant="primary"
+                    onClick={saveChanges}
+                    data-testid="editPlanSaveChangesButton"
+                >
                     Save Changes
                 </Button>
             </Modal.Footer>

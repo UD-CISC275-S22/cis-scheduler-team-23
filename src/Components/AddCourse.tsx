@@ -61,6 +61,7 @@ export function AddCourse({
                                         : semester
                             )
                         });
+                        plan.totalCreds += parseInt(addedCourse.credits);
                     }
                 }
                 setCourseCode("");
@@ -95,6 +96,7 @@ export function AddCourse({
                                     : semester
                         )
                     });
+                    plan.totalCreds += parseInt(addedCourse.credits);
                 }
             }
             setCourseCode("");

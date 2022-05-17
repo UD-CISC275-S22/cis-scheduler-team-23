@@ -29,7 +29,8 @@ export function RequirementView({
         "DataScience",
         "HighPerformanceComputing",
         "SystemsandNetworks",
-        "TheoryandComputation"
+        "TheoryandComputationContinous",
+        "TheoryandComputationDiscreet"
     ];
     const [concentration, setConcentration] = useState(concentrationsList[0]);
     const [concReqs, setConcReqs] = useState(Concentration[0]);
@@ -74,6 +75,25 @@ export function RequirementView({
         setConcentration(event.target.value);
     };
 
+    /** const userCourses: Course[][] = plan.semesters.map(
+        (userSemesters: Semester) =>
+            userSemesters.courseArray.map((userCourse: Course) => ({
+                ...userCourse
+            }))
+    );
+    const userCreds2d: string[][] = userCourses.map((cArray: Course[]) =>
+        cArray.map((userC: Course) => userC.credits)
+    );
+    const testArr = [] as string[];
+    const userCodes1d = testArr.concat(...userCreds2d);
+    function updateCreds(credList: string[], plan: Plan) {
+        const credits = credList.reduce(
+            (currentTotal: number, c: string) => currentTotal + Number(c),
+            0
+        );
+        plan.totalCreds += credits;
+    }
+    updateCreds(userCodes1d, plan); **/
     return (
         <div className="bg-white border m-2 p-2">
             <Container>
@@ -83,7 +103,7 @@ export function RequirementView({
                     </b>
                 </h4>
                 {/** Dropdown for choosing concentration */}
-                <div className="App-allignleft">
+                <div>
                     {/* Course Pool */}
                     <Button
                         variant="secondary"
@@ -169,11 +189,12 @@ export function RequirementView({
                         )}
                     </tbody>
                 </Table>
-                {/*<p>{CoreReqs.map((s: string) => s.concat("\n"))}</p>*/}
                 <p></p>
-                <b>
-                    <u>Concentration Requirements:</u>
-                </b>
+                <div>
+                    <b>
+                        <u>Concentration Requirements:</u>
+                    </b>
+                </div>
                 <p></p>
                 {/** Table for Concentration Requirements */}
             </Container>
