@@ -4,7 +4,12 @@ import { ExportCSV } from "../Components/ExportCSV";
 import { Plan } from "../Interfaces/plans";
 import { Semester } from "../Interfaces/semester";
 
-const testPlan: Plan = { title: "", id: 0, semesters: [] as Semester[] };
+const testPlan: Plan = {
+    title: "",
+    id: 0,
+    semesters: [] as Semester[],
+    totalCreds: 0
+};
 
 describe("ImportCsv Test", () => {
     beforeEach(() => {

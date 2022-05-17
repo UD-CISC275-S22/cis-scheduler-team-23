@@ -21,7 +21,8 @@ export function AddPlan({
         const newPlan: Plan = {
             title: planTitle,
             id: plans.length + 1,
-            semesters: [] as Semester[]
+            semesters: [] as Semester[],
+            totalCreds: 0
         };
         plans.push(newPlan);
         setPlans(plans);
