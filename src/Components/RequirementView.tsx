@@ -6,6 +6,7 @@ import { CoreReqs } from "../Interfaces/requirements";
 import { statReqs } from "../Interfaces/requirements";
 import { writingReqs } from "../Interfaces/requirements";
 import { capstoneReqs } from "../Interfaces/requirements";
+import { labScienceReqs } from "../Interfaces/requirements";
 import { Plan } from "../Interfaces/plans";
 import { Course } from "../Interfaces/courses";
 import { Semester } from "../Interfaces/semester";
@@ -29,7 +30,8 @@ export function RequirementView({
         "Bioinformatics",
         "Cybersecurity",
         "Data Science",
-        "High Performance Computing",
+        "High Performance Computing - Applied Math Track",
+        "High Performance Computing - Data Track",
         "Systems and Networks",
         "Theory and Computation - Continuous Track",
         "Theory and Computation - Discrete Track"
@@ -73,16 +75,22 @@ export function RequirementView({
             setConcReqs(Concentration[2]);
         } else if (concentration === "Data Science") {
             setConcReqs(Concentration[3]);
-        } else if (concentration === "High Performance Computing") {
+        } else if (
+            concentration === "High Performance Computing - Applied Math Track"
+        ) {
             setConcReqs(Concentration[4]);
-        } else if (concentration === "Systems and Networks") {
+        } else if (
+            concentration === "High Performance Computing - Data Track"
+        ) {
             setConcReqs(Concentration[5]);
+        } else if (concentration === "Systems and Networks") {
+            setConcReqs(Concentration[6]);
         } else if (
             concentration === "Theory and Computation - Continuous Track"
         ) {
-            setConcReqs(Concentration[6]);
-        } else {
             setConcReqs(Concentration[7]);
+        } else {
+            setConcReqs(Concentration[8]);
         }
         handleCloseModal();
     }
@@ -97,6 +105,7 @@ export function RequirementView({
     ];
     const dle = ["DLE Requirement"];
     const capstone = ["Capstone Requirement"];
+    const labScience = ["Lab Science Requirement"];
 
     function ReqsFunction(courses: string[]) {
         const takenCourses = courses.filter((course: string): boolean =>
@@ -117,6 +126,41 @@ export function RequirementView({
         } else if (
             userCodes1d.includes(courses[2]) &&
             userCodes1d.includes(courses[3])
+        ) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+    function labReqsFunction(courses: string[]) {
+        if (
+            userCodes1d.includes(courses[0]) &&
+            userCodes1d.includes(courses[1]) &&
+            userCodes1d.includes(courses[2]) &&
+            userCodes1d.includes(courses[3])
+        ) {
+            return true;
+        } else if (
+            userCodes1d.includes(courses[4]) &&
+            userCodes1d.includes(courses[5]) &&
+            userCodes1d.includes(courses[6]) &&
+            userCodes1d.includes(courses[7])
+        ) {
+            return true;
+        } else if (
+            userCodes1d.includes(courses[8]) &&
+            userCodes1d.includes(courses[9])
+        ) {
+            return true;
+        } else if (
+            userCodes1d.includes(courses[10]) &&
+            userCodes1d.includes(courses[11]) &&
+            userCodes1d.includes(courses[12])
+        ) {
+            return true;
+        } else if (
+            userCodes1d.includes(courses[12]) &&
+            userCodes1d.includes(courses[13])
         ) {
             return true;
         } else {
@@ -155,7 +199,7 @@ export function RequirementView({
                     </Button>
                     <p></p>
                     <Modal show={showModal} onHide={handleCloseModal}>
-                        <Modal.Header closeButton>
+                        <Modal.Header>
                             <Modal.Title> Choose Concentration </Modal.Title>
                         </Modal.Header>
                         <Modal.Body>
@@ -191,7 +235,7 @@ export function RequirementView({
                     </p>
                     <p></p>
                     <b>
-                        <u>Core Requirements:</u>
+                        <u>Core Requirement:</u>
                     </b>
                 </div>
                 <p></p>
@@ -248,6 +292,38 @@ export function RequirementView({
                                 </tr>
                             )
                         )}
+                    </tbody>
+                </Table>
+                <p></p>
+                <b>
+                    <u>University Requirements:</u>
+                </b>
+                <p></p>
+                <Table striped bordered hover>
+                    <thead>
+                        <tr>
+                            <th>
+                                <b>Requirement</b>
+                            </th>
+                            <th>
+                                <b>Taken</b>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {labScience.map((s) =>
+                            labReqsFunction(labScienceReqs) ? (
+                                <tr key={s}>
+                                    <td>{s}</td>
+                                    <td>✔️</td>
+                                </tr>
+                            ) : (
+                                <tr key={s}>
+                                    <td>{s}</td>
+                                    <td>❌</td>
+                                </tr>
+                            )
+                        )}
                         {dle.map((s) =>
                             capstoneReqsFunction(capstoneReqs) ? (
                                 <tr key={s}>
@@ -276,10 +352,9 @@ export function RequirementView({
                         )}
                     </tbody>
                 </Table>
-                <p></p>
                 <div>
                     <b>
-                        <u>Concentration Requirements:</u>
+                        <u>Concentration Requirement:</u>
                     </b>
                 </div>
                 <p></p>
