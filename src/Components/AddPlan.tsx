@@ -29,13 +29,18 @@ export function AddPlan({
         setPlanTitle("");
         handleClose();
     }
+
     return (
         <Modal show={show} onHide={handleClose} animation={false}>
             <Modal.Header closeButton>
                 <Modal.Title> Please enter a plan name: </Modal.Title>
             </Modal.Header>
             <Modal.Body>
-                <Form.Group controlId="formCourseCode" as={Row}>
+                <Form.Group
+                    controlId="formCourseCode"
+                    as={Row}
+                    data-testid="planTitleEnterBox"
+                >
                     <Form.Label column sm={3}>
                         Plan Title:
                     </Form.Label>

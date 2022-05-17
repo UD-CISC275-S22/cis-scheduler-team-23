@@ -1,5 +1,6 @@
 import React from "react";
 import { render, screen } from "@testing-library/react";
+import userEvent from "@testing-library/user-event";
 import App from "../App";
 
 describe("Add Plan Component Tests", () => {
@@ -24,6 +25,27 @@ describe("Add Plan Component Tests", () => {
 
         const addPlanModal = screen.getByText("Please enter a plan name:");
         expect(addPlanModal).toBeInTheDocument();
+
+        const saveChangesButton = screen.getByTestId(
+            "addPlanSaveChangesButton"
+        );
+        saveChangesButton.click();
+    });
+
+    // Update this test if Tommy changes the way plans can be accessed after creation
+    test("Can create and access new plan successfully", () => {
+        const addNewPlanButton = screen.getByTestId("addNewPlanButton");
+        addNewPlanButton.click();
+
+        const addPlanModal = screen.getByText("Please enter a plan name:");
+        expect(addPlanModal).toBeInTheDocument();
+
+        const addPlanEnterBox = screen.getAllByRole("textbox");
+        userEvent.clear(addPlanEnterBox[0]);
+        userEvent.type(
+            addPlanEnterBox[0],
+            "Matt, Ocean, and Tommy's Epic Plan"
+        );
 
         const saveChangesButton = screen.getByTestId(
             "addPlanSaveChangesButton"
