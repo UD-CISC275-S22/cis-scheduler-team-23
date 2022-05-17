@@ -28,8 +28,10 @@ export function SemesterEditor({
     setPlans: (t: Plan[]) => void;
 }): JSX.Element {
     const seasonsList = ["Fall", "Spring", "Summer", "Winter"];
-    const [season, setSeason] = useState<string>(seasonsList[0]);
-    const [year, setYear] = useState<number>(2022);
+    const semInfo = semester.title.split(" ", 2);
+    const semSeason = semInfo[0];
+    const [season, setSeason] = useState<string>(semSeason);
+    const [year, setYear] = useState<number>(Number(semInfo[1]));
     function changeSeason(event: ChangeEvent) {
         setSeason(event.target.value);
     }
