@@ -1,12 +1,11 @@
 import React, { useState } from "react";
-import { Button, Modal, Form, Col, Row } from "react-bootstrap";
-import { Semester } from "../Interfaces/semester";
-import course_data_json from "../Data/course_data.json";
-import { Course } from "../Interfaces/courses";
-
 import "../App.css";
-import { AddCourseHelp } from "./AddCourseHelp";
+import { Button, Modal, Form, Col, Row } from "react-bootstrap";
+import { Course } from "../Interfaces/courses";
+import { Semester } from "../Interfaces/semester";
 import { Plan } from "../Interfaces/plans";
+import course_data_json from "../Data/course_data.json";
+import { AddCourseHelp } from "./AddCourseHelp";
 
 export function AddCourse({
     show,
@@ -100,10 +99,18 @@ export function AddCourse({
                 </Form.Group>
             </Modal.Body>
             <Modal.Footer>
-                <Button variant="secondary" onClick={handleClose}>
+                <Button
+                    variant="secondary"
+                    onClick={handleClose}
+                    data-testid="addCourseCloseButton"
+                >
                     Close
                 </Button>
-                <Button variant="primary" onClick={saveChanges}>
+                <Button
+                    variant="primary"
+                    onClick={saveChanges}
+                    data-testid="addCourseSaveChangesButton"
+                >
                     Save Changes
                 </Button>
             </Modal.Footer>

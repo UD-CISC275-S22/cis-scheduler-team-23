@@ -11,7 +11,7 @@ const testPlan: Plan = {
     totalCreds: 0
 };
 
-describe("ImportCsv Test", () => {
+describe("Export CSV Component Tests", () => {
     beforeEach(() => {
         render(<ExportCSV semesters={testPlan.semesters} plan={testPlan} />);
     });

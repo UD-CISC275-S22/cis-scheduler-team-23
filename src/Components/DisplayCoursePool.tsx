@@ -20,20 +20,7 @@ export function DisplayCoursePool({
     setPlan: (t: Plan) => void;
 }): JSX.Element {
     const [sem, setSem] = useState("");
-    const [course, setCourse] = useState(
-        coursepool.courses["CISC"]["CISC 167"]
-    );
-    const [courses] = useState<Record<string, Record<string, Course>>>(
-        coursepool.courses
-    );
-    function updateCourse(event: React.ChangeEvent<HTMLSelectElement>) {
-        const courseInfo = event.target.value.split(" ", 1);
-        setCourse(coursepool.courses[courseInfo[0]][event.target.value]);
-    }
-    function updateSem(event: React.ChangeEvent<HTMLSelectElement>) {
-        setSem(event.target.value);
-    }
-    const userCourses: Course[][] = coursepool.semesters.map(
+    const userCourses: Course[][] = plan.semesters.map(
         (userSemesters: Semester) =>
             userSemesters.courseArray.map((userCourse: Course) => ({
                 ...userCourse
@@ -44,21 +31,50 @@ export function DisplayCoursePool({
     );
     const testArr = [] as string[];
     const userCodes1d = testArr.concat(...userCodes2d);
+
+    const [courses] = useState<Record<string, Record<string, Course>>>(
+        coursepool.courses
+    );
+    const updatedCourses = [] as Course[];
+    Object.entries(courses).map(
+        ([, group_record]: [string, Record<string, Course>]) =>
+            Object.entries(group_record).map(
+                ([, course_value]: [string, Course]) =>
+                    !userCodes1d.includes(course_value.code) &&
+                    updatedCourses.push(course_value as Course)
+            )
+    );
+    const [course, setCourse] = useState(updatedCourses[0]);
+
+    function updateCourse(event: React.ChangeEvent<HTMLSelectElement>) {
+        const courseInfo = event.target.value.split(" ", 1);
+        setCourse(coursepool.courses[courseInfo[0]][event.target.value]);
+    }
+    function updateSem(event: React.ChangeEvent<HTMLSelectElement>) {
+        setSem(event.target.value);
+    }
     function saveChanges() {
         if (sem === "") {
             setSem(plan.semesters[0].title);
-            AddCourseHelp(course, plan.semesters[0], plan, setPlan);
+            const courseInfo = course.code.split(" ", 1);
+            const newCourse: Course =
+                coursepool.courses[courseInfo[0]][course.code];
+            AddCourseHelp(newCourse, plan.semesters[0], plan, setPlan);
             setPlan(plan);
-            handleClose();
         } else {
             const semIndex = plan.semesters.findIndex(
                 (s: Semester): boolean => s.title === sem
             );
             const chosenSem = plan.semesters[semIndex];
-            AddCourseHelp(course, chosenSem, plan, setPlan);
+            const courseInfo = course.code.split(" ", 1);
+            const newCourse: Course =
+                coursepool.courses[courseInfo[0]][course.code];
+            AddCourseHelp(newCourse, chosenSem, plan, setPlan);
             setPlan(plan);
-            handleClose();
         }
+        if (course.code === updatedCourses[0].code)
+            setCourse(updatedCourses[1]);
+        handleClose();
     }
     function cancelChanges() {
         setSem(plan.semesters[0].title);
@@ -150,26 +166,3 @@ export function DisplayCoursePool({
         </Modal>
     );
 }
-/*
-{Object.entries(courses).map(
-                            ([, group_record]: [
-                                string,
-                                Record<string, Course>
-                            ]) =>
-                                Object.entries(group_record).map(
-                                    ([, course_value]: [string, Course]) =>
-                                        !userCodes1d.includes(
-                                            course_value.code
-                                        ) ? (
-                                            <option
-                                                key={course_value.code}
-                                                value={course_value.code}
-                                            >
-                                                {course_value.code}
-                                            </option>
-                                        ) : (
-                                            console.log("")
-                                        )
-                                )
-                        )}
-*/
