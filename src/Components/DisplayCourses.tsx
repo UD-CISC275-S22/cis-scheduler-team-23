@@ -90,6 +90,7 @@ export function DisplayCourses({
     }
     function flipVisibility(): void {
         setVisible(!visible);
+        setEditButtonName("Edit Course");
         setIsEditing(false);
     }
     function restoreDefault(): void {
