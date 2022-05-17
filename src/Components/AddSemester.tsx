@@ -44,7 +44,7 @@ export function AddSemester({
     };
 
     return (
-        <Modal show={show} onHide={handleClose} animation={false}>
+        <Modal show={show} onHide={handleClose}>
             <Modal.Header closeButton>
                 <Modal.Title> Add New Semester </Modal.Title>
             </Modal.Header>

@@ -50,6 +50,7 @@ export function AddCourse({
                                 plan,
                                 setPlan
                             );
+                        plan.totalCreds += parseInt(addedCourse.credits);
                     }
                 }
                 setCourseCode("");
@@ -72,6 +73,7 @@ export function AddCourse({
                     );
                     if (cIndex === -1)
                         AddCourseHelp(addedCourse, currSemester, plan, setPlan);
+                    plan.totalCreds += parseInt(addedCourse.credits);
                 }
             }
             setCourseCode("");

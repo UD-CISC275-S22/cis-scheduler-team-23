@@ -5,6 +5,8 @@ import { Table } from "react-bootstrap";
 import { Concentration } from "../Interfaces/requirements";
 import { CoreReqs } from "../Interfaces/requirements";
 import { Plan } from "../Interfaces/plans";
+// import { Course } from "../Interfaces/courses";
+// import { Semester } from "../Interfaces/semester";
 
 type ChangeEvent = React.ChangeEvent<
     HTMLTextAreaElement | HTMLInputElement | HTMLSelectElement
@@ -49,6 +51,25 @@ export function RequirementView({ plan }: { plan: Plan }) {
         setConcentration(event.target.value);
     };
 
+    /** const userCourses: Course[][] = plan.semesters.map(
+        (userSemesters: Semester) =>
+            userSemesters.courseArray.map((userCourse: Course) => ({
+                ...userCourse
+            }))
+    );
+    const userCreds2d: string[][] = userCourses.map((cArray: Course[]) =>
+        cArray.map((userC: Course) => userC.credits)
+    );
+    const testArr = [] as string[];
+    const userCodes1d = testArr.concat(...userCreds2d);
+    function updateCreds(credList: string[], plan: Plan) {
+        const credits = credList.reduce(
+            (currentTotal: number, c: string) => currentTotal + Number(c),
+            0
+        );
+        plan.totalCreds += credits;
+    }
+    updateCreds(userCodes1d, plan); **/
     return (
         <div className="bg-white border m-2 p-2">
             <Container>
@@ -58,7 +79,7 @@ export function RequirementView({ plan }: { plan: Plan }) {
                     </b>
                 </h4>
                 {/** Dropdown for choosing concentration */}
-                <div className="App-allignleft">
+                <div>
                     <Button variant="outline-success" onClick={handleShowModal}>
                         Choose your Concentration
                     </Button>
@@ -120,11 +141,12 @@ export function RequirementView({ plan }: { plan: Plan }) {
                         ))}
                     </tbody>
                 </Table>
-                {/*<p>{CoreReqs.map((s: string) => s.concat("\n"))}</p>*/}
                 <p></p>
-                <b>
-                    <u>Concentration Requirements:</u>
-                </b>
+                <div>
+                    <b>
+                        <u>Concentration Requirements:</u>
+                    </b>
+                </div>
                 <p></p>
                 {/** Table for Concentration Requirements */}
             </Container>
