@@ -104,6 +104,7 @@ export function DisplayCourses({
     function flipVisibility(): void {
         setVisible(!visible);
         setIsEditing(false);
+        setEditButtonName("Edit Course");
     }
     function restoreDefault(): void {
         if (course.default_code) {
