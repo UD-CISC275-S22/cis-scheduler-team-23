@@ -2,13 +2,14 @@
 > react-typescript-starter@0.1.0 test
 > react-scripts test "--coverage"
 
-PASS src/Tests/App.test.tsx (8.996 s)
+PASS src/Tests/App.test.tsx (6.664 s)
 PASS src/Tests/SemesterView.test.tsx
 PASS src/Tests/ClearSemester.test.tsx
 PASS src/Tests/DeletePlan.test.tsx
 PASS src/Tests/SemesterEditor.test.tsx
 PASS src/Tests/ClearPlan.test.tsx
 PASS src/Tests/ExportCSV.test.tsx
+PASS src/Tests/EditPlan.test.tsx
 PASS src/Tests/AddCourse.test.tsx
 PASS src/Tests/ChangePlan.test.tsx
 PASS src/Tests/AddPlan.test.tsx
@@ -16,10 +17,10 @@ PASS src/Tests/WelcomeModal.test.tsx
 ------------------------|---------|----------|---------|---------|------------------------
 File                    | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s      
 ------------------------|---------|----------|---------|---------|------------------------
-All files               |   49.88 |    26.82 |   52.94 |   48.89 |                        
- src                    |   85.96 |       50 |   79.16 |   88.37 |                        
-  App.tsx               |   85.96 |       50 |   79.16 |   88.37 | 65-70                  
- src/Components         |   43.16 |    25.64 |   48.06 |   42.81 |                        
+All files               |   52.16 |    26.82 |   55.55 |    51.1 |                        
+ src                    |   87.71 |       50 |   83.33 |   88.37 |                        
+  App.tsx               |   87.71 |       50 |   83.33 |   88.37 | 65-70                  
+ src/Components         |   45.57 |    25.64 |   50.38 |   45.35 |                        
   AddCourse.tsx         |   22.58 |     12.5 |      40 |   22.58 | 33-78,96               
   AddCourseHelp.tsx     |       0 |      100 |       0 |       0 | 13-18                  
   AddPlan.tsx           |    87.5 |      100 |   66.66 |    87.5 | 47                     
@@ -33,7 +34,7 @@ All files               |   49.88 |    26.82 |   52.94 |   48.89 |
   DeletePlan.tsx        |   84.61 |       50 |     100 |   84.61 | 30-36                  
   DisplayCoursePool.tsx |    47.5 |       60 |   66.66 |   44.73 | 50-81                  
   DisplayCourses.tsx    |   33.84 |    42.85 |   10.52 |   36.66 | 46-106                 
-  EditPlan.tsx          |   16.66 |      100 |      20 |   16.66 | 22-33,50               
+  EditPlan.tsx          |   91.66 |      100 |      80 |   91.66 | 50                     
   ExportCSV.tsx         |   33.33 |      100 |   33.33 |   27.77 | 19-35,52               
   RequirementView.tsx   |   39.28 |        0 |      50 |    42.3 | 30-45,49               
   SemesterEditor.tsx    |   62.85 |    33.33 |   63.63 |   62.85 | 34,42-49,57-59,105-122 
@@ -48,8 +49,8 @@ All files               |   49.88 |    26.82 |   52.94 |   48.89 |
   semester.ts           |       0 |        0 |       0 |       0 |                        
 ------------------------|---------|----------|---------|---------|------------------------
 
-Test Suites: 11 passed, 11 total
-Tests:       29 passed, 29 total
+Test Suites: 12 passed, 12 total
+Tests:       31 passed, 31 total
 Snapshots:   0 total
-Time:        20.225 s
+Time:        16.344 s
 Ran all test suites.
