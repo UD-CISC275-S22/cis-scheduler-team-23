@@ -106,6 +106,7 @@ export function SemesterView({
                         onClick={handleShowAddModal}
                         variant="success"
                         data-testid="addCourseButton"
+                        className="me-2"
                     >
                         Add Course
                     </Button>
@@ -124,6 +125,7 @@ export function SemesterView({
                         onClick={handleShowClearModal}
                         variant="warning"
                         data-testid="clearAllCoursesButton"
+                        className="me-2"
                     >
                         Clear All Courses
                     </Button>
