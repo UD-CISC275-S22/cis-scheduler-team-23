@@ -2,7 +2,7 @@
 > react-typescript-starter@0.1.0 test
 > react-scripts test "--coverage"
 
-PASS src/Tests/App.test.tsx
+PASS src/Tests/App.test.tsx (5.365 s)
 PASS src/Tests/SemesterView.test.tsx
 PASS src/Tests/ClearSemester.test.tsx
 PASS src/Tests/DeletePlan.test.tsx
@@ -17,10 +17,10 @@ PASS src/Tests/WelcomeModal.test.tsx
 ------------------------|---------|----------|---------|---------|------------------------
 File                    | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s      
 ------------------------|---------|----------|---------|---------|------------------------
-All files               |   51.89 |    25.51 |   54.77 |   50.84 |                        
+All files               |   52.63 |    25.51 |   55.62 |   51.54 |                        
  src                    |   88.46 |       50 |   86.36 |    87.5 |                        
   App.tsx               |   88.46 |       50 |   86.36 |    87.5 | 64-69                  
- src/Components         |   45.73 |    24.46 |   49.62 |   45.47 |                        
+ src/Components         |    46.7 |    24.46 |   50.72 |   46.36 |                        
   AddCourse.tsx         |   17.07 |       10 |   28.57 |   17.07 | 33-103,121             
   AddCourseHelp.tsx     |       0 |        0 |       0 |       0 | 13-19                  
   AddPlan.tsx           |    87.5 |      100 |   66.66 |    87.5 | 47                     
@@ -36,7 +36,7 @@ All files               |   51.89 |    25.51 |   54.77 |   50.84 |
   DisplayCourses.tsx    |   33.84 |    42.85 |   10.52 |   36.66 | 46-106                 
   EditPlan.tsx          |   91.66 |      100 |      80 |   91.66 | 50                     
   ExportCSV.tsx         |   33.33 |      100 |   33.33 |   27.77 | 19-35,56               
-  RequirementView.tsx   |   53.65 |    18.75 |   57.14 |   57.14 | 56-71,75               
+  RequirementView.tsx   |   60.41 |    18.75 |    64.7 |   63.41 | 66-81,85               
   SemesterEditor.tsx    |   62.85 |    33.33 |   63.63 |   62.85 | 34,42-49,57-59,105-122 
   SemesterList.tsx      |     100 |      100 |     100 |     100 |                        
   SemesterView.tsx      |     100 |      100 |     100 |     100 |                        
@@ -52,5 +52,5 @@ All files               |   51.89 |    25.51 |   54.77 |   50.84 |
 Test Suites: 12 passed, 12 total
 Tests:       30 passed, 30 total
 Snapshots:   0 total
-Time:        13.411 s
+Time:        18.106 s
 Ran all test suites.
