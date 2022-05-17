@@ -19,12 +19,4 @@ export function AddCourseHelp(
                 semester.id === newSem.id ? newSem : semester
         )
     });
-    /*
-    currSemester.courseArray.push(course);
-    const semIndex = plan.semesters.findIndex(
-        (s: Semester): boolean => currSemester.id === s.id
-    );
-    plan.semesters[semIndex] = currSemester;
-    setPlan(plan);
-    */
 }

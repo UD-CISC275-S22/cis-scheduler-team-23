@@ -84,10 +84,6 @@ export function RequirementView({
                 </h4>
                 {/** Dropdown for choosing concentration */}
                 <div className="App-allignleft">
-                    <Button variant="outline-success" onClick={handleShowModal}>
-                        Choose your Concentration
-                    </Button>
-                    <p></p>
                     {/* Course Pool */}
                     <Button
                         variant="secondary"
@@ -103,6 +99,11 @@ export function RequirementView({
                         plan={plan}
                         setPlan={setPlan}
                     ></DisplayCoursePool>
+                    <p></p>
+                    <Button variant="outline-success" onClick={handleShowModal}>
+                        Choose your Concentration
+                    </Button>
+                    <p></p>
                     <Modal show={showModal} onHide={handleCloseModal}>
                         <Modal.Header closeButton>
                             <Modal.Title> Choose Concentration </Modal.Title>
@@ -188,12 +189,19 @@ export function RequirementView({
                     </tr>
                 </thead>
                 <tbody>
-                    {concReqs.map((s) => (
-                        <tr key={s}>
-                            <td>{s}</td>
-                            <td>❌</td>
-                        </tr>
-                    ))}
+                    {concReqs.map((s) =>
+                        userCodes1d.includes(s) ? (
+                            <tr key={s}>
+                                <td>{s}</td>
+                                <td>✔️</td>
+                            </tr>
+                        ) : (
+                            <tr key={s}>
+                                <td>{s}</td>
+                                <td>❌</td>
+                            </tr>
+                        )
+                    )}
                 </tbody>
             </Table>
         </div>

@@ -6,7 +6,6 @@ import "./App.css";
 import { WelcomeModal } from "./Components/WelcomeModal";
 import { AddSemester } from "./Components/AddSemester";
 import { SemesterList } from "./Components/SemesterList";
-import { DisplayCoursePool } from "./Components/DisplayCoursePool";
 import { ChangePlan } from "./Components/ChangePlan";
 import { AddPlan } from "./Components/AddPlan";
 import { ClearPlan } from "./Components/ClearPlan";
@@ -98,10 +97,6 @@ function App(): JSX.Element {
 
     const handleCloseAddModal = () => setShowAddModal(false);
     const handleShowAddModal = () => setShowAddModal(true);
-
-    const [showPoolModal, setShowPoolModal] = useState(false);
-    const handleClosePoolModal = () => setShowPoolModal(false);
-    const handleShowPoolModal = () => setShowPoolModal(true);
 
     const [showPlanModal, setShowPlanModal] = useState(false);
     const handleClosePlanModal = () => setShowPlanModal(false);
@@ -195,24 +190,6 @@ function App(): JSX.Element {
                         semesters={plan.semesters}
                         plan={plan}
                     ></ExportCSV>
-
-                    <p></p>
-
-                    {/* Course Pool */}
-                    <Button
-                        variant="secondary"
-                        onClick={handleShowPoolModal}
-                        data-testid="displayCoursePoolButton"
-                    >
-                        Course Pool
-                    </Button>
-                    <DisplayCoursePool
-                        show={showPoolModal}
-                        handleClose={handleClosePoolModal}
-                        coursepool={pool}
-                        plan={plan}
-                        setPlan={setPlan}
-                    ></DisplayCoursePool>
 
                     <p></p>
 
