@@ -45,6 +45,15 @@ export function SemesterView({
     const validCreditCourses = semester.courseArray.filter(
         (c: Course): boolean => !isNaN(Number(c.credits))
     );
+    function updateCreds(courses: Course[]) {
+        const credits = courses.reduce(
+            (currentTotal: number, c: Course) =>
+                currentTotal + Number(c.credits),
+            0
+        );
+        activePlan.totalCreds += credits / 2;
+    }
+    updateCreds(validCreditCourses);
 
     return edit ? (
         <SemesterEditor
@@ -73,7 +82,7 @@ export function SemesterView({
             </Row>
             <Row>
                 <p>
-                    <b> Credits: </b>{" "}
+                    <b> Credits: </b> {/*semCreds*/}
                     {validCreditCourses.reduce(
                         (currentTotal: number, c: Course) =>
                             currentTotal + Number(c.credits),

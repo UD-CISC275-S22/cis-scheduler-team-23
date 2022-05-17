@@ -46,12 +46,14 @@ function App(): JSX.Element {
         {
             title: "Team 23 Auto Generated Plan",
             id: 0,
-            semesters: SEMESTER
+            semesters: SEMESTER,
+            totalCreds: 0
         },
         {
             title: "Team 23 Auto Generated Plan Version 2",
             id: 1,
-            semesters: []
+            semesters: [],
+            totalCreds: 5
         }
     ]);
 
@@ -303,7 +305,7 @@ function App(): JSX.Element {
 
                 {/* Degree Requirements */}
                 <Col xs={4}>
-                    <RequirementView></RequirementView>
+                    <RequirementView plan={plan}></RequirementView>
                 </Col>
             </Row>
         </div>

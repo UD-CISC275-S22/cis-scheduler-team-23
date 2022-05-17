@@ -1,15 +1,16 @@
 import React, { useState } from "react";
-import { Col, Container, Form } from "react-bootstrap";
+import { Button, Col, Container, Form, Modal } from "react-bootstrap";
 // import { CoursePool } from "../Interfaces/coursepool";
 import { Table } from "react-bootstrap";
 import { Concentration } from "../Interfaces/requirements";
 import { CoreReqs } from "../Interfaces/requirements";
+import { Plan } from "../Interfaces/plans";
 
 type ChangeEvent = React.ChangeEvent<
     HTMLTextAreaElement | HTMLInputElement | HTMLSelectElement
 >;
 
-export function RequirementView() {
+export function RequirementView({ plan }: { plan: Plan }) {
     const concentrationsList = [
         "AI",
         "Bioinformatics",
@@ -21,6 +22,9 @@ export function RequirementView() {
     ];
     const [concentration, setConcentration] = useState(concentrationsList[0]);
     const [concReqs, setConcReqs] = useState(Concentration[0]);
+    const [showModal, setShowModal] = useState(false);
+    const handleCloseModal = () => setShowModal(false);
+    const handleShowModal = () => setShowModal(true);
 
     function changeConcReqs() {
         if (concentration === "AI") {
@@ -38,10 +42,10 @@ export function RequirementView() {
         } else {
             setConcReqs(Concentration[6]);
         }
+        handleCloseModal();
     }
 
     const changeConcentration = (event: ChangeEvent) => {
-        changeConcReqs();
         setConcentration(event.target.value);
     };
 
@@ -55,23 +59,40 @@ export function RequirementView() {
                 </h4>
                 {/** Dropdown for choosing concentration */}
                 <div className="App-allignleft">
+                    <Button variant="outline-success" onClick={handleShowModal}>
+                        Choose your Concentration
+                    </Button>
+                    <Modal show={showModal} onHide={handleCloseModal}>
+                        <Modal.Header closeButton>
+                            <Modal.Title> Choose Concentration </Modal.Title>
+                        </Modal.Header>
+                        <Modal.Body>
+                            <Col>
+                                <Form.Select
+                                    value={concentration}
+                                    onChange={changeConcentration}
+                                >
+                                    {concentrationsList.map(
+                                        (choice: string) => (
+                                            <option key={choice} value={choice}>
+                                                {choice}
+                                            </option>
+                                        )
+                                    )}
+                                </Form.Select>
+                            </Col>
+                        </Modal.Body>
+                        <Modal.Footer>
+                            <Button variant="success" onClick={changeConcReqs}>
+                                Save
+                            </Button>
+                        </Modal.Footer>
+                    </Modal>
                     <p></p>
-                    <p>Choose your concentration:</p>
-                    <Col>
-                        <Form.Select
-                            value={concentration}
-                            onChange={changeConcentration}
-                        >
-                            {concentrationsList.map((choice: string) => (
-                                <option key={choice} value={choice}>
-                                    {choice}
-                                </option>
-                            ))}
-                        </Form.Select>
-                    </Col>
+                    <p>Concentration: {concentration}</p>
                     <p></p>
 
-                    <p>Total Credits: 0 / 124</p>
+                    <p>Total Credits: {plan.totalCreds} / 124</p>
                     <p></p>
                     <b>
                         <u>Core Requirements:</u>
@@ -92,7 +113,7 @@ export function RequirementView() {
                     </thead>
                     <tbody>
                         {CoreReqs.map((s) => (
-                            <tr key="null">
+                            <tr key={s}>
                                 <td>{s}</td>
                                 <td>❌</td>
                             </tr>
@@ -120,7 +141,7 @@ export function RequirementView() {
                 </thead>
                 <tbody>
                     {concReqs.map((s) => (
-                        <tr key="null">
+                        <tr key={s}>
                             <td>{s}</td>
                             <td>❌</td>
                         </tr>

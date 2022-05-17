@@ -30,7 +30,8 @@ export function DeletePlan({
             const emptyPlan: Plan = {
                 title: "Blank Plan",
                 id: 0,
-                semesters: [] as Semester[]
+                semesters: [] as Semester[],
+                totalCreds: 0
             };
             plans.push(emptyPlan);
         }
