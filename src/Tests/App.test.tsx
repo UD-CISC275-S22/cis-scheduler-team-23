@@ -28,11 +28,6 @@ describe("Plan view tests", () => {
 
     // Export CSV component
 
-    test("Course Pool button works", () => {
-        const coursePoolButton = screen.getByTestId("coursePoolButton");
-        coursePoolButton.click();
-    });
-
     // Semester list
 
     test("Add New Semester button works", () => {
