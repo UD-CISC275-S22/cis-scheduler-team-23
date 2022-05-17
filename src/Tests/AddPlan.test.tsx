@@ -8,10 +8,10 @@ describe("Add Plan Component Tests", () => {
     });
 
     test("Test for the close button within the Add Plan Modal", () => {
-        const addPlanButton = screen.getByTestId("addNewPlanButton");
-        addPlanButton.click();
+        const addNewPlanButton = screen.getByTestId("addNewPlanButton");
+        addNewPlanButton.click();
 
-        const addPlanModal = screen.getByText("Add New Plan");
+        const addPlanModal = screen.getByText("Please enter a plan name:");
         expect(addPlanModal).toBeInTheDocument();
 
         const closeButton = screen.getByTestId("addPlanCloseButton");
@@ -19,10 +19,10 @@ describe("Add Plan Component Tests", () => {
     });
 
     test("Test for the save changes button within the Add Plan Modal", () => {
-        const addPlanButton = screen.getByTestId("addNewPlanButton");
-        addPlanButton.click();
+        const addNewPlanButton = screen.getByTestId("addNewPlanButton");
+        addNewPlanButton.click();
 
-        const addPlanModal = screen.getByText("Add New Plan");
+        const addPlanModal = screen.getByText("Please enter a plan name:");
         expect(addPlanModal).toBeInTheDocument();
 
         const saveChangesButton = screen.getByTestId(

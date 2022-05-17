@@ -8,8 +8,8 @@ describe("Clear Plan Component Tests", () => {
     });
 
     test("Test for the cancel button within the clear plan modal", () => {
-        const clearPlanButton = screen.getByTestId("clearPlanButton");
-        clearPlanButton.click();
+        const clearThisPlanButton = screen.getByTestId("clearThisPlanButton");
+        clearThisPlanButton.click();
 
         const clearPlanModal = screen.getByText(
             "Warning! You are about to clear this plan!"
@@ -21,8 +21,8 @@ describe("Clear Plan Component Tests", () => {
     });
 
     test("Test for the confirm button within the clear plan modal", () => {
-        const clearPlanButton = screen.getByTestId("clearPlanButton");
-        clearPlanButton.click();
+        const clearThisPlanButton = screen.getByTestId("clearThisPlanButton");
+        clearThisPlanButton.click();
 
         const clearPlanModal = screen.getByText(
             "Warning! You are about to clear this plan!"

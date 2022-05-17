@@ -37,7 +37,11 @@ export function ExportCSV({
 
     return (
         <div>
-            <Button variant="info" onClick={handleShowCSVModal}>
+            <Button
+                variant="info"
+                onClick={handleShowCSVModal}
+                data-testid="exportCSVButton"
+            >
                 Export CSV
             </Button>
 
@@ -51,6 +55,7 @@ export function ExportCSV({
                         onClick={() =>
                             downloadBlob(content.flat(), "CsvExport.CSV")
                         }
+                        data-testid="exportYourPlanButton"
                     >
                         Export Your Plan
                     </Button>

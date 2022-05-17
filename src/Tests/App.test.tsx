@@ -9,44 +9,49 @@ describe("Plan view tests", () => {
     });
 
     test("The website displays correctly", () => {
-        const plan_title = screen.queryByText(/Team 23 Auto Generated Plan/gi);
-        expect(plan_title).toBeInTheDocument();
-        const bannerImage = screen.getByTestId("header-image");
-        expect(bannerImage).toBeInTheDocument();
+        const planTitle = screen.queryByText(/Team 23 Auto Generated Plan/gi);
+        expect(planTitle).toBeInTheDocument();
+
+        const websiteBanner = screen.getByTestId("header-image");
+        expect(websiteBanner).toBeInTheDocument();
     });
 
     test("Add New Plan button works", () => {
-        const addPlanButton = screen.getByTestId("addNewPlanButton");
-        addPlanButton.click();
+        const addNewPlanButton = screen.getByTestId("addNewPlanButton");
+        addNewPlanButton.click();
     });
 
     test("Change Plan button works", () => {
-        const addPlanButton = screen.getByTestId("changePlanButton");
-        addPlanButton.click();
+        const changePlanButton = screen.getByTestId("changePlanButton");
+        changePlanButton.click();
     });
 
-    test("Display Course Pool button works", () => {
-        const addPlanButton = screen.getByTestId("displayCoursePoolButton");
-        addPlanButton.click();
+    // Export CSV component
+
+    test("Course Pool button works", () => {
+        const coursePoolButton = screen.getByTestId("coursePoolButton");
+        coursePoolButton.click();
     });
 
-    test("Add Semester button works", () => {
-        const addPlanButton = screen.getByTestId("addSemesterButton");
-        addPlanButton.click();
+    // Semester list
+
+    test("Add New Semester button works", () => {
+        const addNewSemesterButton = screen.getByTestId("addNewSemesterButton");
+        addNewSemesterButton.click();
     });
 
-    test("Edit Plan button works", () => {
-        const addPlanButton = screen.getByTestId("editPlanButton");
-        addPlanButton.click();
+    test("Edit This Plan button works", () => {
+        const editThisPlanButton = screen.getByTestId("editThisPlanButton");
+        editThisPlanButton.click();
     });
 
-    test("Clear Plan button works", () => {
-        const addPlanButton = screen.getByTestId("clearPlanButton");
-        addPlanButton.click();
+    test("Clear This Plan button works", () => {
+        const clearThisPlanButton = screen.getByTestId("clearThisPlanButton");
+        clearThisPlanButton.click();
     });
 
-    test("Delete Plan button works", () => {
-        const addPlanButton = screen.getByTestId("deletePlanButton");
-        addPlanButton.click();
+    test("Delete This Plan button works", () => {
+        const deleteThisPlanButton = screen.getByTestId("deleteThisPlanButton");
+        deleteThisPlanButton.click();
     });
 });
