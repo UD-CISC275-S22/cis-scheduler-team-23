@@ -23,14 +23,14 @@ export function RequirementView({
     pool: CoursePool;
 }) {
     const concentrationsList = [
-        "AI",
+        "Aritificial Intelligence and Robotics",
         "Bioinformatics",
         "Cybersecurity",
-        "DataScience",
-        "HighPerformanceComputing",
-        "SystemsandNetworks",
-        "TheoryandComputationContinous",
-        "TheoryandComputationDiscreet"
+        "Data Science",
+        "High Performance Computing",
+        "Systems and Networks",
+        "Theory and Computation - Continuous Track",
+        "Theory and Computation - Discrete Track"
     ];
     const [concentration, setConcentration] = useState(concentrationsList[0]);
     const [concReqs, setConcReqs] = useState(Concentration[0]);
@@ -63,20 +63,24 @@ export function RequirementView({
     );
 
     function changeConcReqs() {
-        if (concentration === "AI") {
+        if (concentration === "Aritificial Intelligence and Robotics") {
             setConcReqs(Concentration[0]);
         } else if (concentration === "Bioinformatics") {
             setConcReqs(Concentration[1]);
         } else if (concentration === "Cybersecurity") {
             setConcReqs(Concentration[2]);
-        } else if (concentration === "DataScience") {
+        } else if (concentration === "Data Science") {
             setConcReqs(Concentration[3]);
-        } else if (concentration === "HighPerformanceComputing") {
+        } else if (concentration === "High Performance Computing") {
             setConcReqs(Concentration[4]);
-        } else if (concentration === "SystemsandNetworks") {
+        } else if (concentration === "Systems and Networks") {
             setConcReqs(Concentration[5]);
-        } else {
+        } else if (
+            concentration === "Theory and Computation - Continuous Track"
+        ) {
             setConcReqs(Concentration[6]);
+        } else {
+            setConcReqs(Concentration[7]);
         }
         handleCloseModal();
     }
@@ -142,16 +146,21 @@ export function RequirementView({
                         </Modal.Footer>
                     </Modal>
                     <p></p>
-                    <p>Concentration: {concentration}</p>
+                    <p>
+                        <b>Concentration:</b> {concentration}
+                    </p>
                     <p></p>
 
-                    <p>Total Credits: {credits} / 124</p>
+                    <p>
+                        <b>Total Credits:</b> {credits} / 124
+                    </p>
                     <p></p>
                     <b>
                         <u>Core Requirements:</u>
                     </b>
                 </div>
                 <p></p>
+
                 {/** Table for Core Requirements */}
                 <Table striped bordered hover>
                     <thead>
@@ -218,6 +227,33 @@ export function RequirementView({
                     </tbody>
                 </Table>
             </Container>
+
+            <p></p>
+            <b>
+                <u>External Resources:</u>
+            </b>
+            <p></p>
+
+            <Button
+                onClick={() =>
+                    window.open(
+                        "https://catalog.udel.edu/preview_entity.php?catoid=47&ent_oid=5200&returnto=8864",
+                        "_blank"
+                    )
+                }
+            >
+                Comprehensive Course Catalog
+            </Button>
+
+            <p></p>
+
+            <Button
+                onClick={() =>
+                    window.open("https://www.cis.udel.edu", "_blank")
+                }
+            >
+                UD Department of CS
+            </Button>
         </div>
     );
 }
