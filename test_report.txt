@@ -17,10 +17,10 @@ PASS src/Tests/WelcomeModal.test.tsx
 ------------------------|---------|----------|---------|---------|------------------------
 File                    | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s      
 ------------------------|---------|----------|---------|---------|------------------------
-All files               |   52.63 |    25.51 |   55.62 |   51.54 |                        
+All files               |   52.17 |       25 |   54.93 |   51.05 |                        
  src                    |   88.46 |       50 |   86.36 |    87.5 |                        
   App.tsx               |   88.46 |       50 |   86.36 |    87.5 | 64-69                  
- src/Components         |    46.7 |    24.46 |   50.72 |   46.36 |                        
+ src/Components         |   46.23 |    23.95 |      50 |   45.86 |                        
   AddCourse.tsx         |   17.07 |       10 |   28.57 |   17.07 | 33-103,121             
   AddCourseHelp.tsx     |       0 |        0 |       0 |       0 | 13-19                  
   AddPlan.tsx           |    87.5 |      100 |   66.66 |    87.5 | 47                     
@@ -36,7 +36,7 @@ All files               |   52.63 |    25.51 |   55.62 |   51.54 |
   DisplayCourses.tsx    |   33.84 |    42.85 |   10.52 |   36.66 | 46-106                 
   EditPlan.tsx          |   91.66 |      100 |      80 |   91.66 | 50                     
   ExportCSV.tsx         |   33.33 |      100 |   33.33 |   27.77 | 19-35,56               
-  RequirementView.tsx   |   60.41 |    18.75 |    64.7 |   63.41 | 66-81,85               
+  RequirementView.tsx   |   55.76 |    16.66 |   57.89 |   57.77 | 66-85,89,239-252       
   SemesterEditor.tsx    |   62.85 |    33.33 |   63.63 |   62.85 | 34,42-49,57-59,105-122 
   SemesterList.tsx      |     100 |      100 |     100 |     100 |                        
   SemesterView.tsx      |     100 |      100 |     100 |     100 |                        
@@ -52,5 +52,5 @@ All files               |   52.63 |    25.51 |   55.62 |   51.54 |
 Test Suites: 12 passed, 12 total
 Tests:       30 passed, 30 total
 Snapshots:   0 total
-Time:        12.993 s
+Time:        13.242 s
 Ran all test suites.
