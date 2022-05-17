@@ -1,12 +1,10 @@
 import React, { useState } from "react";
 import { Button, Col, Container, Form, Modal } from "react-bootstrap";
 import { Table } from "react-bootstrap";
-import { Concentration } from "../Interfaces/requirements";
-import { CoreReqs } from "../Interfaces/requirements";
-import { statReqs } from "../Interfaces/requirements";
-import { writingReqs } from "../Interfaces/requirements";
-import { capstoneReqs } from "../Interfaces/requirements";
-import { labScienceReqs } from "../Interfaces/requirements";
+import { Concentration, multiCultReqs } from "../Interfaces/requirements";
+import { CoreReqs, statReqs, writingReqs } from "../Interfaces/requirements";
+import { capstoneReqs, labScienceReqs } from "../Interfaces/requirements";
+import { introCisc } from "../Interfaces/requirements";
 import { Plan } from "../Interfaces/plans";
 import { Course } from "../Interfaces/courses";
 import { Semester } from "../Interfaces/semester";
@@ -99,6 +97,7 @@ export function RequirementView({
         setConcentration(event.target.value);
     };
 
+    const introCiscComb: [string] = [introCisc[0] + " or " + introCisc[1]];
     const statReqsComb: [string] = [statReqs[0] + " or " + statReqs[1]];
     const writingReqsComb: [string] = [
         writingReqs[0] + " or " + writingReqs[1]
@@ -106,6 +105,7 @@ export function RequirementView({
     const dle = ["DLE Requirement"];
     const capstone = ["Capstone Requirement"];
     const labScience = ["Lab Science Requirement"];
+    const multiCult = ["Multicultural Requirement"];
 
     function ReqsFunction(courses: string[]) {
         const takenCourses = courses.filter((course: string): boolean =>
@@ -253,6 +253,19 @@ export function RequirementView({
                         </tr>
                     </thead>
                     <tbody>
+                        {introCiscComb.map((s) =>
+                            ReqsFunction(introCisc) ? (
+                                <tr key={s}>
+                                    <td>{s}</td>
+                                    <td>✔️</td>
+                                </tr>
+                            ) : (
+                                <tr key={s}>
+                                    <td>{s}</td>
+                                    <td>❌</td>
+                                </tr>
+                            )
+                        )}
                         {CoreReqs.map((s) =>
                             userCodes1d.includes(s) ? (
                                 <tr key={s}>
@@ -348,6 +361,19 @@ export function RequirementView({
                     <tbody>
                         {labScience.map((s) =>
                             labReqsFunction(labScienceReqs) ? (
+                                <tr key={s}>
+                                    <td>{s}</td>
+                                    <td>✔️</td>
+                                </tr>
+                            ) : (
+                                <tr key={s}>
+                                    <td>{s}</td>
+                                    <td>❌</td>
+                                </tr>
+                            )
+                        )}
+                        {multiCult.map((s) =>
+                            ReqsFunction(multiCultReqs) ? (
                                 <tr key={s}>
                                     <td>{s}</td>
                                     <td>✔️</td>
