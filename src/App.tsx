@@ -160,8 +160,9 @@ function App(): JSX.Element {
                         variant="primary"
                         onClick={handleShowAddPlanModal}
                         data-testid="addNewPlanButton"
+                        className="me-4"
                     >
-                        Add Plan
+                        Add New Plan
                     </Button>
                     <AddPlan
                         show={showAddPlanModal}
@@ -202,7 +203,7 @@ function App(): JSX.Element {
                     <Button
                         variant="secondary"
                         onClick={handleShowPoolModal}
-                        data-testid="displayCoursePoolButton"
+                        data-testid="coursePoolButton"
                     >
                         Course Pool
                     </Button>
@@ -227,11 +228,11 @@ function App(): JSX.Element {
 
                     <Row>
                         <Col>
-                            {/* Add Semester Button */}
+                            {/* Add New Semester Button and component */}
                             <Button
                                 variant="light"
                                 onClick={handleShowAddModal}
-                                data-testid="addSemesterButton"
+                                data-testid="addNewSemesterButton"
                             >
                                 Add New Semester
                             </Button>
@@ -243,13 +244,14 @@ function App(): JSX.Element {
 
                             <p></p>
 
-                            {/* Edit Plan */}
+                            {/* Edit Plan Button and component */}
                             <Button
                                 variant="secondary"
                                 onClick={handleShowEditPlanModal}
-                                data-testid="editPlanButton"
+                                data-testid="editThisPlanButton"
+                                className="me-4"
                             >
-                                Edit Plan
+                                Edit This Plan
                             </Button>
                             <EditPlan
                                 show={showEditPlanModal}
@@ -266,9 +268,10 @@ function App(): JSX.Element {
                             <Button
                                 variant="warning"
                                 onClick={handleShowClearPlanModal}
-                                data-testid="clearPlanButton"
+                                data-testid="clearThisPlanButton"
+                                className="me-4"
                             >
-                                Clear Plan
+                                Clear This Plan
                             </Button>
                             <ClearPlan
                                 show={showClearPlanModal}
@@ -281,13 +284,13 @@ function App(): JSX.Element {
 
                             {"  "}
 
-                            {/* Delete Plan */}
+                            {/* Delete This Plan */}
                             <Button
                                 variant="danger"
                                 onClick={handleShowDeletePlanModal}
-                                data-testid="deletePlanButton"
+                                data-testid="deleteThisPlanButton"
                             >
-                                Delete Plan
+                                Delete This Plan
                             </Button>
                             <DeletePlan
                                 show={showDeletePlanModal}

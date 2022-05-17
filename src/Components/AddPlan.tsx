@@ -32,7 +32,7 @@ export function AddPlan({
     return (
         <Modal show={show} onHide={handleClose} animation={false}>
             <Modal.Header closeButton>
-                <Modal.Title> Add New Plan </Modal.Title>
+                <Modal.Title> Please enter a plan name: </Modal.Title>
             </Modal.Header>
             <Modal.Body>
                 <Form.Group controlId="formCourseCode" as={Row}>

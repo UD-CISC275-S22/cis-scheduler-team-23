@@ -8,8 +8,8 @@ describe("Add Course Component Tests", () => {
     });
 
     test("Test for the cancel button within the Add Plan Modal", () => {
-        const editPlanButton = screen.getByTestId("editPlanButton");
-        editPlanButton.click();
+        const editThisPlanButton = screen.getByTestId("editThisPlanButton");
+        editThisPlanButton.click();
 
         const editPlanModal = screen.getByText("Enter a new plan name:");
         expect(editPlanModal).toBeInTheDocument();
@@ -19,8 +19,8 @@ describe("Add Course Component Tests", () => {
     });
 
     test("Test for the save changes button within the Add Plan Modal", () => {
-        const editPlanButton = screen.getByTestId("editPlanButton");
-        editPlanButton.click();
+        const editThisPlanButton = screen.getByTestId("editThisPlanButton");
+        editThisPlanButton.click();
 
         const editPlanModal = screen.getByText("Enter a new plan name:");
         expect(editPlanModal).toBeInTheDocument();
