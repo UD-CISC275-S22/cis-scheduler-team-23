@@ -18,6 +18,22 @@ export const CoreReqs = [
 export const statReqs = ["MATH 205", "MATH 350"];
 export const writingReqs = ["ENGL 312", "ENGL 410"];
 export const capstoneReqs = ["CISC 498", "CISC 499", "UNIV 401", "UNIV 402"];
+export const labScienceReqs = [
+    "PHYS 207",
+    "PHYS 227",
+    "PHYS 208",
+    "PHYS 228",
+    "CHEM 103",
+    "CHEM 133",
+    "CHEM 104",
+    "CHEM 134",
+    "BISC 207",
+    "BISC 208",
+    "GEOL 105",
+    "GEOL 115",
+    "GEOL 107",
+    "GEOL 110"
+];
 
 /** Concentration Requirements */
 export const AI = ["CISC 304", "CISC 442", "CISC 481", "CISC 483", "CISC 484"];
@@ -56,14 +72,29 @@ export const DataScienceReqs = [
     "MATH 349"
 ];
 
-export const HighPerformanceComputingReqs = [
+export const HighPerformanceComputingReqsApplied = [
     "CISC 360",
     "CISC 361",
     "CISC 372",
     "CISC 450",
     "CISC 471",
     "MATH 242",
-    "MATH 243"
+    "MATH 243",
+    "MATH 351",
+    "MATH 428"
+];
+
+export const HighPerformanceComputingReqsData = [
+    "CISC 360",
+    "CISC 361",
+    "CISC 372",
+    "CISC 450",
+    "CISC 471",
+    "MATH 242",
+    "MATH 243",
+    "CISC 437",
+    "MATH 350",
+    "MATH 450"
 ];
 
 export const SystemsandNetworksReqs = [
@@ -101,7 +132,8 @@ export const Concentration = [
     BioinformaticsReqs,
     CybersecurityReqs,
     DataScienceReqs,
-    HighPerformanceComputingReqs,
+    HighPerformanceComputingReqsApplied,
+    HighPerformanceComputingReqsData,
     SystemsandNetworksReqs,
     TheoryandComputationReqsContinous,
     TheoryandComputationReqsDiscreet
