@@ -2,6 +2,8 @@
 > react-typescript-starter@0.1.0 test
 > react-scripts test "--coverage"
 
+PASS src/Tests/AddCourse.test.tsx
+PASS src/Tests/AddPlan.test.tsx
 PASS src/Tests/App.test.tsx
 PASS src/Tests/SemesterView.test.tsx
 PASS src/Tests/ClearSemester.test.tsx
@@ -9,21 +11,19 @@ PASS src/Tests/DeletePlan.test.tsx
 PASS src/Tests/ClearPlan.test.tsx
 PASS src/Tests/SemesterEditor.test.tsx
 PASS src/Tests/EditPlan.test.tsx
-PASS src/Tests/AddPlan.test.tsx
 PASS src/Tests/ExportCSV.test.tsx
-PASS src/Tests/AddCourse.test.tsx
 PASS src/Tests/ChangePlan.test.tsx
 PASS src/Tests/WelcomeModal.test.tsx
 ------------------------|---------|----------|---------|---------|----------------------------------------------
 File                    | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s                            
 ------------------------|---------|----------|---------|---------|----------------------------------------------
-All files               |   54.54 |    32.45 |    57.8 |   53.71 |                                              
+All files               |   54.94 |    32.45 |   58.95 |   54.14 |                                              
  src                    |   88.46 |       50 |   86.36 |    87.5 |                                              
   App.tsx               |   88.46 |       50 |   86.36 |    87.5 | 64-69                                        
- src/Components         |   48.74 |    31.97 |   53.64 |   48.55 |                                              
-  AddCourse.tsx         |   17.07 |       10 |   28.57 |   17.07 | 33-103,121                                   
+ src/Components         |   49.19 |    31.97 |   54.96 |   49.03 |                                              
+  AddCourse.tsx         |   19.51 |       10 |   42.85 |   19.51 | 33-103                                       
   AddCourseHelp.tsx     |       0 |        0 |       0 |       0 | 13-19                                        
-  AddPlan.tsx           |   88.88 |      100 |   66.66 |   88.88 | 50                                           
+  AddPlan.tsx           |     100 |      100 |     100 |     100 |                                              
   AddSemester.tsx       |      50 |        0 |      40 |      50 | 24-39,43,76                                  
   ChangePlan.tsx        |      70 |      100 |   66.66 |      70 | 20-23                                        
   ChangeSemester.tsx    |       0 |        0 |       0 |       0 | 25-95                                        
@@ -50,7 +50,7 @@ All files               |   54.54 |    32.45 |    57.8 |   53.71 |
 ------------------------|---------|----------|---------|---------|----------------------------------------------
 
 Test Suites: 12 passed, 12 total
-Tests:       30 passed, 30 total
+Tests:       32 passed, 32 total
 Snapshots:   0 total
-Time:        13.963 s
+Time:        14.017 s
 Ran all test suites.
