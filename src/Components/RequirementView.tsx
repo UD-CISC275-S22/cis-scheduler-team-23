@@ -306,7 +306,7 @@ export function RequirementView({
                                 <b>Requirement</b>
                             </th>
                             <th>
-                                <b>Taken</b>
+                                <b>Complete</b>
                             </th>
                         </tr>
                     </thead>
