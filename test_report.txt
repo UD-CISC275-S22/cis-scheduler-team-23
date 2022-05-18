@@ -17,10 +17,10 @@ PASS src/Tests/WelcomeModal.test.tsx
 ------------------------|---------|----------|---------|---------|----------------------------------------------
 File                    | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s                            
 ------------------------|---------|----------|---------|---------|----------------------------------------------
-All files               |   53.72 |    32.54 |   58.38 |   52.84 |                                              
+All files               |   54.08 |    33.33 |   58.62 |   53.23 |                                              
  src                    |      88 |    66.66 |   86.36 |   86.84 |                                              
   App.tsx               |      88 |    66.66 |   86.36 |   86.84 | 64-69                                        
- src/Components         |   48.08 |    31.28 |    54.3 |   47.85 |                                              
+ src/Components         |   48.54 |    32.12 |    54.6 |   48.34 |                                              
   AddCourse.tsx         |   19.51 |       10 |   42.85 |   19.51 | 33-103                                       
   AddCourseHelp.tsx     |       0 |        0 |       0 |       0 | 13-19                                        
   AddPlan.tsx           |     100 |      100 |     100 |     100 |                                              
@@ -52,5 +52,5 @@ All files               |   53.72 |    32.54 |   58.38 |   52.84 |
 Test Suites: 12 passed, 12 total
 Tests:       32 passed, 32 total
 Snapshots:   0 total
-Time:        14.247 s
+Time:        14.563 s
 Ran all test suites.
