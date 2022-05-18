@@ -51,7 +51,6 @@ export function SemesterEditor({
                 (s: Semester): boolean => newID === s.id
             );
             if (sameID === -1 || plan.semesters[sameID].id === semester.id) {
-                console.log(description);
                 const newSemester: Semester = {
                     title: season + " " + year,
                     description: description,

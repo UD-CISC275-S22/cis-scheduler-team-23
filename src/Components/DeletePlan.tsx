@@ -23,9 +23,11 @@ export function DeletePlan({
         const planIndex = plans.findIndex(
             (p: Plan): boolean => p.id === plan.id
         );
+        //splices plan from array of plans.
         if (planIndex > -1) {
             plans.splice(planIndex, 1);
         }
+        //creates an empty plan if user runs out of plans.
         if (plans.length === 0) {
             const emptyPlan: Plan = {
                 title: "Blank Plan",

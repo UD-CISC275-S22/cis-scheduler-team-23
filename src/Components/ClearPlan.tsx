@@ -19,6 +19,7 @@ export function ClearPlan({
     setPlans: (t: Plan[]) => void;
 }): JSX.Element {
     function saveChanges() {
+        //clears all semesters, keeps plan.
         plan.semesters = [] as Semester[];
         const planIndex = plans.findIndex(
             (p: Plan): boolean => p.id === plan.id

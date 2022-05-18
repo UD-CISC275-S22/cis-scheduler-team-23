@@ -16,10 +16,6 @@ export function ExportCSV({
     const handleCloseCSVModal = () => setShowCSVModal(false);
 
     function arrayToCsv(data: Course[]) {
-        const tempData = data.map(
-            (row) => `${row.name},${row.code}, ${row.credits}`
-        );
-        console.log(tempData);
         return data
             .map((row) => `${row.name},${row.code}, ${row.credits}`)
             .join("\r\n");

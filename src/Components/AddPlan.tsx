@@ -20,6 +20,7 @@ export function AddPlan({
     const [planTitle, setPlanTitle] = useState<string>("");
 
     function saveChanges() {
+        //creates a new plan and adds it to plans state.
         const newPlan: Plan = {
             title: planTitle,
             id: plans.length + 1,

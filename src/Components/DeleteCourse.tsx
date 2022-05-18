@@ -25,10 +25,12 @@ export function DeleteCourse({
         const courseIndex = currSemester.courseArray.findIndex(
             (c: Course): boolean => c.code === currCourse.code
         );
+        //splices course from courseArray
         const newSemester = { ...currSemester };
         if (courseIndex > -1) {
             newSemester.courseArray.splice(courseIndex, 1);
         }
+        //sets plan to no longer have course.
         setPlan({
             ...plan,
             semesters: plan.semesters.map(

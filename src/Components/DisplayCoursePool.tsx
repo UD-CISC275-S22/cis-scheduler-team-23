@@ -26,15 +26,19 @@ export function DisplayCoursePool({
                 ...userCourse
             }))
     );
+    //gets all courses from each semester.
     const userCodes2d: string[][] = userCourses.map((cArray: Course[]) =>
         cArray.map((userC: Course) => userC.code)
     );
+    //converts the 2d array to 1d.
     const testArr = [] as string[];
     const userCodes1d = testArr.concat(...userCodes2d);
 
+    //all courses
     const [courses] = useState<Record<string, Record<string, Course>>>(
         coursepool.courses
     );
+    //sets the state to be the first available course, alphabetically.
     const updatedCourses = [] as Course[];
     Object.entries(courses).map(
         ([, group_record]: [string, Record<string, Course>]) =>
@@ -54,6 +58,7 @@ export function DisplayCoursePool({
         setSem(event.target.value);
     }
     function saveChanges() {
+        //if sem is never updated.
         if (sem === "") {
             setSem(plan.semesters[0].title);
             const courseInfo = course.code.split(" ", 1);
@@ -70,6 +75,8 @@ export function DisplayCoursePool({
                 coursepool.courses[courseInfo[0]][course.code];
             AddCourseHelp(newCourse, chosenSem, plan, setPlan);
         }
+        //if course state is never changed, set to the next available course,
+        //as the first course was chosen.
         if (course.code === updatedCourses[0].code)
             setCourse(updatedCourses[1]);
         else setCourse(updatedCourses[0]);

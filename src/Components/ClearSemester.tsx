@@ -21,6 +21,7 @@ export function ClearSemester({
     setPlan: (t: Plan) => void;
 }) {
     function saveChanges() {
+        //new semester with no courses to be swapped in plan.
         const newSemester: Semester = {
             ...currSemester,
             courseArray: [] as Course[]

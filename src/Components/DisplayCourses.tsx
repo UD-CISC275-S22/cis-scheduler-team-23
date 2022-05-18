@@ -55,22 +55,19 @@ export function DisplayCourses({
         setDescr(event.target.value);
     }
     function updateCourseCredits(event: React.ChangeEvent<HTMLInputElement>) {
+        //checks for spaces in string, makes it 0 if blank.
         let credInput = event.target.value.replace(/\s/g, "");
         if (credInput === "" || credInput === undefined) {
             credInput = "0";
         }
-        console.log(credits);
         setCredits(credInput);
-        console.log(credits);
         const courseIndex = courseSemester.courseArray.findIndex(
             (c: Course): boolean => c.code === course.code
         );
         const newSemester = { ...courseSemester };
         if (courseIndex > -1) {
             newSemester.courseArray[courseIndex].credits = credInput;
-            console.log(credits);
             setCredits(Number(credInput).toString());
-            console.log(credits);
         }
         setPlan({
             ...activePlan,

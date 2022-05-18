@@ -29,6 +29,7 @@ export function ChangeSemester({
     function saveChanges() {
         if (currSemester != courseSemester.title) {
             if (currSemester === "Move To Course Pool") {
+                //deletes course from semester and updates plan.
                 const courseIndex = courseSemester.courseArray.findIndex(
                     (c: Course): boolean => c.code === course.code
                 );
@@ -47,6 +48,7 @@ export function ChangeSemester({
                 });
                 setCurrSemester("");
             } else {
+                //Finds new semester, deletes course from its index, adds it to new.
                 const courseIndex = courseSemester.courseArray.findIndex(
                     (c: Course): boolean => c.code === course.code
                 );

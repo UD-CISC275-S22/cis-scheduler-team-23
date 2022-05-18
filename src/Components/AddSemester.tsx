@@ -21,6 +21,7 @@ export function AddSemester({
     const [year, setYear] = useState<number>(2022);
 
     function saveChanges() {
+        //summer has a different code (spring and summer can't both be s2022)
         if (season === "Summer") {
             addSemester({
                 id: season.slice(0, 3).toLowerCase() + year,

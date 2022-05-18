@@ -10,6 +10,7 @@ export function AddCourseHelp(
     plan: Plan,
     setPlan: (t: Plan) => void
 ) {
+    //sets Plan satate w/ new semester
     const newSem = { ...currSemester };
     newSem.courseArray.push(course);
     setPlan({
