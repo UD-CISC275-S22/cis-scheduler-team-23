@@ -132,7 +132,7 @@ export function AddCourse({
                     Close
                 </Button>
                 <Button
-                    variant="primary"
+                    variant="success"
                     onClick={saveChanges}
                     data-testid="addCourseSaveChangesButton"
                 >

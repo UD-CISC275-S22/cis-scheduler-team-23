@@ -194,7 +194,7 @@ export function RequirementView({
                         setPlan={setPlan}
                     ></DisplayCoursePool>
                     <p></p>
-                    <Button variant="outline-success" onClick={handleShowModal}>
+                    <Button variant="success" onClick={handleShowModal}>
                         Choose your Concentration
                     </Button>
                     <p></p>

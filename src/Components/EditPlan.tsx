@@ -61,7 +61,7 @@ export function EditPlan({
                     Cancel
                 </Button>
                 <Button
-                    variant="primary"
+                    variant="success"
                     onClick={saveChanges}
                     data-testid="editPlanSaveChangesButton"
                 >

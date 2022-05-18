@@ -66,7 +66,7 @@ export function AddPlan({
                     Close
                 </Button>
                 <Button
-                    variant="primary"
+                    variant="success"
                     onClick={saveChanges}
                     data-testid="addPlanSaveChangesButton"
                 >

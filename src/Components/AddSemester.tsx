@@ -82,7 +82,7 @@ export function AddSemester({
                 <Button variant="secondary" onClick={handleClose}>
                     Close
                 </Button>
-                <Button variant="primary" onClick={saveChanges}>
+                <Button variant="success" onClick={saveChanges}>
                     Save Changes
                 </Button>
             </Modal.Footer>
