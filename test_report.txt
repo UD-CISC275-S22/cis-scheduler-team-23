@@ -2,40 +2,41 @@
 > react-typescript-starter@0.1.0 test
 > react-scripts test "--coverage"
 
-PASS src/Tests/AddSemester.test.tsx
-PASS src/Tests/RequirementView.test.tsx (5.509 s)
+PASS src/Tests/AddSemester.test.tsx (5.753 s)
+PASS src/Tests/RequirementView.test.tsx (6.545 s)
 PASS src/Tests/AddCourse.test.tsx
 PASS src/Tests/DeletePlan.test.tsx
 PASS src/Tests/AddPlan.test.tsx
 PASS src/Tests/ChangePlan.test.tsx
-PASS src/Tests/App.test.tsx
 PASS src/Tests/SemesterView.test.tsx
+PASS src/Tests/App.test.tsx
 PASS src/Tests/ClearSemester.test.tsx
 PASS src/Tests/ClearPlan.test.tsx
 PASS src/Tests/SemesterEditor.test.tsx
 PASS src/Tests/EditPlan.test.tsx
 PASS src/Tests/ExportCSV.test.tsx
+PASS src/Tests/DeleteCourse.test.tsx
 PASS src/Tests/WelcomeModal.test.tsx
 ------------------------|---------|----------|---------|---------|-------------------------------------------
 File                    | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s                         
 ------------------------|---------|----------|---------|---------|-------------------------------------------
-All files               |   64.69 |     42.1 |   70.11 |   63.77 |                                           
+All files               |   68.24 |    45.61 |   75.28 |   67.16 |                                           
  src                    |     100 |      100 |     100 |     100 |                                           
   App.tsx               |     100 |      100 |     100 |     100 |                                           
- src/Components         |   59.31 |       40 |   65.78 |   58.99 |                                           
+ src/Components         |    63.4 |    43.63 |   71.71 |   62.82 |                                           
   AddCourse.tsx         |   53.65 |       45 |   71.42 |   53.65 | 35-71,91                                  
   AddCourseHelp.tsx     |     100 |      100 |     100 |     100 |                                           
   AddPlan.tsx           |     100 |      100 |     100 |     100 |                                           
   AddSemester.tsx       |     100 |      100 |     100 |     100 |                                           
   ChangePlan.tsx        |     100 |      100 |     100 |     100 |                                           
-  ChangeSemester.tsx    |       0 |        0 |       0 |       0 | 25-97                                     
+  ChangeSemester.tsx    |   10.34 |        0 |      20 |   10.34 | 27-86                                     
   ClearPlan.tsx         |     100 |      100 |     100 |     100 |                                           
   ClearSemester.tsx     |     100 |      100 |     100 |     100 |                                           
   DefaultCourse.tsx     |       0 |      100 |       0 |       0 | 8-19                                      
-  DeleteCourse.tsx      |       0 |        0 |       0 |       0 | 25-44                                     
+  DeleteCourse.tsx      |     100 |       75 |     100 |     100 | 30                                        
   DeletePlan.tsx        |   84.61 |       50 |     100 |   84.61 | 32-38                                     
   DisplayCoursePool.tsx |   82.05 |       80 |   93.33 |   81.08 | 63-67,82,86-87                            
-  DisplayCourses.tsx    |   31.42 |    27.27 |   10.52 |   33.84 | 46-118                                    
+  DisplayCourses.tsx    |      40 |     40.9 |   26.31 |      40 | 46-99,108-118                             
   EditPlan.tsx          |   91.66 |      100 |      80 |   91.66 | 50                                        
   ExportCSV.tsx         |   38.88 |      100 |    37.5 |   33.33 | 19-31,52                                  
   RequirementView.tsx   |   68.53 |    39.13 |   86.66 |   67.07 | 68-93,125,130,142,149,154,160,165,435-448 
@@ -51,8 +52,8 @@ All files               |   64.69 |     42.1 |   70.11 |   63.77 |
   semester.ts           |       0 |        0 |       0 |       0 |                                           
 ------------------------|---------|----------|---------|---------|-------------------------------------------
 
-Test Suites: 14 passed, 14 total
-Tests:       45 passed, 45 total
+Test Suites: 15 passed, 15 total
+Tests:       46 passed, 46 total
 Snapshots:   0 total
-Time:        23.783 s
+Time:        28.918 s
 Ran all test suites.
