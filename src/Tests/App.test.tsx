@@ -26,10 +26,6 @@ describe("Plan view tests", () => {
         changePlanButton.click();
     });
 
-    // Export CSV component
-
-    // Semester list
-
     test("Add New Semester button works", () => {
         const addNewSemesterButton = screen.getByTestId("addNewSemesterButton");
         addNewSemesterButton.click();
