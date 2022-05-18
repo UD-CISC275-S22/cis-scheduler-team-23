@@ -58,7 +58,6 @@ describe("Add Semester Component Tests", () => {
         );
         saveChangesButton.click();
 
-        // semester is in plan
         const newSemesterCreated = screen.queryByText("Winter 20222023");
         expect(newSemesterCreated).toBeInTheDocument();
     });
@@ -77,18 +76,14 @@ describe("Add Semester Component Tests", () => {
         );
         userEvent.selectOptions(semesterSeasonEnterBox, "Fall");
 
-        // year enter box
         const semesterYearEnterBox = screen.getByTestId("semesterYearEnterBox");
         userEvent.type(semesterYearEnterBox, "2023");
-        //userEvent.clear(semesterYearEnterBox);
-        //userEvent.type(semesterYearEnterBox, "{delete}2023");
 
         const saveChangesButton = screen.getByTestId(
             "addSemesterSaveChangesButton"
         );
         saveChangesButton.click();
 
-        // semester is in plan
         const newSemesterCreated = screen.queryByText("Fall 20222023");
         expect(newSemesterCreated).toBeInTheDocument();
     });
@@ -107,18 +102,14 @@ describe("Add Semester Component Tests", () => {
         );
         userEvent.selectOptions(semesterSeasonEnterBox, "Spring");
 
-        // year enter box
         const semesterYearEnterBox = screen.getByTestId("semesterYearEnterBox");
         userEvent.type(semesterYearEnterBox, "2023");
-        //userEvent.clear(semesterYearEnterBox);
-        //userEvent.type(semesterYearEnterBox, "{delete}2023");
 
         const saveChangesButton = screen.getByTestId(
             "addSemesterSaveChangesButton"
         );
         saveChangesButton.click();
 
-        // semester is in plan
         const newSemesterCreated = screen.queryByText("Spring 20222023");
         expect(newSemesterCreated).toBeInTheDocument();
     });
@@ -137,18 +128,14 @@ describe("Add Semester Component Tests", () => {
         );
         userEvent.selectOptions(semesterSeasonEnterBox, "Summer");
 
-        // year enter box
         const semesterYearEnterBox = screen.getByTestId("semesterYearEnterBox");
         userEvent.type(semesterYearEnterBox, "2023");
-        //userEvent.clear(semesterYearEnterBox);
-        //userEvent.type(semesterYearEnterBox, "{delete}2023");
 
         const saveChangesButton = screen.getByTestId(
             "addSemesterSaveChangesButton"
         );
         saveChangesButton.click();
 
-        // semester is in plan
         const newSemesterCreated = screen.queryByText("Summer 20222023");
         expect(newSemesterCreated).toBeInTheDocument();
     });

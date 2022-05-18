@@ -8,7 +8,12 @@ describe("Requirement View Component Tests", () => {
         render(<App />);
     });
 
-    test("Test for the Course Pool Button", () => {
+    test("Test for the Course Pool Button WHEN a semester(s) exist", () => {
+        const userCurrentPlan = screen.queryByText(
+            "Team 23 Auto Generated Plan"
+        );
+        expect(userCurrentPlan).toBeInTheDocument();
+
         const chooseConcentrationButton = screen.getByTestId(
             "displayCoursePoolButton"
         );
@@ -16,6 +21,26 @@ describe("Requirement View Component Tests", () => {
 
         const coursePoolModal = screen.getByText("Course Pool:");
         expect(coursePoolModal).toBeInTheDocument();
+
+        const courseFromPool = screen.getByTestId("coursePoolCourseList");
+        userEvent.selectOptions(courseFromPool, "ACCT 166");
+
+        const courseAppearsInCoursePoolModal =
+            screen.getByText("SPECIAL PROBLEM");
+        expect(courseAppearsInCoursePoolModal).toBeInTheDocument();
+
+        const semestersAvailableInModal = screen.getByTestId(
+            "availableSemestersCPModal"
+        );
+        userEvent.selectOptions(semestersAvailableInModal, "Spring 2022");
+
+        const addButton = screen.getByTestId("displayCoursePoolAddButton");
+        addButton.click();
+
+        const isInSpr2022Sem = screen.getByRole("button", {
+            name: /acct 166/i
+        });
+        expect(isInSpr2022Sem).toBeInTheDocument();
     });
 
     test("Test for the Choose Your Concentration Button", () => {
