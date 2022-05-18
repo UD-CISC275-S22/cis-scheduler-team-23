@@ -17,10 +17,10 @@ PASS src/Tests/WelcomeModal.test.tsx
 ------------------------|---------|----------|---------|---------|----------------------------------------------
 File                    | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s                            
 ------------------------|---------|----------|---------|---------|----------------------------------------------
-All files               |   54.08 |    33.33 |   58.62 |   53.23 |                                              
+All files               |   53.98 |    33.33 |   58.28 |   53.12 |                                              
  src                    |      88 |    66.66 |   86.36 |   86.84 |                                              
   App.tsx               |      88 |    66.66 |   86.36 |   86.84 | 64-69                                        
- src/Components         |   48.54 |    32.12 |    54.6 |   48.34 |                                              
+ src/Components         |   48.43 |    32.12 |   54.24 |   48.23 |                                              
   AddCourse.tsx         |   19.51 |       10 |   42.85 |   19.51 | 33-103                                       
   AddCourseHelp.tsx     |       0 |        0 |       0 |       0 | 13-19                                        
   AddPlan.tsx           |     100 |      100 |     100 |     100 |                                              
@@ -40,7 +40,7 @@ All files               |   54.08 |    33.33 |   58.62 |   53.23 |
   SemesterEditor.tsx    |    60.6 |    42.85 |   54.54 |    60.6 | 34-37,43,49-69                               
   SemesterList.tsx      |     100 |      100 |     100 |     100 |                                              
   SemesterView.tsx      |     100 |      100 |     100 |     100 |                                              
-  WelcomeModal.tsx      |   83.33 |      100 |   66.66 |     100 |                                              
+  WelcomeModal.tsx      |   71.42 |      100 |      50 |      80 | 38                                           
  src/Interfaces         |     100 |      100 |     100 |     100 |                                              
   coursepool.ts         |       0 |        0 |       0 |       0 |                                              
   courses.ts            |       0 |        0 |       0 |       0 |                                              
@@ -52,5 +52,5 @@ All files               |   54.08 |    33.33 |   58.62 |   53.23 |
 Test Suites: 12 passed, 12 total
 Tests:       32 passed, 32 total
 Snapshots:   0 total
-Time:        14.563 s
+Time:        14.867 s
 Ran all test suites.
