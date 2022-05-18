@@ -1,21 +1,39 @@
 import React from "react";
 import { Button, Modal } from "react-bootstrap";
 import { Semester } from "../Interfaces/semester";
-import { Course } from "../Interfaces/courses";
-
 import "../App.css";
+import { Plan } from "../Interfaces/plans";
+import { Course } from "../Interfaces/courses";
 
 export function ClearSemester({
     show,
     handleClose,
-    currSemester
+    currSemester,
+    editSemester,
+    plan,
+    setPlan
 }: {
     show: boolean;
     handleClose: () => void;
     currSemester: Semester;
+    editSemester: (plan: Plan) => void;
+    plan: Plan;
+    setPlan: (t: Plan) => void;
 }) {
     function saveChanges() {
-        currSemester.courseArray = [] as Course[];
+        const newSemester: Semester = {
+            ...currSemester,
+            courseArray: [] as Course[]
+        };
+        const newPlan: Plan = {
+            ...plan,
+            semesters: plan.semesters.map(
+                (s: Semester): Semester =>
+                    s.id === currSemester.id ? newSemester : s
+            )
+        };
+        setPlan(newPlan);
+        editSemester(newPlan);
         handleClose();
     }
 

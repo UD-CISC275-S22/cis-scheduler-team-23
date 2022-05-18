@@ -143,6 +143,9 @@ export function SemesterView({
                         show={showClearModal}
                         handleClose={handleCloseClearModal}
                         currSemester={semester}
+                        editSemester={editSemester}
+                        plan={activePlan}
+                        setPlan={setPlan}
                     ></ClearSemester>
                 </Col>
             </Row>
