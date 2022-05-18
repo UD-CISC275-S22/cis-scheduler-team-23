@@ -2,8 +2,8 @@
 > react-typescript-starter@0.1.0 test
 > react-scripts test "--coverage"
 
-PASS src/Tests/AddSemester.test.tsx
-PASS src/Tests/RequirementView.test.tsx (5.216 s)
+PASS src/Tests/AddSemester.test.tsx (5.013 s)
+PASS src/Tests/RequirementView.test.tsx (5.739 s)
 PASS src/Tests/AddCourse.test.tsx
 PASS src/Tests/DeletePlan.test.tsx
 PASS src/Tests/AddPlan.test.tsx
@@ -54,5 +54,5 @@ All files               |   63.68 |     42.1 |   69.71 |    62.7 |
 Test Suites: 14 passed, 14 total
 Tests:       45 passed, 45 total
 Snapshots:   0 total
-Time:        21.626 s
+Time:        23.971 s
 Ran all test suites.
