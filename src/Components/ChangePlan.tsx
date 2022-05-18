@@ -40,7 +40,11 @@ export function ChangePlan({
                     <Form.Label>
                         <b>Choose a plan:</b>
                     </Form.Label>
-                    <Form.Select value={currPlan.title} onChange={updatePlan}>
+                    <Form.Select
+                        value={currPlan.title}
+                        onChange={updatePlan}
+                        data-testid="choosePlanDropdown"
+                    >
                         {plans.map((p: Plan) => (
                             <option key={p.id} value={p.title}>
                                 {p.title}

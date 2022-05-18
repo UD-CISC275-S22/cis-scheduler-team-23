@@ -46,7 +46,7 @@ export function AddSemester({
     return (
         <Modal show={show} onHide={handleClose}>
             <Modal.Header closeButton>
-                <Modal.Title> Add New Semester </Modal.Title>
+                <Modal.Title> Please enter semester details: </Modal.Title>
             </Modal.Header>
             <Modal.Body>
                 <Form.Group controlId="formSemesterTitle" as={Row}>
@@ -54,7 +54,11 @@ export function AddSemester({
                         Semester Season:
                     </Form.Label>
                     <Col>
-                        <Form.Select value={season} onChange={changeSeason}>
+                        <Form.Select
+                            value={season}
+                            onChange={changeSeason}
+                            data-testid="semesterSeasonEnterBox"
+                        >
                             {seasonsList.map((choice: string) => (
                                 <option key={choice} value={choice}>
                                     {choice}
@@ -69,6 +73,7 @@ export function AddSemester({
                     </Form.Label>
                     <Col>
                         <Form.Control
+                            data-testid="semesterYearEnterBox"
                             type="number"
                             value={year}
                             onChange={(
@@ -79,10 +84,18 @@ export function AddSemester({
                 </Form.Group>
             </Modal.Body>
             <Modal.Footer>
-                <Button variant="secondary" onClick={handleClose}>
+                <Button
+                    variant="secondary"
+                    onClick={handleClose}
+                    data-testid="addSemesterCloseButton"
+                >
                     Close
                 </Button>
-                <Button variant="primary" onClick={saveChanges}>
+                <Button
+                    variant="primary"
+                    onClick={saveChanges}
+                    data-testid="addSemesterSaveChangesButton"
+                >
                     Save Changes
                 </Button>
             </Modal.Footer>
