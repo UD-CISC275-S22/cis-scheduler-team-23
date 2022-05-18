@@ -2,55 +2,57 @@
 > react-typescript-starter@0.1.0 test
 > react-scripts test "--coverage"
 
+PASS src/Tests/AddSemester.test.tsx
+PASS src/Tests/RequirementView.test.tsx (5.216 s)
 PASS src/Tests/AddCourse.test.tsx
+PASS src/Tests/DeletePlan.test.tsx
 PASS src/Tests/AddPlan.test.tsx
+PASS src/Tests/ChangePlan.test.tsx
 PASS src/Tests/App.test.tsx
 PASS src/Tests/SemesterView.test.tsx
 PASS src/Tests/ClearSemester.test.tsx
-PASS src/Tests/DeletePlan.test.tsx
 PASS src/Tests/ClearPlan.test.tsx
 PASS src/Tests/SemesterEditor.test.tsx
 PASS src/Tests/EditPlan.test.tsx
 PASS src/Tests/ExportCSV.test.tsx
-PASS src/Tests/ChangePlan.test.tsx
 PASS src/Tests/WelcomeModal.test.tsx
-------------------------|---------|----------|---------|---------|----------------------------------------------
-File                    | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s                            
-------------------------|---------|----------|---------|---------|----------------------------------------------
-All files               |   53.98 |    33.33 |   58.28 |   53.12 |                                              
- src                    |      88 |    66.66 |   86.36 |   86.84 |                                              
-  App.tsx               |      88 |    66.66 |   86.36 |   86.84 | 64-69                                        
- src/Components         |   48.43 |    32.12 |   54.24 |   48.23 |                                              
-  AddCourse.tsx         |   19.51 |       10 |   42.85 |   19.51 | 33-103                                       
-  AddCourseHelp.tsx     |       0 |        0 |       0 |       0 | 13-19                                        
-  AddPlan.tsx           |     100 |      100 |     100 |     100 |                                              
-  AddSemester.tsx       |      50 |        0 |      40 |      50 | 24-39,43,76                                  
-  ChangePlan.tsx        |      70 |      100 |   66.66 |      70 | 20-23                                        
-  ChangeSemester.tsx    |       0 |        0 |       0 |       0 | 25-95                                        
-  ClearPlan.tsx         |     100 |      100 |     100 |     100 |                                              
-  ClearSemester.tsx     |     100 |      100 |     100 |     100 |                                              
-  DefaultCourse.tsx     |       0 |      100 |       0 |       0 | 7-18                                         
-  DeleteCourse.tsx      |       0 |        0 |       0 |       0 | 25-42                                        
-  DeletePlan.tsx        |   84.61 |       50 |     100 |   84.61 | 30-36                                        
-  DisplayCoursePool.tsx |   48.71 |       60 |   66.66 |   45.94 | 50-80                                        
-  DisplayCourses.tsx    |   29.72 |    27.27 |   10.52 |   31.88 | 46-121                                       
-  EditPlan.tsx          |   91.66 |      100 |      80 |   91.66 | 50                                           
-  ExportCSV.tsx         |   33.33 |      100 |   33.33 |   27.77 | 19-35,56                                     
-  RequirementView.tsx   |   64.04 |    39.13 |   73.33 |   65.85 | 68-93,97,125,130,142,149,154,160,165,426-439 
-  SemesterEditor.tsx    |    60.6 |    42.85 |   54.54 |    60.6 | 34-37,43,49-69                               
-  SemesterList.tsx      |     100 |      100 |     100 |     100 |                                              
-  SemesterView.tsx      |     100 |      100 |     100 |     100 |                                              
-  WelcomeModal.tsx      |   71.42 |      100 |      50 |      80 | 38                                           
- src/Interfaces         |     100 |      100 |     100 |     100 |                                              
-  coursepool.ts         |       0 |        0 |       0 |       0 |                                              
-  courses.ts            |       0 |        0 |       0 |       0 |                                              
-  plans.ts              |       0 |        0 |       0 |       0 |                                              
-  requirements.ts       |     100 |      100 |     100 |     100 |                                              
-  semester.ts           |       0 |        0 |       0 |       0 |                                              
-------------------------|---------|----------|---------|---------|----------------------------------------------
+------------------------|---------|----------|---------|---------|-------------------------------------------
+File                    | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s                         
+------------------------|---------|----------|---------|---------|-------------------------------------------
+All files               |   63.68 |     42.1 |   69.71 |    62.7 |                                           
+ src                    |     100 |      100 |     100 |     100 |                                           
+  App.tsx               |     100 |      100 |     100 |     100 |                                           
+ src/Components         |   58.25 |       40 |   65.35 |   57.88 |                                           
+  AddCourse.tsx         |   53.65 |       45 |   71.42 |   53.65 | 33-68,87                                  
+  AddCourseHelp.tsx     |     100 |      100 |     100 |     100 |                                           
+  AddPlan.tsx           |     100 |      100 |     100 |     100 |                                           
+  AddSemester.tsx       |     100 |      100 |     100 |     100 |                                           
+  ChangePlan.tsx        |     100 |      100 |     100 |     100 |                                           
+  ChangeSemester.tsx    |       0 |        0 |       0 |       0 | 25-95                                     
+  ClearPlan.tsx         |     100 |      100 |     100 |     100 |                                           
+  ClearSemester.tsx     |     100 |      100 |     100 |     100 |                                           
+  DefaultCourse.tsx     |       0 |      100 |       0 |       0 | 7-18                                      
+  DeleteCourse.tsx      |       0 |        0 |       0 |       0 | 25-42                                     
+  DeletePlan.tsx        |   84.61 |       50 |     100 |   84.61 | 30-36                                     
+  DisplayCoursePool.tsx |   82.05 |       80 |   93.33 |   81.08 | 58-62,75,79-80                            
+  DisplayCourses.tsx    |   29.72 |    27.27 |   10.52 |   31.88 | 46-121                                    
+  EditPlan.tsx          |   91.66 |      100 |      80 |   91.66 | 50                                        
+  ExportCSV.tsx         |   33.33 |      100 |   33.33 |   27.77 | 19-35,56                                  
+  RequirementView.tsx   |   68.53 |    39.13 |   86.66 |   67.07 | 68-93,125,130,142,149,154,160,165,435-448 
+  SemesterEditor.tsx    |    60.6 |    42.85 |   54.54 |    60.6 | 34-37,43,49-69                            
+  SemesterList.tsx      |     100 |      100 |     100 |     100 |                                           
+  SemesterView.tsx      |     100 |      100 |     100 |     100 |                                           
+  WelcomeModal.tsx      |   71.42 |      100 |      50 |      80 | 38                                        
+ src/Interfaces         |     100 |      100 |     100 |     100 |                                           
+  coursepool.ts         |       0 |        0 |       0 |       0 |                                           
+  courses.ts            |       0 |        0 |       0 |       0 |                                           
+  plans.ts              |       0 |        0 |       0 |       0 |                                           
+  requirements.ts       |     100 |      100 |     100 |     100 |                                           
+  semester.ts           |       0 |        0 |       0 |       0 |                                           
+------------------------|---------|----------|---------|---------|-------------------------------------------
 
-Test Suites: 12 passed, 12 total
-Tests:       32 passed, 32 total
+Test Suites: 14 passed, 14 total
+Tests:       45 passed, 45 total
 Snapshots:   0 total
-Time:        14.867 s
+Time:        21.626 s
 Ran all test suites.
