@@ -26,9 +26,11 @@ export function AddCourse({
     const ALLCOURSES: CourseRecord = course_data_json;
 
     function saveChanges() {
+        //checks for spaces.
         if (courseCode.search(" ") === -1) {
             const regex = /\d+/g;
             const matches = courseCode.match(regex);
+            //seperates #'s and letters.
             if (matches) {
                 const firstNum = matches[0].charAt(0);
                 const firstNumIndex = courseCode.indexOf(firstNum);
@@ -36,6 +38,7 @@ export function AddCourse({
                     .substring(0, 0 + firstNumIndex)
                     .toUpperCase();
                 const numText = courseCode.substring(firstNumIndex);
+                //checks if course is valid then adds.
                 if (ALLCOURSES[codeText.toUpperCase()]) {
                     if (
                         ALLCOURSES[codeText.toUpperCase()][
@@ -69,6 +72,7 @@ export function AddCourse({
             }
         } else {
             const courseInfo = courseCode.split(" ", 1);
+            //checks if course info is valid then adds.
             if (ALLCOURSES[courseInfo[0].toUpperCase()]) {
                 if (
                     ALLCOURSES[courseInfo[0].toUpperCase()][

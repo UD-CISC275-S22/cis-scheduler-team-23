@@ -55,6 +55,7 @@ export function DisplayCourses({
         setDescr(event.target.value);
     }
     function updateCourseCredits(event: React.ChangeEvent<HTMLInputElement>) {
+        //checks for spaces in string, makes it 0 if blank.
         let credInput = event.target.value.replace(/\s/g, "");
         if (credInput === "" || credInput === undefined) {
             credInput = "0";

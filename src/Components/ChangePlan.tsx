@@ -17,6 +17,7 @@ export function ChangePlan({
 }): JSX.Element {
     const [currPlan, setCurrPlan] = useState(plan);
     function updatePlan(event: React.ChangeEvent<HTMLSelectElement>) {
+        //Finds new plan, sets plan to it.
         const planIndex = plans.findIndex(
             (p: Plan): boolean => p.title === event.target.value
         );

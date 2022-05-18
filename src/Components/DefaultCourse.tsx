@@ -3,6 +3,7 @@ import { Course } from "../Interfaces/courses";
 import "../App.css";
 
 export function DefaultCourse(currCourse: Course, origCode: string[]) {
+    //origCode's first element is its first code->used to get orig course.
     type CourseRecord = Record<string, Record<string, Course>>;
     const ALLCOURSES: CourseRecord = course_data_json;
 
