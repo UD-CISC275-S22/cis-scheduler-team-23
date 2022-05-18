@@ -70,29 +70,25 @@ function App(): JSX.Element {
         }
     }
 
-    function editSemester(id: string, newSem: Semester) {
-        setPlan({
-            ...plan,
-            semesters: plan.semesters.map(
-                (semester: Semester): Semester =>
-                    semester.id === id ? newSem : semester
-            )
-        });
-        const planIndex = planArray.findIndex(
-            (p: Plan): boolean => p.id === plan.id
+    function editSemester(plan: Plan) {
+        setPlanArray(
+            planArray.map((p: Plan): Plan => (p.id === plan.id ? plan : p))
         );
-        planArray[planIndex] = plan;
-        setPlan(plan);
-        setPlanArray(planArray);
     }
 
     function deleteSemester(id: string) {
-        setPlan({
+        const newPlan: Plan = {
             ...plan,
             semesters: plan.semesters.filter(
                 (semester: Semester): boolean => semester.id !== id
             )
-        });
+        };
+        setPlan(newPlan);
+        setPlanArray(
+            planArray.map(
+                (p: Plan): Plan => (p.id === newPlan.id ? newPlan : p)
+            )
+        );
     }
 
     const handleCloseAddModal = () => setShowAddModal(false);

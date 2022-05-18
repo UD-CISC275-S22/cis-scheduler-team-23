@@ -55,17 +55,30 @@ export function DisplayCourses({
         setDescr(event.target.value);
     }
     function updateCourseCredits(event: React.ChangeEvent<HTMLInputElement>) {
-        setCredits(event.target.value);
-        course.credits = credits;
+        let credInput = event.target.value.replace(/\s/g, "");
+        if (credInput === "" || credInput === undefined) {
+            credInput = "0";
+        }
+        console.log(credits);
+        setCredits(credInput);
+        console.log(credits);
         const courseIndex = courseSemester.courseArray.findIndex(
             (c: Course): boolean => c.code === course.code
         );
-        courseSemester.courseArray[courseIndex] = course;
-        const semesterIndex = activePlan.semesters.findIndex(
-            (s: Semester): boolean => s.id === courseSemester.id
-        );
-        activePlan.semesters[semesterIndex] = courseSemester;
-        setPlan(activePlan);
+        const newSemester = { ...courseSemester };
+        if (courseIndex > -1) {
+            newSemester.courseArray[courseIndex].credits = credInput;
+            console.log(credits);
+            setCredits(Number(credInput).toString());
+            console.log(credits);
+        }
+        setPlan({
+            ...activePlan,
+            semesters: activePlan.semesters.map(
+                (semester: Semester): Semester =>
+                    semester.id === newSemester.id ? newSemester : semester
+            )
+        });
     }
     function updateCoursePrereq(event: React.ChangeEvent<HTMLInputElement>) {
         course.preReq = event.target.value;
@@ -92,6 +105,7 @@ export function DisplayCourses({
         setVisible(!visible);
         setEditButtonName("Edit Course");
         setIsEditing(false);
+        setEditButtonName("Edit Course");
     }
     function restoreDefault(): void {
         if (course.default_code) {

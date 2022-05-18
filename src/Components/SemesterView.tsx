@@ -22,7 +22,7 @@ export function SemesterView({
     setPlans
 }: {
     semester: Semester;
-    editSemester: (id: string, newSemester: Semester) => void;
+    editSemester: (plan: Plan) => void;
     deleteSemester: (id: string) => void;
     activePlan: Plan;
     setPlan: (t: Plan) => void;
