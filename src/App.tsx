@@ -77,12 +77,18 @@ function App(): JSX.Element {
     }
 
     function deleteSemester(id: string) {
-        setPlan({
+        const newPlan: Plan = {
             ...plan,
             semesters: plan.semesters.filter(
                 (semester: Semester): boolean => semester.id !== id
             )
-        });
+        };
+        setPlan(newPlan);
+        setPlanArray(
+            planArray.map(
+                (p: Plan): Plan => (p.id === newPlan.id ? newPlan : p)
+            )
+        );
     }
 
     const handleCloseAddModal = () => setShowAddModal(false);
