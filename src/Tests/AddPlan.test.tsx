@@ -32,7 +32,6 @@ describe("Add Plan Component Tests", () => {
         saveChangesButton.click();
     });
 
-    // Update this test if Tommy changes the way plans can be accessed after creation
     test("Can create and access new plan successfully", () => {
         const addNewPlanButton = screen.getByTestId("addNewPlanButton");
         addNewPlanButton.click();
@@ -51,5 +50,10 @@ describe("Add Plan Component Tests", () => {
             "addPlanSaveChangesButton"
         );
         saveChangesButton.click();
+
+        const newPlanCreated = screen.queryByText(
+            "Matt, Ocean, and Tommy's Epic Plan"
+        );
+        expect(newPlanCreated).toBeInTheDocument();
     });
 });

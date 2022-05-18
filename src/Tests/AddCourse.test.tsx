@@ -32,7 +32,7 @@ describe("Add Course Component Tests", () => {
         closeButton.click();
     });
 
-    test("Can create and access new plan successfully", () => {
+    test("Test for making sure course DOES get added to semester", () => {
         const addCourseButton = screen.getAllByTestId("addCourseButton");
         addCourseButton[0].click();
 
@@ -41,23 +41,38 @@ describe("Add Course Component Tests", () => {
 
         const addCourseEnterBox = screen.getAllByRole("textbox");
         userEvent.clear(addCourseEnterBox[0]);
-        userEvent.type(addCourseEnterBox[0], "EGGG 101");
+        userEvent.type(addCourseEnterBox[0], "MATH 241");
+
+        const saveChangesButton = screen.getByTestId(
+            "addCourseSaveChangesButton"
+        );
+        saveChangesButton.click();
+
+        const isInSpr2022Sem = screen.getByRole("button", {
+            name: /math 241/i
+        });
+        expect(isInSpr2022Sem).toBeInTheDocument();
+    });
+
+    test("Test for making sure course DOES NOT get added to semester", () => {
+        const addCourseButton = screen.getAllByTestId("addCourseButton");
+        addCourseButton[0].click();
+
+        const addNewCourseModal = screen.getByText("Add New Course");
+        expect(addNewCourseModal).toBeInTheDocument();
+
+        const addCourseEnterBox = screen.getAllByRole("textbox");
+        userEvent.clear(addCourseEnterBox[0]);
+        userEvent.type(addCourseEnterBox[0], "AAAA 111");
+
+        const saveChangesButton = screen.getByTestId(
+            "addCourseSaveChangesButton"
+        );
+        saveChangesButton.click();
+
+        const isInSpr2022Sem = screen.queryByRole("button", {
+            name: /aaaa 111/i
+        });
+        expect(isInSpr2022Sem).not.toBeInTheDocument();
     });
 });
-
-/*
-test("Can create and access new plan successfully", () => {
-    const addNewPlanButton = screen.getByTestId("addNewPlanButton");
-    addNewPlanButton.click();
-
-    const addPlanModal = screen.getByText("Please enter a plan name:");
-    expect(addPlanModal).toBeInTheDocument();
-
-    const addPlanEnterBox = screen.getAllByRole("textbox");
-    userEvent.clear(addPlanEnterBox[0]);
-    userEvent.type(addPlanEnterBox[0], "Matt, Ocean, and Tommy's Epic Plan");
-
-    const saveChangesButton = screen.getByTestId("addPlanSaveChangesButton");
-    saveChangesButton.click();
-});
-*/

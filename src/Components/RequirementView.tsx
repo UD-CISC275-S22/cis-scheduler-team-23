@@ -176,7 +176,6 @@ export function RequirementView({
                         <u>Degree Requirements</u>
                     </b>
                 </h4>
-                {/** Dropdown for choosing concentration */}
                 <div>
                     {/* Course Pool */}
                     <Button
@@ -193,11 +192,20 @@ export function RequirementView({
                         plan={plan}
                         setPlan={setPlan}
                     ></DisplayCoursePool>
+
                     <p></p>
-                    <Button variant="success" onClick={handleShowModal}>
+
+                    {/** Dropdown for choosing concentration */}
+                    <Button
+                        variant="success"
+                        onClick={handleShowModal}
+                        data-testid="chooseConcentrationButton"
+                    >
                         Choose your Concentration
                     </Button>
+
                     <p></p>
+
                     <Modal show={showModal} onHide={handleCloseModal}>
                         <Modal.Header>
                             <Modal.Title> Choose Concentration </Modal.Title>
@@ -205,6 +213,7 @@ export function RequirementView({
                         <Modal.Body>
                             <Col>
                                 <Form.Select
+                                    data-testid="concentrationList"
                                     value={concentration}
                                     onChange={changeConcentration}
                                 >

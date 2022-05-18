@@ -9,7 +9,7 @@ export function WelcomeModal() {
     return (
         <div>
             <Button variant="light" onClick={handleOpen}>
-                Click here for how to begin!
+                Click here instructions!
             </Button>
             <Modal show={open} onHide={handleClose}>
                 <Modal.Header closeButton>
