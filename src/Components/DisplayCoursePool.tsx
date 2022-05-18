@@ -87,9 +87,13 @@ export function DisplayCoursePool({
             <Modal.Body>
                 <Form.Group controlId="choices">
                     <Form.Label>
-                        <b>Choose a course</b>
+                        <b>Choose a course:</b>
                     </Form.Label>
-                    <Form.Select value={course.code} onChange={updateCourse}>
+                    <Form.Select
+                        value={course.code}
+                        onChange={updateCourse}
+                        data-testid="coursePoolCourseList"
+                    >
                         {Object.entries(courses).map(
                             ([, group_record]: [
                                 string,
@@ -143,7 +147,11 @@ export function DisplayCoursePool({
                             <Form.Label>
                                 <b>Add to a semester:</b>
                             </Form.Label>
-                            <Form.Select value={sem} onChange={updateSem}>
+                            <Form.Select
+                                value={sem}
+                                onChange={updateSem}
+                                data-testid="availableSemestersCPModal"
+                            >
                                 {plan.semesters.map((s: Semester) => (
                                     <option key={s.title} value={s.title}>
                                         {s.title}
