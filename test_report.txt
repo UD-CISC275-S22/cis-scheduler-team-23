@@ -17,10 +17,10 @@ PASS src/Tests/WelcomeModal.test.tsx
 ------------------------|---------|----------|---------|---------|----------------------------------------------
 File                    | % Stmts | % Branch | % Funcs | % Lines | Uncovered Line #s                            
 ------------------------|---------|----------|---------|---------|----------------------------------------------
-All files               |   54.94 |    32.45 |   58.95 |   54.14 |                                              
- src                    |   88.46 |       50 |   86.36 |    87.5 |                                              
-  App.tsx               |   88.46 |       50 |   86.36 |    87.5 | 64-69                                        
- src/Components         |   49.19 |    31.97 |   54.96 |   49.03 |                                              
+All files               |   53.72 |    32.54 |   58.38 |   52.84 |                                              
+ src                    |      88 |    66.66 |   86.36 |   86.84 |                                              
+  App.tsx               |      88 |    66.66 |   86.36 |   86.84 | 64-69                                        
+ src/Components         |   48.08 |    31.28 |    54.3 |   47.85 |                                              
   AddCourse.tsx         |   19.51 |       10 |   42.85 |   19.51 | 33-103                                       
   AddCourseHelp.tsx     |       0 |        0 |       0 |       0 | 13-19                                        
   AddPlan.tsx           |     100 |      100 |     100 |     100 |                                              
@@ -33,11 +33,11 @@ All files               |   54.94 |    32.45 |   58.95 |   54.14 |
   DeleteCourse.tsx      |       0 |        0 |       0 |       0 | 25-42                                        
   DeletePlan.tsx        |   84.61 |       50 |     100 |   84.61 | 30-36                                        
   DisplayCoursePool.tsx |   48.71 |       60 |   66.66 |   45.94 | 50-80                                        
-  DisplayCourses.tsx    |   33.33 |    42.85 |   10.52 |   36.06 | 46-107                                       
+  DisplayCourses.tsx    |   29.72 |    27.27 |   10.52 |   31.88 | 46-121                                       
   EditPlan.tsx          |   91.66 |      100 |      80 |   91.66 | 50                                           
   ExportCSV.tsx         |   33.33 |      100 |   33.33 |   27.77 | 19-35,56                                     
   RequirementView.tsx   |   64.04 |    39.13 |   73.33 |   65.85 | 68-93,97,125,130,142,149,154,160,165,426-439 
-  SemesterEditor.tsx    |   62.85 |    33.33 |   63.63 |   62.85 | 34,42-49,57-59,105-122                       
+  SemesterEditor.tsx    |    60.6 |    42.85 |   54.54 |    60.6 | 34-37,43,49-69                               
   SemesterList.tsx      |     100 |      100 |     100 |     100 |                                              
   SemesterView.tsx      |     100 |      100 |     100 |     100 |                                              
   WelcomeModal.tsx      |   83.33 |      100 |   66.66 |     100 |                                              
@@ -52,5 +52,5 @@ All files               |   54.94 |    32.45 |   58.95 |   54.14 |
 Test Suites: 12 passed, 12 total
 Tests:       32 passed, 32 total
 Snapshots:   0 total
-Time:        14.017 s
+Time:        14.247 s
 Ran all test suites.
