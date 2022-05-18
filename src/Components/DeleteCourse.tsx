@@ -48,10 +48,18 @@ export function DeleteCourse({
                 </Modal.Title>
             </Modal.Header>
             <Modal.Footer>
-                <Button variant="secondary" onClick={handleClose}>
+                <Button
+                    variant="secondary"
+                    onClick={handleClose}
+                    data-testid="deleteCourseCancelButton"
+                >
                     Cancel
                 </Button>
-                <Button variant="danger" onClick={saveChanges}>
+                <Button
+                    variant="danger"
+                    onClick={saveChanges}
+                    data-testid="deleteCourseDeleteButton"
+                >
                     Delete
                 </Button>
             </Modal.Footer>
